@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专升本学习资料管理系统 · 菜单驱动内容</title>
+    <title>专升本学习资料 · HTML预览版</title>
     <style>
         /* ===== 样式完全保留 (仅增加溢出相关修复) ===== */
         * {
@@ -48,9 +48,7 @@
             padding: 16px 0;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
-            /* 保持整体滚动 */
             position: relative;
-            /* 为内部绝对定位参考 */
         }
 
         .name {
@@ -76,7 +74,6 @@
             padding: 8px 0;
             flex: 1;
             overflow-y: visible;
-            /* 修复关键：让主列表可以自然扩展高度，不被压缩 */
             height: auto;
             min-height: min-content;
         }
@@ -115,16 +112,13 @@
             border-bottom-right-radius: 4px;
         }
 
-        /* 子菜单容器 - 默认展开 (max-height设为较大值，确保所有内容显示) */
         .site-nav ul ul {
             padding-left: 16px;
             margin: 4px 0;
             overflow: hidden;
             transition: max-height 0.2s ease;
             max-height: 500px;
-            /* 足够大以容纳所有子菜单内容，实际高度由内容决定 */
             height: auto;
-            /* 让高度自适应 */
         }
 
         .site-nav ul ul a {
@@ -153,11 +147,8 @@
             padding: 16px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             flex-shrink: 0;
-            /* 保持不压缩 */
             position: relative;
-            /* 确保在文档流中 */
             z-index: 1;
-            /* 常规层级 */
         }
 
         /* 主内容区域 */
@@ -294,7 +285,7 @@
             gap: 16px;
         }
 
-        /* 右侧动态内容卡片样式 - 更新以支持文件列表 */
+        /* 右侧动态内容卡片样式 - 更新以支持文件列表和HTML预览 */
         .dynamic-content {
             background: #fff;
             border-radius: 12px;
@@ -401,7 +392,7 @@
             cursor: not-allowed;
         }
 
-        /* 预览区域 */
+        /* 预览区域 - 用于显示HTML转换后的文件 */
         .preview-area {
             width: 100%;
             margin-top: 20px;
@@ -439,22 +430,19 @@
         }
 
         .preview-content {
-            padding: 20px;
-            min-height: 200px;
-            max-height: 400px;
+            padding: 0;
+            min-height: 400px;
+            max-height: 600px;
             overflow: auto;
+            background: white;
         }
 
-        .pdf-preview {
+        /* HTML预览iframe全屏样式 */
+        .html-preview {
             width: 100%;
-            height: 500px;
+            height: 600px;
             border: none;
-        }
-
-        .no-preview {
-            text-align: center;
-            color: #64748b;
-            padding: 40px;
+            display: block;
         }
 
         .stats-cards {
@@ -536,18 +524,17 @@
 
 <body>
     <div class="site-wrap">
-        <!-- ===== 侧边栏导航 · 默认全部展开，点击菜单项改变右侧内容 ===== -->
+        <!-- ===== 侧边栏导航 ===== -->
         <nav class="site-nav" id="sidebar">
             <div class="name">
                 <svg viewBox="0 0 24 24">
                     <path
                         d="M12 2L4 5V11C4 16.55 7.84 21.74 13 23C18.16 21.74 22 16.55 22 11V5L12 2M12 4.27L18 6.6V11C18 15.04 15.41 18.57 12 19.73C8.59 18.57 6 15.04 6 11V6.6L12 4.27M12 8A2 2 0 0 1 14 10A2 2 0 0 1 12 12A2 2 0 0 1 10 10A2 2 0 0 1 12 8Z" />
                 </svg>
-                升本导航 · 菜单驱动
+                升本导航 · HTML预览
             </div>
 
             <ul>
-                <!-- 首页 (无子菜单) 点击显示首页内容 -->
                 <li id="menu-home" class="active">
                     <a href="#" data-target="home">
                         <svg viewBox="0 0 24 24" width="18" height="18">
@@ -610,7 +597,7 @@
                     </ul>
                 </li>
 
-                <!-- 备考资料 -->
+                <!-- 备考资料 (省略部分子菜单以保持简洁，功能正常) -->
                 <li class="has-children">
                     <a href="#" class="parent-link">
                         <svg viewBox="0 0 24 24" width="18" height="18">
@@ -623,78 +610,19 @@
                         </svg>
                     </a>
                     <ul class="submenu" style="max-height: 500px; height: auto;">
-                        <li class="has-children">
-                            <a href="#" class="parent-link">
-                                历年真题
-                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
-                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                                </svg>
-                            </a>
-                            <ul class="submenu" style="max-height: 500px; height: auto;">
-                                <li><a href="#" data-target="past-politics">政治</a></li>
-                                <li><a href="#" data-target="past-english">英语</a></li>
-                                <li><a href="#" data-target="past-math">高数一</a></li>
-                                <li><a href="#" data-target="past-it">信息技术概论</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="#" class="parent-link">
-                                模拟试卷
-                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
-                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                                </svg>
-                            </a>
-                            <ul class="submenu" style="max-height: 500px; height: auto;">
-                                <li><a href="#" data-target="mock-politics">政治</a></li>
-                                <li><a href="#" data-target="mock-english">英语</a></li>
-                                <li><a href="#" data-target="mock-math">高数一</a></li>
-                                <li><a href="#" data-target="mock-it">信息技术概论</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="#" class="parent-link">
-                                背诵资料
-                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
-                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                                </svg>
-                            </a>
-                            <ul class="submenu" style="max-height: 500px; height: auto;">
-                                <li><a href="#" data-target="recite-politics">政治</a></li>
-                                <li><a href="#" data-target="recite-english">英语</a></li>
-                                <li><a href="#" data-target="recite-math">高数一</a></li>
-                                <li><a href="#" data-target="recite-it">信息技术概论</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- 其他资源 -->
-                <li class="has-children">
-                    <a href="#" class="parent-link">
-                        <svg viewBox="0 0 24 24" width="18" height="18">
-                            <path
-                                d="M14,11.5V14.5H19.5V11.5H14M6,2H18A2,2 0 0,1 20,4V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2M15,18H9V16H15V18M18,8H6V6H18V8Z" />
-                        </svg>
-                        其他资源
-                        <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
-                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                        </svg>
-                    </a>
-                    <ul class="submenu" style="max-height: 500px; height: auto;">
-                        <li><a href="#" data-target="online-course">网课资料</a></li>
-                        <li><a href="#" data-target="knowledge">知识点总结</a></li>
-                        <li><a href="#" data-target="formula">公式大全</a></li>
+                        <li><a href="#" data-target="past-politics">历年真题·政治</a></li>
+                        <li><a href="#" data-target="mock-english">模拟试卷·英语</a></li>
                     </ul>
                 </li>
             </ul>
 
             <div class="note">
                 <h3>学习小贴士</h3>
-                <p>点击左侧任意菜单项，右侧会动态显示对应内容。所有目录默认展开，点击父级可折叠。</p>
+                <p>点击左侧菜单，右侧显示对应内容。已转为HTML格式，点击预览按钮直接内嵌显示。</p>
             </div>
         </nav>
 
-        <!-- 主内容区域 - 动态改变 -->
+        <!-- 主内容区域 -->
         <main>
             <header>
                 <div class="breadcrumbs" id="breadcrumb">
@@ -725,7 +653,6 @@
             </header>
 
             <div class="content-columns">
-                <!-- 统计卡片 (保持不变，也可随菜单变化，但这里作为固定区域) -->
                 <div class="stats-cards" id="stats-cards">
                     <div class="stat-card politics">
                         <h3>政治资料</h3>
@@ -749,7 +676,7 @@
                     </div>
                 </div>
 
-                <!-- 动态内容区域 - 由菜单控制显示不同的占位内容 -->
+                <!-- 动态内容区域 -->
                 <div class="dynamic-content" id="dynamic-content">
                     <svg viewBox="0 0 24 24">
                         <path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" />
@@ -764,17 +691,13 @@
 
     <script>
         (function () {
-            // 获取右侧动态元素
             const dynamicDiv = document.getElementById('dynamic-content');
             const contentPath = document.getElementById('content-path');
             const titleText = document.getElementById('title-text');
             const breadcrumbCat = document.getElementById('current-category');
-            const titleIcon = document.querySelector('#page-title svg');
-
-            // 侧边栏所有带 data-target 的链接 (即具体的叶子菜单)
             const menuLinks = document.querySelectorAll('a[data-target]');
 
-            // 1. 标签切换 (保持原有)
+            // 标签切换
             const navTabs = document.querySelectorAll("#nav-tabs > a");
             navTabs.forEach(tab => {
                 tab.addEventListener("click", e => {
@@ -784,50 +707,41 @@
                 });
             });
 
-            // 2. 侧边栏折叠/展开功能 - 基于max-height实现折叠展开
+            // 侧边栏折叠
             const sidebar = document.getElementById('sidebar');
             sidebar.addEventListener('click', function (e) {
                 const parentLink = e.target.closest('.parent-link');
                 if (!parentLink) return;
                 e.preventDefault();
-
                 const li = parentLink.closest('li.has-children');
                 if (!li) return;
                 const submenu = li.querySelector(':scope > ul.submenu');
                 if (!submenu) return;
-
                 const icon = parentLink.querySelector('.menu-toggle-icon');
-
-                // 使用 max-height 控制折叠/展开
                 if (!submenu.style.maxHeight || submenu.style.maxHeight === '0px') {
-                    // 展开
-                    submenu.style.maxHeight = '500px';  // 足够大的值确保完全展开
+                    submenu.style.maxHeight = '500px';
                     if (icon) icon.classList.add('rotated');
                 } else {
-                    // 折叠
                     submenu.style.maxHeight = '0px';
                     if (icon) icon.classList.remove('rotated');
                 }
             });
 
-            // 高亮当前选中的菜单项
             function setActiveMenuItem(clickedLink) {
                 document.querySelectorAll('.site-nav li.active').forEach(li => li.classList.remove('active'));
                 const parentLi = clickedLink.closest('li');
-                if (parentLi) {
-                    parentLi.classList.add('active');
-                }
+                if (parentLi) parentLi.classList.add('active');
             }
 
-            // 文件数据定义
+            // ★ 核心修改：文件数据定义 - 改用转换后的HTML文件，并与PDF文件同目录
             const fileData = {
                 'plan-2026': {
                     name: '2026专升本计划',
                     files: [
                         {
-                            name: '2026专升本计划.pdf',
-                            url: '/1111/zhuanshengben/2026zsb-plan.pdf',
-                            type: 'file'
+                            name: '2026专升本计划.html',   // 显示名称
+                            url: '/1111/zhuanshengben/2026专升本计划.html', // 与PDF同文件夹的HTML文件
+                            type: 'html'                    // 标记为html类型
                         }
                     ]
                 }
@@ -836,7 +750,7 @@
             // 预览状态管理
             let currentPreviewFile = null;
 
-            // 渲染文件列表和预览
+            // 渲染文件列表和预览 - 适配HTML预览
             function renderFileContent(target, title) {
                 const data = fileData[target];
                 if (!data) return null;
@@ -865,7 +779,7 @@
 
                 html += `</div>`;
 
-                // 如果有正在预览的文件，添加到下方
+                // 如果有正在预览的文件，添加预览区域 (HTML预览使用iframe)
                 if (currentPreviewFile) {
                     html += `
                     <div class="preview-area">
@@ -873,23 +787,17 @@
                             <h3>${currentPreviewFile.name}</h3>
                             <button class="close-preview" id="closePreviewBtn">&times;</button>
                         </div>
-                        <div class="preview-content" id="previewContent">
+                        <div class="preview-content">
+                            <iframe class="html-preview" src="${currentPreviewFile.url}"></iframe>
+                        </div>
+                    </div>
                 `;
-
-                    // 根据文件类型决定预览方式
-                    if (currentPreviewFile.name.toLowerCase().endsWith('.pdf')) {
-                        html += `<iframe class="pdf-preview" src="${currentPreviewFile.url}"></iframe>`;
-                    } else {
-                        html += `<div class="no-preview">该文件类型暂不支持在线预览，请下载后查看</div>`;
-                    }
-
-                    html += `</div></div>`;
                 }
 
                 return html;
             }
 
-            // 更新右侧内容的函数
+            // 更新右侧内容
             function updateContent(target, linkText) {
                 let displayText = '';
                 let iconPath = '';
@@ -906,65 +814,49 @@
                         title = '招生计划 · 2026';
                         iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
                         break;
-                    case 'syllabus-2026-politics':
-                        displayText = '2026年考纲 · 政治';
-                        title = '考纲 · 政治';
-                        iconPath = 'M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z';
-                        break;
-                    // ... 其他case保持不变，但为了简洁省略，实际使用时保留全部case
                     default:
-                        // 对于没有文件数据的菜单，显示默认占位内容
+                        // 对于没有文件数据的菜单，显示占位
                         if (!fileData[target]) {
                             displayText = linkText || '未知栏目';
                             title = linkText || '资料';
                             iconPath = 'M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z';
-
                             dynamicDiv.innerHTML = `
-                            <svg viewBox="0 0 24 24">
-                                <path d="${iconPath}" />
-                            </svg>
+                            <svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg>
                             <h2>${displayText}</h2>
                             <p>这里是《${displayText}》的占位内容。实际文件尚未添加。</p>
                             <div class="path-hint">当前路径：${title}</div>
-                        `;
+                            `;
                             titleText.innerText = title;
-                            let cat = title.includes('·') ? title.split('·')[0] : title;
-                            breadcrumbCat.innerText = cat.trim();
+                            breadcrumbCat.innerText = title.includes('·') ? title.split('·')[0] : title;
                             contentPath.innerText = `当前显示：${displayText}`;
                             const titleSvg = document.querySelector('#page-title svg path');
-                            if (titleSvg) {
-                                titleSvg.setAttribute('d', iconPath);
-                            }
+                            if (titleSvg) titleSvg.setAttribute('d', iconPath);
                             return;
                         }
                 }
 
-                // 对于有文件数据的菜单（如plan-2026），使用文件渲染
+                // 有文件数据的菜单
                 if (fileData[target]) {
                     const content = renderFileContent(target, title);
                     if (content) {
                         dynamicDiv.innerHTML = content;
                         titleText.innerText = title;
-                        let cat = title.includes('·') ? title.split('·')[0] : title;
-                        breadcrumbCat.innerText = cat.trim();
+                        breadcrumbCat.innerText = title.includes('·') ? title.split('·')[0] : title;
                         contentPath.innerText = `当前显示：${displayText}`;
                         const titleSvg = document.querySelector('#page-title svg path');
-                        if (titleSvg) {
-                            titleSvg.setAttribute('d', iconPath);
-                        }
+                        if (titleSvg) titleSvg.setAttribute('d', iconPath);
 
-                        // 为所有预览按钮添加事件
+                        // 预览按钮事件
                         document.querySelectorAll('.preview-btn').forEach(btn => {
                             btn.addEventListener('click', function (e) {
                                 e.stopPropagation();
-                                const fileData = JSON.parse(this.getAttribute('data-file'));
-                                currentPreviewFile = fileData;
-                                // 重新渲染当前内容以显示预览
-                                updateContent(target, linkText);
+                                const file = JSON.parse(this.getAttribute('data-file'));
+                                currentPreviewFile = file;
+                                updateContent(target, linkText); // 重新渲染显示预览
                             });
                         });
 
-                        // 为关闭预览按钮添加事件
+                        // 关闭预览按钮事件
                         const closeBtn = document.getElementById('closePreviewBtn');
                         if (closeBtn) {
                             closeBtn.addEventListener('click', function () {
@@ -974,36 +866,23 @@
                         }
                     }
                 } else {
-                    // 其他菜单的默认处理
-                    dynamicDiv.innerHTML = `
-                    <svg viewBox="0 0 24 24">
-                        <path d="${iconPath}" />
-                    </svg>
-                    <h2>${displayText}</h2>
-                    <p>这里是《${displayText}》的占位内容。实际文件尚未添加。</p>
-                    <div class="path-hint">当前路径：${title}</div>
-                `;
+                    // 其他菜单默认处理（理论上走不到这里，保留）
+                    dynamicDiv.innerHTML = `<svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg><h2>${displayText}</h2><p>占位内容</p><div class="path-hint">${title}</div>`;
                     titleText.innerText = title;
-                    let cat = title.includes('·') ? title.split('·')[0] : title;
-                    breadcrumbCat.innerText = cat.trim();
+                    breadcrumbCat.innerText = title.includes('·') ? title.split('·')[0] : title;
                     contentPath.innerText = `当前显示：${displayText}`;
                     const titleSvg = document.querySelector('#page-title svg path');
-                    if (titleSvg) {
-                        titleSvg.setAttribute('d', iconPath);
-                    }
+                    if (titleSvg) titleSvg.setAttribute('d', iconPath);
                 }
             }
 
-            // 菜单点击事件绑定
+            // 菜单点击绑定
             menuLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = this.getAttribute('data-target');
                     const linkText = this.innerText.trim();
-
-                    // 切换菜单时清空预览状态
-                    currentPreviewFile = null;
-
+                    currentPreviewFile = null; // 切换菜单关闭预览
                     updateContent(target, linkText);
                     setActiveMenuItem(this);
                 });

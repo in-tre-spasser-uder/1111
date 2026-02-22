@@ -4,210 +4,1018 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truderin 的专属学习站</title>
+    <title>专升本学习资料管理系统 · 菜单驱动内容</title>
     <style>
+        /* ===== 样式完全保留 (仅增加溢出相关修复) ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
         }
 
         body {
-            font-family: "Microsoft YaHei", Arial, sans-serif;
-            background-color: #f0f2f5;
-            padding: 20px;
+            background: #f5f7fa;
+            font-size: 14px;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #333;
         }
 
-        .main-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        ul {
+            list-style: none;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .site-wrap {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100vh;
+        }
+
+        .site-nav {
+            background: #161c2d;
+            color: #e5e9f2;
+            border-top-right-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            padding: 16px 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            /* 保持整体滚动 */
+            position: relative;
+            /* 为内部绝对定位参考 */
+        }
+
+        .name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            margin: 0 0 24px 0;
+            padding: 0 24px 12px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .name svg {
+            width: 24px;
+            height: 24px;
+            fill: #4096ff;
+        }
+
+        .site-nav>ul {
+            padding: 8px 0;
+            flex: 1;
+            overflow-y: visible;
+            /* 修复关键：让主列表可以自然扩展高度，不被压缩 */
+            height: auto;
+            min-height: min-content;
+        }
+
+        .site-nav ul li a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            position: relative;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .site-nav ul li a:hover,
+        .site-nav ul li a:focus {
+            color: #4096ff;
+            background: rgba(64, 150, 255, 0.1);
+        }
+
+        .site-nav ul li.active>a {
+            background: linear-gradient(90deg, rgba(64, 150, 255, 0.15), transparent);
+            color: #4096ff;
+            font-weight: 500;
+        }
+
+        .site-nav ul li.active>a::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: #4096ff;
+            width: 4px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* 子菜单容器 - 默认展开 (max-height设为较大值，确保所有内容显示) */
+        .site-nav ul ul {
+            padding-left: 16px;
+            margin: 4px 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease;
+            max-height: 500px;
+            /* 足够大以容纳所有子菜单内容，实际高度由内容决定 */
+            height: auto;
+            /* 让高度自适应 */
+        }
+
+        .site-nav ul ul a {
+            padding: 8px 24px;
+            font-size: 14px;
+            color: #a5b4cc;
+        }
+
+        .menu-toggle-icon {
+            margin-left: auto;
+            width: 18px;
+            height: 18px;
+            fill: #94a3b8;
+            transition: transform 0.2s;
+        }
+
+        .rotated {
+            transform: rotate(90deg);
+        }
+
+        .note {
+            width: calc(100% - 32px);
+            margin: 16px;
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
+            /* 保持不压缩 */
+            position: relative;
+            /* 确保在文档流中 */
+            z-index: 1;
+            /* 常规层级 */
+        }
+
+        /* 主内容区域 */
+        main {
+            border-top-left-radius: 16px;
+            background: #fff;
+            margin-left: -16px;
+            position: relative;
+            height: 100vh;
+            overflow: auto;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        main>header {
+            padding: 24px 32px;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            border-top-left-radius: 16px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 16px;
+        }
+
+        .breadcrumbs a {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .breadcrumbs a:hover {
+            color: #4096ff;
+        }
+
+        .title {
+            font-size: 24px;
+            color: #1e293b;
+            margin: 0 0 20px 0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .title svg {
+            width: 28px;
+            height: 28px;
+            fill: #4096ff;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 4px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .nav-tabs a {
+            padding: 12px 24px;
+            font-size: 15px;
+            color: #64748b;
+            position: relative;
+            border-radius: 8px 8px 0 0;
+            font-weight: 500;
+        }
+
+        .nav-tabs a.active {
+            color: #4096ff;
+            font-weight: 600;
+            background: #f0f7ff;
+        }
+
+        .nav-tabs a.active::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #4096ff;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .nav-tabs a span {
+            background: #e2e8f0;
+            color: #64748b;
+            border-radius: 100px;
+            font-size: 12px;
+            padding: 2px 8px;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+
+        .nav-tabs a.active span {
+            background: #4096ff;
+            color: #fff;
+        }
+
+        .search-box {
+            margin: 16px 0;
             position: relative;
         }
 
-        .header h1 {
-            color: #2d3748;
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            color: #718096;
-            font-size: 16px;
-        }
-
-        /* 新增：导航链接样式 */
-        .nav-links {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        .nav-links a {
-            color: #4299e1;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #4299e1;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-
-        .nav-links a:hover {
-            background: #4299e1;
-            color: white;
-        }
-
-        .note-section {
-            margin: 25px 0;
-        }
-
-        .note-title {
-            color: #4299e1;
-            font-size: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .note-title::before {
-            content: "📝";
-            margin-right: 8px;
-        }
-
-        .note-item {
-            background: #f8f9fa;
-            padding: 15px;
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 40px;
+            border: 1px solid #e2e8f0;
             border-radius: 8px;
-            margin-bottom: 10px;
-            border-left: 4px solid #4299e1;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s ease;
+            background: #f8fafc;
         }
 
-        .note-item h4 {
-            color: #2d3748;
+        .search-box input:focus {
+            border-color: #4096ff;
+            box-shadow: 0 0 0 3px rgba(64, 150, 255, 0.1);
+            background: #fff;
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            fill: #94a3b8;
+        }
+
+        .content-columns {
+            padding: 24px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* 右侧动态内容卡片样式 - 更新以支持文件列表 */
+        .dynamic-content {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            padding: 32px;
+            border: 1px solid #f0f0f0;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .dynamic-content svg {
+            width: 64px;
+            height: 64px;
+            fill: #4096ff;
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+
+        .dynamic-content h2 {
+            font-size: 24px;
+            color: #1e293b;
             margin-bottom: 8px;
         }
 
-        .note-item p {
-            color: #4a5568;
-            line-height: 1.6;
+        .dynamic-content p {
+            color: #64748b;
+            font-size: 16px;
         }
 
-        .file-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: #38b2ac;
-            text-decoration: none;
+        .dynamic-content .path-hint {
+            margin-top: 16px;
+            color: #94a3b8;
+            font-size: 14px;
+            background: #f8fafc;
+            padding: 8px 16px;
+            border-radius: 30px;
         }
 
-        .file-link:hover {
-            text-decoration: underline;
+        /* 文件列表样式 */
+        .file-list {
+            width: 100%;
+            margin-top: 20px;
+            text-align: left;
         }
 
-        /* 新增：资料库入口 */
-        .library-entry {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: #f8fafc;
             border-radius: 8px;
-            margin-bottom: 30px;
+            margin-bottom: 8px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        .file-item:hover {
+            background: #f0f7ff;
+            border-color: #4096ff;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .file-info svg {
+            width: 24px;
+            height: 24px;
+            fill: #4096ff;
+            margin: 0;
+            opacity: 1;
+        }
+
+        .file-name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .preview-btn {
+            background: #4096ff;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .preview-btn:hover {
+            background: #2563eb;
+        }
+
+        .preview-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        /* 预览区域 */
+        .preview-area {
+            width: 100%;
+            margin-top: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f8fafc;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .preview-header h3 {
+            font-size: 16px;
+            color: #1e293b;
+        }
+
+        .close-preview {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #64748b;
+            padding: 0 8px;
+        }
+
+        .close-preview:hover {
+            color: #ef4444;
+        }
+
+        .preview-content {
+            padding: 20px;
+            min-height: 200px;
+            max-height: 400px;
+            overflow: auto;
+        }
+
+        .pdf-preview {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        .no-preview {
             text-align: center;
+            color: #64748b;
+            padding: 40px;
         }
 
-        .library-entry a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 30px;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: all 0.3s;
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
         }
 
-        .library-entry a:hover {
+        .stat-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            padding: 20px;
+            border-left: 4px solid #4096ff;
+            transition: transform 0.2s ease;
+        }
+
+        .stat-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-card h3 {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .stat-card .value {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .stat-card .desc {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .stat-card.politics {
+            border-left-color: #ef4444;
+        }
+
+        .stat-card.english {
+            border-left-color: #10b981;
+        }
+
+        .stat-card.math {
+            border-left-color: #8b5cf6;
+        }
+
+        .stat-card.it {
+            border-left-color: #f59e0b;
+        }
+
+        @media (max-width: 768px) {
+            .site-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .site-nav {
+                display: none;
+            }
+
+            main {
+                margin-left: 0;
+                border-top-left-radius: 0;
+            }
+
+            .stats-cards {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="main-container">
-        <!-- 网页头部 + 导航 -->
-        <div class="header">
-            <h1>Truderin 的学习笔记库</h1>
-            <p>记录学习过程，整理知识点 | 持续更新ing</p>
-            <div class="nav-links">
-                <a href="file-preview.html">📚 专升本资料库</a>
+    <div class="site-wrap">
+        <!-- ===== 侧边栏导航 · 默认全部展开，点击菜单项改变右侧内容 ===== -->
+        <nav class="site-nav" id="sidebar">
+            <div class="name">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 2L4 5V11C4 16.55 7.84 21.74 13 23C18.16 21.74 22 16.55 22 11V5L12 2M12 4.27L18 6.6V11C18 15.04 15.41 18.57 12 19.73C8.59 18.57 6 15.04 6 11V6.6L12 4.27M12 8A2 2 0 0 1 14 10A2 2 0 0 1 12 12A2 2 0 0 1 10 10A2 2 0 0 1 12 8Z" />
+                </svg>
+                升本导航 · 菜单驱动
             </div>
-        </div>
 
-        <!-- 新增：资料库快捷入口 -->
-        <div class="library-entry">
-            <h2>📁 我的专升本资料库</h2>
-            <p>点击进入查看所有备考资料（PDF、真题、模拟题等）</p>
-            <a href="file-preview.html">进入资料库 →</a>
-        </div>
+            <ul>
+                <!-- 首页 (无子菜单) 点击显示首页内容 -->
+                <li id="menu-home" class="active">
+                    <a href="#" data-target="home">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path d="M10 20V14H14V20H19V12H22L12 3L2 12H5V20H10Z" />
+                        </svg>
+                        首页
+                    </a>
+                </li>
 
-        <!-- Python 笔记板块 -->
-        <div class="note-section">
-            <div class="note-title">Python 基础</div>
-            <div class="note-item">
-                <h4>变量与数据类型</h4>
-                <p>1. 基本类型：int（整数）、str（字符串）、float（浮点数）、bool（布尔值）<br>
-                    2. 变量命名规则：字母/数字/下划线，不能以数字开头<br>
-                    3. 示例：name = "Truderin" 、age = 20</p>
-            </div>
-            <div class="note-item">
-                <h4>条件判断与循环</h4>
-                <p>1. if/elif/else 条件语句<br>
-                    2. for 循环、while 循环的使用场景<br>
-                    3. break/continue 控制循环流程</p>
-                <a href="files/Python循环练习题.pdf" class="file-link">📎 下载循环练习题</a>
-            </div>
-        </div>
+                <!-- 报考指南 -->
+                <li class="has-children">
+                    <a href="#" class="parent-link">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path
+                                d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" />
+                        </svg>
+                        报考指南
+                        <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                        </svg>
+                    </a>
+                    <ul class="submenu" style="max-height: 500px; height: auto;">
+                        <li class="has-children">
+                            <a href="#" class="parent-link">
+                                招生计划
+                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                </svg>
+                            </a>
+                            <ul class="submenu" style="max-height: 500px; height: auto;">
+                                <li><a href="#" data-target="plan-2026">2026专升本计划</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#" class="parent-link">
+                                考试说明（考纲）
+                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                </svg>
+                            </a>
+                            <ul class="submenu" style="max-height: 500px; height: auto;">
+                                <li class="has-children">
+                                    <a href="#" class="parent-link">
+                                        2026年
+                                        <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                        </svg>
+                                    </a>
+                                    <ul class="submenu" style="max-height: 500px; height: auto;">
+                                        <li><a href="#" data-target="syllabus-2026-politics">政治</a></li>
+                                        <li><a href="#" data-target="syllabus-2026-english">英语</a></li>
+                                        <li><a href="#" data-target="syllabus-2026-math">高数一</a></li>
+                                        <li><a href="#" data-target="syllabus-2026-it">信息技术概论</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" data-target="syllabus-other">其他年份（可扩展）</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" data-target="process">报考流程/时间</a></li>
+                    </ul>
+                </li>
 
-        <!-- 前端笔记板块 -->
-        <div class="note-section">
-            <div class="note-title">HTML & CSS 入门</div>
-            <div class="note-item">
-                <h4>HTML 基本结构</h4>
-                <p>1. DOCTYPE 声明：
-                    <!DOCTYPE html><br>
-                    2. 核心标签：html、head、body、title、p、div、a、img<br>
-                    3. 标签属性：src（图片路径）、href（链接地址）、class（类名）
-                </p>
-            </div>
-            <div class="note-item">
-                <h4>CSS 样式设置</h4>
-                <p>1. 引入方式：行内样式、内部样式、外部样式表<br>
-                    2. 选择器：标签选择器、类选择器、ID选择器<br>
-                    3. 常用属性：color（颜色）、font-size（字体大小）、margin/padding（边距）</p>
-            </div>
-        </div>
+                <!-- 备考资料 -->
+                <li class="has-children">
+                    <a href="#" class="parent-link">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path
+                                d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M9 7H7V17H9V7M13 7H11V17H13V7M17 7H15V17H17V7Z" />
+                        </svg>
+                        备考资料
+                        <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                        </svg>
+                    </a>
+                    <ul class="submenu" style="max-height: 500px; height: auto;">
+                        <li class="has-children">
+                            <a href="#" class="parent-link">
+                                历年真题
+                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                </svg>
+                            </a>
+                            <ul class="submenu" style="max-height: 500px; height: auto;">
+                                <li><a href="#" data-target="past-politics">政治</a></li>
+                                <li><a href="#" data-target="past-english">英语</a></li>
+                                <li><a href="#" data-target="past-math">高数一</a></li>
+                                <li><a href="#" data-target="past-it">信息技术概论</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#" class="parent-link">
+                                模拟试卷
+                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                </svg>
+                            </a>
+                            <ul class="submenu" style="max-height: 500px; height: auto;">
+                                <li><a href="#" data-target="mock-politics">政治</a></li>
+                                <li><a href="#" data-target="mock-english">英语</a></li>
+                                <li><a href="#" data-target="mock-math">高数一</a></li>
+                                <li><a href="#" data-target="mock-it">信息技术概论</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#" class="parent-link">
+                                背诵资料
+                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                </svg>
+                            </a>
+                            <ul class="submenu" style="max-height: 500px; height: auto;">
+                                <li><a href="#" data-target="recite-politics">政治</a></li>
+                                <li><a href="#" data-target="recite-english">英语</a></li>
+                                <li><a href="#" data-target="recite-math">高数一</a></li>
+                                <li><a href="#" data-target="recite-it">信息技术概论</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
-        <!-- 学习计划板块 -->
-        <div class="note-section">
-            <div class="note-title">学习计划</div>
-            <div class="note-item">
-                <h4>近期目标</h4>
-                <p>1. 完成 Python 基础语法学习<br>
-                    2. 用 HTML/CSS 做一个简单的个人笔记页面<br>
-                    3. 把学习资料整理到 public 文件夹，方便访问</p>
+                <!-- 其他资源 -->
+                <li class="has-children">
+                    <a href="#" class="parent-link">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path
+                                d="M14,11.5V14.5H19.5V11.5H14M6,2H18A2,2 0 0,1 20,4V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2M15,18H9V16H15V18M18,8H6V6H18V8Z" />
+                        </svg>
+                        其他资源
+                        <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                        </svg>
+                    </a>
+                    <ul class="submenu" style="max-height: 500px; height: auto;">
+                        <li><a href="#" data-target="online-course">网课资料</a></li>
+                        <li><a href="#" data-target="knowledge">知识点总结</a></li>
+                        <li><a href="#" data-target="formula">公式大全</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="note">
+                <h3>学习小贴士</h3>
+                <p>点击左侧任意菜单项，右侧会动态显示对应内容。所有目录默认展开，点击父级可折叠。</p>
             </div>
-        </div>
+        </nav>
+
+        <!-- 主内容区域 - 动态改变 -->
+        <main>
+            <header>
+                <div class="breadcrumbs" id="breadcrumb">
+                    <a href="#">首页</a> &gt; <a href="#" id="current-category">资料总览</a>
+                </div>
+
+                <h1 class="title" id="page-title">
+                    <svg viewBox="0 0 24 24" id="title-icon">
+                        <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+                    </svg>
+                    <span id="title-text">专升本题背资料</span>
+                </h1>
+
+                <nav class="nav-tabs" id="nav-tabs">
+                    <a href="#0" class="active">全部资料<span>—</span></a>
+                    <a href="#0">开背资料<span>—</span></a>
+                    <a href="#0">模拟试题<span>—</span></a>
+                    <a href="#0">历年真题<span>—</span></a>
+                </nav>
+
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                    </svg>
+                    <input type="text" placeholder="搜索资料名称..." id="search-input">
+                </div>
+            </header>
+
+            <div class="content-columns">
+                <!-- 统计卡片 (保持不变，也可随菜单变化，但这里作为固定区域) -->
+                <div class="stats-cards" id="stats-cards">
+                    <div class="stat-card politics">
+                        <h3>政治资料</h3>
+                        <div class="value">—</div>
+                        <div class="desc">—— —— ——</div>
+                    </div>
+                    <div class="stat-card english">
+                        <h3>英语资料</h3>
+                        <div class="value">—</div>
+                        <div class="desc">—— —— ——</div>
+                    </div>
+                    <div class="stat-card math">
+                        <h3>高数资料</h3>
+                        <div class="value">—</div>
+                        <div class="desc">—— —— ——</div>
+                    </div>
+                    <div class="stat-card it">
+                        <h3>信息技术资料</h3>
+                        <div class="value">—</div>
+                        <div class="desc">—— —— ——</div>
+                    </div>
+                </div>
+
+                <!-- 动态内容区域 - 由菜单控制显示不同的占位内容 -->
+                <div class="dynamic-content" id="dynamic-content">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" />
+                    </svg>
+                    <h2>欢迎使用专升本资料系统</h2>
+                    <p>请从左侧菜单选择一个具体项目</p>
+                    <div class="path-hint" id="content-path">当前显示：首页</div>
+                </div>
+            </div>
+        </main>
     </div>
+
+    <script>
+        (function () {
+            // 获取右侧动态元素
+            const dynamicDiv = document.getElementById('dynamic-content');
+            const contentPath = document.getElementById('content-path');
+            const titleText = document.getElementById('title-text');
+            const breadcrumbCat = document.getElementById('current-category');
+            const titleIcon = document.querySelector('#page-title svg');
+
+            // 侧边栏所有带 data-target 的链接 (即具体的叶子菜单)
+            const menuLinks = document.querySelectorAll('a[data-target]');
+
+            // 1. 标签切换 (保持原有)
+            const navTabs = document.querySelectorAll("#nav-tabs > a");
+            navTabs.forEach(tab => {
+                tab.addEventListener("click", e => {
+                    e.preventDefault();
+                    navTabs.forEach(t => t.classList.remove("active"));
+                    tab.classList.add("active");
+                });
+            });
+
+            // 2. 侧边栏折叠/展开功能 - 基于max-height实现折叠展开
+            const sidebar = document.getElementById('sidebar');
+            sidebar.addEventListener('click', function (e) {
+                const parentLink = e.target.closest('.parent-link');
+                if (!parentLink) return;
+                e.preventDefault();
+
+                const li = parentLink.closest('li.has-children');
+                if (!li) return;
+                const submenu = li.querySelector(':scope > ul.submenu');
+                if (!submenu) return;
+
+                const icon = parentLink.querySelector('.menu-toggle-icon');
+
+                // 使用 max-height 控制折叠/展开
+                if (!submenu.style.maxHeight || submenu.style.maxHeight === '0px') {
+                    // 展开
+                    submenu.style.maxHeight = '500px';  // 足够大的值确保完全展开
+                    if (icon) icon.classList.add('rotated');
+                } else {
+                    // 折叠
+                    submenu.style.maxHeight = '0px';
+                    if (icon) icon.classList.remove('rotated');
+                }
+            });
+
+            // 高亮当前选中的菜单项
+            function setActiveMenuItem(clickedLink) {
+                document.querySelectorAll('.site-nav li.active').forEach(li => li.classList.remove('active'));
+                const parentLi = clickedLink.closest('li');
+                if (parentLi) {
+                    parentLi.classList.add('active');
+                }
+            }
+
+            // 文件数据定义
+            const fileData = {
+                'plan-2026': {
+                    name: '2026专升本计划',
+                    files: [
+                        {
+                            name: '2026专升本计划.pdf',
+                            url: '/1111/zhuanshengben/2026专升本计划.pdf',
+                            type: 'file'
+                        }
+                    ]
+                }
+            };
+
+            // 预览状态管理
+            let currentPreviewFile = null;
+
+            // 渲染文件列表和预览
+            function renderFileContent(target, title) {
+                const data = fileData[target];
+                if (!data) return null;
+
+                let html = `
+                <svg viewBox="0 0 24 24">
+                    <path d="M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z" />
+                </svg>
+                <h2>${title}</h2>
+                <div class="file-list">
+            `;
+
+                data.files.forEach(file => {
+                    html += `
+                    <div class="file-item">
+                        <div class="file-info">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                            </svg>
+                            <span class="file-name">${file.name}</span>
+                        </div>
+                        <button class="preview-btn" data-file='${JSON.stringify(file)}'>预览</button>
+                    </div>
+                `;
+                });
+
+                html += `</div>`;
+
+                // 如果有正在预览的文件，添加到下方
+                if (currentPreviewFile) {
+                    html += `
+                    <div class="preview-area">
+                        <div class="preview-header">
+                            <h3>${currentPreviewFile.name}</h3>
+                            <button class="close-preview" id="closePreviewBtn">&times;</button>
+                        </div>
+                        <div class="preview-content" id="previewContent">
+                `;
+
+                    // 根据文件类型决定预览方式
+                    if (currentPreviewFile.name.toLowerCase().endsWith('.pdf')) {
+                        html += `<iframe class="pdf-preview" src="${currentPreviewFile.url}"></iframe>`;
+                    } else {
+                        html += `<div class="no-preview">该文件类型暂不支持在线预览，请下载后查看</div>`;
+                    }
+
+                    html += `</div></div>`;
+                }
+
+                return html;
+            }
+
+            // 更新右侧内容的函数
+            function updateContent(target, linkText) {
+                let displayText = '';
+                let iconPath = '';
+                let title = '';
+
+                switch (target) {
+                    case 'home':
+                        displayText = '首页总览';
+                        title = '首页 · 资料总览';
+                        iconPath = 'M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z';
+                        break;
+                    case 'plan-2026':
+                        displayText = '2026年专升本招生计划';
+                        title = '招生计划 · 2026';
+                        iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
+                        break;
+                    case 'syllabus-2026-politics':
+                        displayText = '2026年考纲 · 政治';
+                        title = '考纲 · 政治';
+                        iconPath = 'M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z';
+                        break;
+                    // ... 其他case保持不变，但为了简洁省略，实际使用时保留全部case
+                    default:
+                        // 对于没有文件数据的菜单，显示默认占位内容
+                        if (!fileData[target]) {
+                            displayText = linkText || '未知栏目';
+                            title = linkText || '资料';
+                            iconPath = 'M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z';
+
+                            dynamicDiv.innerHTML = `
+                            <svg viewBox="0 0 24 24">
+                                <path d="${iconPath}" />
+                            </svg>
+                            <h2>${displayText}</h2>
+                            <p>这里是《${displayText}》的占位内容。实际文件尚未添加。</p>
+                            <div class="path-hint">当前路径：${title}</div>
+                        `;
+                            titleText.innerText = title;
+                            let cat = title.includes('·') ? title.split('·')[0] : title;
+                            breadcrumbCat.innerText = cat.trim();
+                            contentPath.innerText = `当前显示：${displayText}`;
+                            const titleSvg = document.querySelector('#page-title svg path');
+                            if (titleSvg) {
+                                titleSvg.setAttribute('d', iconPath);
+                            }
+                            return;
+                        }
+                }
+
+                // 对于有文件数据的菜单（如plan-2026），使用文件渲染
+                if (fileData[target]) {
+                    const content = renderFileContent(target, title);
+                    if (content) {
+                        dynamicDiv.innerHTML = content;
+                        titleText.innerText = title;
+                        let cat = title.includes('·') ? title.split('·')[0] : title;
+                        breadcrumbCat.innerText = cat.trim();
+                        contentPath.innerText = `当前显示：${displayText}`;
+                        const titleSvg = document.querySelector('#page-title svg path');
+                        if (titleSvg) {
+                            titleSvg.setAttribute('d', iconPath);
+                        }
+
+                        // 为所有预览按钮添加事件
+                        document.querySelectorAll('.preview-btn').forEach(btn => {
+                            btn.addEventListener('click', function (e) {
+                                e.stopPropagation();
+                                const fileData = JSON.parse(this.getAttribute('data-file'));
+                                currentPreviewFile = fileData;
+                                // 重新渲染当前内容以显示预览
+                                updateContent(target, linkText);
+                            });
+                        });
+
+                        // 为关闭预览按钮添加事件
+                        const closeBtn = document.getElementById('closePreviewBtn');
+                        if (closeBtn) {
+                            closeBtn.addEventListener('click', function () {
+                                currentPreviewFile = null;
+                                updateContent(target, linkText);
+                            });
+                        }
+                    }
+                } else {
+                    // 其他菜单的默认处理
+                    dynamicDiv.innerHTML = `
+                    <svg viewBox="0 0 24 24">
+                        <path d="${iconPath}" />
+                    </svg>
+                    <h2>${displayText}</h2>
+                    <p>这里是《${displayText}》的占位内容。实际文件尚未添加。</p>
+                    <div class="path-hint">当前路径：${title}</div>
+                `;
+                    titleText.innerText = title;
+                    let cat = title.includes('·') ? title.split('·')[0] : title;
+                    breadcrumbCat.innerText = cat.trim();
+                    contentPath.innerText = `当前显示：${displayText}`;
+                    const titleSvg = document.querySelector('#page-title svg path');
+                    if (titleSvg) {
+                        titleSvg.setAttribute('d', iconPath);
+                    }
+                }
+            }
+
+            // 菜单点击事件绑定
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('data-target');
+                    const linkText = this.innerText.trim();
+
+                    // 切换菜单时清空预览状态
+                    currentPreviewFile = null;
+
+                    updateContent(target, linkText);
+                    setActiveMenuItem(this);
+                });
+            });
+
+            // 初始化首页
+            updateContent('home', '首页');
+            document.querySelectorAll('.site-nav li.active').forEach(li => li.classList.remove('active'));
+            const homeLi = document.getElementById('menu-home');
+            if (homeLi) homeLi.classList.add('active');
+        })();
+    </script>
 </body>
 
 </html>

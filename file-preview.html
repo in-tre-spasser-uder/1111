@@ -237,7 +237,6 @@
 
 <body>
     <div class="main-container">
-        <!-- 网页头部 + 返回链接 -->
         <div class="header">
             <div class="back-link">
                 <a href="index.html">← 返回学习笔记</a>
@@ -262,30 +261,62 @@
     </div>
 
     <script>
-        // 加载文件列表
+        // ========== 核心修改：直接使用您提供的 JSON 数据 ==========
+        // 根据您最后的输入，文件列表已内嵌，确保“2026专升本计划.pdf”立即显示。
+        // 同时保留 fetch 尝试，若 files.json 存在则优先使用（方便后续扩展）。
+        // 若 fetch 失败，则使用内嵌的硬编码数据。
+        const HARDCODED_FILES = {
+            "files": [
+                {
+                    "name": "2026专升本计划.pdf",
+                    "url": "/1111/zhuanshengben/2026专升本计划.pdf",
+                    "type": "pdf",
+                    "size": "PDF 文件"   // 增加友好提示，也可以不显示具体大小
+                }
+            ]
+        };
+
+        // 加载文件列表 (优先 fetch，失败则回退到硬编码)
         async function loadFiles() {
+            const grid = document.getElementById('fileGrid');
+            let fileData = null;
+
+            // 尝试从 files.json 加载
             try {
                 const response = await fetch('files.json');
-                const data = await response.json();
+                if (response.ok) {
+                    fileData = await response.json();
+                    console.log('使用 files.json 数据');
+                } else {
+                    throw new Error('files.json 不存在或无法访问');
+                }
+            } catch (error) {
+                console.warn('fetch files.json 失败，使用内嵌数据:', error);
+                fileData = HARDCODED_FILES;   // 回退方案
+            }
 
-                const grid = document.getElementById('fileGrid');
-
-                if (!data.files || data.files.length === 0) {
+            // 渲染网格
+            try {
+                if (!fileData || !fileData.files || fileData.files.length === 0) {
                     grid.innerHTML = '<div class="error">暂无文件</div>';
                     return;
                 }
 
-                grid.innerHTML = data.files.map(file => `
-                    <div class="file-item" onclick="previewFile('${file.url}', '${file.name}')">
-                        <div class="file-icon">${getFileIcon(file.name)}</div>
-                        <div class="file-name">${file.name}</div>
-                        <div class="file-info">${file.size || ''}</div>
-                    </div>
-                `).join('');
+                grid.innerHTML = fileData.files.map(file => {
+                    // 可选的 size 显示，若没有则显示文件类型图标对应文字
+                    const sizeInfo = file.size || (file.type ? file.type.toUpperCase() : '');
+                    return `
+                        <div class="file-item" onclick="previewFile('${file.url}', '${file.name}')">
+                            <div class="file-icon">${getFileIcon(file.name)}</div>
+                            <div class="file-name">${file.name}</div>
+                            <div class="file-info">${sizeInfo}</div>
+                        </div>
+                    `;
+                }).join('');
 
-            } catch (error) {
-                document.getElementById('fileGrid').innerHTML = '<div class="error">加载失败，请检查 files.json 是否存在</div>';
-                console.error('加载失败:', error);
+            } catch (e) {
+                grid.innerHTML = '<div class="error">渲染文件列表失败</div>';
+                console.error(e);
             }
         }
 
@@ -302,10 +333,11 @@
 
             // 图片预览
             if (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'].includes(ext)) {
-                content.innerHTML = `<div class="image-preview"><img src="${url}" alt="${name}"></div>`;
+                content.innerHTML = `<div class="image-preview"><img src="${url}" alt="${name}" /></div>`;
             }
             // PDF预览
             else if (ext === 'pdf') {
+                // 为了更好的兼容性，添加 #toolbar=0 可选，但保留全部工具栏
                 content.innerHTML = `<div class="pdf-preview"><iframe src="${url}"></iframe></div>`;
             }
             // 视频预览
@@ -318,15 +350,19 @@
             }
             // 文本预览
             else if (['txt', 'js', 'html', 'css', 'json', 'md'].includes(ext)) {
+                // 先显示加载中
+                content.innerHTML = '<div class="loading">加载中...</div>';
                 fetch(url)
-                    .then(res => res.text())
+                    .then(res => {
+                        if (!res.ok) throw new Error('网络响应失败');
+                        return res.text();
+                    })
                     .then(text => {
                         content.innerHTML = `<div class="text-preview"><pre>${escapeHtml(text)}</pre></div>`;
                     })
                     .catch(() => {
-                        content.innerHTML = '<div class="error">文本加载失败</div>';
+                        content.innerHTML = '<div class="error">文本加载失败，可能文件不存在或跨域</div>';
                     });
-                content.innerHTML = '<div class="loading">加载中...</div>';
             }
             // 不支持的文件类型
             else {
@@ -345,7 +381,7 @@
         function closePreview() {
             const modal = document.getElementById('previewModal');
             modal.classList.remove('show');
-            document.getElementById('modalContent').innerHTML = '';
+            document.getElementById('modalContent').innerHTML = ''; // 清空内容，停止音视频
         }
 
         // 获取文件图标
@@ -354,7 +390,9 @@
             const icons = {
                 'pdf': '📕', 'jpg': '🖼️', 'jpeg': '🖼️', 'png': '🖼️', 'gif': '🖼️',
                 'mp4': '🎬', 'mp3': '🎵', 'txt': '📄', 'doc': '📝', 'docx': '📝',
-                'ppt': '📽️', 'pptx': '📽️', 'xls': '📊', 'xlsx': '📊'
+                'ppt': '📽️', 'pptx': '📽️', 'xls': '📊', 'xlsx': '📊',
+                'webm': '🎬', 'mov': '🎬', 'wav': '🎵', 'm4a': '🎵',
+                'html': '🌐', 'css': '🎨', 'js': '⚙️', 'json': '📋', 'md': '📘'
             };
             return icons[ext] || '📄';
         }
@@ -373,6 +411,14 @@
         // 页面加载时显示文件
         document.addEventListener('DOMContentLoaded', loadFiles);
     </script>
+
+    <!-- 
+        说明： 
+        - 根据您提供的最后 JSON 片段，已将 {"files":[{"name":"2026专升本计划.pdf","url":"/1111/zhuanshengben/2026专升本计划.pdf","type":"pdf"}]} 
+          作为硬编码后备数据，确保即使 files.json 不存在也能显示该 PDF。
+        - 若希望完全依赖 files.json 而移除硬编码，可删除 HARDCODED_FILES 及相关回退逻辑。
+        - 所有预览功能与之前保持一致。
+    -->
 </body>
 
 </html>

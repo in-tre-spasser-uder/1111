@@ -620,77 +620,78 @@
                 </li>
             </ul>
 
-            <div class="note">
-                <h3>学习小贴士</h3>
-                <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮将在下方显示图片 (完全移除PDF.js，仅图片预览)。</p>
+            <img class="note">
+            <h3>学习小贴士</h3>
+            <img src="鱿鱼游戏.jpg"></img>
+            <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮将在下方显示图片 (完全移除PDF.js，仅图片预览)。</p>
+    </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main>
+        <header>
+            <div class="breadcrumbs" id="breadcrumb">
+                <a href="#">首页</a> &gt; <a href="#" id="current-category">资料总览</a>
             </div>
-        </nav>
 
-        <!-- 主内容区域 -->
-        <main>
-            <header>
-                <div class="breadcrumbs" id="breadcrumb">
-                    <a href="#">首页</a> &gt; <a href="#" id="current-category">资料总览</a>
+            <h1 class="title" id="page-title">
+                <svg viewBox="0 0 24 24" id="title-icon">
+                    <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+                </svg>
+                <span id="title-text">专升本题背资料</span>
+            </h1>
+
+            <nav class="nav-tabs" id="nav-tabs">
+                <a href="#0" class="active">全部资料<span>—</span></a>
+                <a href="#0">开背资料<span>—</span></a>
+                <a href="#0">模拟试题<span>—</span></a>
+                <a href="#0">历年真题<span>—</span></a>
+            </nav>
+
+            <div class="search-box">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                </svg>
+                <input type="text" placeholder="搜索资料名称..." id="search-input">
+            </div>
+        </header>
+
+        <div class="content-columns">
+            <div class="stats-cards" id="stats-cards">
+                <div class="stat-card politics">
+                    <h3>政治资料</h3>
+                    <div class="value">—</div>
+                    <div class="desc">—— —— ——</div>
                 </div>
-
-                <h1 class="title" id="page-title">
-                    <svg viewBox="0 0 24 24" id="title-icon">
-                        <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
-                    </svg>
-                    <span id="title-text">专升本题背资料</span>
-                </h1>
-
-                <nav class="nav-tabs" id="nav-tabs">
-                    <a href="#0" class="active">全部资料<span>—</span></a>
-                    <a href="#0">开背资料<span>—</span></a>
-                    <a href="#0">模拟试题<span>—</span></a>
-                    <a href="#0">历年真题<span>—</span></a>
-                </nav>
-
-                <div class="search-box">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                    </svg>
-                    <input type="text" placeholder="搜索资料名称..." id="search-input">
+                <div class="stat-card english">
+                    <h3>英语资料</h3>
+                    <div class="value">—</div>
+                    <div class="desc">—— —— ——</div>
                 </div>
-            </header>
-
-            <div class="content-columns">
-                <div class="stats-cards" id="stats-cards">
-                    <div class="stat-card politics">
-                        <h3>政治资料</h3>
-                        <div class="value">—</div>
-                        <div class="desc">—— —— ——</div>
-                    </div>
-                    <div class="stat-card english">
-                        <h3>英语资料</h3>
-                        <div class="value">—</div>
-                        <div class="desc">—— —— ——</div>
-                    </div>
-                    <div class="stat-card math">
-                        <h3>高数资料</h3>
-                        <div class="value">—</div>
-                        <div class="desc">—— —— ——</div>
-                    </div>
-                    <div class="stat-card it">
-                        <h3>信息技术资料</h3>
-                        <div class="value">—</div>
-                        <div class="desc">—— —— ——</div>
-                    </div>
+                <div class="stat-card math">
+                    <h3>高数资料</h3>
+                    <div class="value">—</div>
+                    <div class="desc">—— —— ——</div>
                 </div>
-
-                <!-- 动态内容区域 -->
-                <div class="dynamic-content" id="dynamic-content">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" />
-                    </svg>
-                    <h2>欢迎使用专升本资料系统</h2>
-                    <p>请从左侧菜单选择一个具体项目</p>
-                    <div class="path-hint" id="content-path">当前显示：首页</div>
+                <div class="stat-card it">
+                    <h3>信息技术资料</h3>
+                    <div class="value">—</div>
+                    <div class="desc">—— —— ——</div>
                 </div>
             </div>
-        </main>
+
+            <!-- 动态内容区域 -->
+            <div class="dynamic-content" id="dynamic-content">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" />
+                </svg>
+                <h2>欢迎使用专升本资料系统</h2>
+                <p>请从左侧菜单选择一个具体项目</p>
+                <div class="path-hint" id="content-path">当前显示：首页</div>
+            </div>
+        </div>
+    </main>
     </div>
 
     <script>

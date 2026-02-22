@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专升本学习资料 · PDF.js内嵌预览版</title>
-    <!-- 引入 PDF.js 核心库和 worker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <title>专升本学习资料 · 纯图片预览版 (去PDF)</title>
+    <!-- ⚠️ 已完全移除 PDF.js 相关脚本，仅保留样式和交互 -->
     <style>
-        /* ===== 样式完全保留 ===== */
+        /* ===== 样式完全保留 (仅微调预览区以适应图片) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -393,7 +392,7 @@
             cursor: not-allowed;
         }
 
-        /* 预览区域 - 用于PDF.js渲染 */
+        /* 预览区域 - 专用于图片显示 */
         .preview-area {
             width: 100%;
             margin-top: 20px;
@@ -441,13 +440,13 @@
             align-items: center;
         }
 
-        /* PDF.js 渲染的canvas样式 */
-        .preview-content canvas {
-            width: 100%;
+        /* 图片预览样式 (替代canvas) */
+        .preview-content img {
+            max-width: 100%;
             height: auto;
-            margin-bottom: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             border-radius: 4px;
+            margin-bottom: 15px;
         }
 
         .stats-cards {
@@ -536,7 +535,7 @@
                     <path
                         d="M12 2L4 5V11C4 16.55 7.84 21.74 13 23C18.16 21.74 22 16.55 22 11V5L12 2M12 4.27L18 6.6V11C18 15.04 15.41 18.57 12 19.73C8.59 18.57 6 15.04 6 11V6.6L12 4.27M12 8A2 2 0 0 1 14 10A2 2 0 0 1 12 12A2 2 0 0 1 10 10A2 2 0 0 1 12 8Z" />
                 </svg>
-                升本导航 · PDF.js内嵌预览
+                升本导航 · 纯图片预览(去PDF)
             </div>
 
             <ul>
@@ -623,9 +622,7 @@
 
             <div class="note">
                 <h3>学习小贴士</h3>
-                <a href="file-preview.html">1</a>
-                <img src="鱿鱼游戏.jpg"><img>
-                <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮在当前页面内嵌显示PDF（使用PDF.js）。</p>
+                <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮将在下方显示图片 (完全移除PDF.js，仅图片预览)。</p>
             </div>
         </nav>
 
@@ -698,8 +695,8 @@
 
     <script>
         (function () {
-            // 设置 PDF.js worker 路径
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+            // ==================== 完全移除 PDF.js 相关代码 ====================
+            // 所有预览均使用图片 (imageUrl)
 
             const dynamicDiv = document.getElementById('dynamic-content');
             const contentPath = document.getElementById('content-path');
@@ -707,7 +704,7 @@
             const breadcrumbCat = document.getElementById('current-category');
             const menuLinks = document.querySelectorAll('a[data-target]');
 
-            // 标签切换
+            // 标签切换（无实际功能，仅样式）
             const navTabs = document.querySelectorAll("#nav-tabs > a");
             navTabs.forEach(tab => {
                 tab.addEventListener("click", e => {
@@ -743,63 +740,60 @@
                 if (parentLi) parentLi.classList.add('active');
             }
 
-            // 文件数据定义 - 使用PDF文件
+            // 文件数据 (完全基于图片预览，移除所有PDF.js调用)
             const fileData = {
                 'plan-2026': {
                     name: '2026专升本计划',
                     files: [
                         {
-                            name: '2026专升本计划.pdf',
-                            url: '/1111/zhuanshengben/2026专升本计划.pdf',
-                            type: 'pdf'
+                            name: '2026专升本计划.pdf',   // 显示为PDF名称，但预览用图片
+                            imageUrl: '/1111/zhuanshengben/2026专升本计划.jpg'   // 实际图片路径
+                        }
+                    ]
+                },
+                'mock-english': {
+                    name: '模拟试卷·英语',
+                    files: [
+                        {
+                            name: '英语模拟卷.pdf',
+                            imageUrl: '/1111/鱿鱼游戏.jpg'   // 演示用图
+                        }
+                    ]
+                },
+                'past-politics': {
+                    name: '历年真题·政治',
+                    files: [
+                        {
+                            name: '政治真题.pdf',
+                            imageUrl: '/1111/鱿鱼游戏.jpg'   // 演示图片
                         }
                     ]
                 }
             };
 
             // 预览状态管理
-            let currentPreviewFile = null;
+            let currentPreviewFile = null;        // 当前预览的文件对象 { name, imageUrl }
+            let currentTarget = 'home';            // 当前菜单target
+            let currentLinkText = '首页';
 
-            // PDF.js 渲染函数
-            function renderPdfWithPdfJs(url, container) {
-                container.innerHTML = '<div style="text-align:center; padding:40px; color:#666;">正在加载PDF文档，请稍候...</div>';
+            // 渲染图片到预览容器
+            function renderImagePreview(imageUrl, container) {
+                container.innerHTML = '';
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = '预览图片';
+                img.style.maxWidth = '100%';
+                img.style.height = 'auto';
+                img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                img.style.borderRadius = '4px';
 
-                pdfjsLib.getDocument(url).promise.then(pdfDoc => {
-                    container.innerHTML = ''; // 清空加载提示
-
-                    // 按顺序渲染所有页面
-                    for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
-                        pdfDoc.getPage(pageNum).then(page => {
-                            const scale = 1.5; // 缩放比例，可调整
-                            const viewport = page.getViewport({ scale: scale });
-
-                            const canvas = document.createElement('canvas');
-                            const context = canvas.getContext('2d');
-
-                            canvas.height = viewport.height;
-                            canvas.width = viewport.width;
-                            canvas.style.width = '100%';
-                            canvas.style.height = 'auto';
-                            canvas.style.marginBottom = '15px';
-                            canvas.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-                            canvas.style.borderRadius = '4px';
-
-                            container.appendChild(canvas);
-
-                            const renderContext = {
-                                canvasContext: context,
-                                viewport: viewport,
-                            };
-
-                            page.render(renderContext);
-                        });
-                    }
-                }).catch(err => {
-                    container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">PDF加载失败: ${err.message}<br>请检查文件路径或网络连接。</div>`;
-                });
+                img.onerror = function () {
+                    container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 图片加载失败: ${imageUrl}<br>请检查路径或网络。</div>`;
+                };
+                container.appendChild(img);
             }
 
-            // 渲染文件列表和预览
+            // 生成文件列表HTML (附带预览区)
             function renderFileContent(target, title) {
                 const data = fileData[target];
                 if (!data) return null;
@@ -813,6 +807,8 @@
             `;
 
                 data.files.forEach(file => {
+                    // 将file对象转成字符串属性，注意imageUrl必须存在
+                    const fileAttr = JSON.stringify(file).replace(/"/g, '&quot;');
                     html += `
                     <div class="file-item">
                         <div class="file-info">
@@ -821,22 +817,22 @@
                             </svg>
                             <span class="file-name">${file.name}</span>
                         </div>
-                        <button class="preview-btn" data-file='${JSON.stringify(file)}'>预览</button>
+                        <button class="preview-btn" data-file='${fileAttr}'>预览</button>
                     </div>
                 `;
                 });
 
                 html += `</div>`;
 
-                // 如果有正在预览的文件，添加预览区域 (用于PDF.js渲染)
+                // 如果有正在预览的文件，添加预览区域 (图片)
                 if (currentPreviewFile) {
                     html += `
                     <div class="preview-area">
                         <div class="preview-header">
-                            <h3>${currentPreviewFile.name}</h3>
+                            <h3>${currentPreviewFile.name} (图片预览)</h3>
                             <button class="close-preview" id="closePreviewBtn">&times;</button>
                         </div>
-                        <div class="preview-content" id="pdfjs-container"></div>
+                        <div class="preview-content" id="image-preview-container"></div>
                     </div>
                 `;
                 }
@@ -844,57 +840,56 @@
                 return html;
             }
 
-            // 更新右侧内容
+            // 更新右侧内容 (核心)
             function updateContent(target, linkText) {
+                currentTarget = target;
+                currentLinkText = linkText;
+
                 let displayText = '';
                 let iconPath = '';
                 let title = '';
 
-                switch (target) {
-                    case 'home':
-                        displayText = '首页总览';
-                        title = '首页 · 资料总览';
-                        iconPath = 'M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z';
-                        dynamicDiv.innerHTML = `
-                            <svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg>
-                            <h2>${displayText}</h2>
-                            <p>欢迎使用专升本学习资料管理系统。从左侧菜单选择具体项目查看PDF文件。</p>
-                            <div class="path-hint">当前显示：首页</div>
-                        `;
-                        titleText.innerText = title;
-                        breadcrumbCat.innerText = '首页';
-                        contentPath.innerText = `当前显示：${displayText}`;
-                        const titleSvg = document.querySelector('#page-title svg path');
-                        if (titleSvg) titleSvg.setAttribute('d', iconPath);
-                        return;
-                    case 'plan-2026':
+                // 首页特殊处理
+                if (target === 'home') {
+                    displayText = '首页总览';
+                    title = '首页 · 资料总览';
+                    iconPath = 'M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z';
+                    dynamicDiv.innerHTML = `
+                        <svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg>
+                        <h2>${displayText}</h2>
+                        <p>欢迎使用专升本学习资料管理系统 (纯图片预览版)。从左侧菜单选择具体项目查看文件，点击预览以图片展示。</p>
+                        <div class="path-hint">当前显示：首页</div>
+                    `;
+                    titleText.innerText = title;
+                    breadcrumbCat.innerText = '首页';
+                    contentPath.innerText = `当前显示：${displayText}`;
+                    const titleSvg = document.querySelector('#page-title svg path');
+                    if (titleSvg) titleSvg.setAttribute('d', iconPath);
+                    return;
+                }
+
+                // 处理有文件数据的菜单 或 占位
+                if (fileData[target]) {
+                    // 根据target设置标题和图标
+                    if (target === 'plan-2026') {
                         displayText = '2026年专升本招生计划';
                         title = '招生计划 · 2026';
                         iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
-                        break;
-                    default:
-                        // 对于没有文件数据的菜单，显示占位
-                        if (!fileData[target]) {
-                            displayText = linkText || '未知栏目';
-                            title = linkText || '资料';
-                            iconPath = 'M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z';
-                            dynamicDiv.innerHTML = `
-                            <svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg>
-                            <h2>${displayText}</h2>
-                            <p>这里是《${displayText}》的占位内容。实际文件尚未添加。</p>
-                            <div class="path-hint">当前路径：${title}</div>
-                            `;
-                            titleText.innerText = title;
-                            breadcrumbCat.innerText = title.includes('·') ? title.split('·')[0] : title;
-                            contentPath.innerText = `当前显示：${displayText}`;
-                            const titleSvg = document.querySelector('#page-title svg path');
-                            if (titleSvg) titleSvg.setAttribute('d', iconPath);
-                            return;
-                        }
-                }
+                    } else if (target === 'mock-english') {
+                        displayText = '模拟试卷·英语';
+                        title = '备考资料 · 英语模拟';
+                        iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
+                    } else if (target === 'past-politics') {
+                        displayText = '历年真题·政治';
+                        title = '备考资料 · 政治真题';
+                        iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
+                    } else {
+                        // 其他有文件但未单独定义
+                        displayText = linkText || '资料';
+                        title = linkText || '未知';
+                        iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
+                    }
 
-                // 有文件数据的菜单
-                if (fileData[target]) {
                     const content = renderFileContent(target, title);
                     if (content) {
                         dynamicDiv.innerHTML = content;
@@ -904,33 +899,54 @@
                         const titleSvg = document.querySelector('#page-title svg path');
                         if (titleSvg) titleSvg.setAttribute('d', iconPath);
 
-                        // 预览按钮事件
+                        // 绑定预览按钮
                         document.querySelectorAll('.preview-btn').forEach(btn => {
                             btn.addEventListener('click', function (e) {
                                 e.stopPropagation();
+                                // 解析文件数据
                                 const file = JSON.parse(this.getAttribute('data-file'));
-                                currentPreviewFile = file;
-                                updateContent(target, linkText); // 重新渲染界面，创建预览容器
+                                // 确保有imageUrl (若数据中没有，给个默认演示图)
+                                if (!file.imageUrl) {
+                                    file.imageUrl = '/1111/鱿鱼游戏.jpg';   // 默认演示
+                                }
+                                currentPreviewFile = file;   // 设置预览文件
+                                updateContent(target, linkText); // 重新渲染（包含预览区）
 
-                                // 等待DOM更新后，使用PDF.js渲染
+                                // 在重新渲染后，等待DOM更新，再填充图片
                                 setTimeout(() => {
-                                    const container = document.getElementById('pdfjs-container');
+                                    const container = document.getElementById('image-preview-container');
                                     if (container && currentPreviewFile) {
-                                        renderPdfWithPdfJs(currentPreviewFile.url, container);
+                                        renderImagePreview(currentPreviewFile.imageUrl, container);
                                     }
                                 }, 50);
                             });
                         });
 
-                        // 关闭预览按钮事件
+                        // 关闭预览按钮
                         const closeBtn = document.getElementById('closePreviewBtn');
                         if (closeBtn) {
                             closeBtn.addEventListener('click', function () {
-                                currentPreviewFile = null;
-                                updateContent(target, linkText);
+                                currentPreviewFile = null;       // 清除预览
+                                updateContent(target, linkText); // 重新渲染（无预览区）
                             });
                         }
                     }
+                } else {
+                    // 没有文件数据的菜单占位
+                    displayText = linkText || '未知栏目';
+                    title = linkText || '资料';
+                    iconPath = 'M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z';
+                    dynamicDiv.innerHTML = `
+                        <svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg>
+                        <h2>${displayText}</h2>
+                        <p>这里是《${displayText}》的占位内容。实际文件尚未添加。</p>
+                        <div class="path-hint">当前路径：${title}</div>
+                    `;
+                    titleText.innerText = title;
+                    breadcrumbCat.innerText = title.includes('·') ? title.split('·')[0] : title;
+                    contentPath.innerText = `当前显示：${displayText}`;
+                    const titleSvg = document.querySelector('#page-title svg path');
+                    if (titleSvg) titleSvg.setAttribute('d', iconPath);
                 }
             }
 
@@ -953,7 +969,6 @@
             if (homeLi) homeLi.classList.add('active');
         })();
     </script>
-
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专升本学习资料 · GitHub原始链接完美版</title>
+    <title>专升本学习资料管理系统 · PDF预览版</title>
     <style>
         /* ===== 样式完全保留 ===== */
         * {
@@ -285,7 +285,6 @@
             gap: 16px;
         }
 
-        /* 右侧动态内容卡片样式 - 支持文件列表和HTML预览 */
         .dynamic-content {
             background: #fff;
             border-radius: 12px;
@@ -328,7 +327,6 @@
             border-radius: 30px;
         }
 
-        /* 文件列表样式 */
         .file-list {
             width: 100%;
             margin-top: 20px;
@@ -372,7 +370,9 @@
             color: #1e293b;
         }
 
+        /* PDF预览按钮 - 新窗口打开 */
         .preview-btn {
+            display: inline-block;
             background: #4096ff;
             color: white;
             border: none;
@@ -381,70 +381,12 @@
             cursor: pointer;
             font-size: 14px;
             transition: background 0.2s;
+            text-decoration: none;
         }
 
         .preview-btn:hover {
             background: #2563eb;
-        }
-
-        .preview-btn:disabled {
-            background: #94a3b8;
-            cursor: not-allowed;
-        }
-
-        /* 预览区域 - 用于显示HTML转换后的文件 */
-        .preview-area {
-            width: 100%;
-            margin-top: 20px;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #f8fafc;
-        }
-
-        .preview-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 16px;
-            background: #f1f5f9;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .preview-header h3 {
-            font-size: 16px;
-            color: #1e293b;
-        }
-
-        .close-preview {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: #64748b;
-            padding: 0 8px;
-        }
-
-        .close-preview:hover {
-            color: #ef4444;
-        }
-
-        .preview-content {
-            padding: 0;
-            min-height: 400px;
-            max-height: 600px;
-            overflow: auto;
-            background: white;
-        }
-
-        /* HTML预览iframe全屏样式 - 关键修复：sandbox属性允许所有必要权限 */
-        .html-preview {
-            width: 100%;
-            height: 600px;
-            border: none;
-            display: block;
-            /* sandbox 属性：允许同源，允许脚本，允许弹窗，允许表单，允许顶部导航，允许模态框，允许下载 */
-            sandbox: allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation allow-modals allow-downloads;
+            color: white;
         }
 
         .stats-cards {
@@ -533,7 +475,7 @@
                     <path
                         d="M12 2L4 5V11C4 16.55 7.84 21.74 13 23C18.16 21.74 22 16.55 22 11V5L12 2M12 4.27L18 6.6V11C18 15.04 15.41 18.57 12 19.73C8.59 18.57 6 15.04 6 11V6.6L12 4.27M12 8A2 2 0 0 1 14 10A2 2 0 0 1 12 12A2 2 0 0 1 10 10A2 2 0 0 1 12 8Z" />
                 </svg>
-                升本导航 · 绝对正常显示
+                升本导航 · PDF预览版
             </div>
 
             <ul>
@@ -620,7 +562,7 @@
 
             <div class="note">
                 <h3>学习小贴士</h3>
-                <p>点击左侧菜单，右侧显示对应内容。使用GitHub原始链接，绝对正常显示。</p>
+                <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮在新窗口打开PDF文件。</p>
             </div>
         </nav>
 
@@ -735,25 +677,21 @@
                 if (parentLi) parentLi.classList.add('active');
             }
 
-            // ★★★ 核心修复：使用 GitHub 原始文件链接，绝对正常显示 ★★★
+            // ★ 根据您提供的JSON配置PDF文件
             const fileData = {
                 'plan-2026': {
                     name: '2026专升本计划',
                     files: [
                         {
                             name: '2026专升本计划.pdf',
-                            // 使用 GitHub 原始文件 URL，确保 HTTPS 加载，避免混合内容被浏览器阻止
-                            url: 'https://raw.githubusercontent.com/in-tre-spasser-uder/1111/main/zhuanshengben/2026%E4%B8%93%E5%8D%87%E6%9C%AC%E8%AE%A1%E5%88%92.pdf',
+                            url: '/1111/zhuanshengben/2026专升本计划.pdf',
                             type: 'pdf'
                         }
                     ]
                 }
             };
 
-            // 预览状态管理
-            let currentPreviewFile = null;
-
-            // 渲染文件列表和预览 - 适配HTML预览，关键修复：iframe添加完整sandbox权限
+            // 渲染文件列表
             function renderFileContent(target, title) {
                 const data = fileData[target];
                 if (!data) return null;
@@ -775,31 +713,13 @@
                             </svg>
                             <span class="file-name">${file.name}</span>
                         </div>
-                        <button class="preview-btn" data-file='${JSON.stringify(file)}'>预览</button>
+                        <!-- 新窗口打开PDF，最稳定的方式 -->
+                        <a href="${file.url}" target="_blank" class="preview-btn">预览PDF</a>
                     </div>
                 `;
                 });
 
                 html += `</div>`;
-
-                // 如果有正在预览的文件，添加预览区域 (HTML预览使用iframe，添加所有必要权限)
-                if (currentPreviewFile) {
-                    html += `
-                    <div class="preview-area">
-                        <div class="preview-header">
-                            <h3>${currentPreviewFile.name}</h3>
-                            <button class="close-preview" id="closePreviewBtn">&times;</button>
-                        </div>
-                        <div class="preview-content">
-                            <iframe class="html-preview" 
-                                    src="${currentPreviewFile.url}"
-                                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation allow-modals allow-downloads">
-                            </iframe>
-                        </div>
-                    </div>
-                `;
-                }
-
                 return html;
             }
 
@@ -814,7 +734,18 @@
                         displayText = '首页总览';
                         title = '首页 · 资料总览';
                         iconPath = 'M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z';
-                        break;
+                        dynamicDiv.innerHTML = `
+                            <svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg>
+                            <h2>${displayText}</h2>
+                            <p>欢迎使用专升本学习资料管理系统。点击左侧菜单选择具体项目查看PDF文件。</p>
+                            <div class="path-hint">当前显示：首页</div>
+                        `;
+                        titleText.innerText = title;
+                        breadcrumbCat.innerText = '首页';
+                        contentPath.innerText = `当前显示：${displayText}`;
+                        const titleSvg = document.querySelector('#page-title svg path');
+                        if (titleSvg) titleSvg.setAttribute('d', iconPath);
+                        return;
                     case 'plan-2026':
                         displayText = '2026年专升本招生计划';
                         title = '招生计划 · 2026';
@@ -851,34 +782,7 @@
                         contentPath.innerText = `当前显示：${displayText}`;
                         const titleSvg = document.querySelector('#page-title svg path');
                         if (titleSvg) titleSvg.setAttribute('d', iconPath);
-
-                        // 预览按钮事件
-                        document.querySelectorAll('.preview-btn').forEach(btn => {
-                            btn.addEventListener('click', function (e) {
-                                e.stopPropagation();
-                                const file = JSON.parse(this.getAttribute('data-file'));
-                                currentPreviewFile = file;
-                                updateContent(target, linkText); // 重新渲染显示预览
-                            });
-                        });
-
-                        // 关闭预览按钮事件
-                        const closeBtn = document.getElementById('closePreviewBtn');
-                        if (closeBtn) {
-                            closeBtn.addEventListener('click', function () {
-                                currentPreviewFile = null;
-                                updateContent(target, linkText);
-                            });
-                        }
                     }
-                } else {
-                    // 其他菜单默认处理
-                    dynamicDiv.innerHTML = `<svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg><h2>${displayText}</h2><p>占位内容</p><div class="path-hint">${title}</div>`;
-                    titleText.innerText = title;
-                    breadcrumbCat.innerText = title.includes('·') ? title.split('·')[0] : title;
-                    contentPath.innerText = `当前显示：${displayText}`;
-                    const titleSvg = document.querySelector('#page-title svg path');
-                    if (titleSvg) titleSvg.setAttribute('d', iconPath);
                 }
             }
 
@@ -888,7 +792,6 @@
                     e.preventDefault();
                     const target = this.getAttribute('data-target');
                     const linkText = this.innerText.trim();
-                    currentPreviewFile = null; // 切换菜单关闭预览
                     updateContent(target, linkText);
                     setActiveMenuItem(this);
                 });

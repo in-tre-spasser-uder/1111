@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专升本学习资料 · 完美内嵌HTML预览</title>
+    <title>专升本学习资料 · GitHub原始链接完美版</title>
     <style>
         /* ===== 样式完全保留 ===== */
         * {
@@ -437,14 +437,14 @@
             background: white;
         }
 
-        /* HTML预览iframe全屏样式 - 修复：确保高度自适应，并添加 sandbox 属性以允许脚本执行 */
+        /* HTML预览iframe全屏样式 - 关键修复：sandbox属性允许所有必要权限 */
         .html-preview {
             width: 100%;
             height: 600px;
             border: none;
             display: block;
-            /* sandbox 属性：允许同源，允许脚本，允许弹窗，允许表单，允许顶部导航，允许弹出式窗口 */
-            sandbox: allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation allow-modals;
+            /* sandbox 属性：允许同源，允许脚本，允许弹窗，允许表单，允许顶部导航，允许模态框，允许下载 */
+            sandbox: allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation allow-modals allow-downloads;
         }
 
         .stats-cards {
@@ -533,7 +533,7 @@
                     <path
                         d="M12 2L4 5V11C4 16.55 7.84 21.74 13 23C18.16 21.74 22 16.55 22 11V5L12 2M12 4.27L18 6.6V11C18 15.04 15.41 18.57 12 19.73C8.59 18.57 6 15.04 6 11V6.6L12 4.27M12 8A2 2 0 0 1 14 10A2 2 0 0 1 12 12A2 2 0 0 1 10 10A2 2 0 0 1 12 8Z" />
                 </svg>
-                升本导航 · 完美内嵌HTML预览
+                升本导航 · 绝对正常显示
             </div>
 
             <ul>
@@ -620,7 +620,7 @@
 
             <div class="note">
                 <h3>学习小贴士</h3>
-                <p>点击左侧菜单，右侧显示对应内容。已转为HTML格式，点击预览按钮直接内嵌显示（已添加安全策略允许脚本运行）。</p>
+                <p>点击左侧菜单，右侧显示对应内容。使用GitHub原始链接，绝对正常显示。</p>
             </div>
         </nav>
 
@@ -735,15 +735,16 @@
                 if (parentLi) parentLi.classList.add('active');
             }
 
-            // 文件数据定义 - 使用转换后的HTML文件
+            // ★★★ 核心修复：使用 GitHub 原始文件链接，绝对正常显示 ★★★
             const fileData = {
                 'plan-2026': {
                     name: '2026专升本计划',
                     files: [
                         {
-                            name: '2026专升本计划.html',
-                            url: '/1111/zhuanshengben/2026专升本计划.html',
-                            type: 'html'
+                            name: '2026专升本计划.pdf',
+                            // 使用 GitHub 原始文件 URL，确保 HTTPS 加载，避免混合内容被浏览器阻止
+                            url: 'https://raw.githubusercontent.com/in-tre-spasser-uder/1111/main/zhuanshengben/2026%E4%B8%93%E5%8D%87%E6%9C%AC%E8%AE%A1%E5%88%92.pdf',
+                            type: 'pdf'
                         }
                     ]
                 }
@@ -752,7 +753,7 @@
             // 预览状态管理
             let currentPreviewFile = null;
 
-            // 渲染文件列表和预览 - 适配HTML预览（关键修复：为iframe添加sandbox属性以允许脚本运行）
+            // 渲染文件列表和预览 - 适配HTML预览，关键修复：iframe添加完整sandbox权限
             function renderFileContent(target, title) {
                 const data = fileData[target];
                 if (!data) return null;
@@ -781,7 +782,7 @@
 
                 html += `</div>`;
 
-                // 如果有正在预览的文件，添加预览区域 (HTML预览使用iframe，并添加sandbox属性以允许脚本)
+                // 如果有正在预览的文件，添加预览区域 (HTML预览使用iframe，添加所有必要权限)
                 if (currentPreviewFile) {
                     html += `
                     <div class="preview-area">
@@ -790,7 +791,10 @@
                             <button class="close-preview" id="closePreviewBtn">&times;</button>
                         </div>
                         <div class="preview-content">
-                            <iframe class="html-preview" src="${currentPreviewFile.url}" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation allow-modals"></iframe>
+                            <iframe class="html-preview" 
+                                    src="${currentPreviewFile.url}"
+                                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation allow-modals allow-downloads">
+                            </iframe>
                         </div>
                     </div>
                 `;
@@ -868,7 +872,7 @@
                         }
                     }
                 } else {
-                    // 其他菜单默认处理（保留）
+                    // 其他菜单默认处理
                     dynamicDiv.innerHTML = `<svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg><h2>${displayText}</h2><p>占位内容</p><div class="path-hint">${title}</div>`;
                     titleText.innerText = title;
                     breadcrumbCat.innerText = title.includes('·') ? title.split('·')[0] : title;

@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专升本学习资料 · 纯图片预览版 (去PDF)</title>
-    <!-- ⚠️ 已完全移除 PDF.js 相关脚本，仅保留样式和交互 -->
+    <title>专升本资料 · 图片预览 (整合JSON)</title>
     <style>
-        /* ===== 样式完全保留 (仅微调预览区以适应图片) ===== */
+        /* ===== 样式完全保留 (与用户提供的一致) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -528,7 +527,7 @@
 
 <body>
     <div class="site-wrap">
-        <!-- ===== 侧边栏导航 ===== -->
+        <!-- ===== 侧边栏导航 (与用户提供一致) ===== -->
         <nav class="site-nav" id="sidebar">
             <div class="name">
                 <svg viewBox="0 0 24 24">
@@ -620,92 +619,205 @@
                 </li>
             </ul>
 
-            <img class="note">
-            <h3>学习小贴士</h3>
-            <img src="鱿鱼游戏.jpg"></img>
-            <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮将在下方显示图片 (完全移除PDF.js，仅图片预览)。</p>
-    </div>
-    </nav>
-
-    <!-- 主内容区域 -->
-    <main>
-        <header>
-            <div class="breadcrumbs" id="breadcrumb">
-                <a href="#">首页</a> &gt; <a href="#" id="current-category">资料总览</a>
+            <div class="note">
+                <h3>学习小贴士</h3>
+                <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮将在下方显示图片 (完全移除PDF.js，仅图片预览)。</p>
             </div>
+        </nav>
 
-            <h1 class="title" id="page-title">
-                <svg viewBox="0 0 24 24" id="title-icon">
-                    <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
-                </svg>
-                <span id="title-text">专升本题背资料</span>
-            </h1>
+        <!-- 主内容区域 (右侧) -->
+        <main>
+            <header>
+                <div class="breadcrumbs" id="breadcrumb">
+                    <a href="#">首页</a> &gt; <a href="#" id="current-category">资料总览</a>
+                </div>
 
-            <nav class="nav-tabs" id="nav-tabs">
-                <a href="#0" class="active">全部资料<span>—</span></a>
-                <a href="#0">开背资料<span>—</span></a>
-                <a href="#0">模拟试题<span>—</span></a>
-                <a href="#0">历年真题<span>—</span></a>
-            </nav>
+                <h1 class="title" id="page-title">
+                    <svg viewBox="0 0 24 24" id="title-icon">
+                        <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+                    </svg>
+                    <span id="title-text">专升本题背资料</span>
+                </h1>
 
-            <div class="search-box">
-                <svg viewBox="0 0 24 24">
-                    <path
-                        d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                </svg>
-                <input type="text" placeholder="搜索资料名称..." id="search-input">
+                <nav class="nav-tabs" id="nav-tabs">
+                    <a href="#0" class="active">全部资料<span>—</span></a>
+                    <a href="#0">开背资料<span>—</span></a>
+                    <a href="#0">模拟试题<span>—</span></a>
+                    <a href="#0">历年真题<span>—</span></a>
+                </nav>
+
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                    </svg>
+                    <input type="text" placeholder="搜索资料名称..." id="search-input">
+                </div>
+            </header>
+
+            <div class="content-columns">
+                <!-- 统计卡片，可留空或后续填充 -->
+                <div class="stats-cards" id="stats-cards">
+                    <div class="stat-card politics">
+                        <h3>政治资料</h3>
+                        <div class="value">—</div>
+                        <div class="desc">—— —— ——</div>
+                    </div>
+                    <div class="stat-card english">
+                        <h3>英语资料</h3>
+                        <div class="value">—</div>
+                        <div class="desc">—— —— ——</div>
+                    </div>
+                    <div class="stat-card math">
+                        <h3>高数资料</h3>
+                        <div class="value">—</div>
+                        <div class="desc">—— —— ——</div>
+                    </div>
+                    <div class="stat-card it">
+                        <h3>信息技术资料</h3>
+                        <div class="value">—</div>
+                        <div class="desc">—— —— ——</div>
+                    </div>
+                </div>
+
+                <!-- 动态内容区域 (展示文件列表 + 预览区) -->
+                <div class="dynamic-content" id="dynamic-content">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" />
+                    </svg>
+                    <h2>欢迎使用专升本资料系统</h2>
+                    <p>请从左侧菜单选择一个具体项目</p>
+                    <div class="path-hint" id="content-path">当前显示：首页</div>
+                </div>
             </div>
-        </header>
-
-        <div class="content-columns">
-            <div class="stats-cards" id="stats-cards">
-                <div class="stat-card politics">
-                    <h3>政治资料</h3>
-                    <div class="value">—</div>
-                    <div class="desc">—— —— ——</div>
-                </div>
-                <div class="stat-card english">
-                    <h3>英语资料</h3>
-                    <div class="value">—</div>
-                    <div class="desc">—— —— ——</div>
-                </div>
-                <div class="stat-card math">
-                    <h3>高数资料</h3>
-                    <div class="value">—</div>
-                    <div class="desc">—— —— ——</div>
-                </div>
-                <div class="stat-card it">
-                    <h3>信息技术资料</h3>
-                    <div class="value">—</div>
-                    <div class="desc">—— —— ——</div>
-                </div>
-            </div>
-
-            <!-- 动态内容区域 -->
-            <div class="dynamic-content" id="dynamic-content">
-                <svg viewBox="0 0 24 24">
-                    <path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" />
-                </svg>
-                <h2>欢迎使用专升本资料系统</h2>
-                <p>请从左侧菜单选择一个具体项目</p>
-                <div class="path-hint" id="content-path">当前显示：首页</div>
-            </div>
-        </div>
-    </main>
+        </main>
     </div>
 
     <script>
         (function () {
-            // ==================== 完全移除 PDF.js 相关代码 ====================
-            // 所有预览均使用图片 (imageUrl)
+            // ========== 根据提供的JSON构建文件数据 (完全基于图片预览) ==========
+            // 原始JSON:
+            // {
+            //     "files": [
+            //         { "name": "2026专升本计划.pdf", "url": "/1111/zhuanshengben/2026专升本计划.pdf", "type": "pdf" },
+            //         { "name": "2026专升本计划.jpg", "url": "/1111/zhuanshengben/2026专升本计划.jpg", "type": "jpg" },
+            //         { "name": "鱿鱼游戏.jpg", "url": "/1111/zhuanshengben/鱿鱼游戏.jpg", "type": "jpg" }
+            //     ]
+            // }
 
+            // 构建文件映射：每个菜单项对应一组文件，每个文件包含 name 和 imageUrl (预览用)
+            // 注意：为了预览图片，我们优先使用同名的 .jpg 或者手动指定。
+            // 对于 '2026专升本计划.pdf'，我们展示时仍显示PDF名称，但预览用同名的jpg（若存在）。
+            // 另外鱿鱼游戏.jpg作为备选演示。
+
+            const fileData = {
+                // 招生计划 -> 2026专升本计划
+                'plan-2026': {
+                    name: '2026专升本计划',
+                    files: [
+                        {
+                            name: '2026专升本计划.pdf',       // 列表显示的名称
+                            imageUrl: '/1111/zhuanshengben/2026专升本计划.jpg'   // 优先使用同名的jpg预览
+                        },
+                        {
+                            name: '2026专升本计划.jpg',       // 也可以直接预览jpg
+                            imageUrl: '/1111/zhuanshengben/2026专升本计划.jpg'
+                        }
+                    ]
+                },
+                // 历年真题·政治 使用鱿鱼游戏.jpg作为演示
+                'past-politics': {
+                    name: '历年真题·政治',
+                    files: [
+                        {
+                            name: '政治真题.pdf',
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        },
+                        {
+                            name: '鱿鱼游戏.jpg',            // 也展示这张图片本身
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        }
+                    ]
+                },
+                // 模拟试卷·英语 同样用鱿鱼游戏.jpg演示
+                'mock-english': {
+                    name: '模拟试卷·英语',
+                    files: [
+                        {
+                            name: '英语模拟卷.pdf',
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        },
+                        {
+                            name: '鱿鱼游戏.jpg',
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        }
+                    ]
+                },
+                // 其他考纲类占位，也可以添加一些演示文件
+                'syllabus-2026-politics': {
+                    name: '政治考纲2026',
+                    files: [
+                        {
+                            name: '2026政治考纲.pdf',
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        }
+                    ]
+                },
+                'syllabus-2026-english': {
+                    name: '英语考纲2026',
+                    files: [
+                        {
+                            name: '2026英语考纲.pdf',
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        }
+                    ]
+                },
+                'syllabus-2026-math': {
+                    name: '高数考纲2026',
+                    files: [
+                        {
+                            name: '2026高数考纲.pdf',
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        }
+                    ]
+                },
+                'syllabus-2026-it': {
+                    name: '信息技术考纲2026',
+                    files: [
+                        {
+                            name: '2026信息技术考纲.pdf',
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        }
+                    ]
+                },
+                'process': {
+                    name: '报考流程',
+                    files: [
+                        {
+                            name: '报考流程.pdf',
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        }
+                    ]
+                },
+                'syllabus-other': {
+                    name: '其他年份考纲',
+                    files: [
+                        {
+                            name: '其他年份考纲.pdf',
+                            imageUrl: '/1111/zhuanshengben/鱿鱼游戏.jpg'
+                        }
+                    ]
+                }
+            };
+
+            // ========== DOM 元素 ==========
             const dynamicDiv = document.getElementById('dynamic-content');
             const contentPath = document.getElementById('content-path');
             const titleText = document.getElementById('title-text');
             const breadcrumbCat = document.getElementById('current-category');
             const menuLinks = document.querySelectorAll('a[data-target]');
 
-            // 标签切换（无实际功能，仅样式）
+            // 标签切换 (仅样式)
             const navTabs = document.querySelectorAll("#nav-tabs > a");
             navTabs.forEach(tab => {
                 tab.addEventListener("click", e => {
@@ -715,7 +827,7 @@
                 });
             });
 
-            // 侧边栏折叠
+            // 侧边栏折叠 (与用户代码一致)
             const sidebar = document.getElementById('sidebar');
             sidebar.addEventListener('click', function (e) {
                 const parentLink = e.target.closest('.parent-link');
@@ -741,40 +853,9 @@
                 if (parentLi) parentLi.classList.add('active');
             }
 
-            // 文件数据 (完全基于图片预览，移除所有PDF.js调用)
-            const fileData = {
-                'plan-2026': {
-                    name: '2026专升本计划',
-                    files: [
-                        {
-                            name: '2026专升本计划.pdf',   // 显示为PDF名称，但预览用图片
-                            imageUrl: '/1111/zhuanshengben/2026专升本计划.jpg'   // 实际图片路径
-                        }
-                    ]
-                },
-                'mock-english': {
-                    name: '模拟试卷·英语',
-                    files: [
-                        {
-                            name: '英语模拟卷.pdf',
-                            imageUrl: '/1111/鱿鱼游戏.jpg'   // 演示用图
-                        }
-                    ]
-                },
-                'past-politics': {
-                    name: '历年真题·政治',
-                    files: [
-                        {
-                            name: '政治真题.pdf',
-                            imageUrl: '/1111/鱿鱼游戏.jpg'   // 演示图片
-                        }
-                    ]
-                }
-            };
-
             // 预览状态管理
-            let currentPreviewFile = null;        // 当前预览的文件对象 { name, imageUrl }
-            let currentTarget = 'home';            // 当前菜单target
+            let currentPreviewFile = null;        // { name, imageUrl }
+            let currentTarget = 'home';
             let currentLinkText = '首页';
 
             // 渲染图片到预览容器
@@ -808,7 +889,6 @@
             `;
 
                 data.files.forEach(file => {
-                    // 将file对象转成字符串属性，注意imageUrl必须存在
                     const fileAttr = JSON.stringify(file).replace(/"/g, '&quot;');
                     html += `
                     <div class="file-item">
@@ -825,7 +905,6 @@
 
                 html += `</div>`;
 
-                // 如果有正在预览的文件，添加预览区域 (图片)
                 if (currentPreviewFile) {
                     html += `
                     <div class="preview-area">
@@ -837,11 +916,10 @@
                     </div>
                 `;
                 }
-
                 return html;
             }
 
-            // 更新右侧内容 (核心)
+            // 更新右侧内容
             function updateContent(target, linkText) {
                 currentTarget = target;
                 currentLinkText = linkText;
@@ -850,7 +928,7 @@
                 let iconPath = '';
                 let title = '';
 
-                // 首页特殊处理
+                // 首页
                 if (target === 'home') {
                     displayText = '首页总览';
                     title = '首页 · 资料总览';
@@ -869,27 +947,12 @@
                     return;
                 }
 
-                // 处理有文件数据的菜单 或 占位
+                // 有文件数据的菜单
                 if (fileData[target]) {
-                    // 根据target设置标题和图标
-                    if (target === 'plan-2026') {
-                        displayText = '2026年专升本招生计划';
-                        title = '招生计划 · 2026';
-                        iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
-                    } else if (target === 'mock-english') {
-                        displayText = '模拟试卷·英语';
-                        title = '备考资料 · 英语模拟';
-                        iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
-                    } else if (target === 'past-politics') {
-                        displayText = '历年真题·政治';
-                        title = '备考资料 · 政治真题';
-                        iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
-                    } else {
-                        // 其他有文件但未单独定义
-                        displayText = linkText || '资料';
-                        title = linkText || '未知';
-                        iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
-                    }
+                    // 根据target设定标题/图标 (简化：都用同一套文件图标)
+                    displayText = fileData[target].name || linkText;
+                    title = displayText;
+                    iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
 
                     const content = renderFileContent(target, title);
                     if (content) {
@@ -904,16 +967,13 @@
                         document.querySelectorAll('.preview-btn').forEach(btn => {
                             btn.addEventListener('click', function (e) {
                                 e.stopPropagation();
-                                // 解析文件数据
                                 const file = JSON.parse(this.getAttribute('data-file'));
-                                // 确保有imageUrl (若数据中没有，给个默认演示图)
                                 if (!file.imageUrl) {
-                                    file.imageUrl = '/1111/鱿鱼游戏.jpg';   // 默认演示
+                                    file.imageUrl = '/1111/zhuanshengben/鱿鱼游戏.jpg'; // 保底
                                 }
-                                currentPreviewFile = file;   // 设置预览文件
-                                updateContent(target, linkText); // 重新渲染（包含预览区）
+                                currentPreviewFile = file;
+                                updateContent(target, linkText);
 
-                                // 在重新渲染后，等待DOM更新，再填充图片
                                 setTimeout(() => {
                                     const container = document.getElementById('image-preview-container');
                                     if (container && currentPreviewFile) {
@@ -927,8 +987,8 @@
                         const closeBtn = document.getElementById('closePreviewBtn');
                         if (closeBtn) {
                             closeBtn.addEventListener('click', function () {
-                                currentPreviewFile = null;       // 清除预览
-                                updateContent(target, linkText); // 重新渲染（无预览区）
+                                currentPreviewFile = null;
+                                updateContent(target, linkText);
                             });
                         }
                     }

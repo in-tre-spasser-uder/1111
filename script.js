@@ -23,12 +23,12 @@ const fileData = {
         files: [
             {
                 name: '19-25政治真题.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/19-25政治真题.pdf',  // 修改为正确的PDF路径
+                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题.pdf',  // 修改为正确的PDF路径
                 type: 'pdf'
             },
             {
                 name: '19-25政治真题.png',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/19-25政治真题.png',  // 修改为正确的PNG路径
+                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题.png',  // 修改为正确的PNG路径
                 type: 'png'
             }
         ]

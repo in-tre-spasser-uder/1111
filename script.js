@@ -17,7 +17,6 @@ const fileData = {
         ]
     },
     // 历年真题·政治
-    // 历年真题·政治
     'past-politics': {
         name: '历年真题·政治',
         files: [

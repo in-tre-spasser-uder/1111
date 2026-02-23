@@ -6,11 +6,13 @@ const fileData = {
         files: [
             {
                 name: '2026专升本计划.pdf',
-                imageUrl: './zhuanshengben/2026专升本计划.jpg'
+                fileUrl: './zhuanshengben/2026专升本计划.pdf',
+                type: 'pdf'
             },
             {
                 name: '2026专升本计划.jpg',
-                imageUrl: './zhuanshengben/2026专升本计划.jpg'
+                fileUrl: './zhuanshengben/2026专升本计划.jpg',
+                type: 'jpg'
             }
         ]
     },
@@ -20,11 +22,13 @@ const fileData = {
         files: [
             {
                 name: '政治真题.pdf',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',  // 这里暂时没有真实PDF，先用图片演示
+                type: 'pdf'
             },
             {
                 name: '鱿鱼游戏.jpg',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',
+                type: 'jpg'
             }
         ]
     },
@@ -34,11 +38,13 @@ const fileData = {
         files: [
             {
                 name: '英语模拟卷.pdf',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',
+                type: 'pdf'
             },
             {
                 name: '鱿鱼游戏.jpg',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',
+                type: 'jpg'
             }
         ]
     },
@@ -48,7 +54,8 @@ const fileData = {
         files: [
             {
                 name: '2026政治考纲.pdf',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',
+                type: 'pdf'
             }
         ]
     },
@@ -57,7 +64,8 @@ const fileData = {
         files: [
             {
                 name: '2026英语考纲.pdf',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',
+                type: 'pdf'
             }
         ]
     },
@@ -66,7 +74,8 @@ const fileData = {
         files: [
             {
                 name: '2026高数考纲.pdf',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',
+                type: 'pdf'
             }
         ]
     },
@@ -75,7 +84,8 @@ const fileData = {
         files: [
             {
                 name: '2026信息技术考纲.pdf',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',
+                type: 'pdf'
             }
         ]
     },
@@ -84,7 +94,8 @@ const fileData = {
         files: [
             {
                 name: '报考流程.pdf',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',
+                type: 'pdf'
             }
         ]
     },
@@ -93,7 +104,8 @@ const fileData = {
         files: [
             {
                 name: '其他年份考纲.pdf',
-                imageUrl: './鱿鱼游戏.jpg'
+                fileUrl: './鱿鱼游戏.jpg',
+                type: 'pdf'
             }
         ]
     }
@@ -147,21 +159,39 @@ let currentPreviewFile = null;
 let currentTarget = 'home';
 let currentLinkText = '首页';
 
-// 渲染图片到预览容器
-function renderImagePreview(imageUrl, container) {
+// 渲染预览内容（支持图片和PDF）
+function renderPreview(file, container) {
     container.innerHTML = '';
-    const img = document.createElement('img');
-    img.src = imageUrl;
-    img.alt = '预览图片';
-    img.style.maxWidth = '100%';
-    img.style.height = 'auto';
-    img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-    img.style.borderRadius = '4px';
+    
+    // 判断文件类型
+    if (file.type === 'pdf' || file.name.toLowerCase().endsWith('.pdf')) {
+        // PDF使用iframe嵌入
+        const iframe = document.createElement('iframe');
+        iframe.src = file.fileUrl;
+        iframe.style.width = '100%';
+        iframe.style.height = '800px';
+        iframe.style.border = 'none';
+        iframe.style.borderRadius = '4px';
+        
+        iframe.onerror = function () {
+            container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ PDF加载失败: ${file.fileUrl}<br>请检查路径或网络。</div>`;
+        };
+        container.appendChild(iframe);
+    } else {
+        // 图片使用img显示
+        const img = document.createElement('img');
+        img.src = file.fileUrl;
+        img.alt = '预览图片';
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
+        img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+        img.style.borderRadius = '4px';
 
-    img.onerror = function () {
-        container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 图片加载失败: ${imageUrl}<br>请检查路径或网络。</div>`;
-    };
-    container.appendChild(img);
+        img.onerror = function () {
+            container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 图片加载失败: ${file.fileUrl}<br>请检查路径或网络。</div>`;
+        };
+        container.appendChild(img);
+    }
 }
 
 // 生成文件列表HTML
@@ -179,11 +209,16 @@ function renderFileContent(target, title) {
 
     data.files.forEach(file => {
         const fileAttr = JSON.stringify(file).replace(/"/g, '&quot;');
+        // 根据文件类型显示不同图标
+        const fileIcon = file.type === 'pdf' ? 
+            '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 10h-8v-2h8v2zm0-4h-8V7h8v2z" />' :
+            '<path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />';
+        
         html += `
             <div class="file-item">
                 <div class="file-info">
                     <svg viewBox="0 0 24 24">
-                        <path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                        ${fileIcon}
                     </svg>
                     <span class="file-name">${file.name}</span>
                 </div>
@@ -195,13 +230,14 @@ function renderFileContent(target, title) {
     html += `</div>`;
 
     if (currentPreviewFile) {
+        const previewType = currentPreviewFile.type === 'pdf' ? 'PDF预览' : '图片预览';
         html += `
             <div class="preview-area">
                 <div class="preview-header">
-                    <h3>${currentPreviewFile.name} (图片预览)</h3>
+                    <h3>${currentPreviewFile.name} (${previewType})</h3>
                     <button class="close-preview" id="closePreviewBtn">&times;</button>
                 </div>
-                <div class="preview-content" id="image-preview-container"></div>
+                <div class="preview-content" id="preview-container"></div>
             </div>
         `;
     }
@@ -225,7 +261,7 @@ function updateContent(target, linkText) {
         dynamicDiv.innerHTML = `
             <svg viewBox="0 0 24 24"><path d="${iconPath}" /></svg>
             <h2>${displayText}</h2>
-            <p>欢迎使用专升本学习资料管理系统 (纯图片预览版)。从左侧菜单选择具体项目查看文件，点击预览以图片展示。</p>
+            <p>欢迎使用专升本学习资料管理系统 (支持PDF和图片预览)。从左侧菜单选择具体项目查看文件，点击预览按钮查看内容。</p>
             <div class="path-hint">当前显示：首页</div>
         `;
         titleText.innerText = title;
@@ -256,16 +292,13 @@ function updateContent(target, linkText) {
                 btn.addEventListener('click', function (e) {
                     e.stopPropagation();
                     const file = JSON.parse(this.getAttribute('data-file'));
-                    if (!file.imageUrl) {
-                        file.imageUrl = './鱿鱼游戏.jpg';
-                    }
                     currentPreviewFile = file;
                     updateContent(target, linkText);
 
                     setTimeout(() => {
-                        const container = document.getElementById('image-preview-container');
+                        const container = document.getElementById('preview-container');
                         if (container && currentPreviewFile) {
-                            renderImagePreview(currentPreviewFile.imageUrl, container);
+                            renderPreview(currentPreviewFile, container);
                         }
                     }, 50);
                 });

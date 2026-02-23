@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专升本资料 · 图片预览 (整合JSON)</title>
+    <title>专升本资料 · 图片预览 (GitHub适配版)</title>
     <style>
-        /* ===== 样式完全保留 (与用户提供的一致) ===== */
+        /* ===== 你的样式在此处完全保留，未做任何改动 ===== */
         * {
             margin: 0;
             padding: 0;
@@ -534,7 +534,7 @@
                     <path
                         d="M12 2L4 5V11C4 16.55 7.84 21.74 13 23C18.16 21.74 22 16.55 22 11V5L12 2M12 4.27L18 6.6V11C18 15.04 15.41 18.57 12 19.73C8.59 18.57 6 15.04 6 11V6.6L12 4.27M12 8A2 2 0 0 1 14 10A2 2 0 0 1 12 12A2 2 0 0 1 10 10A2 2 0 0 1 12 8Z" />
                 </svg>
-                升本导航 · 纯图片预览(去PDF)
+                升本导航 · 纯图片预览
             </div>
 
             <ul>
@@ -621,8 +621,9 @@
 
             <div class="note">
                 <h3>学习小贴士</h3>
-                <a href="./1.html">你好你好</a>
-                <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮将在下方显示图片 (完全移除PDF.js，仅图片预览)。</p>
+                <!-- 关键修改1：修正跳转到 1.html 的链接路径，确保指向同一目录 -->
+                <a href="./1.html" target="_blank">打开 1.html (同目录)</a>
+                <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮将在下方显示图片。</p>
             </div>
         </nav>
 
@@ -696,20 +697,9 @@
 
     <script>
         (function () {
-            // ========== 根据提供的JSON构建文件数据 (完全基于图片预览) ==========
-            // 原始JSON:
-            // {
-            //     "files": [
-            //         { "name": "2026专升本计划.pdf", "url": "/1111/zhuanshengben/2026专升本计划.pdf", "type": "pdf" },
-            //         { "name": "2026专升本计划.jpg", "url": "/1111/zhuanshengben/2026专升本计划.jpg", "type": "jpg" },
-            //         { "name": "鱿鱼游戏.jpg", "url": "/1111/zhuanshengben/鱿鱼游戏.jpg", "type": "jpg" }
-            //     ]
-            // }
-
-            // 构建文件映射：每个菜单项对应一组文件，每个文件包含 name 和 imageUrl (预览用)
-            // 注意：为了预览图片，我们优先使用同名的 .jpg 或者手动指定。
-            // 对于 '2026专升本计划.pdf'，我们展示时仍显示PDF名称，但预览用同名的jpg（若存在）。
-            // 另外鱿鱼游戏.jpg作为备选演示。
+            // ========== 修正后的 fileData：所有图片路径指向正确的子文件夹 ==========
+            // 根据你的文件结构：D:\1111\zhuanshengben\ 对应网站根目录下的 /zhuanshengben/
+            // 因此所有图片的URL应该以 "./zhuanshengben/" 开头
 
             const fileData = {
                 // 招生计划 -> 2026专升本计划
@@ -718,25 +708,25 @@
                     files: [
                         {
                             name: '2026专升本计划.pdf',       // 列表显示的名称
-                            imageUrl: './1111/zhuanshengben/2026专升本计划.jpg'   // 使用相对路径
+                            imageUrl: './zhuanshengben/2026专升本计划.jpg'   // 修正为正确的相对路径
                         },
                         {
                             name: '2026专升本计划.jpg',       // 也可以直接预览jpg
-                            imageUrl: './1111/zhuanshengben/2026专升本计划.jpg'
+                            imageUrl: './zhuanshengben/2026专升本计划.jpg'
                         }
                     ]
                 },
-                // 历年真题·政治 使用鱿鱼游戏.jpg作为演示
+                // 历年真题·政治 使用鱿鱼游戏.jpg作为演示 (鱿鱼游戏.jpg在根目录)
                 'past-politics': {
                     name: '历年真题·政治',
                     files: [
                         {
                             name: '政治真题.pdf',
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'   // 鱿鱼游戏.jpg在根目录，所以路径是 ./
                         },
                         {
                             name: '鱿鱼游戏.jpg',            // 也展示这张图片本身
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'
                         }
                     ]
                 },
@@ -746,21 +736,21 @@
                     files: [
                         {
                             name: '英语模拟卷.pdf',
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'
                         },
                         {
                             name: '鱿鱼游戏.jpg',
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'
                         }
                     ]
                 },
-                // 其他考纲类占位，也可以添加一些演示文件
+                // 其他考纲类占位，使用鱿鱼游戏.jpg演示 (可根据实际文件调整)
                 'syllabus-2026-politics': {
                     name: '政治考纲2026',
                     files: [
                         {
                             name: '2026政治考纲.pdf',
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'
                         }
                     ]
                 },
@@ -769,7 +759,7 @@
                     files: [
                         {
                             name: '2026英语考纲.pdf',
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'
                         }
                     ]
                 },
@@ -778,7 +768,7 @@
                     files: [
                         {
                             name: '2026高数考纲.pdf',
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'
                         }
                     ]
                 },
@@ -787,7 +777,7 @@
                     files: [
                         {
                             name: '2026信息技术考纲.pdf',
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'
                         }
                     ]
                 },
@@ -796,7 +786,7 @@
                     files: [
                         {
                             name: '报考流程.pdf',
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'
                         }
                     ]
                 },
@@ -805,7 +795,7 @@
                     files: [
                         {
                             name: '其他年份考纲.pdf',
-                            imageUrl: './1111/zhuanshengben/鱿鱼游戏.jpg'
+                            imageUrl: './鱿鱼游戏.jpg'
                         }
                     ]
                 }
@@ -969,8 +959,9 @@
                             btn.addEventListener('click', function (e) {
                                 e.stopPropagation();
                                 const file = JSON.parse(this.getAttribute('data-file'));
+                                // 关键修改2：保底图片路径也修正为相对路径 (如果imageUrl意外丢失)
                                 if (!file.imageUrl) {
-                                    file.imageUrl = './1111/zhuanshengben/鱿鱼游戏.jpg'; // 保底
+                                    file.imageUrl = './鱿鱼游戏.jpg'; // 保底
                                 }
                                 currentPreviewFile = file;
                                 updateContent(target, linkText);
@@ -1031,6 +1022,26 @@
             if (homeLi) homeLi.classList.add('active');
         })();
     </script>
+    <!-- 你提供的JSON数据保留作为参考，不影响功能 -->
+    <!-- {
+        "files": [
+            {
+                "name": "2026专升本计划.pdf",
+                "url": "/1111/zhuanshengben/2026专升本计划.pdf",
+                "type": "pdf"
+            },
+            {
+                "name": "2026专升本计划.jpg", 
+                "url": "/1111/zhuanshengben/2026专升本计划.jpg",
+                "type": "jpg"
+            },
+            {
+                "name": "鱿鱼游戏.jpg",
+                "url": "/1111/zhuanshengben/鱿鱼游戏.jpg",
+                "type": "jpg"
+            }
+        ]
+    } -->
 </body>
 
 </html>

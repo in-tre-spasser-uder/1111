@@ -654,6 +654,226 @@ main>header {
     border-left-color: #f59e0b;
 }
 
+/* 文件标识样式 */
+.file-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.file-badge.question {
+    background: #e6f7ff;
+    color: #1890ff;
+    border: 1px solid #91d5ff;
+}
+
+.file-badge.answer {
+    background: #f6ffed;
+    color: #52c41a;
+    border: 1px solid #b7eb8f;
+}
+
+/* 答案对照按钮样式优化 */
+.answer-preview-btn {
+    background: #722ed1;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.answer-preview-btn:hover {
+    background: #531dab;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 按钮容器间距优化 */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* 文件信息区域优化 */
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+    flex-wrap: wrap;
+}
+
+/* ===== 固定头部 + 固定底部，中间菜单滚动 ===== */
+.site-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0;
+}
+
+.nav-header-fixed {
+    flex-shrink: 0;
+    background: #161c2d;
+    padding: 16px 0 12px 0;
+    margin: 0 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 5;
+}
+
+.nav-menu-scrollable {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px 0;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #4096ff #2d3748;
+}
+
+.nav-menu-scrollable::-webkit-scrollbar {
+    width: 5px;
+}
+
+.nav-menu-scrollable::-webkit-scrollbar-track {
+    background: #f5f7fa;
+    border-radius: 10px;
+}
+
+.nav-menu-scrollable::-webkit-scrollbar-thumb {
+    background: #2d8cf0;
+    border-radius: 10px;
+}
+
+.nav-menu-scrollable::-webkit-scrollbar-thumb:hover {
+    background: #1a6ec0;
+}
+
+.nav-footer-fixed {
+    flex-shrink: 0;
+    background: #161c2d;
+    padding: 8px 16px 16px 16px;
+    margin-top: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 5;
+}
+
+.nav-header-fixed .name {
+    margin: 0 0 4px 0;
+    padding: 0 8px 8px 8px;
+    border-bottom: none;
+}
+
+.nav-footer-fixed .note {
+    width: auto;
+    margin: 0;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.nav-menu-scrollable>ul {
+    padding: 0 0 8px 0;
+    margin: 0;
+    height: auto;
+}
+
+.nav-menu-scrollable ul ul {
+    padding-left: 16px;
+}
+
+.site-nav ul li a {
+    padding: 10px 24px;
+}
+
+.nav-menu-scrollable li.has-children>ul {
+    max-height: 0;
+    transition: max-height 0.2s ease;
+    overflow: hidden;
+}
+
+/* 豆包风格多级菜单样式 */
+.history-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin: 0 8px 4px;
+    border-radius: 4px;
+    color: #e5e9f2;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.history-category:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.category-icon {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    color: #94a3b8;
+}
+
+.history-category.expanded .category-icon {
+    transform: rotate(90deg);
+}
+
+.history-submenu {
+    padding-left: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.history-category.expanded+.history-submenu {
+    max-height: 500px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    margin: 0 8px 4px;
+    border-radius: 4px;
+    color: #a5b4cc;
+    cursor: pointer;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+.history-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #4096ff;
+}
+
+.history-item.active {
+    background-color: rgba(64, 150, 255, 0.15);
+    color: #4096ff;
+}
+
 /* ===== 响应式设计 ===== */
 @media (max-width: 768px) {
     .site-wrap {
@@ -718,67 +938,4 @@ main>header {
     .file-name {
         max-width: 150px;
     }
-
-    /* 文件标识样式 */
-    .file-badge {
-        display: inline-block;
-        padding: 2px 8px;
-        border-radius: 12px;
-        font-size: 12px;
-        font-weight: 500;
-        margin-left: 10px;
-    }
-
-    .file-badge.question {
-        background: #e6f7ff;
-        color: #1890ff;
-        border: 1px solid #91d5ff;
-    }
-
-    .file-badge.answer {
-        background: #f6ffed;
-        color: #52c41a;
-        border: 1px solid #b7eb8f;
-    }
-
-    /* 答案对照按钮样式优化 */
-    .answer-preview-btn {
-        background: #722ed1;
-        color: white;
-        border: none;
-        padding: 6px 16px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 400;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-    }
-
-    .answer-preview-btn:hover {
-        background: #531dab;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    /* 按钮容器间距优化 */
-    .action-buttons {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-
-    /* 文件信息区域优化 */
-    .file-info {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex: 1;
-        min-width: 0;
-        flex-wrap: wrap;
-    }
-
 }

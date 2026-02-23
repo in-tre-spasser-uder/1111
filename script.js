@@ -16,35 +16,113 @@ const fileData = {
             }
         ]
     },
-    // 历年真题·政治
+
+    // 在 fileData 中添加（示例：添加英语和高数一真题）
     'past-politics': {
         name: '历年真题·政治',
         files: [
             {
                 name: '19-25政治真题.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题.pdf',  // 修改为正确的PDF路径
+                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题.pdf',
                 type: 'pdf'
             },
             {
                 name: '19-25政治真题答案.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题答案.pdf',  // 修改为正确的PNG路径
+                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题答案.pdf',
                 type: 'pdf'
             }
         ]
     },
-    // 模拟试卷·英语
-    'mock-english': {
-        name: '模拟试卷·英语',
+    // 复制添加英语真题
+    'past-english': {
+        name: '历年真题·英语',
         files: [
             {
-                name: '英语模拟卷.pdf',
-                fileUrl: './鱿鱼游戏.jpg',
+                name: '09-25英语真题.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/英语/09-25英语真题.pdf',
                 type: 'pdf'
             },
             {
-                name: '鱿鱼游戏.jpg',
-                fileUrl: './鱿鱼游戏.jpg',
-                type: 'jpg'
+                name: '09-25英语真题答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/英语/09-25英语真题答案.pdf',
+                type: 'pdf'
+            }
+        ]
+    },
+    // 复制添加高数一真题
+    'past-math': {
+        name: '历年真题·高数一',
+        files: [
+            {
+                name: '14-25高数一真题.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/高数一/14-25高数一真题.pdf',
+                type: 'pdf'
+            },
+            {
+                name: '14-25高数一真题答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/高数一/14-25高数一真题答案.pdf',
+                type: 'pdf'
+            }
+        ]
+    },
+    // 模拟题配置（新添加的）
+    'mock-politics-1': {
+        name: '政治模拟卷一',
+        files: [
+            {
+                name: '政治模拟卷1.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷1.pdf',
+                type: 'pdf'
+            },
+            {
+                name: '政治模拟卷1答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷1答案.pdf',
+                type: 'pdf'
+            }
+        ]
+    },
+    'mock-english-1': {
+        name: '英语模拟卷一',
+        files: [
+            {
+                name: '英语模拟卷1.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷1.pdf',
+                type: 'pdf'
+            },
+            {
+                name: '英语模拟卷1答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷1答案.pdf',
+                type: 'pdf'
+            }
+        ]
+    },
+    'mock-math-1': {
+        name: '高数模拟卷一',
+        files: [
+            {
+                name: '高数模拟卷1.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷1.pdf',
+                type: 'pdf'
+            },
+            {
+                name: '高数模拟卷1答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷1答案.pdf',
+                type: 'pdf'
+            }
+        ]
+    },
+    'mock-it-1': {
+        name: '信息技术模拟卷一',
+        files: [
+            {
+                name: '信息技术模拟卷1.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷1.pdf',
+                type: 'pdf'
+            },
+            {
+                name: '信息技术模拟卷1答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷1答案.pdf',
+                type: 'pdf'
             }
         ]
     },
@@ -54,7 +132,7 @@ const fileData = {
         files: [
             {
                 name: '2026政治考纲.pdf',
-                fileUrl: './鱿鱼游戏.jpg',
+                fileUrl: './zhuanshengben/考纲/2026/2026政治考纲.pdf',
                 type: 'pdf'
             }
         ]
@@ -64,7 +142,7 @@ const fileData = {
         files: [
             {
                 name: '2026英语考纲.pdf',
-                fileUrl: './鱿鱼游戏.jpg',
+                fileUrl: './zhuanshengben/考纲/2026/2026英语考纲.pdf',
                 type: 'pdf'
             }
         ]
@@ -74,7 +152,7 @@ const fileData = {
         files: [
             {
                 name: '2026高数考纲.pdf',
-                fileUrl: './鱿鱼游戏.jpg',
+                fileUrl: './zhuanshengben/考纲/2026/2026高数一考纲.pdf',
                 type: 'pdf'
             }
         ]
@@ -84,17 +162,17 @@ const fileData = {
         files: [
             {
                 name: '2026信息技术考纲.pdf',
-                fileUrl: './鱿鱼游戏.jpg',
+                fileUrl: './zhuanshengben/考纲/2026/2026信息技术基础考纲.pdf',
                 type: 'pdf'
             }
         ]
     },
     'process': {
-        name: '报考流程',
+        name: '报考流程（了解理工3）',
         files: [
             {
-                name: '报考流程.pdf',
-                fileUrl: './鱿鱼游戏.jpg',
+                name: '了解理工3.pdf',
+                fileUrl: './zhuanshengben/报考流程（了解理工3）/了解理工3.pdf',
                 type: 'pdf'
             }
         ]
@@ -108,8 +186,27 @@ const fileData = {
                 type: 'pdf'
             }
         ]
-    }
+    },
 };
+
+// ========== 用循环添加高数模拟卷2-19 ==========
+for (let i = 2; i <= 19; i++) {
+    fileData[`mock-math-${i}`] = {
+        name: `高数模拟卷${i}`,
+        files: [
+            {
+                name: `高数模拟卷${i}.pdf`,
+                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷${i}.pdf`,
+                type: 'pdf'
+            },
+            {
+                name: `高数模拟卷${i}答案.pdf`,
+                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷${i}答案.pdf`,
+                type: 'pdf'
+            }
+        ]
+    };
+}
 
 // ========== DOM 元素 ==========
 const dynamicDiv = document.getElementById('dynamic-content');
@@ -209,10 +306,23 @@ function renderFileContent(target, title) {
 
     data.files.forEach(file => {
         const fileAttr = JSON.stringify(file).replace(/"/g, '&quot;');
-        // 根据文件类型显示不同图标
-        const fileIcon = file.type === 'pdf' ?
-            '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 10h-8v-2h8v2zm0-4h-8V7h8v2z" />' :
-            '<path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />';
+
+        // 根据文件类型和名称判断图标
+        let fileIcon = '';
+        let fileBadge = '';
+
+        if (file.type === 'pdf') {
+            fileIcon = '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 10h-8v-2h8v2zm0-4h-8V7h8v2z" />';
+        } else {
+            fileIcon = '<path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />';
+        }
+
+        // 添加文件类型标识（题目/答案）
+        if (file.name.includes('答案') || file.name.toLowerCase().includes('answer')) {
+            fileBadge = '<span class="file-badge answer">答案</span>';
+        } else {
+            fileBadge = '<span class="file-badge question">题目</span>';
+        }
 
         html += `
             <div class="file-item">
@@ -221,8 +331,12 @@ function renderFileContent(target, title) {
                         ${fileIcon}
                     </svg>
                     <span class="file-name">${file.name}</span>
+                    ${fileBadge}
                 </div>
-                <button class="preview-btn" data-file='${fileAttr}'>预览</button>
+                <div class="action-buttons">
+                    <button class="download-btn" data-file='${fileAttr}'>下载</button>
+                    <button class="preview-btn" data-file='${fileAttr}'>预览</button>
+                </div>
             </div>
         `;
     });
@@ -330,6 +444,31 @@ function updateContent(target, linkText) {
         const titleSvg = document.querySelector('#page-title svg path');
         if (titleSvg) titleSvg.setAttribute('d', iconPath);
     }
+    // 绑定预览按钮
+    document.querySelectorAll('.preview-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const file = JSON.parse(this.getAttribute('data-file'));
+            currentPreviewFile = file;
+            updateContent(target, linkText);
+
+            setTimeout(() => {
+                const container = document.getElementById('preview-container');
+                if (container && currentPreviewFile) {
+                    renderPreview(currentPreviewFile, container);
+                }
+            }, 50);
+        });
+    });
+
+    // 新增：绑定下载按钮
+    document.querySelectorAll('.download-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const file = JSON.parse(this.getAttribute('data-file'));
+            downloadFile(file);
+        });
+    });
 }
 
 // 菜单点击绑定
@@ -361,61 +500,79 @@ if (homeLi) homeLi.classList.add('active');
     // 保存原始 updateContent 引用
     const originalUpdateContent = window.updateContent;
 
-    // 重写 updateContent 以在原逻辑之后注入真题答案预览按钮
+    // 重写 updateContent 以在原逻辑之后注入答案预览按钮
     window.updateContent = function (target, linkText) {
         // 先调用原函数
         originalUpdateContent(target, linkText);
 
-        // 只在政治真题页面添加真题答案预览按钮
-        if (target === 'past-politics') {
-            // 稍等DOM更新
-            setTimeout(() => {
-                const fileItems = document.querySelectorAll('.file-item');
+        // 为所有带答案的资料添加对照预览按钮（真题、模拟题等）
+        setTimeout(() => {
+            const fileItems = document.querySelectorAll('.file-item');
 
-                // 获取政治真题的所有文件
-                const politicsData = fileData['past-politics'];
-                if (!politicsData || !politicsData.files || politicsData.files.length < 2) {
-                    console.warn('政治真题需要至少两个文件（真题和答案）');
-                    return;
+            // 获取当前资料的所有文件
+            const currentData = fileData[target];
+            if (!currentData || !currentData.files || currentData.files.length < 2) {
+                return; // 少于两个文件的不处理
+            }
+
+            // 判断是否包含答案文件（文件名包含"答案"、"answer"等关键词）
+            const hasAnswerFile = currentData.files.some(file =>
+                file.name.includes('答案') ||
+                file.name.toLowerCase().includes('answer')
+            );
+
+            if (!hasAnswerFile) return; // 没有答案文件的不处理
+
+            // 找出题文件和答案文件
+            const questionFile = currentData.files.find(file =>
+                !file.name.includes('答案') && !file.name.toLowerCase().includes('answer')
+            ) || currentData.files[0]; // 如果没有明显的题文件，取第一个作为题
+
+            const answerFile = currentData.files.find(file =>
+                file.name.includes('答案') || file.name.toLowerCase().includes('answer')
+            ) || currentData.files[1]; // 如果没有明显的答案文件，取第二个作为答案
+
+            fileItems.forEach((item, index) => {
+                // 避免重复插入
+                if (item.querySelector('.answer-preview-btn')) return;
+
+                const previewBtn = item.querySelector('.preview-btn');
+                if (!previewBtn) return;
+
+                const fileName = item.querySelector('.file-name')?.innerText || '';
+
+                // 创建按钮容器
+                const btnWrapper = document.createElement('div');
+                btnWrapper.className = 'action-buttons';
+                previewBtn.parentNode.insertBefore(btnWrapper, previewBtn);
+                btnWrapper.appendChild(previewBtn); // 预览按钮移入
+
+                // 判断当前文件是题还是答案
+                const isQuestionFile = !fileName.includes('答案') && !fileName.toLowerCase().includes('answer');
+                const isAnswerFile = fileName.includes('答案') || fileName.toLowerCase().includes('answer');
+
+                // 为题的旁边添加"答案对照预览"按钮
+                if (isQuestionFile) {
+                    const ansBtn = document.createElement('button');
+                    ansBtn.className = 'answer-preview-btn';
+                    ansBtn.innerText = '📖 答案对照';
+
+                    ansBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        // 调用并排显示函数，传入题和答案
+                        showDualPreview(questionFile, answerFile);
+                    });
+
+                    btnWrapper.appendChild(ansBtn);
                 }
 
-                // 假设第一个文件是真题，第二个文件是答案
-                const questionFile = politicsData.files[0]; // 真题
-                const answerFile = politicsData.files[1];   // 答案
-
-                fileItems.forEach((item, index) => {
-                    // 避免重复插入
-                    if (item.querySelector('.answer-preview-btn')) return;
-
-                    const previewBtn = item.querySelector('.preview-btn');
-                    if (!previewBtn) return;
-
-                    // 创建按钮容器
-                    const btnWrapper = document.createElement('div');
-                    btnWrapper.className = 'action-buttons';
-                    previewBtn.parentNode.insertBefore(btnWrapper, previewBtn);
-                    btnWrapper.appendChild(previewBtn); // 预览按钮移入
-
-                    // 只在第一个文件（真题）旁边添加“真题答案预览”按钮
-                    if (index === 0) {
-                        const ansBtn = document.createElement('button');
-                        ansBtn.className = 'answer-preview-btn';
-                        ansBtn.innerText = '真题答案预览';
-
-                        ansBtn.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                            // 调用并排显示函数，传入真题和答案
-                            showDualPreview(questionFile, answerFile);
-                        });
-
-                        btnWrapper.appendChild(ansBtn);
-                    }
-                });
-            }, 30);
-        }
+                // 为答案的文件，可以保持现有按钮不变（已经有下载和预览）
+                // 或者也可以添加特殊标识，但根据你的需求，答案保持下载+预览即可
+            });
+        }, 30);
     };
 
-    // 全局并排预览函数 (真题和答案各占50%)
+    // 全局并排预览函数 (题和答案各占50%)
     window.showDualPreview = function (questionFile, answerFile) {
         const dynamicDiv = document.getElementById('dynamic-content');
         // 移除已存在的并排预览或普通预览区 (保持干净)
@@ -428,21 +585,21 @@ if (homeLi) homeLi.classList.add('active');
         const dualWrap = document.createElement('div');
         dualWrap.className = 'dual-preview-wrap';
 
-        // 左侧真题列
+        // 左侧题列
         const leftCol = document.createElement('div');
         leftCol.className = 'dual-col';
         leftCol.innerHTML = `
-                    <div class="preview-header">📘 真题 · ${questionFile.name}</div>
-                    <div class="preview-content-inner" id="dual-question-inner"></div>
-                `;
+            <div class="preview-header">📘 题目 · ${questionFile.name}</div>
+            <div class="preview-content-inner" id="dual-question-inner"></div>
+        `;
 
         // 右侧答案列
         const rightCol = document.createElement('div');
         rightCol.className = 'dual-col';
         rightCol.innerHTML = `
-                    <div class="preview-header">📖 答案 · ${answerFile.name}</div>
-                    <div class="preview-content-inner" id="dual-answer-inner"></div>
-                `;
+            <div class="preview-header">📖 答案 · ${answerFile.name}</div>
+            <div class="preview-content-inner" id="dual-answer-inner"></div>
+        `;
 
         dualWrap.appendChild(leftCol);
         dualWrap.appendChild(rightCol);
@@ -454,7 +611,7 @@ if (homeLi) homeLi.classList.add('active');
         closeDiv.innerHTML = `<button class="close-dual-btn" id="closeDualBtn">关闭对照</button>`;
         dynamicDiv.appendChild(closeDiv);
 
-        // 渲染真题
+        // 渲染题
         const leftInner = document.getElementById('dual-question-inner');
         const rightInner = document.getElementById('dual-answer-inner');
 
@@ -494,12 +651,6 @@ if (homeLi) homeLi.classList.add('active');
 
     // 由于原菜单已经绑定了 updateContent，我们需要确保菜单使用新函数。
     // 重新绑定菜单点击 (保留原有 active 逻辑)
-    const menuLinks = document.querySelectorAll('a[data-target]');
-    menuLinks.forEach(link => {
-        link.removeEventListener('click', handleOriginalClick); // 无法直接移除，采用克隆替换
-    });
-
-    // 简便方法: 重新获取所有链接并绑定新函数
     document.querySelectorAll('a[data-target]').forEach(link => {
         // 移除所有已绑定事件（通过克隆）
         const newLink = link.cloneNode(true);
@@ -522,5 +673,21 @@ if (homeLi) homeLi.classList.add('active');
         });
     });
 
-    console.log('真题答案预览增强已启用 - 只在政治真题第一个文件显示按钮，左右分屏显示真题和答案');
+    console.log('✅ 答案对照预览功能已启用 - 所有带答案的资料都会显示"答案对照"按钮');
 })();
+
+// 下载文件函数
+function downloadFile(file) {
+    // 创建一个隐藏的a标签
+    const link = document.createElement('a');
+    link.href = file.fileUrl;
+    link.download = file.name; // 下载的文件名
+
+    // 添加到body，点击，然后移除
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // 可选：显示提示
+    console.log(`开始下载: ${file.name}`);
+}

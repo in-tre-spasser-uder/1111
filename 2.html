@@ -8,9 +8,9 @@
     <!-- 外链 CSS 文件 (保持不变) -->
     <link rel="icon" href="./logo/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
-    <!-- 极简内联样式: 仅用于并排布局且不影响原有样式 -->
+    <!-- 极简内联样式: 用于并排布局、固定导航区(头部/底部) + 菜单独立滚动 -->
     <style>
-        /* 新增并排容器 — 完全不影响原有类，只添加必要结构 */
+        /* ===== 原有并排样式保留 ===== */
         .dual-preview-wrap {
             display: flex;
             flex-flow: row nowrap;
@@ -18,7 +18,6 @@
             width: 100%;
             margin-top: 20px;
             align-items: flex-start;
-            /* 顶部对齐 */
             border: 1px solid #e2e8f0;
             border-radius: 8px;
             background: #f8fafc;
@@ -28,7 +27,6 @@
         .dual-col {
             flex: 1 1 50%;
             min-width: 0;
-            /* 防止溢出 */
             display: flex;
             flex-direction: column;
             background: white;
@@ -90,7 +88,6 @@
             background: #dc2626;
         }
 
-        /* 真题答案预览按钮 (替换原来的答案预览逻辑) */
         .answer-preview-btn {
             background: #8b5cf6;
             color: white;
@@ -112,108 +109,313 @@
             align-items: center;
         }
 
-        /* 确保原有样式不受影响，仅添加必要规则 */
+        /* ===== 新增：固定头部 + 固定底部，中间菜单滚动 ===== */
+        .site-nav {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100vh;
+            /* 占满左侧高度 */
+            overflow: hidden;
+            /* 防止整体出现滚动条 */
+            padding: 0;
+            /* 移除原有padding，内部自己控制 */
+        }
+
+        /* 导航头部 — 固定区域 (升本导航) */
+        .nav-header-fixed {
+            flex-shrink: 0;
+            background: #161c2d;
+            /* 与侧边栏背景一致 */
+            padding: 16px 0 12px 0;
+            margin: 0 16px;
+            /* 保持左右间距与原来一致 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 5;
+        }
+
+        /* 菜单滚动区 — 仅中间菜单部分滚动 */
+        .nav-menu-scrollable {
+            flex: 1 1 auto;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 8px 0;
+            /* 原有菜单上下内边距 */
+            margin: 0;
+            scrollbar-width: thin;
+            /* 细滚动条 (Firefox) */
+            scrollbar-color: #4096ff #2d3748;
+        }
+
+        /* 滚动条样式 (WebKit) */
+        .nav-menu-scrollable::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .nav-menu-scrollable::-webkit-scrollbar-track {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+
+        .nav-menu-scrollable::-webkit-scrollbar-thumb {
+            background: #4096ff;
+            border-radius: 10px;
+        }
+
+        /* 底部固定区域 — 学习小贴士 */
+        .nav-footer-fixed {
+            flex-shrink: 0;
+            background: #161c2d;
+            /* 与侧边栏同色 */
+            padding: 8px 16px 16px 16px;
+            margin-top: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 5;
+        }
+
+        /* 调整原有 .name 样式以适应新结构，移除多余的边框 */
+        .nav-header-fixed .name {
+            margin: 0 0 4px 0;
+            padding: 0 8px 8px 8px;
+            border-bottom: none;
+            /* 头部已统一加边框，name内不要重复 */
+        }
+
+        /* 原有 .note 适配到固定底部，去掉外边距和宽度限制，背景继承 */
+        .nav-footer-fixed .note {
+            width: auto;
+            margin: 0;
+            background: #1e293b;
+            /* 稍微区分，与原note一致 */
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        /* 确保菜单链接在滚动区正常显示 */
+        .nav-menu-scrollable>ul {
+            padding: 0 0 8px 0;
+            margin: 0;
+            height: auto;
+        }
+
+        /* 子菜单的缩进正常 */
+        .nav-menu-scrollable ul ul {
+            padding-left: 16px;
+        }
+
+        /* 调整原有点击区域颜色不变 */
+        .site-nav ul li a {
+            padding: 10px 24px;
+        }
+
+        /* 让滚动区菜单可以完整显示三级菜单 */
+        .nav-menu-scrollable li.has-children>ul {
+            max-height: 0;
+            /* 折叠默认由js控制，但js会操作内联style，保留原逻辑 */
+            transition: max-height 0.2s ease;
+            overflow: hidden;
+        }
+
+        /* 但JS中也会设置内联style，所以保留原有机制即可，这里仅提供基础 */
     </style>
 </head>
 
 <body>
     <div class="site-wrap">
-        <!-- ===== 侧边栏导航 (完全原样) ===== -->
+        <!-- ===== 侧边栏导航：重构为头部固定 + 菜单滚动 + 底部固定 ===== -->
         <nav class="site-nav" id="sidebar">
-            <div class="name">
-                <svg viewBox="0 0 24 24">
-                    <path
-                        d="M12 2L4 5V11C4 16.55 7.84 21.74 13 23C18.16 21.74 22 16.55 22 11V5L12 2M12 4.27L18 6.6V11C18 15.04 15.41 18.57 12 19.73C8.59 18.57 6 15.04 6 11V6.6L12 4.27M12 8A2 2 0 0 1 14 10A2 2 0 0 1 12 12A2 2 0 0 1 10 10A2 2 0 0 1 12 8Z" />
-                </svg>
-                升本导航
+            <!-- 固定头部：升本导航 (不受滚动影响) -->
+            <div class="nav-header-fixed">
+                <div class="name">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2L4 5V11C4 16.55 7.84 21.74 13 23C18.16 21.74 22 16.55 22 11V5L12 2M12 4.27L18 6.6V11C18 15.04 15.41 18.57 12 19.73C8.59 18.57 6 15.04 6 11V6.6L12 4.27M12 8A2 2 0 0 1 14 10A2 2 0 0 1 12 12A2 2 0 0 1 10 10A2 2 0 0 1 12 8Z" />
+                    </svg>
+                    升本导航
+                </div>
             </div>
 
-            <ul>
-                <li id="menu-home" class="active">
-                    <a href="#" data-target="home">
-                        <svg viewBox="0 0 24 24" width="18" height="18">
-                            <path d="M10 20V14H14V20H19V12H22L12 3L2 12H5V20H10Z" />
-                        </svg>
-                        首页
-                    </a>
-                </li>
+            <!-- 可滚动菜单区：所有导航链接都放在这里，独享滚轮 -->
+            <div class="nav-menu-scrollable" id="scrollable-menu">
+                <ul>
+                    <li id="menu-home" class="active">
+                        <a href="#" data-target="home">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path d="M10 20V14H14V20H19V12H22L12 3L2 12H5V20H10Z" />
+                            </svg>
+                            首页
+                        </a>
+                    </li>
 
-                <!-- 报考指南 -->
-                <li class="has-children">
-                    <a href="#" class="parent-link">
-                        <svg viewBox="0 0 24 24" width="18" height="18">
-                            <path
-                                d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" />
-                        </svg>
-                        报考指南
-                        <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
-                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                        </svg>
-                    </a>
-                    <ul class="submenu" style="max-height: 500px; height: auto;">
-                        <li class="has-children">
-                            <a href="#" class="parent-link">
-                                招生计划
-                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
-                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                                </svg>
-                            </a>
-                            <ul class="submenu" style="max-height: 500px; height: auto;">
-                                <li><a href="#" data-target="plan-2026">2026专升本计划</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="#" class="parent-link">
-                                考试说明（考纲）
-                                <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
-                                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                                </svg>
-                            </a>
-                            <ul class="submenu" style="max-height: 500px; height: auto;">
-                                <li class="has-children">
-                                    <a href="#" class="parent-link">
-                                        2026年
-                                        <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
-                                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                                        </svg>
-                                    </a>
-                                    <ul class="submenu" style="max-height: 500px; height: auto;">
-                                        <li><a href="#" data-target="syllabus-2026-politics">政治</a></li>
-                                        <li><a href="#" data-target="syllabus-2026-english">英语</a></li>
-                                        <li><a href="#" data-target="syllabus-2026-math">高数一</a></li>
-                                        <li><a href="#" data-target="syllabus-2026-it">信息技术概论</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#" data-target="syllabus-other">其他年份（可扩展）</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" data-target="process">报考流程/时间</a></li>
-                    </ul>
-                </li>
+                    <!-- 报考指南 (多层) -->
+                    <li class="has-children">
+                        <a href="#" class="parent-link">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path
+                                    d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" />
+                            </svg>
+                            报考指南
+                            <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="submenu" style="max-height: 500px; height: auto;">
+                            <li class="has-children">
+                                <a href="#" class="parent-link">
+                                    招生计划
+                                    <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                    </svg>
+                                </a>
+                                <ul class="submenu" style="max-height: 500px; height: auto;">
+                                    <li><a href="#" data-target="plan-2026">2026专升本计划</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-children">
+                                <a href="#" class="parent-link">
+                                    考试说明（考纲）
+                                    <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                    </svg>
+                                </a>
+                                <ul class="submenu" style="max-height: 500px; height: auto;">
+                                    <li class="has-children">
+                                        <a href="#" class="parent-link">
+                                            2026年
+                                            <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                            </svg>
+                                        </a>
+                                        <ul class="submenu" style="max-height: 500px; height: auto;">
+                                            <li><a href="#" data-target="syllabus-2026-politics">政治</a></li>
+                                            <li><a href="#" data-target="syllabus-2026-english">英语</a></li>
+                                            <li><a href="#" data-target="syllabus-2026-math">高数一</a></li>
+                                            <li><a href="#" data-target="syllabus-2026-it">信息技术概论</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" data-target="syllabus-other">其他年份（可扩展）</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" data-target="process">报考流程/时间</a></li>
+                        </ul>
+                    </li>
 
-                <!-- 备考资料 -->
-                <li class="has-children">
-                    <a href="#" class="parent-link">
-                        <svg viewBox="0 0 24 24" width="18" height="18">
-                            <path
-                                d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M9 7H7V17H9V7M13 7H11V17H13V7M17 7H15V17H17V7Z" />
-                        </svg>
-                        备考资料
-                        <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
-                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                        </svg>
-                    </a>
-                    <ul class="submenu" style="max-height: 500px; height: auto;">
-                        <li><a href="#" data-target="past-politics">历年真题·政治</a></li>
-                        <li><a href="#" data-target="mock-english">模拟试卷·英语</a></li>
-                    </ul>
-                </li>
-            </ul>
+                    <!-- 备考资料 -->
+                    <li class="has-children">
+                        <a href="#" class="parent-link">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path
+                                    d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M9 7H7V17H9V7M13 7H11V17H13V7M17 7H15V17H17V7Z" />
+                            </svg>
+                            备考资料
+                            <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="submenu" style="max-height: 500px; height: auto;">
+                            <!-- 历年真题 -->
+                            <li class="has-children">
+                                <a href="#" class="parent-link">
+                                    历年真题
+                                    <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                    </svg>
+                                </a>
+                                <ul class="submenu" style="max-height: 500px; height: auto;">
+                                    <li><a href="#" data-target="past-politics">政治</a></li>
+                                    <li><a href="#" data-target="past-english">英语</a></li>
+                                    <li><a href="#" data-target="past-math">高数一</a></li>
+                                </ul>
+                            </li>
 
-            <div class="note">
-                <h3>学习小贴士</h3>
-                <a href="./1.html" target="_blank">打开 1.html (同目录)</a>
-                <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮将在下方显示图片。</p>
+                            <!-- 模拟题 -->
+                            <li class="has-children">
+                                <a href="#" class="parent-link">
+                                    模拟题
+                                    <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                    </svg>
+                                </a>
+                                <ul class="submenu" style="max-height: 500px; height: auto;">
+                                    <!-- 政治模拟题 -->
+                                    <li class="has-children">
+                                        <a href="#" class="parent-link">
+                                            政治
+                                            <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                            </svg>
+                                        </a>
+                                        <ul class="submenu" style="max-height: 500px; height: auto;">
+                                            <li><a href="#" data-target="mock-politics-1">政治模拟卷一</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- 英语模拟题 -->
+                                    <li class="has-children">
+                                        <a href="#" class="parent-link">
+                                            英语
+                                            <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                            </svg>
+                                        </a>
+                                        <ul class="submenu" style="max-height: 500px; height: auto;">
+                                            <li><a href="#" data-target="mock-english-1">英语模拟卷一</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- 高数一模拟题 -->
+                                    <li class="has-children">
+                                        <a href="#" class="parent-link">
+                                            高数一
+                                            <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                            </svg>
+                                        </a>
+                                        <ul class="submenu" style="max-height: 500px; height: auto;">
+                                            <li><a href="#" data-target="mock-math-1">高数模拟卷一</a></li>
+                                            <li><a href="#" data-target="mock-math-2">高数模拟卷二</a></li>
+                                            <li><a href="#" data-target="mock-math-3">高数模拟卷三</a></li>
+                                            <li><a href="#" data-target="mock-math-4">高数模拟卷四</a></li>
+                                            <li><a href="#" data-target="mock-math-5">高数模拟卷五</a></li>
+                                            <li><a href="#" data-target="mock-math-6">高数模拟卷六</a></li>
+                                            <li><a href="#" data-target="mock-math-7">高数模拟卷七</a></li>
+                                            <li><a href="#" data-target="mock-math-8">高数模拟卷八</a></li>
+                                            <li><a href="#" data-target="mock-math-9">高数模拟卷九</a></li>
+                                            <li><a href="#" data-target="mock-math-10">高数模拟卷十</a></li>
+                                            <li><a href="#" data-target="mock-math-11">高数模拟卷十一</a></li>
+                                            <li><a href="#" data-target="mock-math-12">高数模拟卷十二</a></li>
+                                            <li><a href="#" data-target="mock-math-13">高数模拟卷十三</a></li>
+                                            <li><a href="#" data-target="mock-math-14">高数模拟卷十四</a></li>
+                                            <li><a href="#" data-target="mock-math-15">高数模拟卷十五</a></li>
+                                            <li><a href="#" data-target="mock-math-16">高数模拟卷十六</a></li>
+                                            <li><a href="#" data-target="mock-math-17">高数模拟卷十七</a></li>
+                                            <li><a href="#" data-target="mock-math-18">高数模拟卷十八</a></li>
+                                            <li><a href="#" data-target="mock-math-19">高数模拟卷十九</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- 信息技术概论模拟题 -->
+                                    <li class="has-children">
+                                        <a href="#" class="parent-link">
+                                            信息技术概论
+                                            <svg class="menu-toggle-icon rotated" viewBox="0 0 24 24">
+                                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                            </svg>
+                                        </a>
+                                        <ul class="submenu" style="max-height: 500px; height: auto;">
+                                            <li><a href="#" data-target="mock-it-1">信息技术模拟卷一</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> <!-- 结束 .nav-menu-scrollable -->
+
+            <!-- 固定底部：学习小贴士 (不受滚动影响) -->
+            <div class="nav-footer-fixed">
+                <div class="note">
+                    <h3>学习小贴士</h3>
+                    <a href="./1.html" target="_blank">打开 1.html (同目录)</a>
+                    <p>点击左侧菜单，右侧显示对应内容。点击“预览”按钮将在下方显示图片。</p>
+                </div>
             </div>
         </nav>
 
@@ -287,6 +489,8 @@
 
     <!-- 外链 JavaScript 文件 (原样引入) -->
     <script src="./script.js"></script>
+    <!-- 由于 script.js 里包含了所有逻辑, 并且依赖原有DOM结构 (但侧边栏内部结构调整了, 但 class/ID 没变, 菜单折叠逻辑依赖 .parent-link 和 .has-children , 依旧有效) 
+     同时答案对照功能也已注入, 一切保持不变。  -->
 </body>
 
 </html>

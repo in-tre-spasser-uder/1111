@@ -17,18 +17,19 @@ const fileData = {
         ]
     },
     // 历年真题·政治
+    // 历年真题·政治
     'past-politics': {
         name: '历年真题·政治',
         files: [
             {
-                name: '政治真题.pdf',
-                fileUrl: './鱿鱼游戏.jpg',  // 这里暂时没有真实PDF，先用图片演示
+                name: '19-25政治真题.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/19-25政治真题.pdf',  // 修改为正确的PDF路径
                 type: 'pdf'
             },
             {
-                name: '鱿鱼游戏.jpg',
-                fileUrl: './鱿鱼游戏.jpg',
-                type: 'jpg'
+                name: '19-25政治真题.png',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/19-25政治真题.png',  // 修改为正确的PNG路径
+                type: 'png'
             }
         ]
     },
@@ -162,7 +163,7 @@ let currentLinkText = '首页';
 // 渲染预览内容（支持图片和PDF）
 function renderPreview(file, container) {
     container.innerHTML = '';
-    
+
     // 判断文件类型
     if (file.type === 'pdf' || file.name.toLowerCase().endsWith('.pdf')) {
         // PDF使用iframe嵌入
@@ -172,7 +173,7 @@ function renderPreview(file, container) {
         iframe.style.height = '800px';
         iframe.style.border = 'none';
         iframe.style.borderRadius = '4px';
-        
+
         iframe.onerror = function () {
             container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ PDF加载失败: ${file.fileUrl}<br>请检查路径或网络。</div>`;
         };
@@ -210,10 +211,10 @@ function renderFileContent(target, title) {
     data.files.forEach(file => {
         const fileAttr = JSON.stringify(file).replace(/"/g, '&quot;');
         // 根据文件类型显示不同图标
-        const fileIcon = file.type === 'pdf' ? 
+        const fileIcon = file.type === 'pdf' ?
             '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 10h-8v-2h8v2zm0-4h-8V7h8v2z" />' :
             '<path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />';
-        
+
         html += `
             <div class="file-item">
                 <div class="file-info">

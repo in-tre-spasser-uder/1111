@@ -26,9 +26,9 @@ const fileData = {
                 type: 'pdf'
             },
             {
-                name: '19-25政治真题.png',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题.png',  // 修改为正确的PNG路径
-                type: 'png'
+                name: '19-25政治真题答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题答案.pdf',  // 修改为正确的PNG路径
+                type: 'pdf'
             }
         ]
     },
@@ -349,3 +349,178 @@ updateContent('home', '首页');
 document.querySelectorAll('.site-nav li.active').forEach(li => li.classList.remove('active'));
 const homeLi = document.getElementById('menu-home');
 if (homeLi) homeLi.classList.add('active');
+
+
+(function () {
+    // 确保原脚本已加载，且 fileData 存在
+    if (typeof fileData === 'undefined') {
+        console.warn('等待原脚本加载...');
+        return;
+    }
+
+    // 保存原始 updateContent 引用
+    const originalUpdateContent = window.updateContent;
+
+    // 重写 updateContent 以在原逻辑之后注入真题答案预览按钮
+    window.updateContent = function (target, linkText) {
+        // 先调用原函数
+        originalUpdateContent(target, linkText);
+
+        // 只在政治真题页面添加真题答案预览按钮
+        if (target === 'past-politics') {
+            // 稍等DOM更新
+            setTimeout(() => {
+                const fileItems = document.querySelectorAll('.file-item');
+
+                // 获取政治真题的所有文件
+                const politicsData = fileData['past-politics'];
+                if (!politicsData || !politicsData.files || politicsData.files.length < 2) {
+                    console.warn('政治真题需要至少两个文件（真题和答案）');
+                    return;
+                }
+
+                // 假设第一个文件是真题，第二个文件是答案
+                const questionFile = politicsData.files[0]; // 真题
+                const answerFile = politicsData.files[1];   // 答案
+
+                fileItems.forEach((item, index) => {
+                    // 避免重复插入
+                    if (item.querySelector('.answer-preview-btn')) return;
+
+                    const previewBtn = item.querySelector('.preview-btn');
+                    if (!previewBtn) return;
+
+                    // 创建按钮容器
+                    const btnWrapper = document.createElement('div');
+                    btnWrapper.className = 'action-buttons';
+                    previewBtn.parentNode.insertBefore(btnWrapper, previewBtn);
+                    btnWrapper.appendChild(previewBtn); // 预览按钮移入
+
+                    // 只在第一个文件（真题）旁边添加“真题答案预览”按钮
+                    if (index === 0) {
+                        const ansBtn = document.createElement('button');
+                        ansBtn.className = 'answer-preview-btn';
+                        ansBtn.innerText = '真题答案预览';
+
+                        ansBtn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            // 调用并排显示函数，传入真题和答案
+                            showDualPreview(questionFile, answerFile);
+                        });
+
+                        btnWrapper.appendChild(ansBtn);
+                    }
+                });
+            }, 30);
+        }
+    };
+
+    // 全局并排预览函数 (真题和答案各占50%)
+    window.showDualPreview = function (questionFile, answerFile) {
+        const dynamicDiv = document.getElementById('dynamic-content');
+        // 移除已存在的并排预览或普通预览区 (保持干净)
+        const existingDual = dynamicDiv.querySelector('.dual-preview-wrap');
+        if (existingDual) existingDual.remove();
+        const existingArea = dynamicDiv.querySelector('.preview-area');
+        if (existingArea) existingArea.remove(); // 清除单文件预览区，避免干扰
+
+        // 构建并排容器
+        const dualWrap = document.createElement('div');
+        dualWrap.className = 'dual-preview-wrap';
+
+        // 左侧真题列
+        const leftCol = document.createElement('div');
+        leftCol.className = 'dual-col';
+        leftCol.innerHTML = `
+                    <div class="preview-header">📘 真题 · ${questionFile.name}</div>
+                    <div class="preview-content-inner" id="dual-question-inner"></div>
+                `;
+
+        // 右侧答案列
+        const rightCol = document.createElement('div');
+        rightCol.className = 'dual-col';
+        rightCol.innerHTML = `
+                    <div class="preview-header">📖 答案 · ${answerFile.name}</div>
+                    <div class="preview-content-inner" id="dual-answer-inner"></div>
+                `;
+
+        dualWrap.appendChild(leftCol);
+        dualWrap.appendChild(rightCol);
+        dynamicDiv.appendChild(dualWrap);
+
+        // 添加关闭按钮区域
+        const closeDiv = document.createElement('div');
+        closeDiv.className = 'dual-close-area';
+        closeDiv.innerHTML = `<button class="close-dual-btn" id="closeDualBtn">关闭对照</button>`;
+        dynamicDiv.appendChild(closeDiv);
+
+        // 渲染真题
+        const leftInner = document.getElementById('dual-question-inner');
+        const rightInner = document.getElementById('dual-answer-inner');
+
+        // 复用渲染逻辑
+        function renderFileInContainer(file, container) {
+            if (file.type === 'pdf' || file.name.toLowerCase().endsWith('.pdf')) {
+                const iframe = document.createElement('iframe');
+                iframe.src = file.fileUrl;
+                iframe.style.width = '100%';
+                iframe.style.height = '550px';
+                iframe.style.border = 'none';
+                iframe.onerror = () => {
+                    container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ PDF加载失败: ${file.fileUrl}</div>`;
+                };
+                container.appendChild(iframe);
+            } else {
+                const img = document.createElement('img');
+                img.src = file.fileUrl;
+                img.alt = '预览';
+                img.style.maxWidth = '100%';
+                img.onerror = () => {
+                    container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 图片加载失败: ${file.fileUrl}</div>`;
+                };
+                container.appendChild(img);
+            }
+        }
+
+        renderFileInContainer(questionFile, leftInner);
+        renderFileInContainer(answerFile, rightInner);
+
+        // 关闭按钮事件
+        document.getElementById('closeDualBtn').addEventListener('click', function () {
+            if (dualWrap) dualWrap.remove();
+            closeDiv.remove();
+        });
+    };
+
+    // 由于原菜单已经绑定了 updateContent，我们需要确保菜单使用新函数。
+    // 重新绑定菜单点击 (保留原有 active 逻辑)
+    const menuLinks = document.querySelectorAll('a[data-target]');
+    menuLinks.forEach(link => {
+        link.removeEventListener('click', handleOriginalClick); // 无法直接移除，采用克隆替换
+    });
+
+    // 简便方法: 重新获取所有链接并绑定新函数
+    document.querySelectorAll('a[data-target]').forEach(link => {
+        // 移除所有已绑定事件（通过克隆）
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+    });
+
+    // 重新绑定点击事件
+    document.querySelectorAll('a[data-target]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
+            const linkText = this.innerText.trim();
+            window.currentPreviewFile = null; // 重置原预览
+            window.updateContent(target, linkText);
+
+            // 设置active类
+            document.querySelectorAll('.site-nav li.active').forEach(li => li.classList.remove('active'));
+            const parentLi = this.closest('li');
+            if (parentLi) parentLi.classList.add('active');
+        });
+    });
+
+    console.log('真题答案预览增强已启用 - 只在政治真题第一个文件显示按钮，左右分屏显示真题和答案');
+})();

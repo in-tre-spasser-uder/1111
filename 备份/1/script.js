@@ -206,63 +206,6 @@ for (let i = 2; i <= 19; i++) {
     };
 }
 
-// 为政治模拟卷2-19添加数据
-for (let i = 2; i <= 19; i++) {
-    fileData[`mock-politics-${i}`] = {
-        name: `政治模拟卷${i}`,
-        files: [
-            {
-                name: `政治模拟卷${i}.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷${i}.pdf`,
-                type: 'pdf'
-            },
-            {
-                name: `政治模拟卷${i}答案.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷${i}答案.pdf`,
-                type: 'pdf'
-            }
-        ]
-    };
-}
-
-// 为英语模拟卷2-19添加数据
-for (let i = 2; i <= 19; i++) {
-    fileData[`mock-english-${i}`] = {
-        name: `英语模拟卷${i}`,
-        files: [
-            {
-                name: `英语模拟卷${i}.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷${i}.pdf`,
-                type: 'pdf'
-            },
-            {
-                name: `英语模拟卷${i}答案.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷${i}答案.pdf`,
-                type: 'pdf'
-            }
-        ]
-    };
-}
-
-// 为信息技术模拟卷2-19添加数据
-for (let i = 2; i <= 19; i++) {
-    fileData[`mock-it-${i}`] = {
-        name: `信息技术模拟卷${i}`,
-        files: [
-            {
-                name: `信息技术模拟卷${i}.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷${i}.pdf`,
-                type: 'pdf'
-            },
-            {
-                name: `信息技术模拟卷${i}答案.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷${i}答案.pdf`,
-                type: 'pdf'
-            }
-        ]
-    };
-}
-
 // ========== DOM 元素 ==========
 const dynamicDiv = document.getElementById('dynamic-content');
 const contentPath = document.getElementById('content-path');
@@ -280,121 +223,55 @@ navTabs.forEach(tab => {
     });
 });
 
-// ===== 侧边栏折叠功能 =====
-let arrow = document.querySelectorAll(".arrow");
-for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e) => {
-        let arrowParent = e.target.parentElement.parentElement;
-        arrowParent.classList.toggle("showMenu");
-    });
-}
+// ===== 修复版：侧边栏折叠功能 =====
+const sidebar = document.getElementById('sidebar');
+sidebar.addEventListener('click', function (e) {
+    const parentLink = e.target.closest('.parent-link');
+    if (!parentLink) return;
+    e.preventDefault();
 
-// ===== 点击固定展开/收缩功能 =====
-// 为所有带有子菜单的li添加点击固定功能
-function setupClickToFix() {
-    // 选择所有带有子菜单的li（一级菜单）
-    const menuItems = document.querySelectorAll('.sidebar .nav-links > li');
+    const li = parentLink.closest('li.has-children');
+    if (!li) return;
 
-    menuItems.forEach(item => {
-        // 移除可能存在的旧监听器，使用新函数
-        const links = item.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function (e) {
-                // 阻止事件冒泡，避免触发document的点击事件
-                e.stopPropagation();
+    const submenu = li.querySelector(':scope > ul.submenu');
+    if (!submenu) return;
 
-                // 获取当前项的父li
-                const parentLi = this.closest('li');
-                if (!parentLi) return;
+    const icon = parentLink.querySelector('.menu-toggle-icon');
 
-                // 检查是否是带有子菜单的项
-                const subMenu = parentLi.querySelector(':scope > .sub-menu');
-                if (subMenu) {
-                    // 切换fixed类
-                    parentLi.classList.toggle('fixed-open');
+    // 切换当前子菜单
+    if (submenu.style.maxHeight && submenu.style.maxHeight !== '0px') {
+        submenu.style.maxHeight = '0px';
+        if (icon) icon.classList.remove('rotated');
+    } else {
+        // 使用 scrollHeight 动态计算实际高度
+        submenu.style.maxHeight = submenu.scrollHeight + 'px';
+        if (icon) icon.classList.add('rotated');
+    }
+});
 
-                    // 如果当前是fixed状态，移除showMenu类（由悬浮控制）
-                    if (parentLi.classList.contains('fixed-open')) {
-                        parentLi.classList.remove('showMenu');
+// 页面加载后，展开包含当前激活菜单的父菜单
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+        const activeItem = document.querySelector('.site-nav li.active');
+        if (activeItem) {
+            let parent = activeItem.parentElement;
+            while (parent) {
+                if (parent.classList.contains('submenu')) {
+                    parent.style.maxHeight = parent.scrollHeight + 'px';
+                    const parentLi = parent.closest('li.has-children');
+                    if (parentLi) {
+                        const icon = parentLi.querySelector('.menu-toggle-icon');
+                        if (icon) icon.classList.add('rotated');
                     }
                 }
-
-                // 处理二级菜单中的三级菜单点击
-                const thirdLevelParent = this.closest('.has-third-level');
-                if (thirdLevelParent) {
-                    thirdLevelParent.classList.toggle('fixed-open');
-
-                    // 如果当前是fixed状态，确保其父级菜单保持展开
-                    const parentSecondLevel = thirdLevelParent.closest('li');
-                    if (parentSecondLevel && !parentSecondLevel.classList.contains('fixed-open')) {
-                        // 如果二级菜单没有被固定，但三级菜单被固定了，二级菜单需要保持显示
-                        // 这里不做处理，因为二级菜单的显示由悬浮控制
-                    }
-                }
-            });
-        });
-    });
-
-    // 专门为.has-third-level元素添加点击处理
-    document.querySelectorAll('.has-third-level > .iocn-link').forEach(item => {
-        item.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const parent = this.closest('.has-third-level');
-            if (parent) {
-                parent.classList.toggle('fixed-open');
-
-                // 如果当前是fixed状态，移除showMenu类
-                if (parent.classList.contains('fixed-open')) {
-                    parent.classList.remove('showMenu');
-                }
+                parent = parent.parentElement.closest('li.has-children');
             }
-        });
-    });
-}
-
-// 在CSS中添加fixed-open类的样式
-function addFixedStyles() {
-    const style = document.createElement('style');
-    style.textContent = `
-        /* fixed-open状态：始终显示子菜单，不受悬浮影响 */
-        .sidebar .nav-links li.fixed-open > .sub-menu {
-            display: block !important;
         }
-        
-        .sidebar .nav-links li .sub-menu li.fixed-open > .sub-menu {
-            display: block !important;
-        }
-        
-        /* 当项被固定时，箭头旋转 */
-        .sidebar .nav-links li.fixed-open > .iocn-link .arrow,
-        .sidebar .nav-links li .sub-menu li.fixed-open > .iocn-link .arrow {
-            transform: rotate(-180deg);
-        }
-        
-        /* 悬浮效果仍然有效，但fixed-open优先级更高 */
-        .sidebar .nav-links li:hover > .sub-menu {
-            display: block;
-        }
-        
-        /* 确保fixed-open状态下的悬浮不会干扰 */
-        .sidebar .nav-links li.fixed-open:hover > .sub-menu {
-            display: block !important;
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-// 侧边栏折叠/展开
-let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".bx-menu");
-sidebarBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
+    }, 100);
 });
 
 function setActiveMenuItem(clickedLink) {
-    document.querySelectorAll('.sidebar li.active').forEach(li => li.classList.remove('active'));
+    document.querySelectorAll('.site-nav li.active').forEach(li => li.classList.remove('active'));
     const parentLi = clickedLink.closest('li');
     if (parentLi) parentLi.classList.add('active');
 }
@@ -631,35 +508,19 @@ menuLinks.forEach(link => {
     });
 });
 
-// 初始化
-function init() {
-    // 添加固定样式的CSS
-    addFixedStyles();
-
-    // 设置点击固定功能
-    setupClickToFix();
-
-    // 初始化首页
-    updateContent('home', '首页');
-    document.querySelectorAll('.sidebar li.active').forEach(li => li.classList.remove('active'));
-    const homeLi = document.getElementById('menu-home');
-    if (homeLi) homeLi.classList.add('active');
-}
-
-// 下载文件函数
-function downloadFile(file) {
-    const link = document.createElement('a');
-    link.href = file.fileUrl;
-    link.download = file.name;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    console.log(`开始下载: ${file.name}`);
-}
+// 初始化首页
+updateContent('home', '首页');
+document.querySelectorAll('.site-nav li.active').forEach(li => li.classList.remove('active'));
+const homeLi = document.getElementById('menu-home');
+if (homeLi) homeLi.classList.add('active');
 
 // 答案对照预览功能
 (function () {
-    // 保存原始的updateContent函数
+    if (typeof fileData === 'undefined') {
+        console.warn('等待原脚本加载...');
+        return;
+    }
+
     const originalUpdateContent = window.updateContent;
 
     window.updateContent = function (target, linkText) {
@@ -786,7 +647,6 @@ function downloadFile(file) {
         });
     };
 
-    // 重新绑定菜单链接以确保使用新的updateContent
     document.querySelectorAll('a[data-target]').forEach(link => {
         const newLink = link.cloneNode(true);
         link.parentNode.replaceChild(newLink, link);
@@ -800,7 +660,7 @@ function downloadFile(file) {
             window.currentPreviewFile = null;
             window.updateContent(target, linkText);
 
-            document.querySelectorAll('.sidebar li.active').forEach(li => li.classList.remove('active'));
+            document.querySelectorAll('.site-nav li.active').forEach(li => li.classList.remove('active'));
             const parentLi = this.closest('li');
             if (parentLi) parentLi.classList.add('active');
         });
@@ -809,5 +669,13 @@ function downloadFile(file) {
     console.log('✅ 答案对照预览功能已启用');
 })();
 
-// 启动初始化
-init();
+// 下载文件函数
+function downloadFile(file) {
+    const link = document.createElement('a');
+    link.href = file.fileUrl;
+    link.download = file.name;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    console.log(`开始下载: ${file.name}`);
+}

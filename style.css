@@ -916,6 +916,57 @@
             border-right: none;
             border-bottom: 1px solid #e2e8f0;
         }
+
+        .content-columns {
+            padding: 24px 32px 80px 32px;
+            /* 增加底部内边距，原来是24px 32px */
+        }
+
+        /* 或者如果.content-wrapper是容器，修改它 */
+        .content-wrapper {
+            padding: 20px 30px 80px 30px;
+            /* 增加底部内边距 */
+        }
+
+        /* 确保预览区域不会被遮挡 */
+        .preview-content {
+            max-height: 500px;
+            /* 手机端适当降低高度 */
+            margin-bottom: 20px;
+        }
+
+        .dual-preview-wrap {
+            margin-bottom: 60px;
+            /* 给底部留空间 */
+        }
+
+        main,
+        .home-section,
+        .content-wrapper {
+            overflow-x: auto !important;
+            /* 改为 auto 允许横向滚动 */
+            -webkit-overflow-scrolling: touch;
+            /* 添加流畅滚动 */
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        /* 如果内容容器有固定宽度，改为自适应 */
+        .dynamic-content,
+        .file-list,
+        .preview-area,
+        .dual-preview-wrap {
+            min-width: auto;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        /* 确保表格或宽内容可滚动 */
+        .file-info {
+            flex-wrap: nowrap;
+            /* 如果不想换行 */
+            overflow-x: auto;
+        }
     }
 
     @media (max-width: 480px) {

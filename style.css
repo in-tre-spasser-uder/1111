@@ -31,268 +31,293 @@ a {
     overflow: hidden;
 }
 
-/* ===== 新侧边栏样式 ===== */
+/* ===== 新侧边栏样式 (部署环境强制生效版) ===== */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 260px;
-    background: #11101d;
-    z-index: 100;
-    transition: all 0.5s ease;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    /* 改用vh，避免height:100%在部署环境失效 */
+    width: 260px !important;
+    background: #11101d !important;
+    /* 强制黑色背景，防止被覆盖 */
+    z-index: 9999 !important;
+    /* 提升层级，避免被主内容遮挡 */
+    transition: all 0.5s ease !important;
+    box-sizing: border-box !important;
 }
 
 .sidebar.close {
-    width: 78px;
+    width: 78px !important;
 }
 
 .sidebar .logo-details {
-    height: 60px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
+    height: 60px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
 }
 
 .sidebar .logo-details i {
-    font-size: 30px;
-    color: #fff;
-    height: 50px;
-    min-width: 78px;
-    text-align: center;
-    line-height: 50px;
+    font-size: 30px !important;
+    color: #fff !important;
+    height: 50px !important;
+    min-width: 78px !important;
+    text-align: center !important;
+    line-height: 50px !important;
 }
 
 .sidebar .logo-details .logo_name {
-    font-size: 22px;
-    color: #fff;
-    font-weight: 600;
-    transition: 0.3s ease;
-    transition-delay: 0.1s;
-    white-space: nowrap;
+    font-size: 22px !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    transition: 0.3s ease !important;
+    transition-delay: 0.1s !important;
+    white-space: nowrap !important;
 }
 
 .sidebar.close .logo-details .logo_name {
-    transition-delay: 0s;
-    opacity: 0;
-    pointer-events: none;
+    transition-delay: 0s !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 .sidebar .nav-links {
-    height: calc(100% - 60px);
-    padding: 30px 0 150px 0;
-    overflow-y: auto;
-    overflow-x: hidden;
+    height: calc(100vh - 60px) !important;
+    /* 改用vh适配部署环境 */
+    padding: 30px 0 150px 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    /* 重置默认边距 */
+    padding: 0 !important;
 }
 
 .sidebar.close .nav-links {
-    overflow: visible;
+    overflow: visible !important;
 }
 
 .sidebar .nav-links::-webkit-scrollbar {
-    display: none;
+    display: none !important;
 }
 
 .sidebar .nav-links li {
-    position: relative;
-    list-style: none;
-    transition: all 0.4s ease;
+    position: relative !important;
+    list-style: none !important;
+    transition: all 0.4s ease !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .sidebar .nav-links li:hover {
-    background: #1d1b31;
+    background: #1d1b31 !important;
 }
 
 .sidebar .nav-links li .iocn-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 }
 
 .sidebar.close .nav-links li .iocn-link {
-    display: block;
+    display: block !important;
 }
 
 .sidebar .nav-links li i {
-    height: 50px;
-    min-width: 78px;
-    text-align: center;
-    line-height: 50px;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    height: 50px !important;
+    min-width: 78px !important;
+    text-align: center !important;
+    line-height: 50px !important;
+    color: #fff !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
 }
 
 .sidebar .nav-links li.showMenu i.arrow {
-    transform: rotate(-180deg);
+    transform: rotate(-180deg) !important;
 }
 
 .sidebar.close .nav-links i.arrow {
-    display: none;
+    display: none !important;
 }
 
 .sidebar .nav-links li a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0 16px;
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    padding: 0 16px !important;
+    color: #fff !important;
+    /* 强制链接文字白色 */
 }
 
 .sidebar .nav-links li a .link_name {
-    font-size: 18px;
-    font-weight: 400;
-    color: #fff;
-    transition: all 0.4s ease;
-    white-space: nowrap;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: #fff !important;
+    transition: all 0.4s ease !important;
+    white-space: nowrap !important;
 }
 
 .sidebar.close .nav-links li a .link_name {
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 /* 子菜单基础样式 */
 .sidebar .nav-links li .sub-menu {
-    padding: 6px 6px 14px 50px;
-    margin-top: -10px;
-    background: #1d1b31;
-    display: none;
+    padding: 6px 6px 14px 50px !important;
+    margin-top: -10px !important;
+    background: #1d1b31 !important;
+    display: none !important;
+    list-style: none !important;
 }
 
 .sidebar .nav-links li.showMenu .sub-menu {
-    display: block;
+    display: block !important;
 }
 
 /* 三级菜单 (考纲下的) 默认隐藏，由悬浮控制 */
 .sidebar .nav-links li .sub-menu li .sub-menu {
-    padding-left: 30px;
-    display: none;
-    background: #2a2740;
+    padding-left: 30px !important;
+    display: none !important;
+    background: #2a2740 !important;
 }
 
 /* 当父级li被hover时显示三级菜单 (即考纲条目悬浮时显示其下级) */
 .sidebar .nav-links li .sub-menu li:hover>.sub-menu {
-    display: block;
+    display: block !important;
 }
 
 .sidebar .nav-links li .sub-menu a {
-    color: #fff;
-    font-size: 15px;
-    padding: 5px 0;
-    white-space: nowrap;
-    opacity: 0.6;
-    transition: all 0.3s ease;
+    color: #fff !important;
+    font-size: 15px !important;
+    padding: 5px 0 !important;
+    white-space: nowrap !important;
+    opacity: 0.6 !important;
+    transition: all 0.3s ease !important;
 }
 
 .sidebar .nav-links li .sub-menu a:hover {
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .sidebar.close .nav-links li .sub-menu {
-    position: absolute;
-    left: 100%;
-    top: -10px;
-    margin-top: 0;
-    padding: 10px 20px;
-    border-radius: 0 6px 6px 0;
-    opacity: 0;
-    display: block;
-    pointer-events: none;
-    transition: 0s;
+    position: absolute !important;
+    left: 100% !important;
+    top: -10px !important;
+    margin-top: 0 !important;
+    padding: 10px 20px !important;
+    border-radius: 0 6px 6px 0 !important;
+    opacity: 0 !important;
+    display: block !important;
+    pointer-events: none !important;
+    transition: 0s !important;
 }
 
 .sidebar.close .nav-links li:hover .sub-menu {
-    top: 0;
-    opacity: 1;
-    pointer-events: auto;
-    transition: all 0.4s ease;
+    top: 0 !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: all 0.4s ease !important;
 }
 
 .sidebar .nav-links li .sub-menu .link_name {
-    display: none;
+    display: none !important;
 }
 
 .sidebar.close .nav-links li .sub-menu .link_name {
-    font-size: 18px;
-    opacity: 1;
-    display: block;
-    color: #fff;
-    padding: 5px 0;
+    font-size: 18px !important;
+    opacity: 1 !important;
+    display: block !important;
+    color: #fff !important;
+    padding: 5px 0 !important;
 }
 
 .sidebar .nav-links li .sub-menu.blank {
-    opacity: 1;
-    pointer-events: auto;
-    padding: 3px 20px 6px 16px;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    padding: 3px 20px 6px 16px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 .sidebar .nav-links li:hover .sub-menu.blank {
-    top: 50%;
-    transform: translateY(-50%);
+    top: 50% !important;
+    transform: translateY(-50%) !important;
 }
 
 /* profile区域 */
 .sidebar .profile-details {
-    position: fixed;
-    bottom: 0;
-    width: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #1d1b31;
-    padding: 12px 0;
-    transition: all 0.5s ease;
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 260px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #1d1b31 !important;
+    padding: 12px 0 !important;
+    transition: all 0.5s ease !important;
+    box-sizing: border-box !important;
 }
 
 .sidebar.close .profile-details {
-    background: none;
-    width: 78px;
+    background: none !important;
+    width: 78px !important;
 }
 
 .sidebar .profile-details .profile-content {
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
 }
 
-.sidebar .profile-details img {
-    height: 52px;
-    width: 52px;
-    object-fit: cover;
-    border-radius: 16px;
-    margin: 0 14px 0 12px;
-    background: #1d1b31;
-    transition: all 0.5s ease;
+/* 替换国外占位图为本地样式，避免加载失败 */
+.sidebar .profile-details .profile-content img {
+    /* 隐藏原图片，改用背景色替代 */
+    display: none !important;
 }
 
-.sidebar.close .profile-details img {
-    padding: 10px;
+/* 新增本地占位图样式 */
+.sidebar .profile-details .profile-content::before {
+    content: "💡" !important;
+    display: block !important;
+    height: 52px !important;
+    width: 52px !important;
+    background: #1d1b31 !important;
+    border-radius: 16px !important;
+    text-align: center !important;
+    line-height: 52px !important;
+    font-size: 24px !important;
+    margin: 0 14px 0 12px !important;
+}
+
+.sidebar.close .profile-details .profile-content::before {
+    padding: 10px !important;
 }
 
 .sidebar .profile-details .profile_name,
 .sidebar .profile-details .job {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    white-space: nowrap;
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
 }
 
 .sidebar.close .profile-details i,
 .sidebar.close .profile-details .profile_name,
 .sidebar.close .profile-details .job {
-    display: none;
+    display: none !important;
 }
 
 .sidebar .profile-details .job {
-    font-size: 12px;
+    font-size: 12px !important;
 }
 
 /* 悬浮层级优化：二级菜单由一级悬浮显示 */
 .sidebar .nav-links>li:hover>.sub-menu {
-    display: block;
+    display: block !important;
 }
 
 /* 主内容区域 */

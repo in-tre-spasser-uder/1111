@@ -947,3 +947,16 @@ a {
     flex: 1;
 }
 
+.local-avatar {
+    width: 52px;
+    height: 52px;
+    background-color: #667eea;
+    /* 柔和的蓝紫色，可自定义 */
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 52px;
+    border-radius: 50%;
+    /* 圆形样式，和原图片一致 */
+    font-weight: 500;
+}

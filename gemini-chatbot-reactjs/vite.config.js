@@ -1,17 +1,26 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// GitHub Pages 部署的基础路径：仓库名（必须和GitHub仓库名完全一致）
-const githubRepoName = '1111';
-const base = process.env.NODE_ENV === 'production' ? `/${githubRepoName}/` : '/';
-
+// 核心：base 必须和 GitHub 仓库名一致，且 build 配置确保打包完整
 export default defineConfig({
   plugins: [react()],
-  base: base, // 生产环境用仓库路径，开发环境用根路径
+  // 基准路径：严格等于仓库名，末尾带 /
+  base: '/1111/',
   build: {
-    outDir: 'dist', // 打包输出目录（默认dist，无需修改）
-    assetsDir: 'assets', // 静态资源目录
-    emptyOutDir: true, // 打包前清空dist文件夹（避免旧文件残留）
-    sourcemap: false // 生产环境关闭sourcemap，减小打包体积
-  }
+    outDir: 'dist', // 打包输出目录
+    assetsDir: 'assets', // 静态资源目录（避免 Vite 自动加随机前缀）
+    // 确保打包后的资源路径是相对的（兼容 Pages 路径规则）
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+      },
+    },
+  },
+  // 开发环境配置（确保和生产环境路径逻辑一致）
+  server: {
+    open: true,
+    port: 5173,
+  },
 });

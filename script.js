@@ -1,4 +1,3 @@
-
 // ========== 文件数据配置 ==========
 const fileData = {
     // 招生计划 -> 2026专升本计划
@@ -8,12 +7,8 @@ const fileData = {
             {
                 name: '2026专升本计划.pdf',
                 fileUrl: './zhuanshengben/2026专升本计划.pdf',
-                type: 'pdf'
-            },
-            {
-                name: '2026专升本计划.jpg',
-                fileUrl: './zhuanshengben/2026专升本计划.jpg',
-                type: 'jpg'
+                type: 'pdf',
+                previewImgUrl: './zhuanshengben/2026专升本计划.jpg'  // 添加预览图片路径
             }
         ]
     },
@@ -201,7 +196,6 @@ const fileData = {
             }
         ]
     },
-    // 在 fileData 对象中添加（可以放在专业课程标准相关的位置）
     // 专业课程标准
     'course-english': {
         name: '英语课程标准',
@@ -350,52 +344,34 @@ for (var i = 0; i < arrow.length; i++) {
 }
 
 // ===== 点击固定展开/收缩功能 =====
-// 为所有带有子菜单的li添加点击固定功能
 function setupClickToFix() {
-    // 选择所有带有子菜单的li（一级菜单）
     const menuItems = document.querySelectorAll('.sidebar .nav-links > li');
 
     menuItems.forEach(item => {
-        // 移除可能存在的旧监听器，使用新函数
         const links = item.querySelectorAll('a');
         links.forEach(link => {
             link.addEventListener('click', function (e) {
-                // 阻止事件冒泡，避免触发document的点击事件
                 e.stopPropagation();
 
-                // 获取当前项的父li
                 const parentLi = this.closest('li');
                 if (!parentLi) return;
 
-                // 检查是否是带有子菜单的项
                 const subMenu = parentLi.querySelector(':scope > .sub-menu');
                 if (subMenu) {
-                    // 切换fixed类
                     parentLi.classList.toggle('fixed-open');
-
-                    // 如果当前是fixed状态，移除showMenu类（由悬浮控制）
                     if (parentLi.classList.contains('fixed-open')) {
                         parentLi.classList.remove('showMenu');
                     }
                 }
 
-                // 处理二级菜单中的三级菜单点击
                 const thirdLevelParent = this.closest('.has-third-level');
                 if (thirdLevelParent) {
                     thirdLevelParent.classList.toggle('fixed-open');
-
-                    // 如果当前是fixed状态，确保其父级菜单保持展开
-                    const parentSecondLevel = thirdLevelParent.closest('li');
-                    if (parentSecondLevel && !parentSecondLevel.classList.contains('fixed-open')) {
-                        // 如果二级菜单没有被固定，但三级菜单被固定了，二级菜单需要保持显示
-                        // 这里不做处理，因为二级菜单的显示由悬浮控制
-                    }
                 }
             });
         });
     });
 
-    // 专门为.has-third-level元素添加点击处理
     document.querySelectorAll('.has-third-level > .iocn-link').forEach(item => {
         item.addEventListener('click', function (e) {
             e.preventDefault();
@@ -404,8 +380,6 @@ function setupClickToFix() {
             const parent = this.closest('.has-third-level');
             if (parent) {
                 parent.classList.toggle('fixed-open');
-
-                // 如果当前是fixed状态，移除showMenu类
                 if (parent.classList.contains('fixed-open')) {
                     parent.classList.remove('showMenu');
                 }
@@ -418,7 +392,6 @@ function setupClickToFix() {
 function addFixedStyles() {
     const style = document.createElement('style');
     style.textContent = `
-        /* fixed-open状态：始终显示子菜单，不受悬浮影响 */
         .sidebar .nav-links li.fixed-open > .sub-menu {
             display: block !important;
         }
@@ -427,18 +400,15 @@ function addFixedStyles() {
             display: block !important;
         }
         
-        /* 当项被固定时，箭头旋转 */
         .sidebar .nav-links li.fixed-open > .iocn-link .arrow,
         .sidebar .nav-links li .sub-menu li.fixed-open > .iocn-link .arrow {
             transform: rotate(-180deg);
         }
         
-        /* 悬浮效果仍然有效，但fixed-open优先级更高 */
         .sidebar .nav-links li:hover > .sub-menu {
             display: block;
         }
         
-        /* 确保fixed-open状态下的悬浮不会干扰 */
         .sidebar .nav-links li.fixed-open:hover > .sub-menu {
             display: block !important;
         }
@@ -468,9 +438,7 @@ let currentLinkText = '首页';
 function renderPreview(file, container) {
     container.innerHTML = '';
 
-    // 判断文件类型
     if (file.type === 'pdf' || file.name.toLowerCase().endsWith('.pdf')) {
-        // PDF使用iframe嵌入
         const iframe = document.createElement('iframe');
         iframe.src = file.fileUrl;
         iframe.style.width = '100%';
@@ -483,7 +451,6 @@ function renderPreview(file, container) {
         };
         container.appendChild(iframe);
     } else {
-        // 图片使用img显示
         const img = document.createElement('img');
         img.src = file.fileUrl;
         img.alt = '预览图片';
@@ -532,6 +499,19 @@ function renderFileContent(target, title) {
             fileBadge = '<span class="file-badge question">题目</span>';
         }
 
+        // 生成按钮HTML - 如果有previewImgUrl，则预览图片形式按钮使用该路径
+        let previewImgBtnHtml = '';
+        if (file.previewImgUrl) {
+            const imgFile = {
+                name: file.name.replace('.pdf', '') + '（图片预览）',
+                fileUrl: file.previewImgUrl,
+                type: 'jpg'
+            };
+            previewImgBtnHtml = `<button class="preview-img-btn" data-file='${JSON.stringify(imgFile).replace(/"/g, '&quot;')}'>预览图片形式</button>`;
+        } else {
+            previewImgBtnHtml = `<button class="preview-img-btn" data-file='${fileAttr}'>预览图片形式</button>`;
+        }
+
         html += `
             <div class="file-item">
                 <div class="file-info">
@@ -542,6 +522,7 @@ function renderFileContent(target, title) {
                     ${fileBadge}
                 </div>
                 <div class="action-buttons">
+                    ${previewImgBtnHtml}
                     <button class="download-btn" data-file='${fileAttr}'>下载</button>
                     <button class="preview-btn" data-file='${fileAttr}'>预览</button>
                 </div>
@@ -626,6 +607,45 @@ function updateContent(target, linkText) {
                 });
             });
 
+            // 绑定预览图片形式按钮
+            document.querySelectorAll('.preview-img-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const file = JSON.parse(this.getAttribute('data-file'));
+                    currentPreviewFile = file;
+                    updateContent(target, linkText);
+
+                    setTimeout(() => {
+                        const container = document.getElementById('preview-container');
+                        if (container && currentPreviewFile) {
+                            // 强制作为图片预览
+                            const img = document.createElement('img');
+                            img.src = currentPreviewFile.fileUrl;
+                            img.alt = '预览图片';
+                            img.style.maxWidth = '100%';
+                            img.style.height = 'auto';
+                            img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                            img.style.borderRadius = '4px';
+
+                            img.onerror = function () {
+                                container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 图片加载失败: ${currentPreviewFile.fileUrl}<br>请检查路径或网络。</div>`;
+                            };
+                            container.innerHTML = '';
+                            container.appendChild(img);
+                        }
+                    }, 50);
+                });
+            });
+
+            // 绑定下载按钮
+            document.querySelectorAll('.download-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const file = JSON.parse(this.getAttribute('data-file'));
+                    downloadFile(file);
+                });
+            });
+
             // 关闭预览按钮
             const closeBtn = document.getElementById('closePreviewBtn');
             if (closeBtn) {
@@ -652,31 +672,6 @@ function updateContent(target, linkText) {
         const titleSvg = document.querySelector('#page-title svg path');
         if (titleSvg) titleSvg.setAttribute('d', iconPath);
     }
-    // 绑定预览按钮
-    document.querySelectorAll('.preview-btn').forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const file = JSON.parse(this.getAttribute('data-file'));
-            currentPreviewFile = file;
-            updateContent(target, linkText);
-
-            setTimeout(() => {
-                const container = document.getElementById('preview-container');
-                if (container && currentPreviewFile) {
-                    renderPreview(currentPreviewFile, container);
-                }
-            }, 50);
-        });
-    });
-
-    // 绑定下载按钮
-    document.querySelectorAll('.download-btn').forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const file = JSON.parse(this.getAttribute('data-file'));
-            downloadFile(file);
-        });
-    });
 }
 
 // 菜单点击绑定
@@ -693,13 +688,8 @@ menuLinks.forEach(link => {
 
 // 初始化
 function init() {
-    // 添加固定样式的CSS
     addFixedStyles();
-
-    // 设置点击固定功能
     setupClickToFix();
-
-    // 初始化首页
     updateContent('home', '首页');
     document.querySelectorAll('.sidebar li.active').forEach(li => li.classList.remove('active'));
     const homeLi = document.getElementById('menu-home');
@@ -719,7 +709,6 @@ function downloadFile(file) {
 
 // 答案对照预览功能
 (function () {
-    // 保存原始的updateContent函数
     const originalUpdateContent = window.updateContent;
 
     window.updateContent = function (target, linkText) {
@@ -747,7 +736,7 @@ function downloadFile(file) {
                 file.name.includes('答案') || file.name.toLowerCase().includes('answer')
             ) || currentData.files[1];
 
-            fileItems.forEach((item, index) => {
+            fileItems.forEach((item) => {
                 if (item.querySelector('.answer-preview-btn')) return;
 
                 const previewBtn = item.querySelector('.preview-btn');
@@ -846,7 +835,6 @@ function downloadFile(file) {
         });
     };
 
-    // 重新绑定菜单链接以确保使用新的updateContent
     document.querySelectorAll('a[data-target]').forEach(link => {
         const newLink = link.cloneNode(true);
         link.parentNode.replaceChild(newLink, link);
@@ -872,18 +860,11 @@ function downloadFile(file) {
 // 启动初始化
 init();
 
-
-
-
-
-
-// 搜索功能如下
 // ========== 搜索功能实现 ==========
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const dynamicContent = document.getElementById('dynamic-content');
 
-    // 防抖函数，避免频繁搜索
     function debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -896,11 +877,9 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
-    // 搜索函数
     function performSearch() {
         const searchTerm = searchInput.value.trim().toLowerCase();
 
-        // 如果搜索词为空，显示提示
         if (searchTerm === '') {
             dynamicContent.innerHTML = `
                 <svg viewBox="0 0 24 24">
@@ -913,17 +892,12 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // 收集所有匹配的文件
         const searchResults = [];
 
-        // 遍历 fileData 中的所有项目
         Object.keys(fileData).forEach(key => {
             const item = fileData[key];
-
-            // 检查项目名称是否匹配
             const nameMatch = item.name.toLowerCase().includes(searchTerm);
 
-            // 检查项目中的文件是否匹配
             item.files.forEach(file => {
                 const fileNameMatch = file.name.toLowerCase().includes(searchTerm);
                 const filePathMatch = file.fileUrl.toLowerCase().includes(searchTerm);
@@ -940,7 +914,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // 去重（同一个文件可能被多次匹配）
         const uniqueResults = [];
         const seen = new Set();
         searchResults.forEach(result => {
@@ -951,11 +924,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // 显示搜索结果
         displaySearchResults(uniqueResults, searchTerm);
     }
 
-    // 显示搜索结果
     function displaySearchResults(results, searchTerm) {
         const dynamicContent = document.getElementById('dynamic-content');
 
@@ -980,7 +951,6 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="search-results-list">
         `;
 
-        // 按类别分组显示
         const groupedResults = {};
         results.forEach(result => {
             if (!groupedResults[result.category]) {
@@ -989,7 +959,6 @@ document.addEventListener('DOMContentLoaded', function () {
             groupedResults[result.category].push(result);
         });
 
-        // 生成分组后的搜索结果
         Object.keys(groupedResults).forEach(category => {
             html += `
                 <div class="search-category">
@@ -1004,7 +973,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     type: result.fileType
                 }).replace(/"/g, '&quot;');
 
-                // 判断文件类型图标
                 const fileIcon = result.fileType === 'pdf' ?
                     '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 10h-8v-2h8v2zm0-4h-8V7h8v2z" />' :
                     '<path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />';
@@ -1018,6 +986,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <span class="search-result-name">${result.fileName}</span>
                         </div>
                         <div class="search-result-actions">
+                            <button class="preview-img-btn search-preview-img" data-file='${fileAttr}'>预览图片形式</button>
                             <button class="download-btn search-download" data-file='${fileAttr}'>下载</button>
                             <button class="preview-btn search-preview" data-file='${fileAttr}'>预览</button>
                         </div>
@@ -1033,13 +1002,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         html += `</div>`;
 
-        // 如果当前有预览文件，保留预览区域
-        if (window.currentPreviewFile) {
-            const previewType = window.currentPreviewFile.type === 'pdf' ? 'PDF预览' : '图片预览';
+        if (currentPreviewFile) {
+            const previewType = currentPreviewFile.type === 'pdf' ? 'PDF预览' : '图片预览';
             html += `
                 <div class="preview-area">
                     <div class="preview-header">
-                        <h3>${window.currentPreviewFile.name} (${previewType})</h3>
+                        <h3>${currentPreviewFile.name} (${previewType})</h3>
                         <button class="close-preview" id="closePreviewBtn">&times;</button>
                     </div>
                     <div class="preview-content" id="preview-container"></div>
@@ -1048,22 +1016,49 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         dynamicContent.innerHTML = html;
-
-        // 重新绑定搜索结果的下载和预览按钮
         bindSearchResultButtons();
 
-        // 重新绑定关闭预览按钮
         const closeBtn = document.getElementById('closePreviewBtn');
         if (closeBtn) {
             closeBtn.addEventListener('click', function () {
-                window.currentPreviewFile = null;
-                performSearch(); // 刷新搜索结果（关闭预览）
+                currentPreviewFile = null;
+                performSearch();
             });
         }
     }
 
-    // 绑定搜索结果的按钮事件
     function bindSearchResultButtons() {
+        // 预览图片形式按钮
+        document.querySelectorAll('.search-preview-img, .preview-img-btn').forEach(btn => {
+            if (btn.hasAttribute('data-file')) {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const file = JSON.parse(this.getAttribute('data-file'));
+                    currentPreviewFile = file;
+                    performSearch();
+
+                    setTimeout(() => {
+                        const container = document.getElementById('preview-container');
+                        if (container && currentPreviewFile) {
+                            const img = document.createElement('img');
+                            img.src = currentPreviewFile.fileUrl;
+                            img.alt = '预览图片';
+                            img.style.maxWidth = '100%';
+                            img.style.height = 'auto';
+                            img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                            img.style.borderRadius = '4px';
+
+                            img.onerror = function () {
+                                container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 图片加载失败: ${currentPreviewFile.fileUrl}<br>请检查路径或网络。</div>`;
+                            };
+                            container.innerHTML = '';
+                            container.appendChild(img);
+                        }
+                    }, 50);
+                });
+            }
+        });
+
         // 下载按钮
         document.querySelectorAll('.search-download, .download-btn').forEach(btn => {
             if (btn.hasAttribute('data-file')) {
@@ -1081,16 +1076,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 btn.addEventListener('click', function (e) {
                     e.stopPropagation();
                     const file = JSON.parse(this.getAttribute('data-file'));
-                    window.currentPreviewFile = file;
-
-                    // 重新执行搜索并显示预览
+                    currentPreviewFile = file;
                     performSearch();
 
-                    // 延迟加载预览内容
                     setTimeout(() => {
                         const container = document.getElementById('preview-container');
-                        if (container && window.currentPreviewFile) {
-                            renderPreview(window.currentPreviewFile, container);
+                        if (container && currentPreviewFile) {
+                            renderPreview(currentPreviewFile, container);
                         }
                     }, 50);
                 });
@@ -1098,11 +1090,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 添加搜索输入事件（带防抖）
     const debouncedSearch = debounce(performSearch, 300);
     searchInput.addEventListener('input', debouncedSearch);
 
-    // 添加键盘事件（按回车直接搜索）
     searchInput.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             e.preventDefault();
@@ -1110,7 +1100,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // 添加搜索框清空按钮（可选）
     const searchBox = document.querySelector('.search-box');
     const clearButton = document.createElement('button');
     clearButton.innerHTML = '&times;';
@@ -1142,69 +1131,52 @@ document.addEventListener('DOMContentLoaded', function () {
         clearButton.style.display = this.value ? 'block' : 'none';
     });
 
-    // 保存原始updateContent函数引用
     const originalUpdateContent = window.updateContent;
 
-    // 重写updateContent以保持搜索功能
     window.updateContent = function (target, linkText) {
-        // 清空搜索框
         if (searchInput) {
             searchInput.value = '';
             clearButton.style.display = 'none';
         }
-        // 调用原始updateContent
         originalUpdateContent(target, linkText);
     };
 
     console.log('✅ 搜索功能已启用');
 });
 
-// 统计卡片功能实现
 // ========== 统计卡片功能实现 ==========
 function updateStatsCards() {
-    // 初始化计数器
     const stats = {
-        politics: 0,  // 政治资料
-        english: 0,   // 英语资料
-        math: 0,      // 高数资料
-        it: 0         // 信息技术资料
+        politics: 0,
+        english: 0,
+        math: 0,
+        it: 0
     };
 
-    // 遍历所有文件数据
     Object.keys(fileData).forEach(key => {
         const item = fileData[key];
         const itemName = item.name.toLowerCase();
         const itemKey = key.toLowerCase();
 
-        // 统计政治资料
         if (itemName.includes('政治') || itemKey.includes('politics')) {
             stats.politics += item.files.length;
         }
-
-        // 统计英语资料
         if (itemName.includes('英语') || itemKey.includes('english')) {
             stats.english += item.files.length;
         }
-
-        // 统计高数资料
         if (itemName.includes('高数') || itemKey.includes('math')) {
             stats.math += item.files.length;
         }
-
-        // 统计信息技术资料
         if (itemName.includes('信息技术') || itemName.includes('it') ||
             itemKey.includes('it') || itemName.includes('信息')) {
             stats.it += item.files.length;
         }
     });
 
-    // 更新统计卡片显示
     updateStatsCardDisplay(stats);
 }
 
-// 更新统计卡片显示
 function updateStatsCardDisplay(stats) {
-    // 获取所有统计卡片
     const statCards = document.querySelectorAll('.stat-card');
 
     statCards.forEach(card => {
@@ -1212,7 +1184,6 @@ function updateStatsCardDisplay(stats) {
         const valueElement = card.querySelector('.value');
         const descElement = card.querySelector('.desc');
 
-        // 根据标题设置对应的统计值
         if (title.includes('政治')) {
             valueElement.textContent = stats.politics;
             descElement.textContent = `包含 ${stats.politics} 个文件`;
@@ -1229,7 +1200,6 @@ function updateStatsCardDisplay(stats) {
     });
 }
 
-// 获取详细分类统计（可选，用于显示更详细的信息）
 function getDetailedStats() {
     const detailedStats = {
         politics: { 真题: 0, 模拟题: 0, 考纲: 0, 其他: 0 },
@@ -1244,7 +1214,6 @@ function getDetailedStats() {
         const itemKey = key.toLowerCase();
         const fileCount = item.files.length;
 
-        // 判断资料类型
         let type = '其他';
         if (itemName.includes('真题') || itemKey.includes('past')) {
             type = '真题';
@@ -1254,7 +1223,6 @@ function getDetailedStats() {
             type = '考纲';
         }
 
-        // 分类统计
         if (itemName.includes('政治') || itemKey.includes('politics')) {
             detailedStats.politics[type] += fileCount;
         } else if (itemName.includes('英语') || itemKey.includes('english')) {
@@ -1270,7 +1238,6 @@ function getDetailedStats() {
     return detailedStats;
 }
 
-// 显示详细统计信息（鼠标悬停时显示）
 function showDetailedStats(card, type) {
     const detailedStats = getDetailedStats();
     const stats = detailedStats[type];
@@ -1288,7 +1255,6 @@ function showDetailedStats(card, type) {
         `;
     }
 
-    // 创建或更新 tooltip
     let tooltip = card.querySelector('.stat-tooltip');
     if (!tooltip) {
         tooltip = document.createElement('div');
@@ -1299,9 +1265,7 @@ function showDetailedStats(card, type) {
     tooltip.style.display = 'block';
 }
 
-// 初始化统计卡片样式和交互
 function initStatsCards() {
-    // 添加统计卡片的CSS样式
     const style = document.createElement('style');
     style.textContent = `
         .stat-card {
@@ -1359,7 +1323,6 @@ function initStatsCards() {
             border-color: transparent transparent rgba(0,0,0,0.8) transparent;
         }
         
-        /* 卡片颜色主题 */
         .stat-card.politics {
             border-left: 4px solid #e74c3c;
         }
@@ -1376,7 +1339,6 @@ function initStatsCards() {
             border-left: 4px solid #f39c12;
         }
         
-        /* 统计值动画 */
         .value-update {
             animation: countUp 0.5s ease-out;
         }
@@ -1396,13 +1358,6 @@ function initStatsCards() {
             }
         }
         
-        /* 空状态样式 */
-        .stat-card .value:empty::before,
-        .stat-card .value:contains('-') {
-            color: #bdc3c7;
-        }
-        
-        /* 响应式调整 */
         @media (max-width: 768px) {
             .stats-cards {
                 grid-template-columns: repeat(2, 1fr) !important;
@@ -1416,7 +1371,6 @@ function initStatsCards() {
     `;
     document.head.appendChild(style);
 
-    // 为每个统计卡片添加鼠标悬停事件
     const statCards = document.querySelectorAll('.stat-card');
     statCards.forEach(card => {
         const title = card.querySelector('h3').innerText;
@@ -1427,7 +1381,6 @@ function initStatsCards() {
         else if (title.includes('高数')) type = 'math';
         else if (title.includes('信息技术')) type = 'it';
 
-        // 鼠标悬停显示详细统计
         card.addEventListener('mouseenter', function () {
             showDetailedStats(this, type);
         });
@@ -1439,11 +1392,9 @@ function initStatsCards() {
             }
         });
 
-        // 点击卡片刷新统计
         card.addEventListener('click', function () {
             updateStatsCards();
 
-            // 添加动画效果
             const valueElement = this.querySelector('.value');
             valueElement.classList.add('value-update');
             setTimeout(() => {
@@ -1453,25 +1404,19 @@ function initStatsCards() {
     });
 }
 
-// 监听内容更新，重新统计
 function watchForUpdates() {
-    // 保存原始的 updateContent 函数
     const originalUpdateContent = window.updateContent;
 
-    // 重写 updateContent 函数
     window.updateContent = function (target, linkText) {
-        // 调用原始函数
         if (originalUpdateContent) {
             originalUpdateContent(target, linkText);
         }
 
-        // 更新统计
         setTimeout(() => {
             updateStatsCards();
         }, 100);
     };
 
-    // 如果有搜索功能，也监听搜索完成
     if (window.performSearch) {
         const originalSearch = window.performSearch;
         window.performSearch = function () {
@@ -1483,18 +1428,11 @@ function watchForUpdates() {
     }
 }
 
-// 初始化统计功能
 function initStats() {
-    // 初始更新统计
     updateStatsCards();
-
-    // 初始化卡片样式和交互
     initStatsCards();
-
-    // 监听更新
     watchForUpdates();
 
-    // 每30秒自动刷新一次统计（可选）
     setInterval(() => {
         updateStatsCards();
     }, 30000);
@@ -1502,9 +1440,37 @@ function initStats() {
     console.log('✅ 统计卡片功能已启用');
 }
 
-// 在页面加载完成后初始化
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initStats);
 } else {
     initStats();
 }
+
+// 添加预览图片形式按钮样式
+const style = document.createElement('style');
+style.textContent = `
+    .preview-img-btn {
+        background: #f97316;
+        color: white;
+        border: none;
+        padding: 6px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 400;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .preview-img-btn:hover {
+        background: #ea580c;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .preview-img-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+`;
+document.head.appendChild(style);

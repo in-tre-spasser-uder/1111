@@ -7,8 +7,12 @@ const fileData = {
             {
                 name: '2026专升本计划.pdf',
                 fileUrl: './zhuanshengben/2026专升本计划.pdf',
-                type: 'pdf',
-                previewImgUrl: './zhuanshengben/2026专升本计划.jpg'  // 添加预览图片路径
+                type: 'pdf'
+            },
+            {
+                name: '2026专升本计划.jpg',
+                fileUrl: './zhuanshengben/2026专升本计划.jpg',
+                type: 'jpg'
             }
         ]
     },
@@ -74,67 +78,7 @@ const fileData = {
             }
         ]
     },
-    // 模拟题
-    'mock-politics-1': {
-        name: '政治模拟卷一',
-        files: [
-            {
-                name: '政治模拟卷1.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷1.pdf',
-                type: 'pdf'
-            },
-            {
-                name: '政治模拟卷1答案.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷1答案.pdf',
-                type: 'pdf'
-            }
-        ]
-    },
-    'mock-english-1': {
-        name: '英语模拟卷一',
-        files: [
-            {
-                name: '英语模拟卷1.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷1.pdf',
-                type: 'pdf'
-            },
-            {
-                name: '英语模拟卷1答案.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷1答案.pdf',
-                type: 'pdf'
-            }
-        ]
-    },
-    'mock-math-1': {
-        name: '高数模拟卷一',
-        files: [
-            {
-                name: '高数模拟卷1.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷1.pdf',
-                type: 'pdf'
-            },
-            {
-                name: '高数模拟卷1答案.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷1答案.pdf',
-                type: 'pdf'
-            }
-        ]
-    },
-    'mock-it-1': {
-        name: '信息技术模拟卷一',
-        files: [
-            {
-                name: '信息技术模拟卷1.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷1.pdf',
-                type: 'pdf'
-            },
-            {
-                name: '信息技术模拟卷1答案.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷1答案.pdf',
-                type: 'pdf'
-            }
-        ]
-    },
+
     // 考纲类
     'syllabus-2026-politics': {
         name: '政治考纲2026',
@@ -196,6 +140,7 @@ const fileData = {
             }
         ]
     },
+
     // 专业课程标准
     'course-english': {
         name: '英语课程标准',
@@ -238,7 +183,7 @@ const fileData = {
                 type: 'pdf'
             }
         ]
-    },
+    }
 };
 
 // ========== 用循环添加高数模拟卷2-19 ==========
@@ -260,8 +205,8 @@ for (let i = 2; i <= 19; i++) {
     };
 }
 
-// 为政治模拟卷2-19添加数据
-for (let i = 2; i <= 19; i++) {
+// 为政治模拟卷1-19添加数据（覆盖原有的mock-politics-1）
+for (let i = 1; i <= 19; i++) {
     fileData[`mock-politics-${i}`] = {
         name: `政治模拟卷${i}`,
         files: [
@@ -279,8 +224,8 @@ for (let i = 2; i <= 19; i++) {
     };
 }
 
-// 为英语模拟卷2-19添加数据
-for (let i = 2; i <= 19; i++) {
+// 为英语模拟卷1-19添加数据（覆盖原有的mock-english-1）
+for (let i = 1; i <= 19; i++) {
     fileData[`mock-english-${i}`] = {
         name: `英语模拟卷${i}`,
         files: [
@@ -298,19 +243,19 @@ for (let i = 2; i <= 19; i++) {
     };
 }
 
-// 为信息技术模拟卷2-19添加数据
-for (let i = 2; i <= 19; i++) {
+// 为信息技术模拟卷1-19添加数据（覆盖原有的mock-it-1）
+for (let i = 1; i <= 19; i++) {
     fileData[`mock-it-${i}`] = {
         name: `信息技术模拟卷${i}`,
         files: [
             {
                 name: `信息技术模拟卷${i}.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷${i}.pdf`,
+                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷${i}.pdf`,
                 type: 'pdf'
             },
             {
                 name: `信息技术模拟卷${i}答案.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷${i}答案.pdf`,
+                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷${i}答案.pdf`,
                 type: 'pdf'
             }
         ]
@@ -499,18 +444,27 @@ function renderFileContent(target, title) {
             fileBadge = '<span class="file-badge question">题目</span>';
         }
 
-        // 生成按钮HTML - 如果有previewImgUrl，则预览图片形式按钮使用该路径
+        // 生成预览图片形式按钮 - 支持多种图片格式
         let previewImgBtnHtml = '';
-        if (file.previewImgUrl) {
-            const imgFile = {
-                name: file.name.replace('.pdf', '') + '（图片预览）',
-                fileUrl: file.previewImgUrl,
-                type: 'jpg'
-            };
-            previewImgBtnHtml = `<button class="preview-img-btn" data-file='${JSON.stringify(imgFile).replace(/"/g, '&quot;')}'>预览图片形式</button>`;
-        } else {
-            previewImgBtnHtml = `<button class="preview-img-btn" data-file='${fileAttr}'>预览图片形式</button>`;
-        }
+
+        // 常见的图片格式
+        const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg'];
+
+        // 获取文件名（不含扩展名）
+        const baseFileName = file.name.replace('.pdf', '');
+        const baseFilePath = file.fileUrl.replace('.pdf', '');
+
+        // 创建图片文件对象数组，包含所有可能的图片格式
+        const imgFiles = imageExtensions.map(ext => ({
+            name: baseFileName + '（图片预览）',
+            fileUrl: baseFilePath + '.' + ext,
+            type: ext
+        }));
+
+        // 将图片文件数组转换为 data-* 属性
+        const imgFilesAttr = JSON.stringify(imgFiles).replace(/"/g, '&quot;');
+
+        previewImgBtnHtml = `<button class="preview-img-btn" data-img-files='${imgFilesAttr}' data-base-path='${baseFilePath}'>预览图片形式</button>`;
 
         html += `
             <div class="file-item">
@@ -611,29 +565,57 @@ function updateContent(target, linkText) {
             document.querySelectorAll('.preview-img-btn').forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.stopPropagation();
-                    const file = JSON.parse(this.getAttribute('data-file'));
-                    currentPreviewFile = file;
-                    updateContent(target, linkText);
 
-                    setTimeout(() => {
-                        const container = document.getElementById('preview-container');
-                        if (container && currentPreviewFile) {
-                            // 强制作为图片预览
-                            const img = document.createElement('img');
-                            img.src = currentPreviewFile.fileUrl;
-                            img.alt = '预览图片';
-                            img.style.maxWidth = '100%';
-                            img.style.height = 'auto';
-                            img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-                            img.style.borderRadius = '4px';
+                    // 获取图片文件列表
+                    const imgFiles = JSON.parse(this.getAttribute('data-img-files'));
+                    const basePath = this.getAttribute('data-base-path');
 
-                            img.onerror = function () {
-                                container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 图片加载失败: ${currentPreviewFile.fileUrl}<br>请检查路径或网络。</div>`;
-                            };
-                            container.innerHTML = '';
-                            container.appendChild(img);
+                    // 尝试加载图片，从第一种格式开始尝试
+                    tryLoadImage(imgFiles, 0);
+
+                    function tryLoadImage(files, index) {
+                        if (index >= files.length) {
+                            // 所有格式都失败了
+                            const container = document.getElementById('preview-container');
+                            if (container) {
+                                container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 未找到对应的图片文件<br>请确保存在以下格式之一的图片：jpg、png、gif等</div>`;
+                            }
+                            return;
                         }
-                    }, 50);
+
+                        const file = files[index];
+                        currentPreviewFile = file;
+                        updateContent(target, linkText);
+
+                        setTimeout(() => {
+                            const container = document.getElementById('preview-container');
+                            if (container && currentPreviewFile) {
+                                // 尝试加载图片
+                                const img = document.createElement('img');
+                                img.src = currentPreviewFile.fileUrl;
+                                img.alt = '预览图片';
+                                img.style.maxWidth = '100%';
+                                img.style.height = 'auto';
+                                img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                                img.style.borderRadius = '4px';
+
+                                img.onload = function () {
+                                    // 图片加载成功
+                                    container.innerHTML = '';
+                                    container.appendChild(img);
+                                };
+
+                                img.onerror = function () {
+                                    // 当前格式失败，尝试下一种格式
+                                    console.log(`尝试加载 ${currentPreviewFile.fileUrl} 失败，尝试下一种格式`);
+                                    tryLoadImage(files, index + 1);
+                                };
+
+                                container.innerHTML = '<div style="padding:20px;">正在尝试加载图片...</div>';
+                                container.appendChild(img);
+                            }
+                        }, 50);
+                    }
                 });
             });
 
@@ -1030,31 +1012,52 @@ document.addEventListener('DOMContentLoaded', function () {
     function bindSearchResultButtons() {
         // 预览图片形式按钮
         document.querySelectorAll('.search-preview-img, .preview-img-btn').forEach(btn => {
-            if (btn.hasAttribute('data-file')) {
+            if (btn.hasAttribute('data-img-files')) {
                 btn.addEventListener('click', function (e) {
                     e.stopPropagation();
-                    const file = JSON.parse(this.getAttribute('data-file'));
-                    currentPreviewFile = file;
-                    performSearch();
 
-                    setTimeout(() => {
-                        const container = document.getElementById('preview-container');
-                        if (container && currentPreviewFile) {
-                            const img = document.createElement('img');
-                            img.src = currentPreviewFile.fileUrl;
-                            img.alt = '预览图片';
-                            img.style.maxWidth = '100%';
-                            img.style.height = 'auto';
-                            img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-                            img.style.borderRadius = '4px';
+                    const imgFiles = JSON.parse(this.getAttribute('data-img-files'));
 
-                            img.onerror = function () {
-                                container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 图片加载失败: ${currentPreviewFile.fileUrl}<br>请检查路径或网络。</div>`;
-                            };
-                            container.innerHTML = '';
-                            container.appendChild(img);
+                    function tryLoadImage(files, index) {
+                        if (index >= files.length) {
+                            const container = document.getElementById('preview-container');
+                            if (container) {
+                                container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 未找到对应的图片文件<br>请确保存在以下格式之一的图片：jpg、png、gif等</div>`;
+                            }
+                            return;
                         }
-                    }, 50);
+
+                        const file = files[index];
+                        currentPreviewFile = file;
+                        performSearch();
+
+                        setTimeout(() => {
+                            const container = document.getElementById('preview-container');
+                            if (container && currentPreviewFile) {
+                                const img = document.createElement('img');
+                                img.src = currentPreviewFile.fileUrl;
+                                img.alt = '预览图片';
+                                img.style.maxWidth = '100%';
+                                img.style.height = 'auto';
+                                img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                                img.style.borderRadius = '4px';
+
+                                img.onload = function () {
+                                    container.innerHTML = '';
+                                    container.appendChild(img);
+                                };
+
+                                img.onerror = function () {
+                                    tryLoadImage(files, index + 1);
+                                };
+
+                                container.innerHTML = '<div style="padding:20px;">正在尝试加载图片...</div>';
+                                container.appendChild(img);
+                            }
+                        }, 50);
+                    }
+
+                    tryLoadImage(imgFiles, 0);
                 });
             }
         });

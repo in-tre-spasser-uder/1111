@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>专升本资料 · 移动端适配版</title>
+    <!-- Boxiocns CDN Link (用于侧边栏) -->
+    <link href="./style.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="site-wrap">
+        <!-- 遮罩层，用于移动端点击关闭侧边栏 -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- 侧边栏 -->
+        <div class="sidebar close" id="sidebar">
+            <div class="logo-details">
+                <i class='bx bxl-c-plus-plus'></i>
+                <span class="logo_name">升本导航</span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li id="menu-home">
+                    <a href="#" data-target="home">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">首页</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#" data-target="home">首页</a></li>
+                    </ul>
+                </li>
+                <!-- 报考指南 有子菜单 -->
+                <li class="menu-with-sub">
+                    <div class="iocn-link">
+                        <a href="#"><i class='bx bx-collection'></i><span class="link_name">报考指南</span></a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">报考指南</a></li>
+                        <li><a href="#" data-target="plan-2026">2026专升本计划</a></li>
+                        <li class="has-third-level">
+                            <div class="iocn-link"><a href="#" style="padding-left:16px;"><span>考试说明（考纲）</span></a><i
+                                    class='bx bxs-chevron-down arrow'></i></div>
+                            <ul class="sub-menu" style="padding-left:30px;">
+                                <li><a class="link_name" href="#">考纲</a></li>
+                                <li><a href="#" data-target="syllabus-2026-politics">政治考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-2026-english">英语考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-2026-math">高数考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-2026-it">信息技术考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-other">其他年份考纲</a></li>
+                            </ul>
+                        </li>
+                        <!-- 专业课程标准（略缩减，保留结构） -->
+                        <li class="has-third-level">
+                            <div class="iocn-link"><a href="#" style="padding-left:16px;"><span>专业、课程标准</span></a><i
+                                    class='bx bxs-chevron-down arrow'></i></div>
+                            <ul class="sub-menu" style="padding-left:30px;">
+                                <li><a class="link_name" href="#">专业、课程标准</a></li>
+                                <li class="has-third-level">
+                                    <div class="iocn-link"><a href="#"
+                                            style="padding-left:16px;"><span>课程标准</span></a><i
+                                            class='bx bxs-chevron-down arrow'></i></div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">课程标准</a></li>
+                                        <li><a href="#" data-target="course-english">英语</a></li>
+                                        <li><a href="#" data-target="course-math">数学</a></li>
+                                        <li><a href="#" data-target="course-it">信息技术概论</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-third-level">
+                                    <div class="iocn-link"><a href="#"
+                                            style="padding-left:16px;"><span>专业标准</span></a><i
+                                            class='bx bxs-chevron-down arrow'></i></div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">专业标准</a></li>
+                                        <li><a href="#" data-target="major-bigdata">大数据技术</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#" data-target="process">报考流程/时间</a></li>
+                    </ul>
+                </li>
+                <!-- 备考资料 类似省略部分三级菜单，但保留模拟题结构（数据会用js生成） -->
+                <li>
+                    <div class="iocn-link"><a href="#"><i class='bx bx-book-alt'></i><span
+                                class="link_name">备考资料</span></a><i class='bx bxs-chevron-down arrow'></i></div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">备考资料</a></li>
+                        <li><a href="./网课/网课.html" target="_blank">网课</a></li>
+                        <li><a href="https://in-tre-spasser-uder.github.io/1111/react-gemini/index.html"
+                                target="_blank">Gemini</a></li>
+                        <li class="has-third-level">
+                            <div class="iocn-link"><a href="#" style="padding-left:16px;"><span>历年真题</span></a><i
+                                    class='bx bxs-chevron-down arrow'></i></div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">历年真题</a></li>
+                                <li><a href="#" data-target="past-politics">政治真题</a></li>
+                                <li><a href="#" data-target="past-english">英语真题</a></li>
+                                <li><a href="#" data-target="past-math">高数真题</a></li>
+                                <li><a href="#" data-target="past-it-intro">信息技术概论真题</a></li>
+                            </ul>
+                        </li>
+                        <!-- 模拟题部分 (略写，但数据完整) 为了节省篇幅，仅放置少量菜单项，实际数据由js填充 -->
+                        <li class="has-third-level">
+                            <div class="iocn-link"><a href="#" style="padding-left:16px;"><span>模拟题</span></a><i
+                                    class='bx bxs-chevron-down arrow'></i></div>
+                            <ul class="sub-menu" style="padding-left:30px;">
+                                <li><a class="link_name" href="#">模拟题</a></li>
+                                <!-- 子菜单：政治模拟卷（数据动态） 为节省html，用简写，但data-target会通过js映射 -->
+                                <li><a href="#" data-target="mock-politics-1">政治模拟卷一</a></li>
+                                <li><a href="#" data-target="mock-english-1">英语模拟卷一</a></li>
+                                <li><a href="#" data-target="mock-math-1">高数模拟卷一</a></li>
+                                <li><a href="#" data-target="mock-it-1">信息技术模拟卷一</a></li>
+                                <!-- 其他模拟卷通过fileData添加，不再穷举 -->
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="profile-details" style="position: relative; bottom: auto; width: 100%;">
+                    <div class="profile-content"><img src="https://via.placeholder.com/52" alt="profileImg"></div>
+                    <div class="name-job">
+                        <div class="profile_name">学习小贴士</div>
+                        <div class="job">点击菜单查看资料</div>
+                    </div>
+                    <i class='bx bx-log-out'></i>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 主内容 -->
+        <section class="home-section">
+            <div class="home-content">
+                <i class='bx bx-menu' id="sidebarToggle"></i>
+                <span class="text">专升本资料系统</span>
+            </div>
+            <div class="content-wrapper">
+                <header>
+                    <div class="breadcrumbs" id="breadcrumb"><a href="#">首页</a> &gt; <a href="#"
+                            id="current-category">资料总览</a></div>
+                    <h1 class="title" id="page-title"><svg viewBox="0 0 24 24" id="title-icon">
+                            <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+                        </svg><span id="title-text">专升本题背资料</span></h1>
+                    <nav class="nav-tabs" id="nav-tabs"><a href="#0" class="active">全部资料<span>—</span></a><a
+                            href="#0">开背资料<span>—</span></a><a href="#0">模拟试题<span>—</span></a><a
+                            href="#0">历年真题<span>—</span></a></nav>
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                        </svg>
+                        <input type="text" placeholder="搜索资料名称..." id="search-input">
+                    </div>
+                </header>
+                <div class="content-columns">
+                    <div class="stats-cards" id="stats-cards">
+                        <div class="stat-card politics">
+                            <h3>政治资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">——</div>
+                        </div>
+                        <div class="stat-card english">
+                            <h3>英语资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">——</div>
+                        </div>
+                        <div class="stat-card math">
+                            <h3>高数资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">——</div>
+                        </div>
+                        <div class="stat-card it">
+                            <h3>信息技术资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">——</div>
+                        </div>
+                    </div>
+                    <div class="dynamic-content" id="dynamic-content">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" />
+                        </svg>
+                        <h2>欢迎使用专升本资料系统</h2>
+                        <p>请从左侧菜单选择一个具体项目</p>
+                        <div class="path-hint" id="content-path">当前显示：首页</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js">
+    </script>
+</body>
+
+</html>

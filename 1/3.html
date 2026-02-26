@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>专升本资料 · 移动优化版</title>
+    <!-- 外链 CSS 文件 (保留原链接) -->
+    <link rel="icon" href="./logo/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* ===== 紧急移动端修复：确保侧边栏菜单浮于上方，不被右侧内容遮挡 ===== */
+        @media (max-width: 768px) {
+
+            /* 侧边栏展开时提高层级，并加半透明遮罩防止误触右侧？但此处只确保菜单可见 */
+            .sidebar {
+                z-index: 2000 !important;
+                /* 保证比右侧内容高 */
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+                background: #11101d;
+            }
+
+            /* 关闭状态侧边栏也保持较高层级，但宽度小不影响 */
+            .sidebar.close {
+                z-index: 2000;
+            }
+
+            /* 主内容区域强制不遮盖侧边栏 (侧边栏固定不动) */
+            .home-section {
+                position: relative;
+                z-index: 1;
+                pointer-events: auto;
+                /* 正常交互 */
+            }
+
+            /* 任何子菜单弹出到侧边栏右侧时保证不被截断 */
+            .sidebar .nav-links li .sub-menu {
+                z-index: 2100;
+                background: #1d1b31;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+
+            /* 三级菜单进一步确保在右侧显示且不被遮挡 */
+            .sidebar .nav-links li .sub-menu li .sub-menu {
+                left: 100%;
+                /* 向右展开而非左侧 */
+                top: 0;
+                margin-left: 2px;
+                background: #2a2740;
+                z-index: 2200;
+                border-radius: 0 8px 8px 8px;
+            }
+
+            /* 关闭状态下悬浮二级菜单定位调整，保证可见 */
+            .sidebar.close .nav-links li:hover>.sub-menu {
+                left: 100%;
+                top: 0;
+                opacity: 1;
+                display: block !important;
+                min-width: 200px;
+                box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4);
+            }
+
+            /* 点击固定打开（fixed-open）的菜单强制显示 */
+            .sidebar .nav-links li.fixed-open>.sub-menu,
+            .sidebar .nav-links li .sub-menu li.fixed-open>.sub-menu {
+                display: block !important;
+            }
+
+            /* 箭头旋转 */
+            .sidebar .nav-links li.fixed-open>.iocn-link .arrow,
+            .sidebar .nav-links li .sub-menu li.fixed-open>.iocn-link .arrow {
+                transform: rotate(-180deg);
+            }
+
+            /* 调整箭头旋转 */
+            .sidebar .nav-links li.showMenu>.iocn-link .arrow {
+                transform: rotate(-180deg);
+            }
+
+            /* 同时保留悬浮显示 */
+            .sidebar .nav-links li:hover>.sub-menu:not(.fixed-open) {
+                display: block;
+            }
+
+            /* 让fixed-open优先级更高 */
+            .sidebar .nav-links li.fixed-open>.sub-menu {
+                display: block !important;
+            }
+
+            /* 修复二级菜单内三级箭头缩进 */
+            .sub-menu li .iocn-link {
+                padding-left: 0 !important;
+            }
+
+            /* 确保触摸目标 */
+            .sidebar .nav-links li a,
+            .sidebar .nav-links li .iocn-link {
+                cursor: pointer;
+            }
+        }
+
+        /* 通用fixed-open样式增强 */
+        .sidebar .nav-links li.fixed-open>.sub-menu {
+            display: block !important;
+        }
+
+        .sidebar .nav-links li .sub-menu li.fixed-open>.sub-menu {
+            display: block !important;
+        }
+
+        .sidebar .nav-links li.fixed-open>.iocn-link .arrow {
+            transform: rotate(-180deg);
+        }
+
+        /* 针对所有屏幕确保点击箭头旋转 (保留showMenu类旋转) */
+        .sidebar .nav-links li.showMenu>.iocn-link .arrow {
+            transform: rotate(-180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="site-wrap">
+        <!-- ===== 新侧边栏 ===== -->
+        <div class="sidebar close" id="sidebar">
+            <div class="logo-details">
+                <i class='bx bxl-c-plus-plus'></i>
+                <span class="logo_name">升本导航</span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li id="menu-home">
+                    <a href="#" data-target="home">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">首页</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#" data-target="home">首页</a></li>
+                    </ul>
+                </li>
+                <li class="menu-with-sub">
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-collection'></i>
+                            <span class="link_name">报考指南</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">报考指南</a></li>
+                        <li><a href="#" data-target="plan-2026">2026专升本计划</a></li>
+                        <li class="has-third-level">
+                            <div class="iocn-link" style="padding-left: 0;">
+                                <a href="#" style="padding-left: 16px;"><span>考试说明（考纲）</span></a>
+                                <i class='bx bxs-chevron-down arrow' style="min-width: 30px;"></i>
+                            </div>
+                            <ul class="sub-menu" style="padding-left: 30px;">
+                                <li><a class="link_name" href="#">考纲</a></li>
+                                <li><a href="#" data-target="syllabus-2026-politics">政治考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-2026-english">英语考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-2026-math">高数考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-2026-it">信息技术考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-other">其他年份考纲</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-third-level">
+                            <div class="iocn-link" style="padding-left: 0;">
+                                <a href="#" style="padding-left: 16px;"><span>专业、课程标准</span></a>
+                                <i class='bx bxs-chevron-down arrow' style="min-width: 30px;"></i>
+                            </div>
+                            <ul class="sub-menu" style="padding-left: 30px;">
+                                <li><a class="link_name" href="#">专业、课程标准</a></li>
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left: 0;">
+                                        <a href="#" style="padding-left: 16px;"><span>课程标准</span></a>
+                                        <i class='bx bxs-chevron-down arrow' style="min-width: 30px;"></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left: 30px;">
+                                        <li><a class="link_name" href="#">课程标准</a></li>
+                                        <li><a href="#" data-target="course-english">英语</a></li>
+                                        <li><a href="#" data-target="course-math">数学</a></li>
+                                        <li><a href="#" data-target="course-it">信息技术概论</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left: 0;">
+                                        <a href="#" style="padding-left: 16px;"><span>专业标准</span></a>
+                                        <i class='bx bxs-chevron-down arrow' style="min-width: 30px;"></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left: 30px;">
+                                        <li><a class="link_name" href="#">专业标准</a></li>
+                                        <li><a href="#" data-target="major-bigdata">大数据技术</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#" data-target="process">报考流程/时间</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-book-alt'></i>
+                            <span class="link_name">备考资料</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">备考资料</a></li>
+                        <li><a href="./网课/网课.html" target="_blank">网课</a></li>
+                        <li><a href="https://in-tre-spasser-uder.github.io/1111/react-gemini/index.html"
+                                target="_blank">Gemini</a></li>
+                        <li class="has-third-level">
+                            <div class="iocn-link" style="padding-left:0;">
+                                <a href="#" style="padding-left:16px;"><span>历年真题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu" style="padding-left:30px;">
+                                <li><a class="link_name" href="#">历年真题</a></li>
+                                <li><a href="#" data-target="past-politics">政治真题</a></li>
+                                <li><a href="#" data-target="past-english">英语真题</a></li>
+                                <li><a href="#" data-target="past-math">高数真题</a></li>
+                                <li><a href="#" data-target="past-it-intro">信息技术概论真题</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-third-level">
+                            <div class="iocn-link" style="padding-left:0;">
+                                <a href="#" style="padding-left:16px;"><span>模拟题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu" style="padding-left:30px;">
+                                <li><a class="link_name" href="#">模拟题</a></li>
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>政治模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">政治模拟题</a></li>
+                                        <!-- 1-19由js生成，但先静态写几个占位，具体由fileData接管显示 -->
+                                        <li><a href="#" data-target="mock-politics-1">政治模拟卷一</a></li>
+                                        <li><a href="#" data-target="mock-politics-2">政治模拟卷二</a></li>
+                                        <!-- 更多在fileData中，菜单不需要全部列出，但保留层级 -->
+                                    </ul>
+                                </li>
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>英语模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">英语模拟题</a></li>
+                                        <li><a href="#" data-target="mock-english-1">英语模拟卷一</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>高数模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">高数模拟题</a></li>
+                                        <li><a href="#" data-target="mock-math-1">高数模拟卷一</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>信息技术模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">信息技术模拟题</a></li>
+                                        <li><a href="#" data-target="mock-it-1">信息技术模拟卷一</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <img src="https://via.placeholder.com/52" alt="profileImg">
+                        </div>
+                        <div class="name-job">
+                            <div class="profile_name">学习小贴士</div>
+                            <div class="job">点击菜单查看资料</div>
+                        </div>
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ===== 主内容区域 ===== -->
+        <section class="home-section">
+            <div class="home-content">
+                <i class='bx bx-menu' id="sidebarToggle"></i>
+                <span class="text">专升本资料系统</span>
+            </div>
+
+            <div class="content-wrapper">
+                <header>
+                    <div class="breadcrumbs" id="breadcrumb">
+                        <a href="#">首页</a> &gt; <a href="#" id="current-category">资料总览</a>
+                    </div>
+                    <h1 class="title" id="page-title">
+                        <svg viewBox="0 0 24 24" id="title-icon">
+                            <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+                        </svg>
+                        <span id="title-text">专升本题背资料</span>
+                    </h1>
+                    <nav class="nav-tabs" id="nav-tabs">
+                        <a href="#0" class="active">全部资料<span>—</span></a>
+                        <a href="#0">开背资料<span>—</span></a>
+                        <a href="#0">模拟试题<span>—</span></a>
+                        <a href="#0">历年真题<span>—</span></a>
+                    </nav>
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                        </svg>
+                        <input type="text" placeholder="搜索资料名称..." id="search-input">
+                    </div>
+                </header>
+                <div class="content-columns">
+                    <!-- 统计卡片 -->
+                    <div class="stats-cards" id="stats-cards">
+                        <div class="stat-card politics">
+                            <h3>政治资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">—— —— ——</div>
+                        </div>
+                        <div class="stat-card english">
+                            <h3>英语资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">—— —— ——</div>
+                        </div>
+                        <div class="stat-card math">
+                            <h3>高数资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">—— —— ——</div>
+                        </div>
+                        <div class="stat-card it">
+                            <h3>信息技术资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">—— —— ——</div>
+                        </div>
+                    </div>
+                    <!-- 动态内容区域 -->
+                    <div class="dynamic-content" id="dynamic-content">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" />
+                        </svg>
+                        <h2>欢迎使用专升本资料系统</h2>
+                        <p>请从左侧菜单选择一个具体项目</p>
+                        <div class="path-hint" id="content-path">当前显示：首页</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        (function () {
+            // ---------- 文件数据配置 (精简版，仅包含需要展示的) ----------
+            const fileData = {
+                'plan-2026': { name: '2026专升本计划', files: [{ name: '2026专升本计划.pdf', fileUrl: './zhuanshengben/2026专升本计划.pdf', type: 'pdf' }] },
+                'past-politics': { name: '历年真题·政治', files: [{ name: '19-25政治真题.pdf', fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题.pdf', type: 'pdf' }, { name: '19-25政治真题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题答案.pdf', type: 'pdf' }] },
+                'past-english': { name: '历年真题·英语', files: [{ name: '09-25英语真题.pdf', fileUrl: './zhuanshengben/专升本题背资料/真题/英语/09-25英语真题.pdf', type: 'pdf' }, { name: '09-25英语真题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/真题/英语/09-25英语真题答案.pdf', type: 'pdf' }] },
+                'past-math': { name: '历年真题·高数一', files: [{ name: '14-25高数一真题.pdf', fileUrl: './zhuanshengben/专升本题背资料/真题/高数一/14-25高数一真题.pdf', type: 'pdf' }, { name: '14-25高数一真题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/真题/高数一/14-25高数一真题答案.pdf', type: 'pdf' }] },
+                'past-it-intro': { name: '历年真题·信息技术概论', files: [{ name: '信息技术概论真题.pdf', fileUrl: './zhuanshengben/专升本题背资料/真题/信息技术概论/信息技术概论真题.pdf', type: 'pdf' }, { name: '信息技术概论真题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/真题/信息技术概论/信息技术概论真题答案.pdf', type: 'pdf' }] },
+                'syllabus-2026-politics': { name: '政治考纲2026', files: [{ name: '2026政治考纲.pdf', fileUrl: './zhuanshengben/考纲/2026/2026政治考纲.pdf', type: 'pdf' }] },
+                'syllabus-2026-english': { name: '英语考纲2026', files: [{ name: '2026英语考纲.pdf', fileUrl: './zhuanshengben/考纲/2026/2026英语考纲.pdf', type: 'pdf' }] },
+                'syllabus-2026-math': { name: '高数考纲2026', files: [{ name: '2026高数考纲.pdf', fileUrl: './zhuanshengben/考纲/2026/2026高数一考纲.pdf', type: 'pdf' }] },
+                'syllabus-2026-it': { name: '信息技术考纲2026', files: [{ name: '2026信息技术考纲.pdf', fileUrl: './zhuanshengben/考纲/2026/2026信息技术基础考纲.pdf', type: 'pdf' }] },
+                'process': { name: '报考流程（了解理工3）', files: [{ name: '了解理工3.pdf', fileUrl: './zhuanshengben/报考流程（了解理工3）/了解理工3.pdf', type: 'pdf' }] },
+                'syllabus-other': { name: '其他年份考纲', files: [{ name: '其他年份考纲.pdf', fileUrl: './鱿鱼游戏.jpg', type: 'jpg' }] },
+                'course-english': { name: '英语课程标准', files: [{ name: '高等职业教育专科英语课程标准（2021版）.pdf', fileUrl: './zhuanshengben/教学、课程标准/专业课程标准/高等职业教育专科英语课程标准（2021版）.pdf', type: 'pdf' }] },
+                'course-math': { name: '数学课程标准', files: [{ name: '高等职业教育专科 《高等数学》课程标准 （2021年).pdf', fileUrl: './zhuanshengben/教学、课程标准/专业课程标准/高等职业教育专科 《高等数学》课程标准 （2021年).pdf', type: 'pdf' }] },
+                'course-it': { name: '信息技术概论课程标准', files: [{ name: '高等职业教育专科信息技术课程标准（2021版）.pdf', fileUrl: './zhuanshengben/教学、课程标准/专业课程标准/高等职业教育专科信息技术课程标准（2021版）.pdf', type: 'pdf' }] },
+                'major-bigdata': { name: '大数据技术专业标准', files: [{ name: '大数据技术专业职业教育专业教学标准-2025年修（制）订.pdf', fileUrl: './zhuanshengben/教学、课程标准/专业教学标准/大数据技术专业职业教育专业教学标准-2025年修（制）订.pdf', type: 'pdf' }] }
+            };
+            // 模拟卷生成1-19
+            for (let i = 1; i <= 19; i++) {
+                fileData[`mock-politics-${i}`] = { name: `政治模拟卷${i}`, files: [{ name: `政治模拟卷${i}.pdf`, fileUrl: `./zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷${i}.pdf`, type: 'pdf' }, { name: `政治模拟卷${i}答案.pdf`, fileUrl: `./zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷${i}答案.pdf`, type: 'pdf' }] };
+                fileData[`mock-english-${i}`] = { name: `英语模拟卷${i}`, files: [{ name: `英语模拟卷${i}.pdf`, fileUrl: `./zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷${i}.pdf`, type: 'pdf' }, { name: `英语模拟卷${i}答案.pdf`, fileUrl: `./zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷${i}答案.pdf`, type: 'pdf' }] };
+                fileData[`mock-math-${i}`] = { name: `高数模拟卷${i}`, files: [{ name: `高数模拟卷${i}.pdf`, fileUrl: `./zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷${i}.pdf`, type: 'pdf' }, { name: `高数模拟卷${i}答案.pdf`, fileUrl: `./zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷${i}答案.pdf`, type: 'pdf' }] };
+                fileData[`mock-it-${i}`] = { name: `信息技术模拟卷${i}`, files: [{ name: `信息技术模拟卷${i}.pdf`, fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷${i}.pdf`, type: 'pdf' }, { name: `信息技术模拟卷${i}答案.pdf`, fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷${i}答案.pdf`, type: 'pdf' }] };
+            }
+
+            // ---------- 核心功能：点击箭头/菜单展开收缩 (fixed-open / showMenu) ----------
+            function setupMenuInteractions() {
+                // 获取所有箭头
+                const arrows = document.querySelectorAll('.arrow');
+                arrows.forEach(arrow => {
+                    arrow.removeEventListener('click', arrowClickHandler);
+                    arrow.addEventListener('click', arrowClickHandler);
+                });
+
+                // 处理所有带三级菜单的 .iocn-link (父级)，使点击链接也能展开
+                const iconLinks = document.querySelectorAll('.has-third-level > .iocn-link');
+                iconLinks.forEach(link => {
+                    link.removeEventListener('click', iconLinkClickHandler);
+                    link.addEventListener('click', iconLinkClickHandler);
+                });
+
+                // 普通一级菜单中点击 .iocn-link 也可以展开 (报考指南、备考资料)
+                const topIconLinks = document.querySelectorAll('.sidebar > .nav-links > li > .iocn-link');
+                topIconLinks.forEach(link => {
+                    link.removeEventListener('click', topIconLinkHandler);
+                    link.addEventListener('click', topIconLinkHandler);
+                });
+            }
+
+            function arrowClickHandler(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const arrowParent = e.target.closest('.iocn-link')?.parentElement;
+                if (arrowParent) {
+                    // 切换 fixed-open
+                    arrowParent.classList.toggle('fixed-open');
+                    // 同时为了保留showMenu兼容，可移除showMenu（因为使用fixed-open控制显示）
+                    if (arrowParent.classList.contains('fixed-open')) {
+                        arrowParent.classList.remove('showMenu');
+                    } else {
+                        // 如果关闭fixed-open，可考虑是否保留悬浮，不操作showMenu
+                    }
+                }
+            }
+
+            function iconLinkClickHandler(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const parentLi = e.currentTarget.closest('li.has-third-level');
+                if (parentLi) {
+                    parentLi.classList.toggle('fixed-open');
+                    if (parentLi.classList.contains('fixed-open')) {
+                        parentLi.classList.remove('showMenu');
+                    }
+                }
+            }
+
+            function topIconLinkHandler(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const parentLi = e.currentTarget.closest('li'); // 一级li
+                if (parentLi) {
+                    parentLi.classList.toggle('fixed-open');
+                    if (parentLi.classList.contains('fixed-open')) {
+                        parentLi.classList.remove('showMenu');
+                    }
+                }
+            }
+
+            // 侧边栏折叠
+            const sidebar = document.querySelector('.sidebar');
+            const toggleBtn = document.getElementById('sidebarToggle');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    sidebar.classList.toggle('close');
+                });
+            }
+
+            // 更新右侧内容 (简化版，仅演示)
+            function updateContent(target, linkText) {
+                const dynamicDiv = document.getElementById('dynamic-content');
+                const titleSpan = document.getElementById('title-text');
+                const breadcrumbCat = document.getElementById('current-category');
+                if (target === 'home') {
+                    dynamicDiv.innerHTML = `<svg viewBox="0 0 24 24"><path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" /></svg><h2>首页总览</h2><p>欢迎使用专升本学习资料管理系统。从左侧菜单选择具体项目查看文件。</p><div class="path-hint">当前显示：首页</div>`;
+                    titleSpan.innerText = '首页 · 资料总览';
+                    breadcrumbCat.innerText = '首页';
+                } else if (fileData[target]) {
+                    const data = fileData[target];
+                    let html = `<svg viewBox="0 0 24 24"><path d="M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z" /></svg><h2>${data.name}</h2><div class="file-list">`;
+                    data.files.forEach(f => {
+                        html += `<div class="file-item"><div class="file-info"><svg viewBox="0 0 24 24"><path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" /></svg><span class="file-name">${f.name}</span></div><div class="action-buttons"><button class="preview-btn">预览</button><button class="download-btn">下载</button></div></div>`;
+                    });
+                    html += '</div>';
+                    dynamicDiv.innerHTML = html;
+                    titleSpan.innerText = data.name;
+                    breadcrumbCat.innerText = data.name;
+                } else {
+                    dynamicDiv.innerHTML = `<svg viewBox="0 0 24 24"><path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" /></svg><h2>${linkText}</h2><p>占位内容，暂无文件</p>`;
+                    titleSpan.innerText = linkText;
+                    breadcrumbCat.innerText = linkText;
+                }
+                document.getElementById('content-path').innerText = `当前显示：${titleSpan.innerText}`;
+            }
+
+            // 绑定菜单点击
+            document.querySelectorAll('a[data-target]').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = this.dataset.target;
+                    const text = this.innerText.trim();
+                    updateContent(target, text);
+                    // 移动端自动关闭侧边栏？为了不被遮挡，但可保留，不自动关闭
+                    // 移除所有active类
+                    document.querySelectorAll('.sidebar li.active').forEach(li => li.classList.remove('active'));
+                    this.closest('li')?.classList.add('active');
+                });
+            });
+
+            // 统计卡片初始化（简易）
+            function updateStats() {
+                const stats = { politics: 0, english: 0, math: 0, it: 0 };
+                Object.keys(fileData).forEach(k => {
+                    const item = fileData[k];
+                    if (k.includes('politics') || item.name.includes('政治')) stats.politics += item.files.length;
+                    else if (k.includes('english') || item.name.includes('英语')) stats.english += item.files.length;
+                    else if (k.includes('math') || item.name.includes('高数')) stats.math += item.files.length;
+                    else if (k.includes('it') || item.name.includes('信息技术')) stats.it += item.files.length;
+                });
+                document.querySelector('.stat-card.politics .value').innerText = stats.politics;
+                document.querySelector('.stat-card.english .value').innerText = stats.english;
+                document.querySelector('.stat-card.math .value').innerText = stats.math;
+                document.querySelector('.stat-card.it .value').innerText = stats.it;
+            }
+
+            // 固定样式：保证.fixed-open显示子菜单
+            const style = document.createElement('style');
+            style.textContent = `
+            .sidebar .nav-links li.fixed-open > .sub-menu { display: block !important; }
+            .sidebar .nav-links li .sub-menu li.fixed-open > .sub-menu { display: block !important; }
+            .sidebar .nav-links li.fixed-open > .iocn-link .arrow { transform: rotate(-180deg); }
+        `;
+            document.head.appendChild(style);
+
+            // 初始化
+            window.addEventListener('load', function () {
+                setupMenuInteractions();
+                updateContent('home', '首页');
+                updateStats();
+                // 再次确保箭头点击绑定（动态添加的菜单元素）
+                setTimeout(setupMenuInteractions, 200);
+            });
+
+            // 移动端点击三道杠时保持菜单可见，已经由sidebar close控制
+            // 如果点击展开后右侧内容遮挡，已通过z-index解决
+        })();
+    </script>
+    <!-- 保留部分原script功能，但为避免冲突，已将主要交互重写，原script.js可忽略部分 -->
+</body>
+
+</html>

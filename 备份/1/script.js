@@ -1010,6 +1010,8 @@ function clearFloatChats() {
 
 // 切换主题
 function toggleFloatTheme() {
+    console.log('切换主题'); // 添加日志调试
+
     // 切换body的dark-theme类
     document.body.classList.toggle('dark-theme');
 
@@ -1019,12 +1021,18 @@ function toggleFloatTheme() {
 
     // 保存主题设置到localStorage
     localStorage.setItem('themeMode', isDark ? 'dark' : 'light');
+
+    console.log('当前主题:', isDark ? '暗色' : '亮色');
 }
 
 // 初始化主题
 function initTheme() {
+    console.log('初始化主题');
+
     // 从localStorage读取主题设置
     const savedTheme = localStorage.getItem('themeMode');
+    console.log('保存的主题:', savedTheme);
+
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-theme');
         aiFloatThemeBtn.innerHTML = '<i class="bx bx-sun"></i>';
@@ -1033,6 +1041,7 @@ function initTheme() {
         aiFloatThemeBtn.innerHTML = '<i class="bx bx-moon"></i>';
     }
 }
+
 
 // 拖拽功能
 function makeDraggable(element, handle) {

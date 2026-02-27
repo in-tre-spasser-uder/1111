@@ -1983,3 +1983,51 @@
             right: 20px;
         }
     }
+
+    /* ===== 移动端AI按钮优化 ===== */
+    @media (max-width: 768px) {
+
+        /* 确保按钮在移动端可见 */
+        .ai-float-btn {
+            display: flex !important;
+            bottom: 20px !important;
+            right: 20px !important;
+            width: 56px !important;
+            height: 56px !important;
+            background: rgba(17, 16, 29, 0.9) !important;
+            z-index: 999999 !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* 调整窗口大小适应移动端 */
+        .ai-float-window {
+            width: calc(100% - 30px) !important;
+            height: 70vh !important;
+            max-height: 600px !important;
+            left: 15px !important;
+            right: 15px !important;
+            bottom: 90px !important;
+            z-index: 999998 !important;
+        }
+
+        /* 确保窗口不被遮挡 */
+        .ai-float-window.minimized {
+            height: 60px !important;
+        }
+    }
+
+    /* 更小屏幕优化 */
+    @media (max-width: 480px) {
+        .ai-float-btn {
+            width: 50px !important;
+            height: 50px !important;
+        }
+
+        .ai-float-btn i {
+            font-size: 22px !important;
+        }
+
+        .ai-float-btn span {
+            font-size: 9px !important;
+        }
+    }

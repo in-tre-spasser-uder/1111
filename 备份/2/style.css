@@ -725,7 +725,7 @@
     .preview-content {
         padding: 20px;
         min-height: 500px;
-        max-height: 1000px;
+        max-height: 1500px;
         overflow: auto;
         background: white;
         display: flex;
@@ -1140,4 +1140,367 @@
     .preview-img-btn:active {
         transform: translateY(0);
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ===== 悬浮可拖拽AI助手样式 ===== */
+    /* 悬浮按钮 */
+    .ai-float-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        background: rgba(17, 16, 29, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 9999;
+    }
+
+    .ai-float-btn:hover {
+        background: rgba(17, 16, 29, 0.8);
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .ai-float-btn i {
+        font-size: 24px;
+        margin-bottom: 2px;
+    }
+
+    .ai-float-btn span {
+        font-size: 10px;
+        opacity: 0.9;
+    }
+
+    /* 悬浮窗口 */
+    .ai-float-window {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 380px;
+        height: 500px;
+        background: rgba(17, 16, 29, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        display: none;
+        flex-direction: column;
+        color: white;
+        z-index: 10000;
+        resize: both;
+        overflow: hidden;
+        min-width: 300px;
+        min-height: 400px;
+        max-width: 800px;
+        max-height: 800px;
+    }
+
+    .ai-float-window.dragging {
+        opacity: 0.8;
+        transition: none;
+    }
+
+    /* 窗口头部 - 可拖拽区域 */
+    .ai-float-header {
+        padding: 12px 16px;
+        background: rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: move;
+        user-select: none;
+    }
+
+    .ai-float-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .ai-float-title i {
+        font-size: 20px;
+        color: #4096ff;
+    }
+
+    .ai-float-controls {
+        display: flex;
+        gap: 8px;
+    }
+
+    .ai-float-controls button {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        transition: all 0.2s;
+    }
+
+    .ai-float-controls button:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .ai-float-controls .ai-close-btn:hover {
+        background: #dc2626;
+    }
+
+    /* AI模型选择栏 */
+    .ai-model-selector {
+        display: flex;
+        padding: 8px;
+        gap: 6px;
+        background: rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        overflow-x: auto;
+    }
+
+    .ai-model-btn {
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 12px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.2s;
+    }
+
+    .ai-model-btn:hover {
+        background: rgba(64, 150, 255, 0.3);
+        color: white;
+    }
+
+    .ai-model-btn.active {
+        background: #4096ff;
+        color: white;
+        border-color: #4096ff;
+    }
+
+    /* 聊天区域 */
+    .ai-float-chats {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* 消息样式 */
+    .ai-message {
+        display: flex;
+        gap: 8px;
+        max-width: 85%;
+    }
+
+    .ai-user-message {
+        align-self: flex-end;
+        flex-direction: row-reverse;
+    }
+
+    .ai-message-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(64, 150, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    .ai-user-message .ai-message-avatar {
+        background: rgba(16, 185, 129, 0.2);
+    }
+
+    .ai-message-content {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 10px 14px;
+        border-radius: 14px;
+        font-size: 14px;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+
+    .ai-user-message .ai-message-content {
+        background: #4096ff;
+    }
+
+    .ai-bot-message .ai-message-content {
+        border-top-left-radius: 4px;
+    }
+
+    .ai-user-message .ai-message-content {
+        border-bottom-right-radius: 4px;
+    }
+
+    .ai-message-content p {
+        margin: 0;
+    }
+
+    .ai-message-content pre {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 8px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 8px 0;
+    }
+
+    .ai-message-content code {
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+    }
+
+    .ai-loading .ai-message-content {
+        position: relative;
+        min-width: 40px;
+    }
+
+    .ai-loading .ai-message-content::after {
+        content: '...';
+        position: absolute;
+        animation: aiLoading 1.5s infinite;
+    }
+
+    @keyframes aiLoading {
+        0% {
+            content: '.';
+        }
+
+        33% {
+            content: '..';
+        }
+
+        66% {
+            content: '...';
+        }
+    }
+
+    /* 输入区域 */
+    .ai-float-input-area {
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .ai-float-form {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .ai-float-input {
+        flex: 1;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        color: white;
+        font-size: 14px;
+        outline: none;
+    }
+
+    .ai-float-input:focus {
+        border-color: #4096ff;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .ai-float-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .ai-float-send {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #4096ff;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+
+    .ai-float-send:hover {
+        background: #2563eb;
+        transform: scale(1.05);
+    }
+
+    .ai-float-send i {
+        font-size: 18px;
+    }
+
+    .ai-float-tools {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .ai-float-tool-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+
+    .ai-float-tool-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    /* 窗口最小化状态 */
+    .ai-float-window.minimized {
+        height: 60px !important;
+        min-height: 60px;
+        overflow: hidden;
+    }
+
+    .ai-float-window.minimized .ai-model-selector,
+    .ai-float-window.minimized .ai-float-chats,
+    .ai-float-window.minimized .ai-float-input-area {
+        display: none;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+        .ai-float-window {
+            width: calc(100% - 40px);
+            right: 20px;
+            bottom: 90px;
+        }
+
+        .ai-float-btn {
+            bottom: 20px;
+            right: 20px;
+        }
     }

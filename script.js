@@ -1203,3 +1203,32 @@ window.addEventListener('resize', () => {
         saveFloatPosition(newLeft, newTop);
     }
 });
+
+// 移动端强制显示AI按钮
+(function () {
+    // 立即执行
+    function forceShowButton() {
+        const btn = document.getElementById('aiFloatBtn');
+        if (btn) {
+            btn.style.display = 'flex';
+            btn.style.opacity = '1';
+            btn.style.visibility = 'visible';
+            btn.style.zIndex = '999999';
+            console.log('AI按钮已强制显示');
+        } else {
+            console.log('等待AI按钮创建...');
+            setTimeout(forceShowButton, 500);
+        }
+    }
+
+    // 页面加载后执行
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', forceShowButton);
+    } else {
+        forceShowButton();
+    }
+
+    // 延迟再执行一次（防止被覆盖）
+    setTimeout(forceShowButton, 1000);
+    setTimeout(forceShowButton, 2000);
+})();

@@ -465,6 +465,99 @@ function generateKaibeiData() {
 
 // ========== 动态生成模拟题菜单 ==========
 function generateMockExamMenu() {
+    console.log('生成模拟题菜单');
+    const mockExamsSubmenu = document.getElementById('mock-exams-submenu');
+    if (!mockExamsSubmenu) {
+        console.error('找不到模拟题菜单容器');
+        return;
+    }
+
+    mockExamsSubmenu.innerHTML = '<li><a class="link_name" href="#">模拟题</a></li>';
+
+    MOCK_EXAMS_CONFIG.categories.forEach(category => {
+        const categoryLi = document.createElement('li');
+        categoryLi.className = 'has-third-level';
+
+        const categoryFiles = MOCK_FILES.filter(f => f.category === category.id);
+        if (categoryFiles.length === 0) return;
+
+        categoryLi.innerHTML = `
+            <div class="iocn-link" style="padding-left:0;">
+                <a href="#" style="padding-left:16px;"><span>${category.name}</span></a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu" style="padding-left:30px;" id="submenu-${category.id}">
+                <li><a class="link_name" href="#">${category.name}</a></li>
+                ${categoryFiles.map(file => `
+                    <li><a href="#" data-target="${category.targetPrefix}-${file.number}">${category.name.replace('模拟题', '')}模拟卷${file.number}</a></li>
+                `).join('')}
+            </ul>
+        `;
+
+        mockExamsSubmenu.appendChild(categoryLi);
+    });
+
+    rebindArrowEvents();
+    console.log('✅ 模拟题菜单生成完成');
+}
+
+// ========== 动态生成开背知识点菜单 ==========
+function generateKaibeiMenu() {
+    console.log('生成开背菜单');
+    const kaibeiSubmenu = document.getElementById('kaibei-submenu');
+    if (!kaibeiSubmenu) {
+        console.error('找不到开背菜单容器');
+        return;
+    }
+
+    kaibeiSubmenu.innerHTML = '<li><a class="link_name" href="#">开背（知识点）</a></li>';
+
+    KAIBEI_CONFIG.categories.forEach(category => {
+        const categoryLi = document.createElement('li');
+        categoryLi.className = 'has-third-level';
+
+        const categoryFiles = KAIBEI_FILES.filter(f => f.category === category.id);
+        if (categoryFiles.length === 0) return;
+
+        categoryLi.innerHTML = `
+            <div class="iocn-link" style="padding-left:0;">
+                <a href="#" style="padding-left:16px;"><span>${category.name}</span></a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu" style="padding-left:30px;" id="submenu-${category.id}">
+                <li><a class="link_name" href="#">${category.name}</a></li>
+                ${categoryFiles.map(file => `
+                    <li><a href="#" data-target="${category.targetPrefix}-${file.number}">${category.name.replace('开背知识点', '')}开背知识点${file.number}</a></li>
+                `).join('')}
+            </ul>
+        `;
+
+        kaibeiSubmenu.appendChild(categoryLi);
+    });
+
+    rebindArrowEvents();
+    console.log('✅ 开背菜单生成完成');
+}
+
+// ========== 重新绑定箭头事件 ==========
+function rebindArrowEvents() {
+    const oldArrows = document.querySelectorAll(".arrow");
+    oldArrows.forEach(arrow => {
+        const newArrow = arrow.cloneNode(true);
+        arrow.parentNode.replaceChild(newArrow, arrow);
+    });
+
+    const newArrows = document.querySelectorAll(".arrow");
+    newArrows.forEach(arrow => {
+        arrow.addEventListener("click", (e) => {
+            let arrowParent = e.target.parentElement.parentElement;
+            arrowParent.classList.toggle("showMenu");
+        });
+    });
+}
+
+// ========== 动态生成模拟题菜单 ==========
+function generateMockExamMenu() {
     const mockExamsSubmenu = document.getElementById('mock-exams-submenu');
     if (!mockExamsSubmenu) return;
 

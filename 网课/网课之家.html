@@ -42,6 +42,70 @@
             z-index: 100;
         }
 
+        .back-button {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            /* 改为固定像素，与数据内嵌按钮一致 */
+            padding: 6px 18px;
+            /* 改为固定像素，与数据内嵌按钮一致 */
+            color: #FB7299;
+            border: 2px solid #FB7299;
+            /* 改为固定像素边框 */
+            border-radius: 30px;
+            /* 改为固定像素圆角 */
+            transition: 4s;
+            margin-left: 15px;
+            line-height: 1.5;
+            /* 添加行高控制 */
+            text-align: center;
+            /* 文字居中 */
+            min-width: 100px;
+            /* 设置最小宽度 */
+        }
+
+        .back-button:before,
+        .back-button:after {
+            content: "";
+            position: absolute;
+            top: -1.5em;
+            z-index: -1;
+            width: 200%;
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 40%;
+            background-color: rgba(251, 114, 153, 0.25);
+            transition: 4s;
+        }
+
+        .back-button:before {
+            left: -80%;
+            transform: translate3d(0, 5em, 0) rotate(-340deg);
+        }
+
+        .back-button:after {
+            right: -80%;
+            transform: translate3d(0, 5em, 0) rotate(390deg);
+        }
+
+        .back-button:hover,
+        .back-button:focus {
+            color: white;
+        }
+
+        .back-button:hover:before,
+        .back-button:hover:after,
+        .back-button:focus:before,
+        .back-button:focus:after {
+            transform: none;
+            background-color: rgba(251, 114, 153, 0.75);
+        }
+
         .nav-left {
             display: flex;
             align-items: center;
@@ -518,6 +582,74 @@
                 width: 100%;
             }
         }
+
+        /* 简约现代风 - 滑动下划线 (用于导航菜单) */
+        .link-modern {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .link-modern::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #FB7299;
+            transition: width 0.3s ease;
+        }
+
+        .link-modern:hover {
+            color: #FB7299;
+        }
+
+        .link-modern:hover::after {
+            width: 100%;
+        }
+
+        /* 手绘涂鸦风 - 渐变下划线 (用于B站UP主页) */
+        .link-doodle {
+            text-decoration: none;
+            color: #B35A7A;
+            font-weight: 600;
+            background: linear-gradient(to right, #FB7299, #FFB6C1) no-repeat right bottom;
+            background-size: 0 2px;
+            transition: background-size 0.3s;
+            padding-bottom: 4px;
+            display: inline-block;
+        }
+
+        .link-doodle:hover {
+            background-position: left bottom;
+            background-size: 100% 2px;
+            color: #FB7299;
+        }
+
+        /* 双层边框风 - 结构感 (用于"数据内嵌"按钮) */
+        .link-double {
+            text-decoration: none;
+            padding: 6px 18px;
+            border: 2px solid #FB7299;
+            color: #FB7299;
+            font-weight: 600;
+            border-radius: 30px;
+            background: transparent;
+            transition: all 0.1s linear;
+            display: inline-block;
+            box-shadow: 0 0 0 0 #FB7299;
+            font-size: 13px;
+        }
+
+        .link-double:hover {
+            background: #FB7299;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(251, 114, 153, 0.3);
+        }
     </style>
 </head>
 
@@ -525,10 +657,17 @@
     <header class="bili-nav">
         <div class="nav-left">
             <div class="logo">河北专接本数学 · 92课时 · 内嵌分P</div>
-            <div class="nav-menu"><a href="#">首页</a><a href="#">番剧</a><a href="#">直播</a></div>
+            <div class="nav-menu"><a href="#" class="link-modern">首页</a><a href="#" class="link-modern">番剧</a><a
+                    href="#" class="link-modern">直播</a></div>
         </div>
-        <div style="color:#999;">📁 11章 · 精确BV/分P</div>
-        <div class="nav-right"><button class="upload-btn" disabled><i class="fa-regular fa-bookmark"></i> 数据内嵌</button>
+        <div style="color:#999;"> 怎么找到这个博主？→<a
+                href="https://space.bilibili.com/1511888480?spm_id_from=333.788.upinfo.head.click" target="_blank"
+                class="link-doodle">B站UP主页</a>
+            <div class="nav-right" style="display: flex; align-items: center; gap: 10px;">
+                <a href="../index.html" class="back-button">返回</a>
+                <a href="javascript:void(0)" class="link-double" style="pointer-events: none; opacity:0.8;"><i
+                        class="fa-regular fa-bookmark"></i> 数据内嵌</a>
+            </div>
         </div>
     </header>
 

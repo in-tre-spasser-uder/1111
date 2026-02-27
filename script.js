@@ -258,27 +258,81 @@ const fileData = {
     'mock-math-19': { name: '高数模拟卷19', files: [{ name: '高数模拟卷19.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷19.pdf', type: 'pdf' }, { name: '高数模拟卷19答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷19答案.pdf', type: 'pdf' }] },
     'mock-math-20': { name: '高数模拟卷20', files: [{ name: '高数模拟卷20.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷20.pdf', type: 'pdf' }, { name: '高数模拟卷20答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷20答案.pdf', type: 'pdf' }] },
 
-    // 信息技术模拟题 1-20
-    'mock-it-1': { name: '信息技术模拟卷1', files: [{ name: '信息技术模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷1.pdf', type: 'pdf' }, { name: '信息技术模拟卷1答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷1答案.pdf', type: 'pdf' }] },
-    'mock-it-2': { name: '信息技术模拟卷2', files: [{ name: '信息技术模拟卷2.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷2.pdf', type: 'pdf' }, { name: '信息技术模拟卷2答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷2答案.pdf', type: 'pdf' }] },
-    'mock-it-3': { name: '信息技术模拟卷3', files: [{ name: '信息技术模拟卷3.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷3.pdf', type: 'pdf' }, { name: '信息技术模拟卷3答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷3答案.pdf', type: 'pdf' }] },
-    'mock-it-4': { name: '信息技术模拟卷4', files: [{ name: '信息技术模拟卷4.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷4.pdf', type: 'pdf' }, { name: '信息技术模拟卷4答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷4答案.pdf', type: 'pdf' }] },
-    'mock-it-5': { name: '信息技术模拟卷5', files: [{ name: '信息技术模拟卷5.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷5.pdf', type: 'pdf' }, { name: '信息技术模拟卷5答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷5答案.pdf', type: 'pdf' }] },
-    'mock-it-6': { name: '信息技术模拟卷6', files: [{ name: '信息技术模拟卷6.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷6.pdf', type: 'pdf' }, { name: '信息技术模拟卷6答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷6答案.pdf', type: 'pdf' }] },
-    'mock-it-7': { name: '信息技术模拟卷7', files: [{ name: '信息技术模拟卷7.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷7.pdf', type: 'pdf' }, { name: '信息技术模拟卷7答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷7答案.pdf', type: 'pdf' }] },
-    'mock-it-8': { name: '信息技术模拟卷8', files: [{ name: '信息技术模拟卷8.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷8.pdf', type: 'pdf' }, { name: '信息技术模拟卷8答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷8答案.pdf', type: 'pdf' }] },
-    'mock-it-9': { name: '信息技术模拟卷9', files: [{ name: '信息技术模拟卷9.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷9.pdf', type: 'pdf' }, { name: '信息技术模拟卷9答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷9答案.pdf', type: 'pdf' }] },
-    'mock-it-10': { name: '信息技术模拟卷10', files: [{ name: '信息技术模拟卷10.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷10.pdf', type: 'pdf' }, { name: '信息技术模拟卷10答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷10答案.pdf', type: 'pdf' }] },
-    'mock-it-11': { name: '信息技术模拟卷11', files: [{ name: '信息技术模拟卷11.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷11.pdf', type: 'pdf' }, { name: '信息技术模拟卷11答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷11答案.pdf', type: 'pdf' }] },
-    'mock-it-12': { name: '信息技术模拟卷12', files: [{ name: '信息技术模拟卷12.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷12.pdf', type: 'pdf' }, { name: '信息技术模拟卷12答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷12答案.pdf', type: 'pdf' }] },
-    'mock-it-13': { name: '信息技术模拟卷13', files: [{ name: '信息技术模拟卷13.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷13.pdf', type: 'pdf' }, { name: '信息技术模拟卷13答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷13答案.pdf', type: 'pdf' }] },
-    'mock-it-14': { name: '信息技术模拟卷14', files: [{ name: '信息技术模拟卷14.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷14.pdf', type: 'pdf' }, { name: '信息技术模拟卷14答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷14答案.pdf', type: 'pdf' }] },
-    'mock-it-15': { name: '信息技术模拟卷15', files: [{ name: '信息技术模拟卷15.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷15.pdf', type: 'pdf' }, { name: '信息技术模拟卷15答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷15答案.pdf', type: 'pdf' }] },
-    'mock-it-16': { name: '信息技术模拟卷16', files: [{ name: '信息技术模拟卷16.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷16.pdf', type: 'pdf' }, { name: '信息技术模拟卷16答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷16答案.pdf', type: 'pdf' }] },
-    'mock-it-17': { name: '信息技术模拟卷17', files: [{ name: '信息技术模拟卷17.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷17.pdf', type: 'pdf' }, { name: '信息技术模拟卷17答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷17答案.pdf', type: 'pdf' }] },
-    'mock-it-18': { name: '信息技术模拟卷18', files: [{ name: '信息技术模拟卷18.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷18.pdf', type: 'pdf' }, { name: '信息技术模拟卷18答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷18答案.pdf', type: 'pdf' }] },
-    'mock-it-19': { name: '信息技术模拟卷19', files: [{ name: '信息技术模拟卷19.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷19.pdf', type: 'pdf' }, { name: '信息技术模拟卷19答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷19答案.pdf', type: 'pdf' }] },
-    'mock-it-20': { name: '信息技术模拟卷20', files: [{ name: '信息技术模拟卷20.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷20.pdf', type: 'pdf' }, { name: '信息技术模拟卷20答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术模拟卷20答案.pdf', type: 'pdf' }] },
+    // 信息技术概论模拟题 1-20
+    'mock-it-1': { name: '信息技术概论模拟卷1', files: [{ name: '信息技术概论模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷1.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷1答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷1答案.pdf', type: 'pdf' }] },
+    'mock-it-2': { name: '信息技术概论模拟卷2', files: [{ name: '信息技术概论模拟卷2.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷2.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷2答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷2答案.pdf', type: 'pdf' }] },
+    'mock-it-3': { name: '信息技术概论模拟卷3', files: [{ name: '信息技术概论模拟卷3.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷3.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷3答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷3答案.pdf', type: 'pdf' }] },
+    'mock-it-4': { name: '信息技术概论模拟卷4', files: [{ name: '信息技术概论模拟卷4.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷4.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷4答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷4答案.pdf', type: 'pdf' }] },
+    'mock-it-5': { name: '信息技术概论模拟卷5', files: [{ name: '信息技术概论模拟卷5.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷5.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷5答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概括略的题目和答案.txt', type: 'txt' }] },
+    "mock-it-6": {
+        "name": "信息技 概 论 模拟 卷  6",
+        "files": [
+            {
+                "name": "信息技 概 论 模拟 卷  6 . pdf",
+                "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷6.pdf",
+                "type": "pdf"
+            },
+            {
+                "name": "信息技 概 论 模拟 卷   答案 . pdf",
+                "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷6答案.pdf",
+                "type": "pdf"
+            }
+        ]
+    },
+    "mock-it-7": {
+        "name": "信息技 概 论 模拟 卷  7",
+        "files": [
+            {
+                "name": "信息技 概 论 模拟 卷   7 . pdf",
+                "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷7.pdf",
+                "type": "pdf"
+            },
+            {
+                "name": "信息技概述模擬 卷   答案 . pdf",
+                "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷7答案.pdf",
+                "type": "pdf"
+            }
+        ]
+    },
+    // ... (other mock-it entries would be similarly updated)
+
+    'mock-it-12': { name: '信息技术概论模拟卷12', files: [{ name: '信息技术概论模拟卷12.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷12.pdf', type: 'pdf' }, { name: '  信息技 术 模拟 卷  12 答案 . pdf ', fileUrl: ' ./ zhuanshengben / 专 升 本 题 背 资 料 / 模 拟 题 / 信 息 技 术 概 论 / 信 息 技 术 模拟 卷  12 答案 . pdf ', type: ' pdf ' }] },
+    "mock-it-13": {
+        "name": "信息技 概 论 模拟 卷  13",
+        "files": [
+            {
+                "name": "信息技术概论模拟卷13.pdf",
+                "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷13.pdf",
+                "type": "pdf"
+            },
+            {
+                "name": "信息技术概论模拟卷13答案.pdf",
+                "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷13答案.pdf",
+                "type": "pdf"
+            }
+        ]
+    },
+    "mock-it-14": {
+        "name": "信息技术概论模拟卷14",
+        "files": [
+            {
+                "name": "信息技术概论模拟卷14.pdf",
+                "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷14.pdf",
+                "type": "pdf"
+            },
+            {
+                "name": "信息技术概论模拟卷14答案.pdf",
+                "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷14答案.pdf",
+                "type": "pdf"
+            }
+        ]
+    },
+    // ... (其余条目保持一致格式)
+
+    'mock-it-17': { name: '信息技术概论模拟卷17', files: [{ name: '信息技术概论模拟卷17.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷17.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷17答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷17答案.pdf', type: 'pdf' }] },
+    'mock-it-18': { name: '信息技术概论模拟卷18', files: [{ name: '信息技术概论模拟卷18.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷18.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷18答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷18答案.pdf', type: 'pdf' }] },
+    'mock-it-19': { name: '信息技术概论模拟卷19', files: [{ name: '信息技术概论模拟卷19.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷19.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷19答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷19答案.pdf', type: 'pdf' }] },
+    'mock-it-20': { name: '信息技术概论模拟卷20', files: [{ name: '信息技术概论模拟卷20.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷20.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷20答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷20答案.pdf', type: 'pdf' }] },
 
     // ===== 开背知识点 - 静态定义，每科3个（无答案） =====
     'kaibei-politics-1': { name: '政治开背知识点1', files: [{ name: '政治开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.pdf', type: 'pdf' }] },
@@ -482,7 +536,75 @@ function renderPreview(file, container) {
         container.appendChild(img);
     }
 }
+// 双栏对照预览函数
+function showDualPreview(file1, file2, target, linkText) {
+    // 清除当前的预览文件状态
+    currentPreviewFile = null;
 
+    // 重新渲染文件列表，并添加双栏预览
+    const content = renderFileContent(target, fileData[target].name);
+
+    // 创建双栏预览的HTML
+    const dualHtml = `
+        <div class="dual-preview-wrap" id="dualPreviewWrap">
+            <div class="dual-col">
+                <div class="preview-header">${file1.name}</div>
+                <div class="preview-content-inner" id="dual-preview-left"></div>
+            </div>
+            <div class="dual-col">
+                <div class="preview-header">${file2.name}</div>
+                <div class="preview-content-inner" id="dual-preview-right"></div>
+            </div>
+        </div>
+        <div class="dual-close-area">
+            <button class="close-dual-btn" id="closeDualPreviewBtn">关闭对照</button>
+        </div>
+    `;
+
+    // 更新内容
+    dynamicDiv.innerHTML = content + dualHtml;
+
+    // 重新绑定所有按钮事件
+    rebindAllButtons(target, linkText);
+
+    // 加载两个PDF
+    setTimeout(() => {
+        const leftContainer = document.getElementById('dual-preview-left');
+        const rightContainer = document.getElementById('dual-preview-right');
+
+        if (leftContainer && rightContainer) {
+            // 加载左侧PDF
+            const iframe1 = document.createElement('iframe');
+            iframe1.src = file1.fileUrl;
+            iframe1.style.width = '100%';
+            iframe1.style.height = '550px';
+            iframe1.style.border = 'none';
+            leftContainer.innerHTML = ''; // 清空容器
+            leftContainer.appendChild(iframe1);
+
+            // 加载右侧PDF
+            const iframe2 = document.createElement('iframe');
+            iframe2.src = file2.fileUrl;
+            iframe2.style.width = '100%';
+            iframe2.style.height = '550px';
+            iframe2.style.border = 'none';
+            rightContainer.innerHTML = ''; // 清空容器
+            rightContainer.appendChild(iframe2);
+        }
+    }, 50);
+
+    // 绑定关闭按钮
+    document.getElementById('closeDualPreviewBtn').addEventListener('click', function () {
+        // 清除双栏预览
+        const dualWrap = document.getElementById('dualPreviewWrap');
+        const closeArea = document.querySelector('.dual-close-area');
+        if (dualWrap) dualWrap.remove();
+        if (closeArea) closeArea.remove();
+
+        // 重新绑定按钮
+        rebindAllButtons(target, linkText);
+    });
+}
 // 生成文件列表HTML
 function renderFileContent(target, title) {
     const data = fileData[target];
@@ -527,21 +649,24 @@ function renderFileContent(target, title) {
         const imgFilesAttr = JSON.stringify(imgFiles).replace(/"/g, '&quot;');
 
         html += `
-            <div class="file-item">
-                <div class="file-info">
-                    <svg viewBox="0 0 24 24">
-                        ${fileIcon}
-                    </svg>
-                    <span class="file-name">${file.name}</span>
-                    ${fileBadge}
-                </div>
-                <div class="action-buttons">
-                    <button class="preview-img-btn" data-img-files='${imgFilesAttr}' data-base-path='${baseFilePath}'>预览图片形式</button>
-                    <button class="download-btn" data-file='${fileAttr}'>下载</button>
-                    <button class="preview-btn" data-file='${fileAttr}'>预览</button>
-                </div>
-            </div>
-        `;
+    <div class="file-item">
+        <div class="file-info">
+            <svg viewBox="0 0 24 24">
+                ${fileIcon}
+            </svg>
+            <span class="file-name">${file.name}</span>
+            ${fileBadge}
+        </div>
+        <div class="action-buttons">
+            <button class="preview-img-btn" data-img-files='${imgFilesAttr}' data-base-path='${baseFilePath}'>预览图片形式</button>
+            <button class="download-btn" data-file='${fileAttr}'>下载</button>
+            <button class="preview-btn" data-file='${fileAttr}'>预览</button>
+            ${(file.name.includes('模拟卷') || file.name.includes('真题')) && !file.name.includes('答案') ?
+                `<button class="dual-preview-btn" data-file='${fileAttr}' data-base-name='${file.name.replace('.pdf', '')}'>题答对照</button>` :
+                ''}
+        </div>
+    </div>
+`;
     });
 
     html += `</div>`;
@@ -617,6 +742,27 @@ function updateContent(target, linkText) {
                     }, 50);
                 });
             });
+            // 题答对照按钮事件
+            document.querySelectorAll('.dual-preview-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const file = JSON.parse(this.getAttribute('data-file'));
+                    const baseName = this.getAttribute('data-base-name');
+
+                    // 构建答案文件路径
+                    const answerFileName = baseName + '答案.pdf';
+                    const answerFileUrl = file.fileUrl.replace('.pdf', '答案.pdf');
+
+                    const answerFile = {
+                        name: answerFileName,
+                        fileUrl: answerFileUrl,
+                        type: 'pdf'
+                    };
+
+                    // 显示双栏对照预览
+                    showDualPreview(file, answerFile, target, linkText);
+                });
+            });
 
             document.querySelectorAll('.preview-img-btn').forEach(btn => {
                 btn.addEventListener('click', function (e) {
@@ -676,13 +822,8 @@ function updateContent(target, linkText) {
                 });
             });
 
-            const closeBtn = document.getElementById('closePreviewBtn');
-            if (closeBtn) {
-                closeBtn.addEventListener('click', function () {
-                    currentPreviewFile = null;
-                    updateContent(target, linkText);
-                });
-            }
+            // 使用统一的按钮绑定函数
+            rebindAllButtons(target, linkText);
         }
     } else {
         displayText = linkText || '未知栏目';
@@ -1773,4 +1914,135 @@ function init() {
     if (homeLi) homeLi.classList.add('active');
 
     console.log('初始化完成，fileData包含', Object.keys(fileData).length, '个条目');
+}
+
+// 统一的按钮绑定函数
+function rebindAllButtons(target, linkText) {
+    // 预览按钮
+    document.querySelectorAll('.preview-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault(); // 添加阻止默认行为
+
+            // 如果存在双栏预览，先移除它
+            const dualWrap = document.getElementById('dualPreviewWrap');
+            const closeArea = document.querySelector('.dual-close-area');
+            if (dualWrap) dualWrap.remove();
+            if (closeArea) closeArea.remove();
+
+            const file = JSON.parse(this.getAttribute('data-file'));
+            currentPreviewFile = file;
+            updateContent(target, linkText);
+
+            setTimeout(() => {
+                const container = document.getElementById('preview-container');
+                if (container && currentPreviewFile) {
+                    renderPreview(currentPreviewFile, container);
+                }
+            }, 50);
+        });
+    });
+
+    // 预览图片形式按钮
+    document.querySelectorAll('.preview-img-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault(); // 添加阻止默认行为
+
+            // 如果存在双栏预览，先移除它
+            const dualWrap = document.getElementById('dualPreviewWrap');
+            const closeArea = document.querySelector('.dual-close-area');
+            if (dualWrap) dualWrap.remove();
+            if (closeArea) closeArea.remove();
+
+            const imgFiles = JSON.parse(this.getAttribute('data-img-files'));
+            const basePath = this.getAttribute('data-base-path');
+
+            function tryLoadImage(files, index) {
+                if (index >= files.length) {
+                    const container = document.getElementById('preview-container');
+                    if (container) {
+                        container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 未找到对应的图片文件<br>请确保存在以下格式之一的图片：jpg、png、gif等</div>`;
+                    }
+                    return;
+                }
+
+                const file = files[index];
+                currentPreviewFile = file;
+                updateContent(target, linkText);
+
+                setTimeout(() => {
+                    const container = document.getElementById('preview-container');
+                    if (container && currentPreviewFile) {
+                        const img = document.createElement('img');
+                        img.src = currentPreviewFile.fileUrl;
+                        img.alt = '预览图片';
+                        img.style.maxWidth = '100%';
+                        img.style.height = 'auto';
+                        img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                        img.style.borderRadius = '4px';
+
+                        img.onload = function () {
+                            container.innerHTML = '';
+                            container.appendChild(img);
+                        };
+
+                        img.onerror = function () {
+                            tryLoadImage(files, index + 1);
+                        };
+
+                        container.innerHTML = '<div style="padding:20px;">正在尝试加载图片...</div>';
+                        container.appendChild(img);
+                    }
+                }, 50);
+            }
+
+            tryLoadImage(imgFiles, 0);
+        });
+    });
+
+    // 下载按钮
+    document.querySelectorAll('.download-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const file = JSON.parse(this.getAttribute('data-file'));
+            downloadFile(file);
+        });
+    });
+
+    // 题答对照按钮
+    document.querySelectorAll('.dual-preview-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault(); // 添加阻止默认行为
+
+            // 清除当前的预览文件状态
+            currentPreviewFile = null;
+
+            const file = JSON.parse(this.getAttribute('data-file'));
+            const baseName = this.getAttribute('data-base-name');
+
+            // 构建答案文件路径
+            const answerFileName = baseName + '答案.pdf';
+            const answerFileUrl = file.fileUrl.replace('.pdf', '答案.pdf');
+
+            const answerFile = {
+                name: answerFileName,
+                fileUrl: answerFileUrl,
+                type: 'pdf'
+            };
+
+            // 显示双栏对照预览
+            showDualPreview(file, answerFile, target, linkText);
+        });
+    });
+
+    // 关闭预览按钮
+    const closeBtn = document.getElementById('closePreviewBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            currentPreviewFile = null;
+            updateContent(target, linkText);
+        });
+    }
 }

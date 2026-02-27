@@ -321,7 +321,18 @@ const fileData = {
 
     'kaibei-it-1': { name: '信息技术开背知识点1', files: [{ name: '信息技术开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-it-2': { name: '信息技术开背知识点2', files: [{ name: '信息技术开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点2.pdf', type: 'pdf' }] },
-    'kaibei-it-3': { name: '信息技术开背知识点3', files: [{ name: '信息技术开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点3.pdf', type: 'pdf' }] }
+    'kaibei-it-3': { name: '信息技术开背知识点3', files: [{ name: '信息技术开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点3.pdf', type: 'pdf' }] },
+
+    'ai-tools': {
+        name: '国产AI对比',
+        files: [
+            {
+                name: 'AI工具对比-详细评测.pdf',
+                fileUrl: './国产AI对比/AI工具对比-详细评测.pdf',
+                type: 'pdf'
+            }
+        ]
+    }
 };
 
 // ========== DOM 元素 ==========
@@ -747,6 +758,389 @@ function init() {
 // 启动初始化
 init();
 
+// ========== 搜索功能实现 ==========
+const searchInput = document.getElementById('search-input');
+
+// 搜索功能
+function performSearch() {
+    const keyword = searchInput.value.trim().toLowerCase();
+    if (!keyword) {
+        updateContent(currentTarget, currentLinkText);
+        return;
+    }
+
+    // 搜索结果存储
+    const results = [];
+
+    // 遍历所有文件数据
+    for (const [target, data] of Object.entries(fileData)) {
+        if (target === 'home') continue; // 跳过首页
+
+        // 检查目录名称是否匹配
+        if (data.name.toLowerCase().includes(keyword)) {
+            results.push({
+                type: 'category',
+                name: data.name,
+                target: target,
+                files: data.files
+            });
+        }
+
+        // 检查文件名称是否匹配
+        data.files.forEach(file => {
+            if (file.name.toLowerCase().includes(keyword)) {
+                results.push({
+                    type: 'file',
+                    name: file.name,
+                    target: target,
+                    category: data.name,
+                    file: file
+                });
+            }
+        });
+    }
+
+    // 显示搜索结果
+    displaySearchResults(results, keyword);
+}
+
+// 显示搜索结果
+function displaySearchResults(results, keyword) {
+    if (results.length === 0) {
+        dynamicDiv.innerHTML = `
+            <svg viewBox="0 0 24 24">
+                <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+            </svg>
+            <h2>未找到相关结果</h2>
+            <p>没有找到包含 "${keyword}" 的资料</p>
+            <button class="back-btn" onclick="updateContent('${currentTarget}', '${currentLinkText}')">返回</button>
+        `;
+        return;
+    }
+
+    // 按类别分组，并去重文件
+    const categories = {};
+
+    results.forEach(result => {
+        if (result.type === 'category') {
+            // 如果是分类匹配，添加该分类的所有文件
+            if (!categories[result.name]) {
+                categories[result.name] = {
+                    categoryName: result.name,
+                    files: []
+                };
+            }
+
+            // 添加该分类的所有文件（去重）
+            result.files.forEach(file => {
+                const fileKey = file.name + file.fileUrl;
+                if (!categories[result.name].fileSet) {
+                    categories[result.name].fileSet = new Set();
+                }
+                if (!categories[result.name].fileSet.has(fileKey)) {
+                    categories[result.name].fileSet.add(fileKey);
+                    categories[result.name].files.push(file);
+                }
+            });
+        } else {
+            // 如果是文件匹配
+            if (!categories[result.category]) {
+                categories[result.category] = {
+                    categoryName: result.category,
+                    files: [],
+                    fileSet: new Set()
+                };
+            }
+
+            // 添加匹配的文件（去重）
+            const fileKey = result.file.name + result.file.fileUrl;
+            if (!categories[result.category].fileSet.has(fileKey)) {
+                categories[result.category].fileSet.add(fileKey);
+                categories[result.category].files.push(result.file);
+            }
+        }
+    });
+
+    // 生成搜索结果HTML
+    let html = `
+        <svg viewBox="0 0 24 24">
+            <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+        </svg>
+        <h2>搜索结果: "${keyword}"</h2>
+        <div class="search-results-list">
+    `;
+
+    // 遍历每个分类
+    for (const [catName, catData] of Object.entries(categories)) {
+        if (catData.files && catData.files.length > 0) {
+            html += `
+                <div class="search-category">
+                    <h3 class="search-category-title">${catName}</h3>
+                    <div class="search-category-files">
+            `;
+
+            catData.files.forEach(file => {
+                const fileAttr = JSON.stringify(file).replace(/"/g, '&quot;');
+
+                let fileIcon = file.type === 'pdf' ?
+                    '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 10h-8v-2h8v2zm0-4h-8V7h8v2z" />' :
+                    '<path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />';
+
+                // 添加文件徽章
+                let fileBadge = '';
+                if (file.name.includes('答案') || file.name.toLowerCase().includes('answer')) {
+                    fileBadge = '<span class="file-badge answer">答案</span>';
+                } else {
+                    fileBadge = '<span class="file-badge question">题目</span>';
+                }
+
+                html += `
+                    <div class="search-result-item">
+                        <div class="search-result-info">
+                            <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:#4096ff;">
+                                ${fileIcon}
+                            </svg>
+                            <span class="search-result-name">${file.name}</span>
+                            ${fileBadge}
+                        </div>
+                        <div class="search-result-actions">
+                            <button class="preview-btn" data-file='${fileAttr}'>预览</button>
+                            <button class="download-btn" data-file='${fileAttr}'>下载</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div></div>`;
+        }
+    }
+
+    html += `</div>`;
+
+    // 如果有预览文件，添加预览区域
+    if (currentPreviewFile) {
+        const previewType = currentPreviewFile.type === 'pdf' ? 'PDF预览' : '图片预览';
+        html += `
+            <div class="preview-area">
+                <div class="preview-header">
+                    <h3>${currentPreviewFile.name} (${previewType})</h3>
+                    <button class="close-preview" id="closePreviewBtn">&times;</button>
+                </div>
+                <div class="preview-content" id="preview-container"></div>
+            </div>
+        `;
+    }
+
+    dynamicDiv.innerHTML = html;
+
+    // 重新绑定按钮事件
+    document.querySelectorAll('.preview-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const file = JSON.parse(this.getAttribute('data-file'));
+            currentPreviewFile = file;
+            displaySearchResults(results, keyword); // 重新显示搜索结果
+
+            setTimeout(() => {
+                const container = document.getElementById('preview-container');
+                if (container && currentPreviewFile) {
+                    renderPreview(currentPreviewFile, container);
+                }
+            }, 50);
+        });
+    });
+
+    document.querySelectorAll('.download-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const file = JSON.parse(this.getAttribute('data-file'));
+            downloadFile(file);
+        });
+    });
+
+    // 绑定关闭预览按钮
+    const closeBtn = document.getElementById('closePreviewBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            currentPreviewFile = null;
+            displaySearchResults(results, keyword);
+        });
+    }
+}
+
+// 添加搜索输入事件监听
+if (searchInput) {
+    // 添加搜索图标
+    const searchBox = document.querySelector('.search-box');
+    if (searchBox && !document.querySelector('.search-clear-btn')) {
+        const clearBtn = document.createElement('button');
+        clearBtn.className = 'search-clear-btn';
+        clearBtn.innerHTML = '×';
+        clearBtn.style.display = 'none';
+        clearBtn.addEventListener('click', function () {
+            searchInput.value = '';
+            this.style.display = 'none';
+            updateContent(currentTarget, currentLinkText);
+        });
+        searchBox.appendChild(clearBtn);
+    }
+
+    // 输入事件
+    searchInput.addEventListener('input', function () {
+        const clearBtn = document.querySelector('.search-clear-btn');
+        if (clearBtn) {
+            clearBtn.style.display = this.value.length > 0 ? 'block' : 'none';
+        }
+
+        if (this.value.length >= 1) {
+            performSearch();
+        } else {
+            updateContent(currentTarget, currentLinkText);
+        }
+    });
+
+    // 键盘事件
+    searchInput.addEventListener('keyup', function (e) {
+        if (e.key === 'Escape') {
+            this.value = '';
+            const clearBtn = document.querySelector('.search-clear-btn');
+            if (clearBtn) clearBtn.style.display = 'none';
+            updateContent(currentTarget, currentLinkText);
+        }
+    });
+}
+
+// 在初始化函数中添加搜索功能相关样式
+function addSearchStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        /* 搜索结果列表样式 */
+        .search-results-list {
+            width: 100%;
+            max-height: 600px;
+            overflow-y: auto;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .search-category {
+            margin-bottom: 25px;
+            background: var(--hover-bg);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-category-title {
+            font-size: 16px;
+            color: var(--text-primary);
+            margin: 0 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #4096ff;
+            font-weight: 600;
+        }
+
+        .search-category-files {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .search-result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .search-result-item:hover {
+            border-color: #4096ff;
+            box-shadow: 0 2px 8px rgba(64, 150, 255, 0.1);
+        }
+
+        .search-result-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .search-result-name {
+            font-size: 14px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .search-result-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0 5px;
+            z-index: 10;
+            line-height: 1;
+        }
+
+        .search-clear-btn:hover {
+            color: #ef4444;
+        }
+
+        /* 搜索高亮 */
+        .search-highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        body.dark-theme .search-highlight {
+            background-color: #5b4a1e;
+            color: #ffd966;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// 在init函数中添加样式
+function init() {
+    console.log('初始化静态版本...');
+
+    // 添加固定样式
+    addFixedStyles();
+
+    // 添加搜索样式
+    addSearchStyles();
+
+    // 设置点击固定展开/收缩功能
+    setupClickToFix();
+
+    // 绑定菜单链接
+    bindMenuLinks();
+
+    // 更新首页内容
+    updateContent('home', '首页');
+
+    // 设置首页为活动状态
+    document.querySelectorAll('.sidebar li.active').forEach(li => li.classList.remove('active'));
+    const homeLi = document.getElementById('menu-home');
+    if (homeLi) homeLi.classList.add('active');
+
+    console.log('初始化完成，fileData包含', Object.keys(fileData).length, '个条目');
+}
 
 // ========== 悬浮可拖拽AI助手 ==========
 const aiFloatBtn = document.getElementById('aiFloatBtn');
@@ -822,10 +1216,23 @@ function initFloatAI() {
 // 添加欢迎消息
 function addWelcomeMessage(model) {
     const config = floatAIConfig[model];
+
+    // 根据模型选择不同的图标
+    let iconUrl = '';
+    if (model === 'deepseek') {
+        iconUrl = 'https://unpkg.com/@lobehub/icons-static-svg@latest/icons/deepseek.svg';
+    } else if (model === 'chatglm') {
+        iconUrl = 'https://unpkg.com/@lobehub/icons-static-svg@latest/icons/chatglm.svg';
+    } else if (model === 'qwen') {
+        iconUrl = 'https://unpkg.com/@lobehub/icons-static-svg@latest/icons/qwen.svg';
+    } else if (model === 'ernie') {
+        iconUrl = 'https://unpkg.com/@lobehub/icons-static-svg@latest/icons/baidu.svg';
+    }
+
     aiFloatChats.innerHTML = `
         <div class="ai-message ai-bot-message">
             <div class="ai-message-avatar">
-                <i class='bx bx-chip'></i>
+                <img src="${iconUrl}" width="20" height="20" alt="${model}" style="border-radius: 4px;">
             </div>
             <div class="ai-message-content">
                 ${config.welcomeMsg}
@@ -865,12 +1272,26 @@ function addUserMessage(text) {
 
 // 添加机器人消息（加载状态）
 function addBotLoadingMessage() {
+    const model = floatCurrentModel;
+
+    // 根据模型选择不同的图标
+    let iconUrl = '';
+    if (model === 'deepseek') {
+        iconUrl = 'https://unpkg.com/@lobehub/icons-static-svg@latest/icons/deepseek.svg';
+    } else if (model === 'chatglm') {
+        iconUrl = 'https://unpkg.com/@lobehub/icons-static-svg@latest/icons/chatglm.svg';
+    } else if (model === 'qwen') {
+        iconUrl = 'https://unpkg.com/@lobehub/icons-static-svg@latest/icons/qwen.svg';
+    } else if (model === 'ernie') {
+        iconUrl = 'https://unpkg.com/@lobehub/icons-static-svg@latest/icons/baidu.svg';
+    }
+
     const messageDiv = document.createElement('div');
     messageDiv.className = 'ai-message ai-bot-message ai-loading';
     messageDiv.id = 'ai-loading-message';
     messageDiv.innerHTML = `
         <div class="ai-message-avatar">
-            <i class='bx bx-chip'></i>
+            <img src="${iconUrl}" width="20" height="20" alt="${model}" style="border-radius: 4px;">
         </div>
         <div class="ai-message-content">正在思考</div>
     `;
@@ -1258,3 +1679,98 @@ window.addEventListener('resize', () => {
     setTimeout(forceShowButton, 1000);
     setTimeout(forceShowButton, 2000);
 })();
+
+// ========== 统计卡片功能 ==========
+function updateStatsCards() {
+    // 初始化各科计数器
+    const stats = {
+        politics: { total: 0, mock: 0, past: 0, kaibei: 0 },
+        english: { total: 0, mock: 0, past: 0, kaibei: 0 },
+        math: { total: 0, mock: 0, past: 0, kaibei: 0 },
+        it: { total: 0, mock: 0, past: 0, kaibei: 0 }
+    };
+
+    // 遍历所有文件数据
+    Object.entries(fileData).forEach(([key, data]) => {
+        if (key === 'home') return; // 跳过首页
+
+        const filesCount = data.files ? data.files.length : 0;
+
+        // 根据key判断科目和类型
+        if (key.includes('politics') || key.includes('政治')) {
+            stats.politics.total += filesCount;
+            if (key.includes('mock')) stats.politics.mock += filesCount;
+            else if (key.includes('past')) stats.politics.past += filesCount;
+            else if (key.includes('kaibei')) stats.politics.kaibei += filesCount;
+        }
+        else if (key.includes('english') || key.includes('英语')) {
+            stats.english.total += filesCount;
+            if (key.includes('mock')) stats.english.mock += filesCount;
+            else if (key.includes('past')) stats.english.past += filesCount;
+            else if (key.includes('kaibei')) stats.english.kaibei += filesCount;
+        }
+        else if (key.includes('math') || key.includes('高数')) {
+            stats.math.total += filesCount;
+            if (key.includes('mock')) stats.math.mock += filesCount;
+            else if (key.includes('past')) stats.math.past += filesCount;
+            else if (key.includes('kaibei')) stats.math.kaibei += filesCount;
+        }
+        else if (key.includes('it') || key.includes('信息技术')) {
+            stats.it.total += filesCount;
+            if (key.includes('mock')) stats.it.mock += filesCount;
+            else if (key.includes('past')) stats.it.past += filesCount;
+            else if (key.includes('kaibei')) stats.it.kaibei += filesCount;
+        }
+    });
+
+    // 更新DOM
+    updateStatCard('politics', stats.politics);
+    updateStatCard('english', stats.english);
+    updateStatCard('math', stats.math);
+    updateStatCard('it', stats.it);
+}
+
+function updateStatCard(subject, data) {
+    const card = document.querySelector(`.stat-card.${subject}`);
+    if (!card) return;
+
+    const valueEl = card.querySelector('.value');
+    const descEl = card.querySelector('.desc');
+
+    if (valueEl) {
+        valueEl.textContent = `${data.total}个文件`;
+    }
+    if (descEl) {
+        descEl.textContent = `模拟:${data.mock} 真题:${data.past} 开背:${data.kaibei}`;
+    }
+}
+
+// 在init函数中调用
+function init() {
+    console.log('初始化静态版本...');
+
+    // 添加固定样式
+    addFixedStyles();
+
+    // 添加搜索样式
+    addSearchStyles();
+
+    // 设置点击固定展开/收缩功能
+    setupClickToFix();
+
+    // 绑定菜单链接
+    bindMenuLinks();
+
+    // 更新首页内容
+    updateContent('home', '首页');
+
+    // 添加统计卡片更新
+    updateStatsCards();  // 新增这行
+
+    // 设置首页为活动状态
+    document.querySelectorAll('.sidebar li.active').forEach(li => li.classList.remove('active'));
+    const homeLi = document.getElementById('menu-home');
+    if (homeLi) homeLi.classList.add('active');
+
+    console.log('初始化完成，fileData包含', Object.keys(fileData).length, '个条目');
+}

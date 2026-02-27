@@ -2031,3 +2031,113 @@
             font-size: 9px !important;
         }
     }
+
+    /* 双栏预览样式 - 如果已存在则不用添加 */
+    .dual-preview-wrap {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 20px;
+        width: 100%;
+        margin-top: 20px;
+        align-items: flex-start;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-secondary);
+        overflow: hidden;
+    }
+
+    .dual-col {
+        flex: 1 1 50%;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-secondary);
+    }
+
+    .dual-col:first-child {
+        border-right: 1px solid var(--border-color);
+    }
+
+    .dual-col .preview-header {
+        background: var(--hover-bg);
+        padding: 12px 16px;
+        font-weight: 600;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-primary);
+        font-size: 15px;
+    }
+
+    .dual-col .preview-content-inner {
+        padding: 16px;
+        max-height: 650px;
+        overflow: auto;
+        text-align: center;
+        background: var(--bg-secondary);
+    }
+
+    .dual-close-area {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0 5px;
+    }
+
+    .close-dual-btn {
+        background: #ef4444;
+        color: white;
+        border: none;
+        padding: 6px 20px;
+        border-radius: 30px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .close-dual-btn:hover {
+        background: #dc2626;
+    }
+
+    .dual-preview-btn {
+        background: #8b5cf6;
+        color: white;
+        border: none;
+        padding: 6px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 400;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .dual-preview-btn:hover {
+        background: #7c3aed;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .dual-preview-wrap {
+            flex-direction: column;
+        }
+
+        .dual-col:first-child {
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+        }
+    }
+
+    /* 确保双栏预览和普通预览区域互不干扰 */
+    .dual-preview-wrap {
+        margin-top: 20px;
+        clear: both;
+    }
+
+    .preview-area {
+        margin-top: 20px;
+        clear: both;
+    }
+
+    /* 当双栏预览存在时，隐藏普通预览区域？不隐藏，让它们共存 */
+    .dual-preview-wrap+.preview-area {
+        margin-top: 30px;
+    }

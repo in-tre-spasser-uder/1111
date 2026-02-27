@@ -30,6 +30,8 @@
                         <li><a class="link_name" href="#" data-target="home">首页</a></li>
                     </ul>
                 </li>
+
+                <!-- 报考指南 -->
                 <li class="menu-with-sub">
                     <div class="iocn-link">
                         <a href="#">
@@ -66,8 +68,6 @@
                             </div>
                             <ul class="sub-menu" style="padding-left: 30px;">
                                 <li><a class="link_name" href="#">专业、课程标准</a></li>
-
-                                <!-- 课程标准（带三级菜单） -->
                                 <li class="has-third-level">
                                     <div class="iocn-link" style="padding-left: 0;">
                                         <a href="#" style="padding-left: 16px;">
@@ -82,8 +82,6 @@
                                         <li><a href="#" data-target="course-it">信息技术概论</a></li>
                                     </ul>
                                 </li>
-
-                                <!-- 专业标准（带三级菜单） -->
                                 <li class="has-third-level">
                                     <div class="iocn-link" style="padding-left: 0;">
                                         <a href="#" style="padding-left: 16px;">
@@ -101,6 +99,8 @@
                         <li><a href="#" data-target="process">报考流程/时间</a></li>
                     </ul>
                 </li>
+
+                <!-- 备考资料 -->
                 <li>
                     <div class="iocn-link">
                         <a href="#">
@@ -111,24 +111,78 @@
                     </div>
                     <ul class="sub-menu">
                         <li><a class="link_name" href="#">备考资料</a></li>
-                        <!-- 网课选项 -->
                         <li><a href="./网课/网课之家.html" target="_blank">网课</a></li>
                         <li><a href="https://in-tre-spasser-uder.github.io/1111/react-gemini/index.html"
                                 target="_blank">Gemini</a></li>
 
-                        <!-- ===== 开背（知识点）部分 - 动态生成 ===== -->
-                        <li class="has-third-level" id="kaibei-menu">
+                        <!-- 开背（知识点）- 静态版本，每科3个 -->
+                        <li class="has-third-level">
                             <div class="iocn-link" style="padding-left:0;">
                                 <a href="#" style="padding-left:16px;"><span>开背（知识点）</span></a>
                                 <i class='bx bxs-chevron-down arrow'></i>
                             </div>
-                            <ul class="sub-menu" style="padding-left:30px;" id="kaibei-submenu">
+                            <ul class="sub-menu" style="padding-left:30px;">
                                 <li><a class="link_name" href="#">开背（知识点）</a></li>
-                                <!-- 这里将由JavaScript动态生成开背知识点分类 -->
+
+                                <!-- 政治开背知识点 -->
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>政治开背知识点</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">政治开背知识点</a></li>
+                                        <li><a href="#" data-target="kaibei-politics-1">政治开背知识点1</a></li>
+                                        <li><a href="#" data-target="kaibei-politics-2">政治开背知识点2</a></li>
+                                        <li><a href="#" data-target="kaibei-politics-3">政治开背知识点3</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 英语开背知识点 -->
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>英语开背知识点</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">英语开背知识点</a></li>
+                                        <li><a href="#" data-target="kaibei-english-1">英语开背知识点1</a></li>
+                                        <li><a href="#" data-target="kaibei-english-2">英语开背知识点2</a></li>
+                                        <li><a href="#" data-target="kaibei-english-3">英语开背知识点3</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 高数开背知识点 -->
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>高数开背知识点</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">高数开背知识点</a></li>
+                                        <li><a href="#" data-target="kaibei-math-1">高数开背知识点1</a></li>
+                                        <li><a href="#" data-target="kaibei-math-2">高数开背知识点2</a></li>
+                                        <li><a href="#" data-target="kaibei-math-3">高数开背知识点3</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 信息技术开背知识点 -->
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>信息技术开背知识点</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">信息技术开背知识点</a></li>
+                                        <li><a href="#" data-target="kaibei-it-1">信息技术开背知识点1</a></li>
+                                        <li><a href="#" data-target="kaibei-it-2">信息技术开背知识点2</a></li>
+                                        <li><a href="#" data-target="kaibei-it-3">信息技术开背知识点3</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
-                        <!-- ===== 开背（知识点）部分结束 ===== -->
 
+                        <!-- 历年真题 -->
                         <li class="has-third-level">
                             <div class="iocn-link" style="padding-left:0;">
                                 <a href="#" style="padding-left:16px;"><span>历年真题</span></a>
@@ -143,23 +197,147 @@
                             </ul>
                         </li>
 
-                        <!-- 模拟题部分 - 动态生成 -->
-                        <li class="has-third-level" id="mock-exams-menu">
+                        <!-- 模拟题 - 静态版本，每科20套 -->
+                        <li class="has-third-level">
                             <div class="iocn-link" style="padding-left:0;">
                                 <a href="#" style="padding-left:16px;"><span>模拟题</span></a>
                                 <i class='bx bxs-chevron-down arrow'></i>
                             </div>
-                            <ul class="sub-menu" style="padding-left:30px;" id="mock-exams-submenu">
+                            <ul class="sub-menu" style="padding-left:30px;">
                                 <li><a class="link_name" href="#">模拟题</a></li>
-                                <!-- 这里将由JavaScript动态生成模拟题分类 -->
+
+                                <!-- 政治模拟题 1-20 -->
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>政治模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">政治模拟题</a></li>
+                                        <li><a href="#" data-target="mock-politics-1">政治模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-politics-2">政治模拟卷2</a></li>
+                                        <li><a href="#" data-target="mock-politics-3">政治模拟卷3</a></li>
+                                        <li><a href="#" data-target="mock-politics-4">政治模拟卷4</a></li>
+                                        <li><a href="#" data-target="mock-politics-5">政治模拟卷5</a></li>
+                                        <li><a href="#" data-target="mock-politics-6">政治模拟卷6</a></li>
+                                        <li><a href="#" data-target="mock-politics-7">政治模拟卷7</a></li>
+                                        <li><a href="#" data-target="mock-politics-8">政治模拟卷8</a></li>
+                                        <li><a href="#" data-target="mock-politics-9">政治模拟卷9</a></li>
+                                        <li><a href="#" data-target="mock-politics-10">政治模拟卷10</a></li>
+                                        <li><a href="#" data-target="mock-politics-11">政治模拟卷11</a></li>
+                                        <li><a href="#" data-target="mock-politics-12">政治模拟卷12</a></li>
+                                        <li><a href="#" data-target="mock-politics-13">政治模拟卷13</a></li>
+                                        <li><a href="#" data-target="mock-politics-14">政治模拟卷14</a></li>
+                                        <li><a href="#" data-target="mock-politics-15">政治模拟卷15</a></li>
+                                        <li><a href="#" data-target="mock-politics-16">政治模拟卷16</a></li>
+                                        <li><a href="#" data-target="mock-politics-17">政治模拟卷17</a></li>
+                                        <li><a href="#" data-target="mock-politics-18">政治模拟卷18</a></li>
+                                        <li><a href="#" data-target="mock-politics-19">政治模拟卷19</a></li>
+                                        <li><a href="#" data-target="mock-politics-20">政治模拟卷20</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 英语模拟题 1-20 -->
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>英语模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">英语模拟题</a></li>
+                                        <li><a href="#" data-target="mock-english-1">英语模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-english-2">英语模拟卷2</a></li>
+                                        <li><a href="#" data-target="mock-english-3">英语模拟卷3</a></li>
+                                        <li><a href="#" data-target="mock-english-4">英语模拟卷4</a></li>
+                                        <li><a href="#" data-target="mock-english-5">英语模拟卷5</a></li>
+                                        <li><a href="#" data-target="mock-english-6">英语模拟卷6</a></li>
+                                        <li><a href="#" data-target="mock-english-7">英语模拟卷7</a></li>
+                                        <li><a href="#" data-target="mock-english-8">英语模拟卷8</a></li>
+                                        <li><a href="#" data-target="mock-english-9">英语模拟卷9</a></li>
+                                        <li><a href="#" data-target="mock-english-10">英语模拟卷10</a></li>
+                                        <li><a href="#" data-target="mock-english-11">英语模拟卷11</a></li>
+                                        <li><a href="#" data-target="mock-english-12">英语模拟卷12</a></li>
+                                        <li><a href="#" data-target="mock-english-13">英语模拟卷13</a></li>
+                                        <li><a href="#" data-target="mock-english-14">英语模拟卷14</a></li>
+                                        <li><a href="#" data-target="mock-english-15">英语模拟卷15</a></li>
+                                        <li><a href="#" data-target="mock-english-16">英语模拟卷16</a></li>
+                                        <li><a href="#" data-target="mock-english-17">英语模拟卷17</a></li>
+                                        <li><a href="#" data-target="mock-english-18">英语模拟卷18</a></li>
+                                        <li><a href="#" data-target="mock-english-19">英语模拟卷19</a></li>
+                                        <li><a href="#" data-target="mock-english-20">英语模拟卷20</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 高数模拟题 1-20 -->
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>高数模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">高数模拟题</a></li>
+                                        <li><a href="#" data-target="mock-math-1">高数模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-math-2">高数模拟卷2</a></li>
+                                        <li><a href="#" data-target="mock-math-3">高数模拟卷3</a></li>
+                                        <li><a href="#" data-target="mock-math-4">高数模拟卷4</a></li>
+                                        <li><a href="#" data-target="mock-math-5">高数模拟卷5</a></li>
+                                        <li><a href="#" data-target="mock-math-6">高数模拟卷6</a></li>
+                                        <li><a href="#" data-target="mock-math-7">高数模拟卷7</a></li>
+                                        <li><a href="#" data-target="mock-math-8">高数模拟卷8</a></li>
+                                        <li><a href="#" data-target="mock-math-9">高数模拟卷9</a></li>
+                                        <li><a href="#" data-target="mock-math-10">高数模拟卷10</a></li>
+                                        <li><a href="#" data-target="mock-math-11">高数模拟卷11</a></li>
+                                        <li><a href="#" data-target="mock-math-12">高数模拟卷12</a></li>
+                                        <li><a href="#" data-target="mock-math-13">高数模拟卷13</a></li>
+                                        <li><a href="#" data-target="mock-math-14">高数模拟卷14</a></li>
+                                        <li><a href="#" data-target="mock-math-15">高数模拟卷15</a></li>
+                                        <li><a href="#" data-target="mock-math-16">高数模拟卷16</a></li>
+                                        <li><a href="#" data-target="mock-math-17">高数模拟卷17</a></li>
+                                        <li><a href="#" data-target="mock-math-18">高数模拟卷18</a></li>
+                                        <li><a href="#" data-target="mock-math-19">高数模拟卷19</a></li>
+                                        <li><a href="#" data-target="mock-math-20">高数模拟卷20</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 信息技术模拟题 1-20 -->
+                                <li class="has-third-level">
+                                    <div class="iocn-link" style="padding-left:0;">
+                                        <a href="#" style="padding-left:16px;"><span>信息技术模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu" style="padding-left:30px;">
+                                        <li><a class="link_name" href="#">信息技术模拟题</a></li>
+                                        <li><a href="#" data-target="mock-it-1">信息技术模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-it-2">信息技术模拟卷2</a></li>
+                                        <li><a href="#" data-target="mock-it-3">信息技术模拟卷3</a></li>
+                                        <li><a href="#" data-target="mock-it-4">信息技术模拟卷4</a></li>
+                                        <li><a href="#" data-target="mock-it-5">信息技术模拟卷5</a></li>
+                                        <li><a href="#" data-target="mock-it-6">信息技术模拟卷6</a></li>
+                                        <li><a href="#" data-target="mock-it-7">信息技术模拟卷7</a></li>
+                                        <li><a href="#" data-target="mock-it-8">信息技术模拟卷8</a></li>
+                                        <li><a href="#" data-target="mock-it-9">信息技术模拟卷9</a></li>
+                                        <li><a href="#" data-target="mock-it-10">信息技术模拟卷10</a></li>
+                                        <li><a href="#" data-target="mock-it-11">信息技术模拟卷11</a></li>
+                                        <li><a href="#" data-target="mock-it-12">信息技术模拟卷12</a></li>
+                                        <li><a href="#" data-target="mock-it-13">信息技术模拟卷13</a></li>
+                                        <li><a href="#" data-target="mock-it-14">信息技术模拟卷14</a></li>
+                                        <li><a href="#" data-target="mock-it-15">信息技术模拟卷15</a></li>
+                                        <li><a href="#" data-target="mock-it-16">信息技术模拟卷16</a></li>
+                                        <li><a href="#" data-target="mock-it-17">信息技术模拟卷17</a></li>
+                                        <li><a href="#" data-target="mock-it-18">信息技术模拟卷18</a></li>
+                                        <li><a href="#" data-target="mock-it-19">信息技术模拟卷19</a></li>
+                                        <li><a href="#" data-target="mock-it-20">信息技术模拟卷20</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
+
                 <li>
                     <div class="profile-details">
                         <div class="profile-content">
-                            <img src="./备份/" alt="profileImg">
+                            <img src="./备份/鱿鱼游戏.jpg" alt="profileImg">
                         </div>
                         <div class="name-job">
                             <div class="profile_name">学习小贴士</div>

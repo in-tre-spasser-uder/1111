@@ -284,6 +284,9 @@ const fileData = {
     'kaibei-politics-1': { name: '政治开背知识点1', files: [{ name: '政治开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-politics-2': { name: '政治开背知识点2', files: [{ name: '政治开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点2.pdf', type: 'pdf' }] },
     'kaibei-politics-3': { name: '政治开背知识点3', files: [{ name: '政治开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点3.pdf', type: 'pdf' }] },
+    'kaibei-politics-4': { name: '政治开背知识点4', files: [{ name: '政治开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点4.pdf', type: 'pdf' }] },
+    'kaibei-politics-5': { name: '政治开背知识点5', files: [{ name: '政治开背知识点5.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点5.pdf', type: 'pdf' }] },
+    'kaibei-politics-6': { name: '政治开背知识点6', files: [{ name: '政治开背知识点6.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点6.pdf', type: 'pdf' }] },
 
     'kaibei-english-1': { name: '英语开背知识点1', files: [{ name: '英语开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-english-2': { name: '英语开背知识点2', files: [{ name: '英语开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点2.pdf', type: 'pdf' }] },

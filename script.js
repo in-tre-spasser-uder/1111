@@ -813,29 +813,51 @@ function displaySearchResults(results, keyword) {
             </svg>
             <h2>未找到相关结果</h2>
             <p>没有找到包含 "${keyword}" 的资料</p>
-            <button class="preview-btn" onclick="updateContent('${currentTarget}', '${currentLinkText}')">返回</button>
+            <button class="back-btn" onclick="updateContent('${currentTarget}', '${currentLinkText}')">返回</button>
         `;
         return;
     }
 
-    // 按类别分组
+    // 按类别分组，并去重文件
     const categories = {};
+
     results.forEach(result => {
         if (result.type === 'category') {
+            // 如果是分类匹配，添加该分类的所有文件
             if (!categories[result.name]) {
                 categories[result.name] = {
                     categoryName: result.name,
-                    files: result.files
-                };
-            }
-        } else {
-            if (!categories[result.category]) {
-                categories[result.category] = {
-                    categoryName: result.category,
                     files: []
                 };
             }
-            categories[result.category].files.push(result.file);
+
+            // 添加该分类的所有文件（去重）
+            result.files.forEach(file => {
+                const fileKey = file.name + file.fileUrl;
+                if (!categories[result.name].fileSet) {
+                    categories[result.name].fileSet = new Set();
+                }
+                if (!categories[result.name].fileSet.has(fileKey)) {
+                    categories[result.name].fileSet.add(fileKey);
+                    categories[result.name].files.push(file);
+                }
+            });
+        } else {
+            // 如果是文件匹配
+            if (!categories[result.category]) {
+                categories[result.category] = {
+                    categoryName: result.category,
+                    files: [],
+                    fileSet: new Set()
+                };
+            }
+
+            // 添加匹配的文件（去重）
+            const fileKey = result.file.name + result.file.fileUrl;
+            if (!categories[result.category].fileSet.has(fileKey)) {
+                categories[result.category].fileSet.add(fileKey);
+                categories[result.category].files.push(result.file);
+            }
         }
     });
 
@@ -844,44 +866,70 @@ function displaySearchResults(results, keyword) {
         <svg viewBox="0 0 24 24">
             <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
         </svg>
-        <h2>搜索结果: ${keyword}</h2>
+        <h2>搜索结果: "${keyword}"</h2>
         <div class="search-results-list">
     `;
 
+    // 遍历每个分类
     for (const [catName, catData] of Object.entries(categories)) {
-        html += `
-            <div class="search-category">
-                <h3 class="search-category-title">${catName}</h3>
-                <div class="search-category-files">
-        `;
-
-        catData.files.forEach(file => {
-            const fileAttr = JSON.stringify(file).replace(/"/g, '&quot;');
-
-            let fileIcon = file.type === 'pdf' ?
-                '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 10h-8v-2h8v2zm0-4h-8V7h8v2z" />' :
-                '<path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />';
-
+        if (catData.files && catData.files.length > 0) {
             html += `
-                <div class="search-result-item">
-                    <div class="search-result-info">
-                        <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:#4096ff;">
-                            ${fileIcon}
-                        </svg>
-                        <span class="search-result-name">${file.name}</span>
-                    </div>
-                    <div class="search-result-actions">
-                        <button class="preview-btn" data-file='${fileAttr}'>预览</button>
-                        <button class="download-btn" data-file='${fileAttr}'>下载</button>
-                    </div>
-                </div>
+                <div class="search-category">
+                    <h3 class="search-category-title">${catName}</h3>
+                    <div class="search-category-files">
             `;
-        });
 
-        html += `</div></div>`;
+            catData.files.forEach(file => {
+                const fileAttr = JSON.stringify(file).replace(/"/g, '&quot;');
+
+                let fileIcon = file.type === 'pdf' ?
+                    '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 10h-8v-2h8v2zm0-4h-8V7h8v2z" />' :
+                    '<path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />';
+
+                // 添加文件徽章
+                let fileBadge = '';
+                if (file.name.includes('答案') || file.name.toLowerCase().includes('answer')) {
+                    fileBadge = '<span class="file-badge answer">答案</span>';
+                } else {
+                    fileBadge = '<span class="file-badge question">题目</span>';
+                }
+
+                html += `
+                    <div class="search-result-item">
+                        <div class="search-result-info">
+                            <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:#4096ff;">
+                                ${fileIcon}
+                            </svg>
+                            <span class="search-result-name">${file.name}</span>
+                            ${fileBadge}
+                        </div>
+                        <div class="search-result-actions">
+                            <button class="preview-btn" data-file='${fileAttr}'>预览</button>
+                            <button class="download-btn" data-file='${fileAttr}'>下载</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div></div>`;
+        }
     }
 
     html += `</div>`;
+
+    // 如果有预览文件，添加预览区域
+    if (currentPreviewFile) {
+        const previewType = currentPreviewFile.type === 'pdf' ? 'PDF预览' : '图片预览';
+        html += `
+            <div class="preview-area">
+                <div class="preview-header">
+                    <h3>${currentPreviewFile.name} (${previewType})</h3>
+                    <button class="close-preview" id="closePreviewBtn">&times;</button>
+                </div>
+                <div class="preview-content" id="preview-container"></div>
+            </div>
+        `;
+    }
 
     dynamicDiv.innerHTML = html;
 
@@ -891,7 +939,7 @@ function displaySearchResults(results, keyword) {
             e.stopPropagation();
             const file = JSON.parse(this.getAttribute('data-file'));
             currentPreviewFile = file;
-            displaySearchResults(results, keyword); // 重新显示搜索结果，但会丢失变量
+            displaySearchResults(results, keyword); // 重新显示搜索结果
 
             setTimeout(() => {
                 const container = document.getElementById('preview-container');
@@ -909,6 +957,15 @@ function displaySearchResults(results, keyword) {
             downloadFile(file);
         });
     });
+
+    // 绑定关闭预览按钮
+    const closeBtn = document.getElementById('closePreviewBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            currentPreviewFile = null;
+            displaySearchResults(results, keyword);
+        });
+    }
 }
 
 // 添加搜索输入事件监听

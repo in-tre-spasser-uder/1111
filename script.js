@@ -1782,6 +1782,29 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// 启动初始化
-init();
-initStats();
+// ========== 启动初始化 ==========
+// 确保DOM完全加载后再执行
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM加载完成，开始初始化...');
+        init();
+        initStats();
+    });
+} else {
+    // DOM已经加载完成
+    console.log('DOM已加载，立即初始化...');
+    setTimeout(function () {
+        init();
+        initStats();
+    }, 100); // 稍微延迟确保所有元素都准备好了
+}
+
+// 添加一个后备方案，如果上面的没执行
+setTimeout(function () {
+    if (typeof generateMockExamMenu === 'function' &&
+        document.querySelectorAll('#mock-exams-submenu > li').length <= 1) {
+        console.log('执行后备初始化...');
+        generateMockExamMenu();
+        generateKaibeiMenu();
+    }
+}, 500);

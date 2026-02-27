@@ -1785,26 +1785,3 @@ document.head.appendChild(style);
 // 启动初始化
 init();
 initStats();
-// ========== 后备初始化方案 ==========
-// 如果上面的初始化没成功，这个会确保菜单生成
-setTimeout(function () {
-    console.log('检查菜单是否生成...');
-    if (typeof generateMockExamMenu === 'function') {
-        const mockMenuCount = document.querySelectorAll('#mock-exams-submenu .has-third-level').length;
-        const kaibeiMenuCount = document.querySelectorAll('#kaibei-submenu .has-third-level').length;
-
-        console.log('当前菜单数量 - 模拟题:', mockMenuCount, '开背:', kaibeiMenuCount);
-
-        if (mockMenuCount === 0) {
-            console.log('模拟题菜单未生成，手动执行...');
-            generateMockExamMenu();
-        }
-
-        if (kaibeiMenuCount === 0) {
-            console.log('开背菜单未生成，手动执行...');
-            generateKaibeiMenu();
-        }
-    } else {
-        console.error('菜单生成函数不存在！');
-    }
-}, 1000); // 延迟1秒执行，确保DOM完全加载

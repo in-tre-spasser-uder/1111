@@ -1,292 +1,640 @@
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+        /* 基础样式与之前一致，保持自适应 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+        html,
+        body {
+            height: 100%;
+            background-color: #f4f4f4;
+        }
 
-body {
-    min-height: 100vh;
-    background: #E3F2FD;
-}
+        body {
+            display: flex;
+            flex-direction: column;
+        }
 
-body,
-.container,
-.video-controls,
-.video-timer,
-.options {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .bili-nav {
+            background-color: #ffffff;
+            height: 60px;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            flex-shrink: 0;
+            z-index: 100;
+        }
 
-.container {
-    width: 98%;
-    user-select: none;
-    overflow: hidden;
-    max-width: 900px;
-    border-radius: 5px;
-    background: #000;
-    aspect-ratio: 16 / 9;
-    position: relative;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
+        .back-button {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            /* 改为固定像素，与数据内嵌按钮一致 */
+            padding: 6px 18px;
+            /* 改为固定像素，与数据内嵌按钮一致 */
+            color: #FB7299;
+            border: 2px solid #FB7299;
+            /* 改为固定像素边框 */
+            border-radius: 30px;
+            /* 改为固定像素圆角 */
+            transition: 4s;
+            margin-left: 15px;
+            line-height: 1.5;
+            /* 添加行高控制 */
+            text-align: center;
+            /* 文字居中 */
+            min-width: 100px;
+            /* 设置最小宽度 */
+        }
 
-.container.fullscreen {
-    max-width: 100%;
-    width: 100%;
-    height: 100vh;
-    border-radius: 0px;
-}
+        .back-button:before,
+        .back-button:after {
+            content: "";
+            position: absolute;
+            top: -1.5em;
+            z-index: -1;
+            width: 200%;
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 40%;
+            background-color: rgba(251, 114, 153, 0.25);
+            transition: 4s;
+        }
 
-.wrapper {
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    opacity: 0;
-    bottom: -15px;
-    transition: all 0.08s ease;
-}
+        .back-button:before {
+            left: -80%;
+            transform: translate3d(0, 5em, 0) rotate(-340deg);
+        }
 
-.container.show-controls .wrapper {
-    opacity: 1;
-    bottom: 0;
-    transition: all 0.13s ease;
-}
+        .back-button:after {
+            right: -80%;
+            transform: translate3d(0, 5em, 0) rotate(390deg);
+        }
 
-.wrapper::before {
-    content: "";
-    bottom: 0;
-    width: 100%;
-    z-index: -1;
-    position: absolute;
-    height: calc(100% + 35px);
-    pointer-events: none;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-}
+        .back-button:hover,
+        .back-button:focus {
+            color: white;
+        }
 
-.video-timeline {
-    height: 7px;
-    width: 100%;
-    cursor: pointer;
-}
+        .back-button:hover:before,
+        .back-button:hover:after,
+        .back-button:focus:before,
+        .back-button:focus:after {
+            transform: none;
+            background-color: rgba(251, 114, 153, 0.75);
+        }
 
-.video-timeline .progress-area {
-    height: 3px;
-    position: relative;
-    background: rgba(255, 255, 255, 0.6);
-}
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-.progress-area span {
-    position: absolute;
-    left: 50%;
-    top: -25px;
-    font-size: 13px;
-    color: #fff;
-    pointer-events: none;
-    transform: translateX(-50%);
-}
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FB7299;
+            cursor: default;
+            white-space: nowrap;
+        }
 
-.progress-area .progress-bar {
-    width: 0%;
-    height: 100%;
-    position: relative;
-    background: #2289ff;
-}
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            margin: 0 6px;
+        }
 
-.progress-bar::before {
-    content: "";
-    right: 0;
-    top: 50%;
-    height: 13px;
-    width: 13px;
-    position: absolute;
-    border-radius: 50%;
-    background: #2289ff;
-    transform: translateY(-50%);
-}
+        .nav-menu a:hover {
+            color: #FB7299;
+        }
 
-.progress-bar::before,
-.progress-area span {
-    display: none;
-}
+        .nav-right .upload-btn {
+            background-color: #FB7299;
+            border: none;
+            border-radius: 30px;
+            padding: 6px 16px;
+            color: white;
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: default;
+            opacity: 0.8;
+            white-space: nowrap;
+        }
 
-.video-timeline:hover .progress-bar::before,
-.video-timeline:hover .progress-area span {
-    display: block;
-}
+        .page-container {
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 16px 16px 8px;
+            display: flex;
+            gap: 20px;
+            flex: 1;
+            min-height: 0;
+            height: calc(100vh - 60px);
+        }
 
-.wrapper .video-controls {
-    padding: 5px 20px 10px;
-}
+        .video-main {
+            flex: 2.5;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
 
-.video-controls .options {
-    width: 100%;
-}
+        .video-sidebar {
+            flex: 1;
+            max-width: 520px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            height: 100%;
+            min-height: 0;
+            overflow: hidden;
+        }
 
-.video-controls .options:first-child {
-    justify-content: flex-start;
-}
+        .sidebar-header {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-shrink: 0;
+        }
 
-.video-controls .options:last-child {
-    justify-content: flex-end;
-}
+        .sidebar-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-.options button {
-    height: 40px;
-    width: 40px;
-    font-size: 19px;
-    border: none;
-    cursor: pointer;
-    background: none;
-    color: #efefef;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
+        .sidebar-header h3 i {
+            color: #FB7299;
+        }
 
-.options button :where(i, span) {
-    height: 100%;
-    width: 100%;
-    line-height: 40px;
-}
+        .chapter-distribution {
+            font-size: 13px;
+            background: #f8f2f4;
+            color: #b3576f;
+            padding: 6px 12px;
+            border-radius: 30px;
+            border: 1px solid #ffe0e6;
+            line-height: 1.4;
+        }
 
-.options button:hover :where(i, span) {
-    color: #fff;
-}
+        .chapter-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+        }
 
-.options button:active :where(i, span) {
-    transform: scale(0.9);
-}
+        .chapter-list {
+            list-style: none;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            background: #fff;
+            overflow-y: auto;
+            flex: 1;
+            min-height: 0;
+        }
 
-.options button span {
-    font-size: 23px;
-}
+        .chapter-list li {
+            padding: 10px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.15s;
+            font-size: 13.5px;
+            color: #333;
+        }
 
-.options input {
-    height: 4px;
-    margin-left: 3px;
-    max-width: 75px;
-    accent-color: #0078FF;
-}
+        .chapter-list li i {
+            color: #FB7299;
+            width: 24px;
+            font-size: 15px;
+            text-align: center;
+        }
 
-.options .video-timer {
-    color: #efefef;
-    margin-left: 15px;
-    font-size: 14px;
-}
+        .chapter-list li:hover {
+            background-color: #f9f9f9;
+        }
 
-.video-timer .separator {
-    margin: 0 5px;
-    font-size: 16px;
-    font-family: "Open sans";
-}
+        .chapter-list li.active {
+            background-color: #ffeef2;
+            border-left: 4px solid #FB7299;
+            font-weight: 500;
+        }
 
-.playback-content {
-    display: flex;
-    position: relative;
-}
+        .chapter-list li .chapter-title {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-.playback-content .speed-options {
-    position: absolute;
-    list-style: none;
-    left: -40px;
-    bottom: 40px;
-    width: 95px;
-    overflow: hidden;
-    opacity: 0;
-    border-radius: 4px;
-    pointer-events: none;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.13s ease;
-}
+        .chapter-list li .duration-badge {
+            font-size: 11px;
+            color: #777;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 30px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
 
-.playback-content .speed-options.show {
-    opacity: 1;
-    pointer-events: auto;
-}
+        .chapter-group-header {
+            background-color: #fafafa;
+            font-weight: 600;
+            color: #FB7299;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-bottom: 1px solid #e4e4e4;
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
 
-.speed-options li {
-    cursor: pointer;
-    color: #000;
-    font-size: 14px;
-    margin: 2px 0;
-    padding: 5px 0 5px 15px;
-    transition: all 0.1s ease;
-}
+        .pagination-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 8px 0;
+            flex-shrink: 0;
+            background: white;
+            border-top: 1px solid #f0f0f0;
+        }
 
-.speed-options li:where(:first-child, :last-child) {
-    margin: 0px;
-}
+        .page-btn {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            padding: 5px 14px;
+            font-size: 13px;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.1s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
 
-.speed-options li:hover {
-    background: #dfdfdf;
-}
+        .page-btn:hover:not(:disabled) {
+            border-color: #FB7299;
+            color: #FB7299;
+            background: #fff0f5;
+        }
 
-.speed-options li.active {
-    color: #fff;
-    background: #3e97fd;
-}
+        .page-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
 
-.container video {
-    width: 100%;
-}
+        .page-input-container {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #f0f0f0;
+            padding: 3px 10px;
+            border-radius: 40px;
+            color: #444;
+        }
 
-@media screen and (max-width: 540px) {
-    .wrapper .video-controls {
-        padding: 3px 10px 7px;
-    }
+        .page-input {
+            width: 45px;
+            height: 28px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 14px;
+            background: white;
+            outline: none;
+        }
 
-    .options input,
-    .progress-area span {
-        display: none !important;
-    }
+        .page-input:focus {
+            border-color: #FB7299;
+        }
 
-    .options button {
-        height: 30px;
-        width: 30px;
-        font-size: 17px;
-    }
+        .page-total {
+            font-size: 14px;
+            color: #666;
+            white-space: nowrap;
+        }
 
-    .options .video-timer {
-        margin-left: 5px;
-    }
+        .sidebar-footer-note {
+            font-size: 12px;
+            color: #999;
+            background: #f8f8f8;
+            padding: 8px 12px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            line-height: 1.4;
+        }
 
-    .video-timer .separator {
-        font-size: 14px;
-        margin: 0 2px;
-    }
+        .video-player-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
 
-    .options button :where(i, span) {
-        line-height: 30px;
-    }
+        .container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #000;
+            user-select: none;
+            display: block;
+        }
 
-    .options button span {
-        font-size: 21px;
-    }
+        .container video {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            object-fit: contain;
+        }
 
-    .options .video-timer,
-    .progress-area span,
-    .speed-options li {
-        font-size: 12px;
-    }
+        .container video.mirror {
+            transform: scaleX(-1);
+        }
 
-    .playback-content .speed-options {
-        width: 75px;
-        left: -30px;
-        bottom: 30px;
-    }
+        .wrapper {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.2s;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 16px 20px 10px;
+            pointer-events: none;
+        }
 
-    .speed-options li {
-        margin: 1px 0;
-        padding: 3px 0 3px 10px;
-    }
+        .container.show-controls .wrapper {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-    .right .pic-in-pic {
-        display: none;
-    }
-}
+        .video-timeline {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .progress-area {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #FB7299;
+            border-radius: 4px;
+            width: 0%;
+            position: relative;
+        }
+
+        .progress-bar::before {
+            content: "";
+            position: absolute;
+            right: -4px;
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            background: #FB7299;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+        }
+
+        .video-timeline:hover .progress-bar::before {
+            opacity: 1;
+        }
+
+        .progress-area span {
+            position: absolute;
+            left: 0;
+            top: -24px;
+            background: #FB7299;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            display: none;
+        }
+
+        .video-timeline:hover .progress-area span {
+            display: block;
+        }
+
+        .video-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .options {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .options button {
+            background: transparent;
+            border: none;
+            color: #f0f0f0;
+            font-size: 20px;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+
+        .options button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FB7299;
+        }
+
+        .volume-area {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .volume-area input {
+            width: 70px;
+            accent-color: #FB7299;
+        }
+
+        .video-timer {
+            font-size: 14px;
+            color: #eee;
+            margin-left: 5px;
+            white-space: nowrap;
+        }
+
+        .status-bar {
+            margin-top: 10px;
+            display: flex;
+            gap: 15px;
+            color: #666;
+            font-size: 14px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            align-items: center;
+        }
+
+        .bilibili-embed {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            position: relative;
+            display: none;
+        }
+
+        .bilibili-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .source-hint {
+            display: none;
+        }
+
+        /* 隐藏手动输入区，因为已内嵌全部数据 */
+        @media screen and (max-width: 760px) {
+
+            html,
+            body {
+                overflow: auto;
+            }
+
+            body {
+                display: block;
+                height: auto;
+            }
+
+            .page-container {
+                flex-direction: column;
+                height: auto;
+                overflow: visible;
+            }
+
+            .video-sidebar {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        /* 简约现代风 - 滑动下划线 (用于导航菜单) */
+        .link-modern {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .link-modern::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #FB7299;
+            transition: width 0.3s ease;
+        }
+
+        .link-modern:hover {
+            color: #FB7299;
+        }
+
+        .link-modern:hover::after {
+            width: 100%;
+        }
+
+        /* 手绘涂鸦风 - 渐变下划线 (用于B站UP主页) */
+        .link-doodle {
+            text-decoration: none;
+            color: #B35A7A;
+            font-weight: 600;
+            background: linear-gradient(to right, #FB7299, #FFB6C1) no-repeat right bottom;
+            background-size: 0 2px;
+            transition: background-size 0.3s;
+            padding-bottom: 4px;
+            display: inline-block;
+        }
+
+        .link-doodle:hover {
+            background-position: left bottom;
+            background-size: 100% 2px;
+            color: #FB7299;
+        }
+
+        /* 双层边框风 - 结构感 (用于"数据内嵌"按钮) */
+        .link-double {
+            text-decoration: none;
+            padding: 6px 18px;
+            border: 2px solid #FB7299;
+            color: #FB7299;
+            font-weight: 600;
+            border-radius: 30px;
+            background: transparent;
+            transition: all 0.1s linear;
+            display: inline-block;
+            box-shadow: 0 0 0 0 #FB7299;
+            font-size: 13px;
+        }
+
+        .link-double:hover {
+            background: #FB7299;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(251, 114, 153, 0.3);
+        }

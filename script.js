@@ -766,10 +766,18 @@ const aiModelName = document.getElementById('aiModelName');
 // AI配置
 const floatAIConfig = {
     'deepseek': {
-        name: 'DeepSeek',
-        apiKey: 'PASTE-YOUR-DEEPSEEK-API-KEY',
-        apiUrl: 'https://api.deepseek.com/v1/chat/completions',
-        welcomeMsg: '你好！我是DeepSeek，可以帮你解答专升本问题'
+        name: 'DeepSeek-V3',
+        apiKey: '2HwLYY4aow4s7sx5BUntcTsQ',  // 替换为您的API Key
+        apiUrl: 'https://api-ai.gitcode.com/v1/chat/completions',
+        welcomeMsg: '你好！我是DeepSeek-V3，可以帮你解答专升本问题',
+        // 添加模型特定配置
+        model: 'deepseek-ai/DeepSeek-V3',
+        maxTokens: 4096,
+        temperature: 0.6,
+        topP: 0.95,
+        topK: 50,
+        frequencyPenalty: 0,
+        thinkingBudget: 32768
     },
     'chatglm': {
         name: 'ChatGLM',
@@ -910,11 +918,20 @@ async function sendFloatMessage() {
     if (floatCurrentModel === 'deepseek') {
         headers['Authorization'] = `Bearer ${config.apiKey}`;
         requestBody = {
-            model: 'deepseek-chat',
+            model: config.model || 'deepseek-ai/DeepSeek-V3',
             messages: [
-                { role: 'system', content: '你是专升本备考助手，用中文回答' },
-                { role: 'user', content: message }
-            ]
+                {
+                    role: "user",
+                    content: message
+                }
+            ],
+            stream: false,
+            max_tokens: config.maxTokens || 4096,
+            temperature: config.temperature || 0.6,
+            top_p: config.topP || 0.95,
+            top_k: config.topK || 50,
+            frequency_penalty: config.frequencyPenalty || 0,
+            thinking_budget: config.thinkingBudget || 32768
         };
     } else if (floatCurrentModel === 'chatglm') {
         headers['Authorization'] = `Bearer ${config.apiKey}`;

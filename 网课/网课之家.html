@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B站风格 · 河北专接本数学 · 92课时 · 完整路径</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>B站风格 · 河北专接本数学 · 92课时 · 自适应</title>
     <!-- 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet"
@@ -21,10 +21,9 @@
         html,
         body {
             height: 100%;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
             overflow: hidden;
+            /* PC端隐藏整体滚动，内部处理 */
         }
 
         body {
@@ -32,13 +31,14 @@
             flex-direction: column;
         }
 
+        /* 导航栏 */
         .bili-nav {
             background-color: #ffffff;
             height: 60px;
             border-bottom: 1px solid #e5e5e5;
             display: flex;
             align-items: center;
-            padding: 0 30px;
+            padding: 0 16px;
             justify-content: space-between;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
             flex-shrink: 0;
@@ -48,21 +48,23 @@
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 700;
             color: #FB7299;
             cursor: default;
+            white-space: nowrap;
         }
 
         .nav-menu a {
             text-decoration: none;
             color: #333;
-            font-size: 15px;
-            margin: 0 12px;
+            font-size: 14px;
+            margin: 0 6px;
         }
 
         .nav-menu a:hover {
@@ -73,22 +75,32 @@
             background-color: #FB7299;
             border: none;
             border-radius: 30px;
-            padding: 8px 20px;
+            padding: 6px 16px;
             color: white;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             display: flex;
             align-items: center;
             gap: 6px;
             cursor: default;
             opacity: 0.8;
+            white-space: nowrap;
         }
 
+        .nav-center-desc {
+            color: #999;
+            font-size: 13px;
+            display: none;
+        }
+
+        /* 移动端可能显示 */
+
+        /* 页面核心容器 — PC横向，移动纵向 */
         .page-container {
             max-width: 1440px;
             width: 100%;
             margin: 0 auto;
-            padding: 20px 20px 0 20px;
+            padding: 16px 16px 8px 16px;
             display: flex;
             gap: 20px;
             flex: 1;
@@ -96,6 +108,7 @@
             height: calc(100vh - 60px);
         }
 
+        /* 左侧主视频区 */
         .video-main {
             flex: 2.5;
             min-width: 0;
@@ -105,6 +118,7 @@
             overflow: hidden;
         }
 
+        /* 右侧侧边栏 (PC) */
         .video-sidebar {
             flex: 1;
             max-width: 520px;
@@ -118,7 +132,6 @@
             height: 100%;
             min-height: 0;
             overflow: hidden;
-            position: relative;
         }
 
         .sidebar-header {
@@ -126,7 +139,6 @@
             flex-direction: column;
             gap: 8px;
             flex-shrink: 0;
-            padding-bottom: 4px;
         }
 
         .sidebar-header h3 {
@@ -239,11 +251,6 @@
             z-index: 2;
         }
 
-        .chapter-group-header span:last-child {
-            color: #999;
-            font-weight: 400;
-        }
-
         .pagination-bar {
             display: flex;
             align-items: center;
@@ -292,11 +299,6 @@
             color: #444;
         }
 
-        .page-input-container i {
-            color: #FB7299;
-            font-size: 14px;
-        }
-
         .page-input {
             width: 45px;
             height: 28px;
@@ -308,17 +310,10 @@
             color: #333;
             background: white;
             outline: none;
-            transition: border 0.1s;
         }
 
         .page-input:focus {
             border-color: #FB7299;
-        }
-
-        .page-input::-webkit-inner-spin-button,
-        .page-input::-webkit-outer-spin-button {
-            opacity: 0.5;
-            height: 20px;
         }
 
         .page-total {
@@ -334,10 +329,10 @@
             padding: 8px 12px;
             border-radius: 12px;
             flex-shrink: 0;
-            margin-top: auto;
             line-height: 1.4;
         }
 
+        /* 播放器 */
         .video-player-wrapper {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -455,7 +450,8 @@
         .options {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .options button {
@@ -492,6 +488,7 @@
             font-size: 14px;
             color: #eee;
             margin-left: 5px;
+            white-space: nowrap;
         }
 
         .status-bar {
@@ -504,8 +501,126 @@
             flex-shrink: 0;
         }
 
-        .footer-note {
-            display: none;
+        /* ---------- 移动端自适应：侧边栏移到视频下方，与视频等宽左对齐 ---------- */
+        @media screen and (max-width: 760px) {
+
+            html,
+            body {
+                overflow: auto;
+            }
+
+            /* 移动端允许整体滚动 */
+            body {
+                display: block;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .bili-nav {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 8px 12px;
+                gap: 6px;
+            }
+
+            .nav-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav-right {
+                width: 100%;
+                justify-content: flex-end;
+                display: flex;
+            }
+
+            .page-container {
+                flex-direction: column;
+                height: auto;
+                min-height: 0;
+                padding: 12px 12px 20px;
+                gap: 16px;
+                overflow: visible;
+            }
+
+            .video-main {
+                flex: none;
+                width: 100%;
+                height: auto;
+            }
+
+            .video-player-wrapper {
+                width: 100%;
+                aspect-ratio: 16/9;
+            }
+
+            .video-sidebar {
+                max-width: 100%;
+                /* 与视频等宽 */
+                width: 100%;
+                height: auto;
+                min-height: 380px;
+                padding: 16px;
+                flex-shrink: 0;
+                display: flex;
+                flex-direction: column;
+                border-radius: 16px;
+            }
+
+            .sidebar-header h3 {
+                font-size: 17px;
+            }
+
+            .chapter-distribution {
+                font-size: 12px;
+            }
+
+            .chapter-list {
+                max-height: 400px;
+            }
+
+            .pagination-bar {
+                margin-top: 0;
+            }
+
+            .sidebar-footer-note {
+                margin-top: 8px;
+            }
+
+            .status-bar {
+                margin-bottom: 4px;
+            }
+
+            .nav-center-desc {
+                display: inline;
+                color: #999;
+                font-size: 12px;
+            }
+        }
+
+        /* 更小屏幕微调 */
+        @media screen and (max-width: 480px) {
+            .options {
+                gap: 6px;
+            }
+
+            .options button {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+
+            .volume-area input {
+                width: 50px;
+            }
+
+            .video-timer {
+                font-size: 12px;
+            }
+
+            .page-input {
+                width: 38px;
+            }
         }
     </style>
 </head>
@@ -513,26 +628,26 @@
 <body>
     <header class="bili-nav">
         <div class="nav-left">
-            <div class="logo">河北专接本数学 · 92课时全</div>
+            <div class="logo">河北专接本数学 · 92课时</div>
             <div class="nav-menu">
                 <a href="#">首页</a>
                 <a href="#">番剧</a>
                 <a href="#">直播</a>
             </div>
         </div>
-        <div style="color:#999;">📁 共11章 · 92课时 · 路径已配置</div>
+        <div class="nav-center-desc">📁 11章 · 92课时</div>
         <div class="nav-right">
             <button class="upload-btn" disabled><i class="fa-regular fa-bookmark"></i> 分页浏览</button>
         </div>
     </header>
 
     <div class="page-container">
-        <!-- 左侧主视频区 -->
+        <!-- 视频主区域 -->
         <div class="video-main">
-            <div class="video-header" style="margin-bottom:12px;">
+            <div class="video-header" style="margin-bottom:8px;">
                 <h1 style="font-size:20px;" id="currentVideoTitle">选择下方课时开始观看</h1>
             </div>
-            <!-- 播放器核心容器 -->
+            <!-- 播放器核心 (保持不变) -->
             <div class="video-player-wrapper" id="playerWrapper">
                 <div class="container show-controls" id="videoContainer">
                     <video id="mainVideo" src="" preload="auto" playsinline></video>
@@ -579,7 +694,7 @@
             </div>
         </div>
 
-        <!-- 右侧侧边栏 -->
+        <!-- 右侧侧边栏 (移动端自动折行到视频下方) -->
         <div class="video-sidebar">
             <div class="sidebar-header">
                 <h3><i class="fa-regular fa-list"></i> 河北专接本数学 · 11章</h3>
@@ -590,28 +705,24 @@
                 </div>
             </div>
 
-            <!-- 章节列表容器 -->
             <div class="chapter-list-container">
                 <ul class="chapter-list" id="chapterList">
                     <li class="empty-message">⏳ 加载分页数据...</li>
                 </ul>
 
-                <!-- 分页控件 -->
+                <!-- 分页控件 (章切换) -->
                 <div class="pagination-bar">
                     <button class="page-btn" id="prevPageBtn" disabled><i class="fa-solid fa-chevron-left"></i>
                         上一章</button>
-
                     <div class="page-input-container">
                         <i class="fa-regular fa-book-open"></i>
                         <input type="number" id="pageInput" class="page-input" min="1" max="11" value="1" step="1">
                         <span class="page-total">/ 11章</span>
                     </div>
-
                     <button class="page-btn" id="nextPageBtn">下一章 <i class="fa-solid fa-chevron-right"></i></button>
                 </div>
             </div>
 
-            <!-- 底部提示 -->
             <div class="sidebar-footer-note">
                 <i class="fa-regular fa-lightbulb"></i> 所有课时路径已配置为：1111\网课\河北专升本理工三\高数一\网课视频\
             </div>
@@ -620,7 +731,6 @@
 
     <script>
         (function () {
-            // ========== 章节名称 ==========
             const chapterNames = [
                 '第一章 函数、极限、连续',
                 '第二章 一元函数微分学',
@@ -635,22 +745,13 @@
                 '第十一章 线性方程组'
             ];
 
-            // 课时分布
             const chapterLessonCount = [13, 13, 14, 5, 8, 7, 12, 3, 8, 5, 4]; // 总计92
 
-            const totalChapters = chapterNames.length; // 11
-
-            // ========== 基础路径 ==========
-            // 根据您的要求：1111\网课\河北专升本理工三\高数一\网课视频\
-            // 注意：在网页路径中，反斜杠需要转换为正斜杠或双反斜杠
-            // 使用正斜杠，浏览器会自动处理
             const basePath = '河北专升本理工三/高数一/网课视频/';
 
-            // ========== 课时名称映射（带路径） ==========
-            // 创建一个数组，索引为课时编号，值为课时名称和文件名
+            // 课时信息
             const lessonInfo = [];
-
-            // 第一章 (课时1-13)
+            // 第一章 (1-13)
             lessonInfo[1] = { name: '课时1 考试大纲', file: '【课时1】考试大纲.mp4' };
             lessonInfo[2] = { name: '课时2 定义域', file: '【课时2】定义域.mp4' };
             lessonInfo[3] = { name: '课时3 同一函数', file: '【课时3】同一函数.mp4' };
@@ -664,8 +765,7 @@
             lessonInfo[11] = { name: '课时11 两个重要极限', file: '【课时11】两个重要极限.mp4' };
             lessonInfo[12] = { name: '课时12 间断点', file: '【课时12】间断点.mp4' };
             lessonInfo[13] = { name: '课时13 闭区间上连续函数的性质', file: '【课时13】闭区间上连续函数的性质.mp4' };
-
-            // 第二章 (课时14-26)
+            // 第二章 (14-26)
             lessonInfo[14] = { name: '【课时14】导数的概念', file: '【课时14】导数的概念.mp4' };
             lessonInfo[15] = { name: '【课时15】求导公式', file: '【课时15】求导公式.mp4' };
             lessonInfo[16] = { name: '【课时16】复合函数求导', file: '【课时16】复合函数求导.mp4' };
@@ -679,8 +779,7 @@
             lessonInfo[24] = { name: '【课时24】函数极值', file: '【课时24】函数极值.mp4' };
             lessonInfo[25] = { name: '【课时25】函数最值', file: '【课时25】函数最值.mp4' };
             lessonInfo[26] = { name: '【课时26】导数在经济学应用 (数二内容，数一可忽...', file: '【课时26】导数在经济学应用 (数二内容，数一可忽....mp4' };
-
-            // 第三章 (课时27-40)
+            // 第三章 (27-40)
             lessonInfo[27] = { name: '【课时27】不定积分概念', file: '【课时27】不定积分概念.mp4' };
             lessonInfo[28] = { name: '【课时28】基本公式', file: '【课时28】基本公式.mp4' };
             lessonInfo[29] = { name: '【课时29】凑微分', file: '【课时29】凑微分.mp4' };
@@ -695,15 +794,13 @@
             lessonInfo[38] = { name: '【课时38】广义积分', file: '【课时38】广义积分.mp4' };
             lessonInfo[39] = { name: '【课时39】定积分求面积', file: '【课时39】定积分求面积.mp4' };
             lessonInfo[40] = { name: '【课时40】定积分求体积', file: '【课时40】定积分求体积.mp4' };
-
-            // 第四章 (课时41-45)
+            // 第四章 (41-45)
             lessonInfo[41] = { name: '【课时41】向量代数(1)', file: '【课时41】向量代数(1).mp4' };
             lessonInfo[42] = { name: '【课时42】向量代数(2)', file: '【课时42】向量代数(2).mp4' };
             lessonInfo[43] = { name: '【课时43】直线与平面(1)', file: '【课时43】直线与平面(1).mp4' };
             lessonInfo[44] = { name: '【课时44】直线与平面(2)', file: '【课时44】直线与平面(2).mp4' };
             lessonInfo[45] = { name: '【课时45】曲面的方程', file: '【课时45】曲面的方程.mp4' };
-
-            // 第五章 (课时46-53)
+            // 第五章 (46-53)
             lessonInfo[46] = { name: '【课时46】偏导数', file: '【课时46】偏导数.mp4' };
             lessonInfo[47] = { name: '【课时47】全微分', file: '【课时47】全微分.mp4' };
             lessonInfo[48] = { name: '【课时48】二阶偏导数', file: '【课时48】二阶偏导数.mp4' };
@@ -712,8 +809,7 @@
             lessonInfo[51] = { name: '【课时51】链式法则', file: '【课时51】链式法则.mp4' };
             lessonInfo[52] = { name: '【课时52】无条件极值', file: '【课时52】无条件极值.mp4' };
             lessonInfo[53] = { name: '【课时53】条件极值', file: '【课时53】条件极值.mp4' };
-
-            // 第六章 (课时58-64)
+            // 第六章 (58-64)
             lessonInfo[58] = { name: '【课时58】二重积分概念', file: '【课时58】二重积分概念.mp4' };
             lessonInfo[59] = { name: '【课时59】二重积分计算(1)', file: '【课时59】二重积分计算(1).mp4' };
             lessonInfo[60] = { name: '【课时60】二重积分计算(2)', file: '【课时60】二重积分计算(2).mp4' };
@@ -721,8 +817,7 @@
             lessonInfo[62] = { name: '【课时62】曲线积分计算', file: '【课时62】曲线积分计算.mp4' };
             lessonInfo[63] = { name: '【课时63】格林公式', file: '【课时63】格林公式.mp4' };
             lessonInfo[64] = { name: '【课时64】与路径无关', file: '【课时64】与路径无关.mp4' };
-
-            // 第七章 (课时65-76)
+            // 第七章 (65-76)
             lessonInfo[65] = { name: '【课时65】常数项级数', file: '【课时65】常数项级数.mp4' };
             lessonInfo[66] = { name: '【课时66】基本性质', file: '【课时66】基本性质.mp4' };
             lessonInfo[67] = { name: '【课时67】比较审敛法', file: '【课时67】比较审敛法.mp4' };
@@ -735,13 +830,11 @@
             lessonInfo[74] = { name: '【课时74】求和函数', file: '【课时74】求和函数.mp4' };
             lessonInfo[75] = { name: '【课时75】展开成幂级数(1)', file: '【课时75】展开成幂级数(1).mp4' };
             lessonInfo[76] = { name: '【课时76】展开成幂级数(2)', file: '【课时76】展开成幂级数(2).mp4' };
-
-            // 第八章 (课时77-79)
+            // 第八章 (77-79)
             lessonInfo[77] = { name: '【课时77】行列式概念', file: '【课时77】行列式概念.mp4' };
             lessonInfo[78] = { name: '【课时78】行列式性质', file: '【课时78】行列式性质.mp4' };
             lessonInfo[79] = { name: '【课时79】克莱姆法则', file: '【课时79】克莱姆法则.mp4' };
-
-            // 第九章 (课时80-87)
+            // 第九章 (80-87)
             lessonInfo[80] = { name: '【课时80】矩阵概念', file: '【课时80】矩阵概念.mp4' };
             lessonInfo[81] = { name: '【课时81】矩阵的乘法', file: '【课时81】矩阵的乘法.mp4' };
             lessonInfo[82] = { name: '【课时82】转置与方阵', file: '【课时82】转置与方阵.mp4' };
@@ -750,82 +843,41 @@
             lessonInfo[85] = { name: '【课时85】初等变换', file: '【课时85】初等变换.mp4' };
             lessonInfo[86] = { name: '【课时86】求逆矩阵', file: '【课时86】求逆矩阵.mp4' };
             lessonInfo[87] = { name: '【课时87】矩阵的秩', file: '【课时87】矩阵的秩.mp4' };
-
-            // 第十章 (课时88-92)
+            // 第十章 (88-92)
             lessonInfo[88] = { name: '【课时88】n维向量', file: '【课时88】n维向量.mp4' };
             lessonInfo[89] = { name: '【课时89】线性相关性', file: '【课时89】线性相关性.mp4' };
             lessonInfo[90] = { name: '【课时90】极大无关', file: '【课时90】极大无关.mp4' };
             lessonInfo[91] = { name: '【课时91】齐次线性方程组', file: '【课时91】齐次线性方程组.mp4' };
             lessonInfo[92] = { name: '【课时92】非齐次线性方程组', file: '【课时92】非齐次线性方程组.mp4' };
 
-            // 构建所有课时 flatLessons
+            // 构建flatLessons
             let flatLessons = [];
-
-            // 定义每个章节的起始和结束课时编号
-            const chapterRanges = [
-                { start: 1, end: 13 },   // 第一章
-                { start: 14, end: 26 },  // 第二章
-                { start: 27, end: 40 },  // 第三章
-                { start: 41, end: 45 },  // 第四章
-                { start: 46, end: 53 },  // 第五章
-                { start: 58, end: 64 },  // 第六章
-                { start: 65, end: 76 },  // 第七章
-                { start: 77, end: 79 },  // 第八章
-                { start: 80, end: 87 },  // 第九章
-                { start: 88, end: 92 },  // 第十章
-                { start: 93, end: 96 }   // 第十一章（实际为空）
+            const ranges = [
+                { start: 1, end: 13 }, { start: 14, end: 26 }, { start: 27, end: 40 },
+                { start: 41, end: 45 }, { start: 46, end: 53 }, { start: 58, end: 64 },
+                { start: 65, end: 76 }, { start: 77, end: 79 }, { start: 80, end: 87 },
+                { start: 88, end: 92 }, { start: 93, end: 96 } // 第十一章无
             ];
 
-            // 按顺序遍历11个章节
             for (let chapIdx = 0; chapIdx < chapterNames.length; chapIdx++) {
-                const chapName = chapterNames[chapIdx];
-
-                // 根据章节索引确定课时编号范围
-                let startId, endId;
-                if (chapIdx === 0) { startId = 1; endId = 13; }
-                else if (chapIdx === 1) { startId = 14; endId = 26; }
-                else if (chapIdx === 2) { startId = 27; endId = 40; }
-                else if (chapIdx === 3) { startId = 41; endId = 45; }
-                else if (chapIdx === 4) { startId = 46; endId = 53; }
-                else if (chapIdx === 5) { startId = 58; endId = 64; }
-                else if (chapIdx === 6) { startId = 65; endId = 76; }
-                else if (chapIdx === 7) { startId = 77; endId = 79; }
-                else if (chapIdx === 8) { startId = 80; endId = 87; }
-                else if (chapIdx === 9) { startId = 88; endId = 92; }
-                else if (chapIdx === 10) {
-                    // 第十一章没有新课时
-                    continue;
-                }
-
-                // 为该章节添加课时
-                for (let lessonNum = startId; lessonNum <= endId; lessonNum++) {
-                    const info = lessonInfo[lessonNum];
-                    if (!info) continue;
-
-                    // 构建完整路径：基础路径 + 文件名
-                    const fullPath = basePath + info.file;
-
-                    // 生成随机时长
-                    const minutes = Math.floor(8 + Math.random() * 15);
-                    const seconds = Math.floor(Math.random() * 60).toString().padStart(2, '0');
-                    const durationStr = minutes + ':' + seconds;
-
+                let { start, end } = ranges[chapIdx];
+                for (let num = start; num <= end; num++) {
+                    if (!lessonInfo[num]) continue;
+                    let durationMin = 8 + Math.floor(Math.random() * 18);
+                    let sec = Math.floor(Math.random() * 60).toString().padStart(2, '0');
                     flatLessons.push({
-                        id: lessonNum,
+                        id: num,
                         chapterIndex: chapIdx,
-                        chapterName: chapName,
-                        localLesson: lessonNum - startId + 1,
-                        fullTitle: info.name,
-                        url: fullPath,  // 使用完整路径
-                        duration: durationStr
+                        chapterName: chapterNames[chapIdx],
+                        fullTitle: lessonInfo[num].name,
+                        url: basePath + lessonInfo[num].file,
+                        duration: durationMin + ':' + sec
                     });
                 }
             }
-
-            // 按id排序
             flatLessons.sort((a, b) => a.id - b.id);
 
-            // ---------- DOM 元素 ----------
+            // DOM
             const video = document.getElementById('mainVideo');
             const container = document.getElementById('videoContainer');
             const playPauseBtn = document.getElementById('playPauseBtn');
@@ -852,26 +904,17 @@
             const nextPageBtn = document.getElementById('nextPageBtn');
             const pageInput = document.getElementById('pageInput');
 
-            let isMirror = false;
-            let isLoop = false;
+            let isMirror = false, isLoop = false, isFillMode = false;
             let currentLessonId = flatLessons[0]?.id || 1;
-            let isFillMode = false;
             let currentPageChapterIndex = 0;
 
-            // ---------- 渲染当前页(章)的课时列表 ----------
             function renderCurrentPage() {
-                const lessonsInChapter = flatLessons.filter(l => l.chapterIndex === currentPageChapterIndex);
-                const chapName = chapterNames[currentPageChapterIndex];
-                const lessonCount = lessonsInChapter.length;
-
-                if (lessonsInChapter.length === 0) {
+                const lessons = flatLessons.filter(l => l.chapterIndex === currentPageChapterIndex);
+                if (lessons.length === 0) {
                     chapterList.innerHTML = '<li class="empty-message">本章暂无课时</li>';
                 } else {
-                    let html = '';
-                    // 添加章标题头
-                    html += `<li class="chapter-group-header"><span>📖 ${chapName}</span><span>${lessonCount}课时</span></li>`;
-
-                    lessonsInChapter.forEach(lesson => {
+                    let html = `<li class="chapter-group-header"><span>📖 ${chapterNames[currentPageChapterIndex]}</span><span>${lessons.length}课时</span></li>`;
+                    lessons.forEach(lesson => {
                         const activeClass = (lesson.id === currentLessonId) ? 'active' : '';
                         html += `<li data-id="${lesson.id}" class="${activeClass}">
                             <i class="fa-regular fa-circle-play"></i>
@@ -881,127 +924,57 @@
                     });
                     chapterList.innerHTML = html;
                 }
-
-                // 重新绑定事件
                 document.querySelectorAll('.chapter-list li[data-id]').forEach(li => {
                     li.addEventListener('click', function () {
-                        const lid = parseInt(this.dataset.id);
-                        const lesson = flatLessons.find(l => l.id === lid);
-                        if (lesson) playLessonById(lid);
+                        playLessonById(parseInt(this.dataset.id));
                     });
                 });
-
-                // 更新页码输入框的值
                 pageInput.value = currentPageChapterIndex + 1;
-
-                // 更新按钮禁用状态
                 prevPageBtn.disabled = (currentPageChapterIndex === 0);
-                nextPageBtn.disabled = (currentPageChapterIndex === totalChapters - 1);
+                nextPageBtn.disabled = (currentPageChapterIndex === chapterNames.length - 1);
             }
 
-            // 播放课时
-            function playLessonById(lessonId) {
-                const lesson = flatLessons.find(l => l.id === lessonId);
+            function playLessonById(id) {
+                const lesson = flatLessons.find(l => l.id === id);
                 if (!lesson) return;
-                currentLessonId = lessonId;
+                currentLessonId = id;
                 video.src = lesson.url;
                 video.load();
-                video.play().catch(e => console.log('自动播放需手势', e));
+                video.play().catch(e => console.log);
                 currentVideoTitle.innerText = lesson.fullTitle + ' · ' + lesson.duration;
-
                 if (lesson.chapterIndex !== currentPageChapterIndex) {
                     currentPageChapterIndex = lesson.chapterIndex;
                     renderCurrentPage();
                 } else {
                     renderCurrentPage();
                 }
-
-                if (isMirror) video.classList.add('mirror');
-                else video.classList.remove('mirror');
+                if (isMirror) video.classList.add('mirror'); else video.classList.remove('mirror');
                 video.loop = isLoop;
             }
 
-            // 切换章节
             function goToChapter(index) {
-                if (index < 0 || index >= totalChapters) return;
-                if (index === currentPageChapterIndex) return;
+                if (index < 0 || index >= chapterNames.length) return;
                 currentPageChapterIndex = index;
                 renderCurrentPage();
             }
 
-            // 上一章
-            prevPageBtn.addEventListener('click', () => {
-                if (currentPageChapterIndex > 0) {
-                    goToChapter(currentPageChapterIndex - 1);
-                }
-            });
-
-            // 下一章
-            nextPageBtn.addEventListener('click', () => {
-                if (currentPageChapterIndex < totalChapters - 1) {
-                    goToChapter(currentPageChapterIndex + 1);
-                }
-            });
-
-            // 页码输入框事件
+            prevPageBtn.addEventListener('click', () => goToChapter(currentPageChapterIndex - 1));
+            nextPageBtn.addEventListener('click', () => goToChapter(currentPageChapterIndex + 1));
             pageInput.addEventListener('change', function () {
-                let val = parseInt(this.value);
-                if (isNaN(val) || val < 1) {
-                    val = 1;
-                } else if (val > totalChapters) {
-                    val = totalChapters;
-                }
+                let val = parseInt(this.value) || 1;
+                if (val < 1) val = 1; else if (val > 11) val = 11;
                 this.value = val;
-                const targetIndex = val - 1;
-                if (targetIndex !== currentPageChapterIndex) {
-                    goToChapter(targetIndex);
-                }
+                goToChapter(val - 1);
             });
 
-            pageInput.addEventListener('input', function () {
-                let val = parseInt(this.value);
-                if (!isNaN(val)) {
-                    if (val < 1) this.value = 1;
-                    else if (val > totalChapters) this.value = totalChapters;
-                }
-            });
-
-            // 初始化
-            function initFirstLesson() {
-                if (flatLessons.length > 0) {
-                    playLessonById(flatLessons[0].id);
-                } else {
-                    currentVideoTitle.innerText = '暂无课时';
-                }
-            }
-
-            // ----- 播放器事件 (保持不变) -----
-            playPauseBtn.addEventListener('click', () => {
-                if (video.paused) video.play().catch(() => { });
-                else video.pause();
-            });
-            video.addEventListener('play', () => {
-                playPauseIcon.classList.remove('fa-play');
-                playPauseIcon.classList.add('fa-pause');
-            });
-            video.addEventListener('pause', () => {
-                playPauseIcon.classList.remove('fa-pause');
-                playPauseIcon.classList.add('fa-play');
-            });
-
-            volumeSlider.addEventListener('input', (e) => {
-                video.volume = parseFloat(e.target.value);
-                updateVolumeIcon();
-            });
+            // 播放器事件
+            playPauseBtn.addEventListener('click', () => video.paused ? video.play() : video.pause());
+            video.addEventListener('play', () => { playPauseIcon.classList.remove('fa-play'); playPauseIcon.classList.add('fa-pause'); });
+            video.addEventListener('pause', () => { playPauseIcon.classList.remove('fa-pause'); playPauseIcon.classList.add('fa-play'); });
+            volumeSlider.addEventListener('input', e => { video.volume = parseFloat(e.target.value); updateVolumeIcon(); });
             volumeBtn.addEventListener('click', () => {
-                if (video.volume > 0) {
-                    video.dataset.lastVolume = video.volume;
-                    video.volume = 0;
-                    volumeSlider.value = 0;
-                } else {
-                    video.volume = parseFloat(video.dataset.lastVolume || 1);
-                    volumeSlider.value = video.volume;
-                }
+                if (video.volume > 0) { video.dataset.lastVolume = video.volume; video.volume = 0; volumeSlider.value = 0; }
+                else { video.volume = parseFloat(video.dataset.lastVolume || 1); volumeSlider.value = video.volume; }
                 updateVolumeIcon();
             });
             function updateVolumeIcon() {
@@ -1010,22 +983,18 @@
                 else if (video.volume < 0.5) icon.className = 'fa-solid fa-volume-low';
                 else icon.className = 'fa-solid fa-volume-high';
             }
-
             video.addEventListener('timeupdate', () => {
                 if (!isNaN(video.duration)) {
-                    const percent = (video.currentTime / video.duration) * 100;
-                    progressBar.style.width = percent + '%';
+                    progressBar.style.width = (video.currentTime / video.duration) * 100 + '%';
                     currentTimeSpan.innerText = formatTime(video.currentTime);
                     durationSpan.innerText = formatTime(video.duration);
                 }
             });
             video.addEventListener('loadedmetadata', () => {
                 durationSpan.innerText = formatTime(video.duration);
-                currentTimeSpan.innerText = formatTime(0);
                 if (isMirror) video.classList.add('mirror');
                 video.loop = isLoop;
             });
-
             timeline.addEventListener('click', (e) => {
                 const rect = timeline.getBoundingClientRect();
                 let percent = (e.clientX - rect.left) / rect.width;
@@ -1035,85 +1004,59 @@
             timeline.addEventListener('mousemove', (e) => {
                 const rect = timeline.getBoundingClientRect();
                 const x = e.clientX - rect.left;
-                const percent = x / rect.width;
                 if (video.duration) {
-                    const time = percent * video.duration;
+                    const time = (x / rect.width) * video.duration;
                     timeTooltip.innerText = formatTime(time) + ' / ' + formatTime(video.duration);
                     timeTooltip.style.left = `${x}px`;
                 }
             });
-
             mirrorBtn.addEventListener('click', () => {
                 isMirror = !isMirror;
                 video.classList.toggle('mirror', isMirror);
                 mirrorStatus.innerText = isMirror ? '镜像: 开启' : '镜像: 关闭';
             });
-
             loopBtn.addEventListener('click', () => {
-                isLoop = !isLoop;
-                video.loop = isLoop;
+                isLoop = !isLoop; video.loop = isLoop;
                 loopStatus.innerText = isLoop ? '循环: 开启' : '循环: 关闭';
                 loopBtn.style.color = isLoop ? '#FB7299' : '';
             });
-
             pipBtn.addEventListener('click', () => {
                 if (!document.pictureInPictureEnabled) alert('不支持画中画');
                 else if (document.pictureInPictureElement) document.exitPictureInPicture();
-                else video.requestPictureInPicture().catch(e => alert('画中画失败'));
+                else video.requestPictureInPicture().catch(() => alert('画中画失败'));
             });
-
             wideScreenBtn.addEventListener('click', () => {
                 isFillMode = !isFillMode;
                 video.style.objectFit = isFillMode ? 'fill' : 'contain';
                 wideScreenBtn.style.color = isFillMode ? '#FB7299' : '';
             });
-
             webFullscreenBtn.addEventListener('click', () => {
                 const wrapper = document.querySelector('.video-player-wrapper');
-                if (!document.fullscreenElement) wrapper.requestFullscreen?.() || wrapper.webkitRequestFullscreen?.();
+                if (!document.fullscreenElement) wrapper.requestFullscreen?.();
                 else document.exitFullscreen();
             });
-
             fullscreenBtn.addEventListener('click', () => {
-                const containerElem = document.querySelector('.container');
-                if (!document.fullscreenElement) containerElem.requestFullscreen?.() || containerElem.webkitRequestFullscreen?.();
+                const cont = document.querySelector('.container');
+                if (!document.fullscreenElement) cont.requestFullscreen?.();
                 else document.exitFullscreen();
             });
-
             let controlTimer;
             container.addEventListener('mousemove', () => {
                 container.classList.add('show-controls');
                 clearTimeout(controlTimer);
-                controlTimer = setTimeout(() => {
-                    if (!video.paused) container.classList.remove('show-controls');
-                }, 2500);
+                controlTimer = setTimeout(() => { if (!video.paused) container.classList.remove('show-controls'); }, 2500);
             });
-            container.addEventListener('mouseleave', () => {
-                clearTimeout(controlTimer);
-                container.classList.remove('show-controls');
-            });
-
-            video.addEventListener('ended', () => {
-                if (isLoop) { video.currentTime = 0; video.play().catch(() => { }); }
-            });
+            container.addEventListener('mouseleave', () => { clearTimeout(controlTimer); container.classList.remove('show-controls'); });
 
             function formatTime(seconds) {
                 if (isNaN(seconds)) return '00:00';
-                const h = Math.floor(seconds / 3600);
-                const m = Math.floor((seconds % 3600) / 60);
-                const s = Math.floor(seconds % 60);
+                const h = Math.floor(seconds / 3600), m = Math.floor((seconds % 3600) / 60), s = Math.floor(seconds % 60);
                 if (h > 0) return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-                else return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
             }
-
             updateVolumeIcon();
-            initFirstLesson();
+            if (flatLessons.length) playLessonById(flatLessons[0].id);
             if (totalHint) totalHint.innerText = `总课时 ${flatLessons.length}`;
-
-            video.addEventListener('error', (e) => {
-                console.warn('视频加载失败，请检查路径:', video.src);
-                currentVideoTitle.innerText = '[加载失败] 请检查视频路径';
-            });
         })();
     </script>
 </body>

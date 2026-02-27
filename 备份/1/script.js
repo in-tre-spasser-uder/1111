@@ -766,10 +766,18 @@ const aiModelName = document.getElementById('aiModelName');
 // AI配置
 const floatAIConfig = {
     'deepseek': {
-        name: 'DeepSeek',
-        apiKey: 'PASTE-YOUR-DEEPSEEK-API-KEY',
-        apiUrl: 'https://api.deepseek.com/v1/chat/completions',
-        welcomeMsg: '你好！我是DeepSeek，可以帮你解答专升本问题'
+        name: 'DeepSeek-V3',
+        apiKey: '2HwLYY4aow4s7sx5BUntcTsQ',  // 替换为您的API Key
+        apiUrl: 'https://api-ai.gitcode.com/v1/chat/completions',
+        welcomeMsg: '你好！我是DeepSeek-V3，可以帮你解答专升本问题',
+        // 添加模型特定配置
+        model: 'deepseek-ai/DeepSeek-V3',
+        maxTokens: 4096,
+        temperature: 0.6,
+        topP: 0.95,
+        topK: 50,
+        frequencyPenalty: 0,
+        thinkingBudget: 32768
     },
     'chatglm': {
         name: 'ChatGLM',
@@ -806,6 +814,9 @@ function initFloatAI() {
 
     // 从localStorage恢复位置
     loadFloatPosition();
+
+    // 初始化主题
+    initTheme();
 }
 
 // 添加欢迎消息
@@ -907,11 +918,20 @@ async function sendFloatMessage() {
     if (floatCurrentModel === 'deepseek') {
         headers['Authorization'] = `Bearer ${config.apiKey}`;
         requestBody = {
-            model: 'deepseek-chat',
+            model: config.model || 'deepseek-ai/DeepSeek-V3',
             messages: [
-                { role: 'system', content: '你是专升本备考助手，用中文回答' },
-                { role: 'user', content: message }
-            ]
+                {
+                    role: "user",
+                    content: message
+                }
+            ],
+            stream: false,
+            max_tokens: config.maxTokens || 4096,
+            temperature: config.temperature || 0.6,
+            top_p: config.topP || 0.95,
+            top_k: config.topK || 50,
+            frequency_penalty: config.frequencyPenalty || 0,
+            thinking_budget: config.thinkingBudget || 32768
         };
     } else if (floatCurrentModel === 'chatglm') {
         headers['Authorization'] = `Bearer ${config.apiKey}`;
@@ -990,31 +1010,49 @@ function clearFloatChats() {
 
 // 切换主题
 function toggleFloatTheme() {
-    document.body.classList.toggle('light-theme');
-    aiFloatThemeBtn.innerHTML = document.body.classList.contains('light-theme')
-        ? '<i class="bx bx-sun"></i>'
-        : '<i class="bx bx-moon"></i>';
+    // 切换body的dark-theme类
+    document.body.classList.toggle('dark-theme');
+
+    // 更新按钮图标
+    const isDark = document.body.classList.contains('dark-theme');
+    aiFloatThemeBtn.innerHTML = isDark ? '<i class="bx bx-sun"></i>' : '<i class="bx bx-moon"></i>';
+
+    // 保存主题设置到localStorage
+    localStorage.setItem('themeMode', isDark ? 'dark' : 'light');
+}
+
+// 初始化主题
+function initTheme() {
+    // 从localStorage读取主题设置
+    const savedTheme = localStorage.getItem('themeMode');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        aiFloatThemeBtn.innerHTML = '<i class="bx bx-sun"></i>';
+    } else {
+        document.body.classList.remove('dark-theme');
+        aiFloatThemeBtn.innerHTML = '<i class="bx bx-moon"></i>';
+    }
 }
 
 // 拖拽功能
 function makeDraggable(element, handle) {
     let isDragging = false;
     let startX, startY, startLeft, startTop;
-    
+
     handle.addEventListener('mousedown', startDrag);
     handle.addEventListener('touchstart', startDrag, { passive: false });
-    
+
     function startDrag(e) {
         e.preventDefault(); // 重要：阻止默认行为
         e.stopPropagation(); // 阻止事件冒泡
-        
+
         isDragging = true;
-        
+
         // 获取当前元素位置
         const rect = element.getBoundingClientRect();
         startLeft = rect.left;
         startTop = rect.top;
-        
+
         // 获取鼠标/触摸起始位置
         if (e.type === 'mousedown') {
             startX = e.clientX;
@@ -1028,23 +1066,23 @@ function makeDraggable(element, handle) {
             document.addEventListener('touchend', stopDrag);
             document.addEventListener('touchcancel', stopDrag);
         }
-        
+
         // 添加拖拽样式
         element.classList.add('dragging');
-        
+
         // 记录初始位置到元素样式
         element.style.left = startLeft + 'px';
         element.style.top = startTop + 'px';
         element.style.right = 'auto';
         element.style.bottom = 'auto';
     }
-    
+
     function onDrag(e) {
         if (!isDragging) return;
-        
+
         e.preventDefault(); // 重要：阻止默认行为（如页面滚动）
         e.stopPropagation();
-        
+
         let clientX, clientY;
         if (e.type === 'mousemove') {
             clientX = e.clientX;
@@ -1053,41 +1091,41 @@ function makeDraggable(element, handle) {
             clientX = e.touches[0].clientX;
             clientY = e.touches[0].clientY;
         }
-        
+
         // 计算新位置
         const deltaX = clientX - startX;
         const deltaY = clientY - startY;
-        
+
         let newLeft = startLeft + deltaX;
         let newTop = startTop + deltaY;
-        
+
         // 边界限制（可选，防止拖出屏幕）
         const maxLeft = window.innerWidth - element.offsetWidth;
         const maxTop = window.innerHeight - element.offsetHeight;
-        
+
         newLeft = Math.max(0, Math.min(newLeft, maxLeft));
         newTop = Math.max(0, Math.min(newTop, maxTop));
-        
+
         // 应用新位置
         element.style.left = newLeft + 'px';
         element.style.top = newTop + 'px';
         element.style.right = 'auto';
         element.style.bottom = 'auto';
     }
-    
+
     function stopDrag(e) {
         if (!isDragging) return;
-        
+
         isDragging = false;
         element.classList.remove('dragging');
-        
+
         // 保存最终位置
         const left = parseFloat(element.style.left);
         const top = parseFloat(element.style.top);
         if (!isNaN(left) && !isNaN(top)) {
             saveFloatPosition(left, top);
         }
-        
+
         // 移除事件监听
         document.removeEventListener('mousemove', onDrag);
         document.removeEventListener('mouseup', stopDrag);
@@ -1182,3 +1220,32 @@ window.addEventListener('resize', () => {
         saveFloatPosition(newLeft, newTop);
     }
 });
+
+// 移动端强制显示AI按钮
+(function () {
+    // 立即执行
+    function forceShowButton() {
+        const btn = document.getElementById('aiFloatBtn');
+        if (btn) {
+            btn.style.display = 'flex';
+            btn.style.opacity = '1';
+            btn.style.visibility = 'visible';
+            btn.style.zIndex = '999999';
+            console.log('AI按钮已强制显示');
+        } else {
+            console.log('等待AI按钮创建...');
+            setTimeout(forceShowButton, 500);
+        }
+    }
+
+    // 页面加载后执行
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', forceShowButton);
+    } else {
+        forceShowButton();
+    }
+
+    // 延迟再执行一次（防止被覆盖）
+    setTimeout(forceShowButton, 1000);
+    setTimeout(forceShowButton, 2000);
+})();

@@ -1,5 +1,5 @@
-// ========== 文件数据配置 ==========
-const fileData = {
+// ========== 文件数据配置 - 基础数据 ==========
+const baseFileData = {
     // 招生计划 -> 2026专升本计划
     'plan-2026': {
         name: '2026专升本计划',
@@ -186,80 +186,364 @@ const fileData = {
     }
 };
 
-// ========== 用循环添加高数模拟卷2-19 ==========
-for (let i = 2; i <= 19; i++) {
-    fileData[`mock-math-${i}`] = {
-        name: `高数模拟卷${i}`,
-        files: [
-            {
-                name: `高数模拟卷${i}.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷${i}.pdf`,
+// ========== 模拟题动态配置 ==========
+const MOCK_EXAMS_CONFIG = {
+    categories: [
+        {
+            id: 'politics',
+            name: '政治模拟题',
+            basePath: './zhuanshengben/专升本题背资料/模拟题/政治/',
+            fileNamePattern: /^政治模拟卷(\d+)\.pdf$/i,
+            answerPattern: /^政治模拟卷(\d+)答案\.pdf$/i,
+            targetPrefix: 'mock-politics'
+        },
+        {
+            id: 'english',
+            name: '英语模拟题',
+            basePath: './zhuanshengben/专升本题背资料/模拟题/英语/',
+            fileNamePattern: /^英语模拟卷(\d+)\.pdf$/i,
+            answerPattern: /^英语模拟卷(\d+)答案\.pdf$/i,
+            targetPrefix: 'mock-english'
+        },
+        {
+            id: 'math',
+            name: '高数模拟题',
+            basePath: './zhuanshengben/专升本题背资料/模拟题/高数一/',
+            fileNamePattern: /^高数模拟卷(\d+)\.pdf$/i,
+            answerPattern: /^高数模拟卷(\d+)答案\.pdf$/i,
+            targetPrefix: 'mock-math'
+        },
+        {
+            id: 'it',
+            name: '信息技术模拟题',
+            basePath: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/',
+            fileNamePattern: /^信息技术模拟卷(\d+)\.pdf$/i,
+            answerPattern: /^信息技术模拟卷(\d+)答案\.pdf$/i,
+            targetPrefix: 'mock-it'
+        }
+    ]
+};
+
+// ========== 开背知识点配置 ==========
+const KAIBEI_CONFIG = {
+    categories: [
+        {
+            id: 'kaibei-politics',
+            name: '政治开背知识点',
+            basePath: './zhuanshengben/专升本题背资料/开背知识点/政治/',
+            fileNamePattern: /^政治开背知识点(\d+)\.pdf$/i,
+            targetPrefix: 'kaibei-politics'
+        },
+        {
+            id: 'kaibei-english',
+            name: '英语开背知识点',
+            basePath: './zhuanshengben/专升本题背资料/开背知识点/英语/',
+            fileNamePattern: /^英语开背知识点(\d+)\.pdf$/i,
+            targetPrefix: 'kaibei-english'
+        },
+        {
+            id: 'kaibei-math',
+            name: '高数开背知识点',
+            basePath: './zhuanshengben/专升本题背资料/开背知识点/高数一/',
+            fileNamePattern: /^高数开背知识点(\d+)\.pdf$/i,
+            targetPrefix: 'kaibei-math'
+        },
+        {
+            id: 'kaibei-it',
+            name: '信息技术开背知识点',
+            basePath: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/',
+            fileNamePattern: /^信息技术开背知识点(\d+)\.pdf$/i,
+            targetPrefix: 'kaibei-it'
+        }
+    ]
+};
+
+// 最终的fileData对象
+let fileData = { ...baseFileData };
+
+// ========== 模拟题文件列表 ==========
+const MOCK_FILES = [
+    // 政治模拟题
+    { category: 'politics', number: 1, hasAnswer: true },
+    { category: 'politics', number: 2, hasAnswer: true },
+    { category: 'politics', number: 3, hasAnswer: true },
+    { category: 'politics', number: 4, hasAnswer: true },
+    { category: 'politics', number: 5, hasAnswer: true },
+    { category: 'politics', number: 6, hasAnswer: true },
+    { category: 'politics', number: 7, hasAnswer: true },
+    { category: 'politics', number: 8, hasAnswer: true },
+    { category: 'politics', number: 9, hasAnswer: true },
+    { category: 'politics', number: 10, hasAnswer: true },
+    { category: 'politics', number: 11, hasAnswer: true },
+    { category: 'politics', number: 12, hasAnswer: true },
+    { category: 'politics', number: 13, hasAnswer: true },
+    { category: 'politics', number: 14, hasAnswer: true },
+    { category: 'politics', number: 15, hasAnswer: true },
+    { category: 'politics', number: 16, hasAnswer: true },
+    { category: 'politics', number: 17, hasAnswer: true },
+    { category: 'politics', number: 18, hasAnswer: true },
+    { category: 'politics', number: 19, hasAnswer: true },
+    { category: 'politics', number: 20, hasAnswer: true },
+
+    // 英语模拟题
+    { category: 'english', number: 1, hasAnswer: true },
+    { category: 'english', number: 2, hasAnswer: true },
+    { category: 'english', number: 3, hasAnswer: true },
+    { category: 'english', number: 4, hasAnswer: true },
+    { category: 'english', number: 5, hasAnswer: true },
+    { category: 'english', number: 6, hasAnswer: true },
+    { category: 'english', number: 7, hasAnswer: true },
+    { category: 'english', number: 8, hasAnswer: true },
+    { category: 'english', number: 9, hasAnswer: true },
+    { category: 'english', number: 10, hasAnswer: true },
+    { category: 'english', number: 11, hasAnswer: true },
+    { category: 'english', number: 12, hasAnswer: true },
+    { category: 'english', number: 13, hasAnswer: true },
+    { category: 'english', number: 14, hasAnswer: true },
+    { category: 'english', number: 15, hasAnswer: true },
+    { category: 'english', number: 16, hasAnswer: true },
+    { category: 'english', number: 17, hasAnswer: true },
+    { category: 'english', number: 18, hasAnswer: true },
+    { category: 'english', number: 19, hasAnswer: true },
+
+    // 高数模拟题
+    { category: 'math', number: 1, hasAnswer: true },
+    { category: 'math', number: 2, hasAnswer: true },
+    { category: 'math', number: 3, hasAnswer: true },
+    { category: 'math', number: 4, hasAnswer: true },
+    { category: 'math', number: 5, hasAnswer: true },
+    { category: 'math', number: 6, hasAnswer: true },
+    { category: 'math', number: 7, hasAnswer: true },
+    { category: 'math', number: 8, hasAnswer: true },
+    { category: 'math', number: 9, hasAnswer: true },
+    { category: 'math', number: 10, hasAnswer: true },
+    { category: 'math', number: 11, hasAnswer: true },
+    { category: 'math', number: 12, hasAnswer: true },
+    { category: 'math', number: 13, hasAnswer: true },
+    { category: 'math', number: 14, hasAnswer: true },
+    { category: 'math', number: 15, hasAnswer: true },
+    { category: 'math', number: 16, hasAnswer: true },
+    { category: 'math', number: 17, hasAnswer: true },
+    { category: 'math', number: 18, hasAnswer: true },
+    { category: 'math', number: 19, hasAnswer: true },
+
+    // 信息技术模拟题
+    { category: 'it', number: 1, hasAnswer: true },
+    { category: 'it', number: 2, hasAnswer: true },
+    { category: 'it', number: 3, hasAnswer: true },
+    { category: 'it', number: 4, hasAnswer: true },
+    { category: 'it', number: 5, hasAnswer: true },
+    { category: 'it', number: 6, hasAnswer: true },
+    { category: 'it', number: 7, hasAnswer: true },
+    { category: 'it', number: 8, hasAnswer: true },
+    { category: 'it', number: 9, hasAnswer: true },
+    { category: 'it', number: 10, hasAnswer: true },
+    { category: 'it', number: 11, hasAnswer: true },
+    { category: 'it', number: 12, hasAnswer: true },
+    { category: 'it', number: 13, hasAnswer: true },
+    { category: 'it', number: 14, hasAnswer: true },
+    { category: 'it', number: 15, hasAnswer: true },
+    { category: 'it', number: 16, hasAnswer: true },
+    { category: 'it', number: 17, hasAnswer: true },
+    { category: 'it', number: 18, hasAnswer: true },
+    { category: 'it', number: 19, hasAnswer: true }
+];
+
+// ========== 开背知识点文件列表 ==========
+const KAIBEI_FILES = [
+    // 政治开背知识点
+    { category: 'kaibei-politics', number: 1 },
+    { category: 'kaibei-politics', number: 2 },
+    { category: 'kaibei-politics', number: 3 },
+
+    // 英语开背知识点
+    { category: 'kaibei-english', number: 1 },
+    { category: 'kaibei-english', number: 2 },
+    { category: 'kaibei-english', number: 3 },
+
+    // 高数开背知识点
+    { category: 'kaibei-math', number: 1 },
+    { category: 'kaibei-math', number: 2 },
+    { category: 'kaibei-math', number: 3 },
+
+    // 信息技术开背知识点
+    { category: 'kaibei-it', number: 1 },
+    { category: 'kaibei-it', number: 2 },
+    { category: 'kaibei-it', number: 3 }
+];
+
+// ========== 动态生成模拟题数据 ==========
+function generateMockExamData() {
+    console.log('开始动态生成模拟题数据...');
+
+    const groupedByCategory = {};
+    MOCK_FILES.forEach(file => {
+        if (!groupedByCategory[file.category]) {
+            groupedByCategory[file.category] = [];
+        }
+        groupedByCategory[file.category].push(file);
+    });
+
+    Object.keys(groupedByCategory).forEach(categoryId => {
+        const category = MOCK_EXAMS_CONFIG.categories.find(c => c.id === categoryId);
+        if (!category) return;
+
+        const files = groupedByCategory[categoryId];
+
+        files.forEach(file => {
+            const targetKey = `${category.targetPrefix}-${file.number}`;
+            const filesArray = [];
+
+            const questionFileName = `政治模拟卷${file.number}.pdf`
+                .replace('政治', category.name.replace('模拟题', '').trim());
+            filesArray.push({
+                name: questionFileName,
+                fileUrl: `${category.basePath}${questionFileName}`,
                 type: 'pdf'
-            },
-            {
-                name: `高数模拟卷${i}答案.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷${i}答案.pdf`,
-                type: 'pdf'
+            });
+
+            if (file.hasAnswer) {
+                const answerFileName = `政治模拟卷${file.number}答案.pdf`
+                    .replace('政治', category.name.replace('模拟题', '').trim());
+                filesArray.push({
+                    name: answerFileName,
+                    fileUrl: `${category.basePath}${answerFileName}`,
+                    type: 'pdf'
+                });
             }
-        ]
-    };
+
+            fileData[targetKey] = {
+                name: `${category.name.replace('模拟题', '')}模拟卷${file.number}`,
+                files: filesArray
+            };
+        });
+    });
+
+    console.log('模拟题数据生成完成');
 }
 
-// 为政治模拟卷1-19添加数据（覆盖原有的mock-politics-1）
-for (let i = 1; i <= 19; i++) {
-    fileData[`mock-politics-${i}`] = {
-        name: `政治模拟卷${i}`,
-        files: [
-            {
-                name: `政治模拟卷${i}.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷${i}.pdf`,
+// ========== 动态生成开背知识点数据 ==========
+function generateKaibeiData() {
+    console.log('开始动态生成开背知识点数据...');
+
+    const groupedByCategory = {};
+    KAIBEI_FILES.forEach(file => {
+        if (!groupedByCategory[file.category]) {
+            groupedByCategory[file.category] = [];
+        }
+        groupedByCategory[file.category].push(file);
+    });
+
+    Object.keys(groupedByCategory).forEach(categoryId => {
+        const category = KAIBEI_CONFIG.categories.find(c => c.id === categoryId);
+        if (!category) return;
+
+        const files = groupedByCategory[categoryId];
+
+        files.forEach(file => {
+            const targetKey = `${category.targetPrefix}-${file.number}`;
+            const filesArray = [];
+
+            const fileName = `政治开背知识点${file.number}.pdf`
+                .replace('政治', category.name.replace('开背知识点', '').trim());
+
+            filesArray.push({
+                name: fileName,
+                fileUrl: `${category.basePath}${fileName}`,
                 type: 'pdf'
-            },
-            {
-                name: `政治模拟卷${i}答案.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/政治/政治模拟卷${i}答案.pdf`,
-                type: 'pdf'
-            }
-        ]
-    };
+            });
+
+            fileData[targetKey] = {
+                name: `${category.name.replace('开背知识点', '')}开背知识点${file.number}`,
+                files: filesArray
+            };
+        });
+    });
+
+    console.log('开背知识点数据生成完成');
 }
 
-// 为英语模拟卷1-19添加数据（覆盖原有的mock-english-1）
-for (let i = 1; i <= 19; i++) {
-    fileData[`mock-english-${i}`] = {
-        name: `英语模拟卷${i}`,
-        files: [
-            {
-                name: `英语模拟卷${i}.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷${i}.pdf`,
-                type: 'pdf'
-            },
-            {
-                name: `英语模拟卷${i}答案.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/英语/英语模拟卷${i}答案.pdf`,
-                type: 'pdf'
-            }
-        ]
-    };
+// ========== 动态生成模拟题菜单 ==========
+function generateMockExamMenu() {
+    const mockExamsSubmenu = document.getElementById('mock-exams-submenu');
+    if (!mockExamsSubmenu) return;
+
+    mockExamsSubmenu.innerHTML = '<li><a class="link_name" href="#">模拟题</a></li>';
+
+    MOCK_EXAMS_CONFIG.categories.forEach(category => {
+        const categoryLi = document.createElement('li');
+        categoryLi.className = 'has-third-level';
+
+        const categoryFiles = MOCK_FILES.filter(f => f.category === category.id);
+        if (categoryFiles.length === 0) return;
+
+        categoryLi.innerHTML = `
+            <div class="iocn-link" style="padding-left:0;">
+                <a href="#" style="padding-left:16px;"><span>${category.name}</span></a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu" style="padding-left:30px;" id="submenu-${category.id}">
+                <li><a class="link_name" href="#">${category.name}</a></li>
+                ${categoryFiles.map(file => `
+                    <li><a href="#" data-target="${category.targetPrefix}-${file.number}">${category.name.replace('模拟题', '')}模拟卷${file.number}</a></li>
+                `).join('')}
+            </ul>
+        `;
+
+        mockExamsSubmenu.appendChild(categoryLi);
+    });
+
+    rebindArrowEvents();
 }
 
-// 为信息技术模拟卷1-19添加数据（覆盖原有的mock-it-1）
-for (let i = 1; i <= 19; i++) {
-    fileData[`mock-it-${i}`] = {
-        name: `信息技术模拟卷${i}`,
-        files: [
-            {
-                name: `信息技术模拟卷${i}.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷${i}.pdf`,
-                type: 'pdf'
-            },
-            {
-                name: `信息技术模拟卷${i}答案.pdf`,
-                fileUrl: `./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷${i}答案.pdf`,
-                type: 'pdf'
-            }
-        ]
-    };
+// ========== 动态生成开背知识点菜单 ==========
+function generateKaibeiMenu() {
+    const kaibeiSubmenu = document.getElementById('kaibei-submenu');
+    if (!kaibeiSubmenu) return;
+
+    kaibeiSubmenu.innerHTML = '<li><a class="link_name" href="#">开背（知识点）</a></li>';
+
+    KAIBEI_CONFIG.categories.forEach(category => {
+        const categoryLi = document.createElement('li');
+        categoryLi.className = 'has-third-level';
+
+        const categoryFiles = KAIBEI_FILES.filter(f => f.category === category.id);
+        if (categoryFiles.length === 0) return;
+
+        categoryLi.innerHTML = `
+            <div class="iocn-link" style="padding-left:0;">
+                <a href="#" style="padding-left:16px;"><span>${category.name}</span></a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu" style="padding-left:30px;" id="submenu-${category.id}">
+                <li><a class="link_name" href="#">${category.name}</a></li>
+                ${categoryFiles.map(file => `
+                    <li><a href="#" data-target="${category.targetPrefix}-${file.number}">${category.name.replace('开背知识点', '')}开背知识点${file.number}</a></li>
+                `).join('')}
+            </ul>
+        `;
+
+        kaibeiSubmenu.appendChild(categoryLi);
+    });
+
+    rebindArrowEvents();
+}
+
+// ========== 重新绑定箭头事件 ==========
+function rebindArrowEvents() {
+    const oldArrows = document.querySelectorAll(".arrow");
+    oldArrows.forEach(arrow => {
+        const newArrow = arrow.cloneNode(true);
+        arrow.parentNode.replaceChild(newArrow, arrow);
+    });
+
+    const newArrows = document.querySelectorAll(".arrow");
+    newArrows.forEach(arrow => {
+        arrow.addEventListener("click", (e) => {
+            let arrowParent = e.target.parentElement.parentElement;
+            arrowParent.classList.toggle("showMenu");
+        });
+    });
 }
 
 // ========== DOM 元素 ==========
@@ -267,7 +551,6 @@ const dynamicDiv = document.getElementById('dynamic-content');
 const contentPath = document.getElementById('content-path');
 const titleText = document.getElementById('title-text');
 const breadcrumbCat = document.getElementById('current-category');
-const menuLinks = document.querySelectorAll('a[data-target]');
 
 // 标签切换
 const navTabs = document.querySelectorAll("#nav-tabs > a");
@@ -427,7 +710,6 @@ function renderFileContent(target, title) {
     data.files.forEach(file => {
         const fileAttr = JSON.stringify(file).replace(/"/g, '&quot;');
 
-        // 根据文件类型和名称判断图标
         let fileIcon = '';
         let fileBadge = '';
 
@@ -437,34 +719,23 @@ function renderFileContent(target, title) {
             fileIcon = '<path d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />';
         }
 
-        // 添加文件类型标识（题目/答案）
         if (file.name.includes('答案') || file.name.toLowerCase().includes('answer')) {
             fileBadge = '<span class="file-badge answer">答案</span>';
         } else {
             fileBadge = '<span class="file-badge question">题目</span>';
         }
 
-        // 生成预览图片形式按钮 - 支持多种图片格式
-        let previewImgBtnHtml = '';
-
-        // 常见的图片格式
         const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg'];
-
-        // 获取文件名（不含扩展名）
         const baseFileName = file.name.replace('.pdf', '');
         const baseFilePath = file.fileUrl.replace('.pdf', '');
 
-        // 创建图片文件对象数组，包含所有可能的图片格式
         const imgFiles = imageExtensions.map(ext => ({
             name: baseFileName + '（图片预览）',
             fileUrl: baseFilePath + '.' + ext,
             type: ext
         }));
 
-        // 将图片文件数组转换为 data-* 属性
         const imgFilesAttr = JSON.stringify(imgFiles).replace(/"/g, '&quot;');
-
-        previewImgBtnHtml = `<button class="preview-img-btn" data-img-files='${imgFilesAttr}' data-base-path='${baseFilePath}'>预览图片形式</button>`;
 
         html += `
             <div class="file-item">
@@ -476,7 +747,7 @@ function renderFileContent(target, title) {
                     ${fileBadge}
                 </div>
                 <div class="action-buttons">
-                    ${previewImgBtnHtml}
+                    <button class="preview-img-btn" data-img-files='${imgFilesAttr}' data-base-path='${baseFilePath}'>预览图片形式</button>
                     <button class="download-btn" data-file='${fileAttr}'>下载</button>
                     <button class="preview-btn" data-file='${fileAttr}'>预览</button>
                 </div>
@@ -510,7 +781,6 @@ function updateContent(target, linkText) {
     let iconPath = '';
     let title = '';
 
-    // 首页
     if (target === 'home') {
         displayText = '首页总览';
         title = '首页 · 资料总览';
@@ -529,7 +799,6 @@ function updateContent(target, linkText) {
         return;
     }
 
-    // 有文件数据的菜单
     if (fileData[target]) {
         displayText = fileData[target].name || linkText;
         title = displayText;
@@ -544,7 +813,6 @@ function updateContent(target, linkText) {
             const titleSvg = document.querySelector('#page-title svg path');
             if (titleSvg) titleSvg.setAttribute('d', iconPath);
 
-            // 绑定预览按钮
             document.querySelectorAll('.preview-btn').forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.stopPropagation();
@@ -561,21 +829,15 @@ function updateContent(target, linkText) {
                 });
             });
 
-            // 绑定预览图片形式按钮
             document.querySelectorAll('.preview-img-btn').forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.stopPropagation();
 
-                    // 获取图片文件列表
                     const imgFiles = JSON.parse(this.getAttribute('data-img-files'));
                     const basePath = this.getAttribute('data-base-path');
 
-                    // 尝试加载图片，从第一种格式开始尝试
-                    tryLoadImage(imgFiles, 0);
-
                     function tryLoadImage(files, index) {
                         if (index >= files.length) {
-                            // 所有格式都失败了
                             const container = document.getElementById('preview-container');
                             if (container) {
                                 container.innerHTML = `<div class="no-preview" style="color:#ef4444; padding:40px;">❌ 未找到对应的图片文件<br>请确保存在以下格式之一的图片：jpg、png、gif等</div>`;
@@ -590,7 +852,6 @@ function updateContent(target, linkText) {
                         setTimeout(() => {
                             const container = document.getElementById('preview-container');
                             if (container && currentPreviewFile) {
-                                // 尝试加载图片
                                 const img = document.createElement('img');
                                 img.src = currentPreviewFile.fileUrl;
                                 img.alt = '预览图片';
@@ -600,14 +861,11 @@ function updateContent(target, linkText) {
                                 img.style.borderRadius = '4px';
 
                                 img.onload = function () {
-                                    // 图片加载成功
                                     container.innerHTML = '';
                                     container.appendChild(img);
                                 };
 
                                 img.onerror = function () {
-                                    // 当前格式失败，尝试下一种格式
-                                    console.log(`尝试加载 ${currentPreviewFile.fileUrl} 失败，尝试下一种格式`);
                                     tryLoadImage(files, index + 1);
                                 };
 
@@ -616,10 +874,11 @@ function updateContent(target, linkText) {
                             }
                         }, 50);
                     }
+
+                    tryLoadImage(imgFiles, 0);
                 });
             });
 
-            // 绑定下载按钮
             document.querySelectorAll('.download-btn').forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.stopPropagation();
@@ -628,7 +887,6 @@ function updateContent(target, linkText) {
                 });
             });
 
-            // 关闭预览按钮
             const closeBtn = document.getElementById('closePreviewBtn');
             if (closeBtn) {
                 closeBtn.addEventListener('click', function () {
@@ -638,7 +896,6 @@ function updateContent(target, linkText) {
             }
         }
     } else {
-        // 没有文件数据的菜单占位
         displayText = linkText || '未知栏目';
         title = linkText || '资料';
         iconPath = 'M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z';
@@ -657,25 +914,93 @@ function updateContent(target, linkText) {
 }
 
 // 菜单点击绑定
-menuLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = this.getAttribute('data-target');
-        const linkText = this.innerText.trim();
-        currentPreviewFile = null;
-        updateContent(target, linkText);
-        setActiveMenuItem(this);
+function bindMenuLinks() {
+    const menuLinks = document.querySelectorAll('a[data-target]');
+    menuLinks.forEach(link => {
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+
+        newLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
+            const linkText = this.innerText.trim();
+            currentPreviewFile = null;
+            updateContent(target, linkText);
+            setActiveMenuItem(this);
+        });
     });
-});
+}
 
 // 初始化
 function init() {
+    // 生成模拟题数据
+    generateMockExamData();
+
+    // 生成开背知识点数据
+    generateKaibeiData();
+
+    // 生成模拟题菜单
+    generateMockExamMenu();
+
+    // 生成开背知识点菜单
+    generateKaibeiMenu();
+
+    // 添加固定样式
     addFixedStyles();
+
+    // 设置点击固定展开/收缩功能
     setupClickToFix();
+
+    // 绑定菜单链接
+    bindMenuLinks();
+
+    // 更新首页内容
     updateContent('home', '首页');
+
+    // 设置首页为活动状态
     document.querySelectorAll('.sidebar li.active').forEach(li => li.classList.remove('active'));
     const homeLi = document.getElementById('menu-home');
     if (homeLi) homeLi.classList.add('active');
+
+    console.log('初始化完成，当前fileData包含', Object.keys(fileData).length, '个条目');
+
+    // 移动端触摸优化
+    function initMobileTouch() {
+        if (window.innerWidth <= 768) {
+            document.addEventListener('click', function (e) {
+                const sidebar = document.querySelector('.sidebar');
+                const menuBtn = document.querySelector('.bx-menu');
+
+                if (!sidebar.classList.contains('close') &&
+                    !sidebar.contains(e.target) &&
+                    e.target !== menuBtn &&
+                    !menuBtn.contains(e.target)) {
+                    sidebar.classList.add('close');
+                }
+            });
+
+            document.querySelectorAll('.sidebar a, .sidebar .arrow').forEach(el => {
+                el.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                });
+            });
+
+            const navLinks = document.querySelector('.sidebar .nav-links');
+            if (navLinks) {
+                navLinks.style.webkitOverflowScrolling = 'touch';
+            }
+        }
+    }
+
+    initMobileTouch();
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth <= 768) {
+            document.querySelector('.sidebar').classList.add('close');
+        } else {
+            document.querySelector('.sidebar').classList.remove('close');
+        }
+    });
 }
 
 // 下载文件函数
@@ -817,30 +1142,8 @@ function downloadFile(file) {
         });
     };
 
-    document.querySelectorAll('a[data-target]').forEach(link => {
-        const newLink = link.cloneNode(true);
-        link.parentNode.replaceChild(newLink, link);
-    });
-
-    document.querySelectorAll('a[data-target]').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = this.getAttribute('data-target');
-            const linkText = this.innerText.trim();
-            window.currentPreviewFile = null;
-            window.updateContent(target, linkText);
-
-            document.querySelectorAll('.sidebar li.active').forEach(li => li.classList.remove('active'));
-            const parentLi = this.closest('li');
-            if (parentLi) parentLi.classList.add('active');
-        });
-    });
-
     console.log('✅ 答案对照预览功能已启用');
 })();
-
-// 启动初始化
-init();
 
 // ========== 搜索功能实现 ==========
 document.addEventListener('DOMContentLoaded', function () {
@@ -1010,7 +1313,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function bindSearchResultButtons() {
-        // 预览图片形式按钮
         document.querySelectorAll('.search-preview-img, .preview-img-btn').forEach(btn => {
             if (btn.hasAttribute('data-img-files')) {
                 btn.addEventListener('click', function (e) {
@@ -1062,7 +1364,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // 下载按钮
         document.querySelectorAll('.search-download, .download-btn').forEach(btn => {
             if (btn.hasAttribute('data-file')) {
                 btn.addEventListener('click', function (e) {
@@ -1073,7 +1374,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // 预览按钮
         document.querySelectorAll('.search-preview, .preview-btn').forEach(btn => {
             if (btn.hasAttribute('data-file')) {
                 btn.addEventListener('click', function (e) {
@@ -1443,12 +1743,6 @@ function initStats() {
     console.log('✅ 统计卡片功能已启用');
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initStats);
-} else {
-    initStats();
-}
-
 // 添加预览图片形式按钮样式
 const style = document.createElement('style');
 style.textContent = `
@@ -1477,3 +1771,7 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// 启动初始化
+init();
+initStats();

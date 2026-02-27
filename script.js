@@ -465,12 +465,8 @@ function generateKaibeiData() {
 
 // ========== 动态生成模拟题菜单 ==========
 function generateMockExamMenu() {
-    console.log('生成模拟题菜单');
     const mockExamsSubmenu = document.getElementById('mock-exams-submenu');
-    if (!mockExamsSubmenu) {
-        console.error('找不到模拟题菜单容器');
-        return;
-    }
+    if (!mockExamsSubmenu) return;
 
     mockExamsSubmenu.innerHTML = '<li><a class="link_name" href="#">模拟题</a></li>';
 
@@ -498,17 +494,12 @@ function generateMockExamMenu() {
     });
 
     rebindArrowEvents();
-    console.log('✅ 模拟题菜单生成完成');
 }
 
 // ========== 动态生成开背知识点菜单 ==========
 function generateKaibeiMenu() {
-    console.log('生成开背菜单');
     const kaibeiSubmenu = document.getElementById('kaibei-submenu');
-    if (!kaibeiSubmenu) {
-        console.error('找不到开背菜单容器');
-        return;
-    }
+    if (!kaibeiSubmenu) return;
 
     kaibeiSubmenu.innerHTML = '<li><a class="link_name" href="#">开背（知识点）</a></li>';
 
@@ -536,7 +527,6 @@ function generateKaibeiMenu() {
     });
 
     rebindArrowEvents();
-    console.log('✅ 开背菜单生成完成');
 }
 
 // ========== 重新绑定箭头事件 ==========
@@ -680,7 +670,7 @@ function renderPreview(file, container) {
         const iframe = document.createElement('iframe');
         iframe.src = file.fileUrl;
         iframe.style.width = '100%';
-        iframe.style.height = '800px';
+        iframe.style.height = '00px';
         iframe.style.border = 'none';
         iframe.style.borderRadius = '4px';
 
@@ -1782,29 +1772,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ========== 启动初始化 ==========
-// 确保DOM完全加载后再执行
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-        console.log('DOM加载完成，开始初始化...');
-        init();
-        initStats();
-    });
-} else {
-    // DOM已经加载完成
-    console.log('DOM已加载，立即初始化...');
-    setTimeout(function () {
-        init();
-        initStats();
-    }, 100); // 稍微延迟确保所有元素都准备好了
-}
-
-// 添加一个后备方案，如果上面的没执行
-setTimeout(function () {
-    if (typeof generateMockExamMenu === 'function' &&
-        document.querySelectorAll('#mock-exams-submenu > li').length <= 1) {
-        console.log('执行后备初始化...');
-        generateMockExamMenu();
-        generateKaibeiMenu();
-    }
-}, 500);
+// 启动初始化
+init();
+initStats();

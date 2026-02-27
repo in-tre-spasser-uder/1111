@@ -638,3 +638,73 @@
             color: white;
             box-shadow: 0 0 0 4px rgba(251, 114, 153, 0.3);
         }
+
+        /* 移动端适配 */
+        @media screen and (max-width: 768px) {
+            .bili-nav {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 16px;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .nav-left {
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: 16px;
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .nav-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .nav-menu a {
+                font-size: 14px;
+                margin: 0;
+            }
+
+            /* 右侧区域 - 包含B站链接、返回按钮、数据内嵌 */
+            .nav-right {
+                width: 100%;
+                display: flex;
+                /* 合并到这里 */
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 8px;
+            }
+
+            /* B站UP主页链接所在的行 */
+            div[style*="color:#999"] {
+                width: 100%;
+                font-size: 13px;
+                white-space: normal;
+                line-height: 1.5;
+                margin: 5px 0;
+            }
+
+            /* 返回按钮和数据内嵌按钮 */
+            .back-button,
+            .link-double {
+                margin-left: 0 !important;
+                flex: 0 1 auto;
+                min-width: 80px;
+                text-align: center;
+            }
+
+            .back-button,
+            .link-double {
+                margin-left: 0 !important;
+                flex: 0 1 auto;
+                min-width: 80px;
+                text-align: center;
+            }
+        }

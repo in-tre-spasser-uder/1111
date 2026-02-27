@@ -725,7 +725,7 @@
     .preview-content {
         padding: 20px;
         min-height: 500px;
-        max-height: 3000px;
+        max-height: 2000px;
         overflow: auto;
         background: white;
         display: flex;

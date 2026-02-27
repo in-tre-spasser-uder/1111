@@ -670,7 +670,7 @@ function renderPreview(file, container) {
         const iframe = document.createElement('iframe');
         iframe.src = file.fileUrl;
         iframe.style.width = '100%';
-        iframe.style.height = '3000px';
+        iframe.style.height = '2000px';
         iframe.style.border = 'none';
         iframe.style.borderRadius = '4px';
 

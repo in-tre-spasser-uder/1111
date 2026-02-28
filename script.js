@@ -1691,42 +1691,6 @@ const aiFloatClearBtn = document.getElementById('aiFloatClearBtn');
 const aiFloatThemeBtn = document.getElementById('aiFloatThemeBtn');
 const aiModelName = document.getElementById('aiModelName');
 
-// AI配置
-const floatAIConfig = {
-    'deepseek': {
-        name: 'DeepSeek-V3',
-        apiKey: '2HwLYY4aow4s7sx5BUntcTsQ',  // 替换为您的API Key
-        apiUrl: 'https://api-ai.gitcode.com/v1/chat/completions',
-        welcomeMsg: '你好！我是DeepSeek-V3，可以帮你解答专升本问题',
-        // 添加模型特定配置
-        model: 'deepseek-ai/DeepSeek-V3',
-        maxTokens: 4096,
-        temperature: 0.6,
-        topP: 0.95,
-        topK: 50,
-        frequencyPenalty: 0,
-        thinkingBudget: 32768
-    },
-    'chatglm': {
-        name: 'ChatGLM',
-        apiKey: 'PASTE-YOUR-CHATGLM-API-KEY',
-        apiUrl: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
-        welcomeMsg: '你好！我是ChatGLM，很高兴为你提供学习帮助'
-    },
-    'qwen': {
-        name: '通义千问',
-        apiKey: 'PASTE-YOUR-QWEN-API-KEY',
-        apiUrl: 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation',
-        welcomeMsg: '你好！我是通义千问，让我们一起攻克专升本'
-    },
-    'ernie': {
-        name: '文心一言',
-        apiKey: 'PASTE-YOUR-ERNIE-API-KEY',
-        apiUrl: 'https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions',
-        welcomeMsg: '你好！我是文心一言，专为专升本备考设计'
-    }
-};
-
 // AI状态
 let floatCurrentModel = 'deepseek';
 let floatChatHistory = [];

@@ -6,12 +6,6 @@ api-keys.js
 .env.local
 .env.*.local
 
-# ========== 本地资料文件夹 ==========
-# 忽略整个zhuanshengben文件夹及其所有内容
-/zhuanshengben/
-zhuanshengben/
-*/zhuanshengben/*
-
 # ========== 敏感文件类型 ==========
 # 忽略所有包含敏感信息的文件类型
 *.key

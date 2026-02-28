@@ -1830,15 +1830,27 @@ async function sendFloatMessage() {
     const config = floatAIConfig[floatCurrentModel];
     floatController = new AbortController();
 
-    // 构建请求
-    let requestBody, headers = { 'Content-Type': 'application/json' };
+    try {
+        // 获取当前模型对应的modelId
+        let modelId = '';
+        if (floatCurrentModel === 'deepseek') {
+            modelId = API_CONFIG.gitcode.models.deepseek.modelId;
+        } else if (floatCurrentModel === 'chatglm') {
+            modelId = API_CONFIG.gitcode.models.glm5.modelId;
+        } else if (floatCurrentModel === 'qwen') {
+            modelId = API_CONFIG.gitcode.models.qwen35.modelId;
+        } else if (floatCurrentModel === 'ernie') {
+            modelId = API_CONFIG.gitcode.models.deepseek.modelId; // 默认使用DeepSeek
+        }
 
-    // 根据模型构建不同请求
-    if (floatCurrentModel === 'deepseek') {
-        headers['Authorization'] = `Bearer ${config.apiKey}`;
-        requestBody = {
-            model: config.model || 'deepseek-ai/DeepSeek-V3',
+        // GitCode API 统一请求格式
+        const requestBody = {
+            model: modelId,
             messages: [
+                {
+                    role: "system",
+                    content: "你是一个专升本备考助手，专门帮助用户解答专升本考试相关问题，包括政治、英语、高等数学、信息技术概论等科目。请用中文友好地回答用户问题。"
+                },
                 {
                     role: "user",
                     content: message
@@ -1850,58 +1862,38 @@ async function sendFloatMessage() {
             top_p: config.topP || 0.95,
             top_k: config.topK || 50,
             frequency_penalty: config.frequencyPenalty || 0,
-            thinking_budget: config.thinkingBudget || 32768
+            presence_penalty: 0
         };
-    } else if (floatCurrentModel === 'chatglm') {
-        headers['Authorization'] = `Bearer ${config.apiKey}`;
-        requestBody = {
-            model: 'glm-4',
-            messages: [
-                { role: 'system', content: '你是专升本备考助手，用中文回答' },
-                { role: 'user', content: message }
-            ]
-        };
-    } else if (floatCurrentModel === 'qwen') {
-        headers['Authorization'] = `Bearer ${config.apiKey}`;
-        requestBody = {
-            model: 'qwen-turbo',
-            input: {
-                messages: [
-                    { role: 'system', content: '你是专升本备考助手，用中文回答' },
-                    { role: 'user', content: message }
-                ]
-            }
-        };
-    } else if (floatCurrentModel === 'ernie') {
-        headers['Authorization'] = `Bearer ${config.apiKey}`;
-        requestBody = {
-            messages: [
-                { role: 'user', content: message }
-            ]
-        };
-    }
 
-    try {
+        // 添加thinking_budget（如果存在）
+        if (config.thinkingBudget) {
+            requestBody.thinking_budget = config.thinkingBudget;
+        }
+
         const response = await fetch(config.apiUrl, {
             method: 'POST',
-            headers: headers,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${config.apiKey}`
+            },
             body: JSON.stringify(requestBody),
             signal: floatController.signal
         });
 
         const data = await response.json();
-        if (!response.ok) throw new Error(data.error?.message || '请求失败');
+        
+        if (!response.ok) {
+            console.error('API错误详情:', data);
+            throw new Error(data.error?.message || `请求失败 (${response.status})`);
+        }
 
-        // 解析响应
+        // 解析响应 - GitCode API统一返回格式
         let responseText = '';
-        if (floatCurrentModel === 'deepseek') {
-            responseText = data.choices[0].message.content;
-        } else if (floatCurrentModel === 'chatglm') {
-            responseText = data.choices[0].message.content;
-        } else if (floatCurrentModel === 'qwen') {
-            responseText = data.output.choices[0].message.content;
-        } else if (floatCurrentModel === 'ernie') {
-            responseText = data.result;
+        if (data.choices && data.choices.length > 0) {
+            responseText = data.choices[0].message?.content || '未获取到回复内容';
+        } else {
+            responseText = 'API返回格式异常';
+            console.error('异常响应格式:', data);
         }
 
         // 更新消息
@@ -1915,6 +1907,7 @@ async function sendFloatMessage() {
 
     } catch (error) {
         if (error.name !== 'AbortError') {
+            console.error('请求错误:', error);
             updateBotMessage('抱歉，请求失败：' + error.message);
         }
     }

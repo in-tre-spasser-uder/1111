@@ -334,6 +334,24 @@ const fileData = {
     'mock-it-19': { name: '信息技术概论模拟卷19', files: [{ name: '信息技术概论模拟卷19.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷19.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷19答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷19答案.pdf', type: 'pdf' }] },
     'mock-it-20': { name: '信息技术概论模拟卷20', files: [{ name: '信息技术概论模拟卷20.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷20.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷20答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷20答案.pdf', type: 'pdf' }] },
 
+    // ===== 模拟题2 - 机构模拟题（成套）版本 =====
+    // 政治模拟题 1-20 机构模拟题（成套）
+    'mock2-politics-1': { name: '24佳鑫诺政治模拟卷', files: [{ name: '24佳鑫诺政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/24佳鑫诺政治模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/24佳鑫诺政治模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-politics-2': { name: '25佳鑫诺政治模拟卷', files: [{ name: '25佳鑫诺政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/25佳鑫诺政治模拟卷.pdf', type: 'pdf' }, { name: '25佳鑫诺政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/25佳鑫诺政治模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-politics-3': { name: '佳鑫诺超越营政治冲刺卷', files: [{ name: '佳鑫诺超越营政治冲刺卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/佳鑫诺超越营政治冲刺卷.pdf', type: 'pdf' }, { name: '佳鑫诺超越营政治冲刺卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/佳鑫诺超越营政治冲刺卷答案.pdf', type: 'pdf' }] },
+    // ... 继续添加4-20，按照相同格式，把fileUrl中的路径改为多一层 "机构模拟题（成套）/"
+
+    // 英语模拟题 1-20 机构模拟题（成套）
+    'mock2-english-1': { name: '英语模拟卷1', files: [{ name: '英语模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/英语/英语模拟卷1.pdf', type: 'pdf' }, { name: '英语模拟卷1答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/英语/英语模拟卷1答案.pdf', type: 'pdf' }] },
+    // ... 继续添加2-20
+
+    // 高数模拟题 1-20 机构模拟题（成套）
+    'mock2-math-1': { name: '高数模拟卷1', files: [{ name: '高数模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/高数一/高数模拟卷1.pdf', type: 'pdf' }, { name: '高数模拟卷1答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/高数一/高数模拟卷1答案.pdf', type: 'pdf' }] },
+    // ... 继续添加2-20
+
+    // 信息技术模拟题 1-20 机构模拟题（成套）
+    'mock2-it-1': { name: '信息技术模拟卷1', files: [{ name: '信息技术模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/信息技术概论/信息技术模拟卷1.pdf', type: 'pdf' }, { name: '信息技术模拟卷1答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/信息技术概论/信息技术模拟卷1答案.pdf', type: 'pdf' }] },
+    // ... 继续添加2-20
     // ===== 开背知识点 - 静态定义，每科3个（无答案） =====
     'kaibei-politics-1': { name: '政治开背知识点1', files: [{ name: '政治开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-politics-2': { name: '政治开背知识点2', files: [{ name: '政治开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点2.pdf', type: 'pdf' }] },

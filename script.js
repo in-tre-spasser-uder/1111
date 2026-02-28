@@ -620,6 +620,60 @@ const fileData = {
     'mock2-it-14': { name: '不会算法-信息技术概论模拟卷13', files: [{ name: '不会算法-信息技术概论模拟卷13.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷13.pdf', type: 'pdf' }] },
     'mock2-it-15': { name: '不会算法-信息技术概论模拟卷14', files: [{ name: '不会算法-信息技术概论模拟卷14.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷14.pdf', type: 'pdf' }] },
     'mock2-it-16': { name: '不会算法-信息技术概论模拟卷15', files: [{ name: '不会算法-信息技术概论模拟卷15.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷15.pdf', type: 'pdf' }] },
+    'mock2-it-17': {
+        name: '信息技术概论第一章', files: [
+            { name: '信息技术概论第一章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一章.pdf', type: 'pdf' },
+            { name: '信息技术概论第一至四章完整答案和解析.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一至四章完整答案和解析.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-18': {
+        name: '信息技术概论第二章', files: [
+            { name: '信息技术概论第二章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第二章.pdf', type: 'pdf' },
+            { name: '信息技术概论第一至四章完整答案和解析.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一至四章完整答案和解析.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-19': {
+        name: '信息技术概论第三章', files: [
+            { name: '信息技术概论第三章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第三章.pdf', type: 'pdf' },
+            { name: '信息技术概论第一至四章完整答案和解析.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一至四章完整答案和解析.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-20': {
+        name: '信息技术概论第四章', files: [
+            { name: '信息技术概论第四章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第四章.pdf', type: 'pdf' },
+            { name: '信息技术概论第一至四章完整答案和解析.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一至四章完整答案和解析.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-21': {
+        name: '信息技术概论第五章', files: [
+            { name: '信息技术概论第五章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第五章.pdf', type: 'pdf' },
+            { name: '信息技术概论第五章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第五章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-22': {
+        name: '信息技术概论第六章', files: [
+            { name: '信息技术概论第六章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第六章.pdf', type: 'pdf' },
+            { name: '信息技术概论第六章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第六章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-23': {
+        name: '信息技术概论第七章', files: [
+            { name: '信息技术概论第七章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第七章.pdf', type: 'pdf' },
+            { name: '信息技术概论第七章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第七章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-24': {
+        name: '信息技术概论第八章', files: [
+            { name: '信息技术概论第八章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第八章.pdf', type: 'pdf' },
+            { name: '信息技术概论第八章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第八章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-25': {
+        name: '信息技术概论第九章', files: [
+            { name: '信息技术概论第九章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第九章.pdf', type: 'pdf' },
+            { name: '信息技术概论第九章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第九章答案.pdf', type: 'pdf' }
+        ]
+    },
     // ===== 开背知识点 - 静态定义，每科3个（无答案） =====
     'kaibei-politics-1': { name: '政治开背知识点1', files: [{ name: '政治开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-politics-2': { name: '政治开背知识点2', files: [{ name: '政治开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点2.pdf', type: 'pdf' }] },

@@ -348,16 +348,22 @@ const fileData = {
     'mock2-english-2': { name: '25佳鑫诺英语模拟卷', files: [{ name: '25佳鑫诺英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/25佳鑫诺英语模拟卷.pdf', type: 'pdf' }, { name: '25佳鑫诺英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/25佳鑫诺英语模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-english-3': { name: '26佳鑫诺英语模拟卷', files: [{ name: '26佳鑫诺英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-english-4': { name: '佳鑫诺超越营英语冲刺卷', files: [{ name: '佳鑫诺超越营英语冲刺卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/佳鑫诺超越营英语冲刺卷.pdf', type: 'pdf' }, { name: '佳鑫诺超越营英语冲刺卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/佳鑫诺超越营英语冲刺卷答案.pdf', type: 'pdf' }] },
-    'mock2-english-5': { name: '库课英语', files: [{ name: '库课英语.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/库课库课英语.pdf', type: 'pdf' }, { name: '', fileUrl: './zhuanshengben/', type:'pdf'}] },
+    'mock2-english-5': { name: '库课英语', files: [{ name: '库课英语.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/库课库课英语.pdf', type: 'pdf' }, { name: '', fileUrl: './zhuanshengben/', type: 'pdf' }] },
     // ... 继续添加5-10，按照相同格式，把fileUrl中的路径改为多一层 "机构模拟题（成套）/"
 
     'mock2-english-8': { name: 'Molly英语模考押题卷3', files: [{ name: '26终版河北专升本英语模拟押题卷（三）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/Molly/26终版河北专升本英语模拟押题卷（三）.pdf', type: 'pdf' }, { name: '26终版河北专升本英语模拟押题卷（三）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/英语/Molly/26终版河北专升本英语模拟押题卷（三）答案.pdf', type: 'pdf' }] },
     // ... 继续添加8-20
 
     // 高数模拟题 1-20 机构模拟题（成套）
-    'mock2-math-1': { name: '24佳鑫诺高数一模拟卷', files: [{ name: '24佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/24佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/24佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
-    'mock2-math-2': { name: '25佳鑫诺高数一模拟卷', files: [{ name: '25佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/25佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '25佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/25佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
-    'mock2-math-3': { name: '26佳鑫诺高数一模拟卷', files: [{ name: '26佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/26佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/26佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-math-1': { name: '24佳鑫诺高数一模拟卷', files: [{ name: '24佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/24佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/24佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-math-2': { name: '25佳鑫诺高数一模拟卷', files: [{ name: '25佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/25佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '25佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/25佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-math-3': { name: '26佳鑫诺高数一模拟卷', files: [{ name: '26佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/26佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/26佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-math-4': { name: '26仿真模拟卷数一第一套', files: [{ name: '26仿真模拟卷数一第一套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第一套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第一套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第一套答案.pdf', type: 'pdf' }] },
+    'mock2-math-4': { name: '26仿真模拟卷数一第二套', files: [{ name: '26仿真模拟卷数一第二套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第二套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第二套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第二套答案.pdf', type: 'pdf' }] },
+    'mock2-math-5': { name: '26仿真模拟卷数一第三套', files: [{ name: '26仿真模拟卷数一第三套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第三套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第三套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第三套答案.pdf', type: 'pdf' }] },
+    'mock2-math-6': { name: '26仿真模拟卷数一第四套', files: [{ name: '26仿真模拟卷数一第四套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第四套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第四套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第四套答案.pdf', type: 'pdf' }] },
+    'mock2-math-7': { name: '佳鑫诺集训营综合演练数学12套', files: [{ name: '佳鑫诺集训营综合演练数学12套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺集训营综合演练数学12套.pdf', type: 'pdf' }, { name: '佳鑫诺集训营综合演练数学12套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺集训营综合演练数学12套答案.pdf', type: 'pdf' }] },
+    
     // ... 继续添加3-20
 
     // 信息技术模拟题 1-20 机构模拟题（成套）

@@ -265,30 +265,30 @@ const fileData = {
     'mock-it-4': { name: '信息技术概论模拟卷4', files: [{ name: '信息技术概论模拟卷4.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷4.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷4答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷4答案.pdf', type: 'pdf' }] },
     'mock-it-5': { name: '信息技术概论模拟卷5', files: [{ name: '信息技术概论模拟卷5.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷5.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷5答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概括略的题目和答案.txt', type: 'txt' }] },
     "mock-it-6": {
-        "name": "信息技 概 论 模拟 卷  6",
+        "name": "信息技概论模拟卷6",
         "files": [
             {
-                "name": "信息技 概 论 模拟 卷  6 . pdf",
+                "name": "信息技概论模拟卷6.pdf",
                 "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷6.pdf",
                 "type": "pdf"
             },
             {
-                "name": "信息技 概 论 模拟 卷   答案 . pdf",
+                "name": "信息技概论模拟卷6答案.pdf",
                 "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷6答案.pdf",
                 "type": "pdf"
             }
         ]
     },
     "mock-it-7": {
-        "name": "信息技 概 论 模拟 卷  7",
+        "name": "信息技概论模拟卷7",
         "files": [
             {
-                "name": "信息技 概 论 模拟 卷   7 . pdf",
+                "name": "信息技概论模拟卷7.pdf",
                 "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷7.pdf",
                 "type": "pdf"
             },
             {
-                "name": "信息技概述模擬 卷   答案 . pdf",
+                "name": "信息技概论模拟卷7答案.pdf",
                 "fileUrl": "./zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷7答案.pdf",
                 "type": "pdf"
             }
@@ -296,9 +296,9 @@ const fileData = {
     },
     // ... (other mock-it entries would be similarly updated)
 
-    'mock-it-12': { name: '信息技术概论模拟卷12', files: [{ name: '信息技术概论模拟卷12.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷12.pdf', type: 'pdf' }, { name: '  信息技 术 模拟 卷  12 答案 . pdf ', fileUrl: ' ./ zhuanshengben / 专 升 本 题 背 资 料 / 模 拟 题 / 信 息 技 术 概 论 / 信 息 技 术 模拟 卷  12 答案 . pdf ', type: ' pdf ' }] },
+    'mock-it-12': { name: '信息技术概论模拟卷12', files: [{ name: '信息技术概论模拟卷12.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷12.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷12答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷12答案.pdf', type: 'pdf' }] },
     "mock-it-13": {
-        "name": "信息技 概 论 模拟 卷  13",
+        "name": "信息技概论模拟卷13",
         "files": [
             {
                 "name": "信息技术概论模拟卷13.pdf",
@@ -376,6 +376,52 @@ const fileData = {
     'kaibei-it-1': { name: '信息技术开背知识点1', files: [{ name: '信息技术开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-it-2': { name: '信息技术开背知识点2', files: [{ name: '信息技术开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点2.pdf', type: 'pdf' }] },
     'kaibei-it-3': { name: '信息技术开背知识点3', files: [{ name: '信息技术开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点3.pdf', type: 'pdf' }] },
+
+    // ===== 开背知识点 - 政治（图片版） =====
+    'kaibei-politics-png-1': { name: '政治开背知识点1（图片）', files: [{ name: '政治开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.png', type: 'png' }] },
+    'kaibei-politics-png-2': { name: '政治开背知识点2（图片）', files: [{ name: '政治开背知识点2.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点2.png', type: 'png' }] },
+    'kaibei-politics-png-3': { name: '政治开背知识点3（图片）', files: [{ name: '政治开背知识点3.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点3.png', type: 'png' }] },
+    'kaibei-politics-png-4': { name: '政治开背知识点4（图片）', files: [{ name: '政治开背知识点4.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点4.png', type: 'png' }] },
+    'kaibei-politics-png-5': { name: '政治开背知识点5（图片）', files: [{ name: '政治开背知识点5.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点5.png', type: 'png' }] },
+    'kaibei-politics-png-6': { name: '政治开背知识点6（图片）', files: [{ name: '政治开背知识点6.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点6.png', type: 'png' }] },
+    'kaibei-politics-png-7': { name: '政治开背知识点7（图片）', files: [{ name: '政治开背知识点7.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点7.png', type: 'png' }] },
+    'kaibei-politics-png-8': { name: '政治开背知识点8（图片）', files: [{ name: '政治开背知识点8.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点8.png', type: 'png' }] },
+
+    // ===== 开背知识点 - 英语（图片版） =====
+    'kaibei-english-png-1': { name: '英语开背知识点1（图片）', files: [{ name: '英语开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点1.png', type: 'png' }] },
+    'kaibei-english-png-2': { name: '英语开背知识点2（图片）', files: [{ name: '英语开背知识点2.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点2.png', type: 'png' }] },
+    'kaibei-english-png-3': { name: '英语开背知识点3（图片）', files: [{ name: '英语开背知识点3.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点3.png', type: 'png' }] },
+    'kaibei-english-png-4': { name: '英语开背知识点4（图片）', files: [{ name: '英语开背知识点4.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点4.png', type: 'png' }] },
+    'kaibei-english-png-5': { name: '英语开背知识点5（图片）', files: [{ name: '英语开背知识点5.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点5.png', type: 'png' }] },
+    'kaibei-english-png-6': { name: '英语开背知识点6（图片）', files: [{ name: '英语开背知识点6.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点6.png', type: 'png' }] },
+    'kaibei-english-png-7': { name: '英语开背知识点7（图片）', files: [{ name: '英语开背知识点7.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点7.png', type: 'png' }] },
+    'kaibei-english-png-8': { name: '英语开背知识点8（图片）', files: [{ name: '英语开背知识点8.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点8.png', type: 'png' }] },
+    'kaibei-english-png-9': { name: '英语开背知识点9（图片）', files: [{ name: '英语开背知识点9.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点9.png', type: 'png' }] },
+    'kaibei-english-png-10': { name: '英语开背知识点10（图片）', files: [{ name: '英语开背知识点10.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点10.png', type: 'png' }] },
+    'kaibei-english-png-11': { name: '英语开背知识点11（图片）', files: [{ name: '英语开背知识点11.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点11.png', type: 'png' }] },
+    'kaibei-english-png-12': { name: '英语开背知识点12（图片）', files: [{ name: '英语开背知识点12.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点12.png', type: 'png' }] },
+    'kaibei-english-png-13': { name: '英语开背知识点13（图片）', files: [{ name: '英语开背知识点13.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点13.png', type: 'png' }] },
+    'kaibei-english-png-14': { name: '英语开背知识点14（图片）', files: [{ name: '英语开背知识点14.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点14.png', type: 'png' }] },
+    'kaibei-english-png-15': { name: '英语开背知识点15（图片）', files: [{ name: '英语开背知识点15.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点15.png', type: 'png' }] },
+
+    // ===== 开背知识点 - 高数（图片版） =====
+    'kaibei-math-png-1': { name: '高数开背知识点1（图片）', files: [{ name: '高数开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点1.png', type: 'png' }] },
+    'kaibei-math-png-2': { name: '高数开背知识点2（图片）', files: [{ name: '高数开背知识点2.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点2.png', type: 'png' }] },
+    'kaibei-math-png-3': { name: '高数开背知识点3（图片）', files: [{ name: '高数开背知识点3.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点3.png', type: 'png' }] },
+    'kaibei-math-png-4': { name: '高数开背知识点4（图片）', files: [{ name: '高数开背知识点4.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点4.png', type: 'png' }] },
+    'kaibei-math-png-5': { name: '高数开背知识点5（图片）', files: [{ name: '高数开背知识点5.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点5.png', type: 'png' }] },
+    'kaibei-math-png-6': { name: '高数开背知识点6（图片）', files: [{ name: '高数开背知识点6.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点6.png', type: 'png' }] },
+    'kaibei-math-png-7': { name: '高数开背知识点7（图片）', files: [{ name: '高数开背知识点7.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点7.png', type: 'png' }] },
+    'kaibei-math-png-8': { name: '高数开背知识点8（图片）', files: [{ name: '高数开背知识点8.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点8.png', type: 'png' }] },
+    'kaibei-math-png-9': { name: '高数开背知识点9（图片）', files: [{ name: '高数开背知识点9.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点9.png', type: 'png' }] },
+    'kaibei-math-png-10': { name: '高数开背知识点10（图片）', files: [{ name: '高数开背知识点10.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点10.png', type: 'png' }] },
+    'kaibei-math-png-11': { name: '高数开背知识点11（图片）', files: [{ name: '高数开背知识点11.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点11.png', type: 'png' }] },
+    'kaibei-math-png-12': { name: '高数开背知识点12（图片）', files: [{ name: '高数开背知识点12.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点12.png', type: 'png' }] },
+
+    // ===== 开背知识点 - 信息技术（图片版） =====
+    'kaibei-it-png-1': { name: '信息技术开背知识点1（图片）', files: [{ name: '信息技术开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点1.png', type: 'png' }] },
+    'kaibei-it-png-2': { name: '信息技术开背知识点2（图片）', files: [{ name: '信息技术开背知识点2.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点2.png', type: 'png' }] },
+    'kaibei-it-png-3': { name: '信息技术开背知识点3（图片）', files: [{ name: '信息技术开背知识点3.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点3.png', type: 'png' }] },
 
     'ai-tools': {
         name: '国产AI对比',

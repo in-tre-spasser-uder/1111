@@ -657,8 +657,9 @@ function renderFileContent(target, title) {
     if (!data) return null;
 
     let html = `
-        <svg viewBox="0 0 24 24">
-            <path d="M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 20h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2z" />
+            <path d="M4 8h16" stroke-dasharray="2 2" />
         </svg>
         <h2>${title}</h2>
         <div class="file-list">
@@ -762,7 +763,7 @@ function updateContent(target, linkText) {
     if (fileData[target]) {
         displayText = fileData[target].name || linkText;
         title = displayText;
-        iconPath = 'M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M9,7H7V17H9V7M13,7H11V17H13V7M17,7H15V17H17V7Z';
+        iconPath = 'M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z';
 
         const content = renderFileContent(target, title);
         if (content) {

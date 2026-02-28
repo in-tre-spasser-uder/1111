@@ -605,7 +605,21 @@ const fileData = {
 
     // 信息技术模拟题 1-20 机构模拟题（成套）
     'mock2-it-1': { name: '26北方黑马信息技术概论模拟卷', files: [{ name: '26北方黑马信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/26北方黑马信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/26北方黑马信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
-    // ... 继续添加2-20
+    'mock2-it-2': { name: '不会算法-信息技术概论模拟卷1', files: [{ name: '不会算法-信息技术概论模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷1.pdf', type: 'pdf' }] },
+    'mock2-it-3': { name: '不会算法-信息技术概论模拟卷2', files: [{ name: '不会算法-信息技术概论模拟卷2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷2.pdf', type: 'pdf' }] },
+    'mock2-it-4': { name: '不会算法-信息技术概论模拟卷3', files: [{ name: '不会算法-信息技术概论模拟卷3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷3.pdf', type: 'pdf' }] },
+    'mock2-it-5': { name: '不会算法-信息技术概论模拟卷4', files: [{ name: '不会算法-信息技术概论模拟卷4.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷4.pdf', type: 'pdf' }] },
+    'mock2-it-6': { name: '不会算法-信息技术概论模拟卷5', files: [{ name: '不会算法-信息技术概论模拟卷5.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷5.pdf', type: 'pdf' }] },
+    'mock2-it-7': { name: '不会算法-信息技术概论模拟卷6', files: [{ name: '不会算法-信息技术概论模拟卷6.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷6.pdf', type: 'pdf' }] },
+    'mock2-it-8': { name: '不会算法-信息技术概论模拟卷7', files: [{ name: '不会算法-信息技术概论模拟卷7.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷7.pdf', type: 'pdf' }] },
+    'mock2-it-9': { name: '不会算法-信息技术概论模拟卷8', files: [{ name: '不会算法-信息技术概论模拟卷8.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷8.pdf', type: 'pdf' }] },
+    'mock2-it-10': { name: '不会算法-信息技术概论模拟卷9', files: [{ name: '不会算法-信息技术概论模拟卷9.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷9.pdf', type: 'pdf' }] },
+    'mock2-it-11': { name: '不会算法-信息技术概论模拟卷10', files: [{ name: '不会算法-信息技术概论模拟卷10.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷10.pdf', type: 'pdf' }] },
+    'mock2-it-12': { name: '不会算法-信息技术概论模拟卷11', files: [{ name: '不会算法-信息技术概论模拟卷11.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷11.pdf', type: 'pdf' }] },
+    'mock2-it-13': { name: '不会算法-信息技术概论模拟卷12', files: [{ name: '不会算法-信息技术概论模拟卷12.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷12.pdf', type: 'pdf' }] },
+    'mock2-it-14': { name: '不会算法-信息技术概论模拟卷13', files: [{ name: '不会算法-信息技术概论模拟卷13.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷13.pdf', type: 'pdf' }] },
+    'mock2-it-15': { name: '不会算法-信息技术概论模拟卷14', files: [{ name: '不会算法-信息技术概论模拟卷14.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷14.pdf', type: 'pdf' }] },
+    'mock2-it-16': { name: '不会算法-信息技术概论模拟卷15', files: [{ name: '不会算法-信息技术概论模拟卷15.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷15.pdf', type: 'pdf' }] },
     // ===== 开背知识点 - 静态定义，每科3个（无答案） =====
     'kaibei-politics-1': { name: '政治开背知识点1', files: [{ name: '政治开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-politics-2': { name: '政治开背知识点2', files: [{ name: '政治开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点2.pdf', type: 'pdf' }] },

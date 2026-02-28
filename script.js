@@ -670,8 +670,14 @@ const fileData = {
     },
     'mock2-it-25': {
         name: '信息技术概论第九章', files: [
-            { name: '信息技术概论第九章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第九章.pdf', type: 'pdf' },
-            { name: '信息技术概论第九章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第九章答案.pdf', type: 'pdf' }
+            { name: '信息技术概论第九章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/信息技术概论第九章.pdf', type: 'pdf' },
+            { name: '信息技术概论第九章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/信息技术概论第九章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-26': {
+        name: '26佳鑫诺信息技术概论模拟卷', files: [
+            { name: '26佳鑫诺信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷.pdf', type: 'pdf' },
+            { name: '26佳鑫诺信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷答案.pdf', type: 'pdf' }
         ]
     },
     // ===== 开背知识点 - 静态定义，每科3个（无答案） =====

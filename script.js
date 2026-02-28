@@ -373,9 +373,9 @@ const fileData = {
     'kaibei-math-11': { name: '高数开背知识点11', files: [{ name: '高数开背知识点11.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点11.pdf', type: 'pdf' }] },
     'kaibei-math-12': { name: '高数开背知识点12', files: [{ name: '高数开背知识点12.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点12.pdf', type: 'pdf' }] },
 
-    'kaibei-it-1': { name: '信息技术开背知识点1', files: [{ name: '信息技术开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点1.pdf', type: 'pdf' }] },
-    'kaibei-it-2': { name: '信息技术开背知识点2', files: [{ name: '信息技术开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点2.pdf', type: 'pdf' }] },
-    'kaibei-it-3': { name: '信息技术开背知识点3', files: [{ name: '信息技术开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点3.pdf', type: 'pdf' }] },
+    'kaibei-it-1': { name: '信息技术开背知识点1', files: [{ name: '信息技术概论开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点1.pdf', type: 'pdf' }] },
+    'kaibei-it-2': { name: '信息技术开背知识点2', files: [{ name: '信息技术概论开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点2.pdf', type: 'pdf' }] },
+    'kaibei-it-3': { name: '信息技术开背知识点3', files: [{ name: '信息技术概论开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点3.pdf', type: 'pdf' }] },
 
     // ===== 开背知识点 - 政治（图片版） =====
     'kaibei-politics-png-1': { name: '政治开背知识点1（图片）', files: [{ name: '政治开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.png', type: 'png' }] },
@@ -419,9 +419,9 @@ const fileData = {
     'kaibei-math-png-12': { name: '高数开背知识点12（图片）', files: [{ name: '高数开背知识点12.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点12.png', type: 'png' }] },
 
     // ===== 开背知识点 - 信息技术（图片版） =====
-    'kaibei-it-png-1': { name: '信息技术开背知识点1（图片）', files: [{ name: '信息技术开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点1.png', type: 'png' }] },
-    'kaibei-it-png-2': { name: '信息技术开背知识点2（图片）', files: [{ name: '信息技术开背知识点2.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点2.png', type: 'png' }] },
-    'kaibei-it-png-3': { name: '信息技术开背知识点3（图片）', files: [{ name: '信息技术开背知识点3.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术开背知识点3.png', type: 'png' }] },
+    'kaibei-it-png-1': { name: '信息技术开背知识点1（图片）', files: [{ name: '信息技术开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点1.png', type: 'png' }] },
+    'kaibei-it-png-2': { name: '信息技术开背知识点2（图片）', files: [{ name: '信息技术开背知识点2.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点2.png', type: 'png' }] },
+    'kaibei-it-png-3': { name: '信息技术开背知识点3（图片）', files: [{ name: '信息技术开背知识点3.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点3.png', type: 'png' }] },
 
     'ai-tools': {
         name: '国产AI对比',

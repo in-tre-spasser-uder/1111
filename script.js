@@ -364,10 +364,244 @@ const fileData = {
     'mock2-math-6': { name: '26仿真模拟卷数一第四套', files: [{ name: '26仿真模拟卷数一第四套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第四套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第四套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第四套答案.pdf', type: 'pdf' }] },
     'mock2-math-7': { name: '佳鑫诺集训营综合演练数学12套', files: [{ name: '佳鑫诺集训营综合演练数学12套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺集训营综合演练数学12套.pdf', type: 'pdf' }, { name: '佳鑫诺集训营综合演练数学12套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺集训营综合演练数学12套答案.pdf', type: 'pdf' }] },
     'mock2-math-8': { name: '高等数学（上册）精选750题', files: [{ name: '高等数学（上册）精选750题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题.pdf', type: 'pdf' }, { name: '高等数学（上册）精选750题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题答案.pdf', type: 'pdf' }] },
-    'mock2-math-9': { name: '2023 考研数学 复习全书・基础篇', files: [{ name: '2023 考研数学 复习全书・基础篇.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇.pdf', type: 'pdf' }, { name: '2023 考研数学 复习全书・基础篇答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇答案.pdf', type: 'pdf' }] },
+    'mock2-math-9': { name: '2023 考研数学 复习全书・基础篇', files: [{ name: '2023 考研数学 复习全书・基础篇.pdf', fileUrl: './zhuanshengben/机构模拟题（成套）/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇.pdf', type: 'pdf' }, { name: '2023 考研数学 复习全书・基础篇答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇答案.pdf', type: 'pdf' }] },
     'mock2-math-10': { name: '2023数学基础过关660题习题册（数学一）', files: [{ name: '2023数学基础过关660题习题册（数学一）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学一）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题习题册（数学一）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学一）.pdf', type: 'pdf' }] },
     'mock2-math-11': { name: '2023数学基础过关660题习题册（数学二）', files: [{ name: '2023数学基础过关660题习题册（数学二）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学二）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题习题册（数学二）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学二）.pdf', type: 'pdf' }] },
-    // ... 继续添加3-20
+    'mock2-math-12': { name: '第一章1-求函数的定义域', files: [{ name: '第一章1-求函数的定义域.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章1-求函数的定义域.pdf', type: 'pdf' }] },
+    'mock2-math-13': { name: '第一章2-判断函数的同一性', files: [{ name: '第一章2-判断函数的同一性.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章2-判断函数的同一性.pdf', type: 'pdf' }] },
+    'mock2-math-14': { name: '第一章3-函数的性质', files: [{ name: '第一章3-函数的性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章3-函数的性质.pdf', type: 'pdf' }] },
+    'mock2-math-15': { name: '第一章4-函数的解析式', files: [{ name: '第一章4-函数的解析式.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章4-函数的解析式.pdf', type: 'pdf' }] },
+    'mock2-math-16': { name: '第一章5-极限的计算', files: [{ name: '第一章5-极限的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章5-极限的计算.pdf', type: 'pdf' }] },
+    'mock2-math-17': { name: '第一章6-等价无穷小代换', files: [{ name: '第一章6-等价无穷小代换.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章6-等价无穷小代换.pdf', type: 'pdf' }] },
+    'mock2-math-18': { name: '第一章7-两个重要极限', files: [{ name: '第一章7-两个重要极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章7-两个重要极限.pdf', type: 'pdf' }] },
+    'mock2-math-19': { name: '第一章8-无穷小与无穷大', files: [{ name: '第一章8-无穷小与无穷大.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章8-无穷小与无穷大.pdf', type: 'pdf' }] },
+    'mock2-math-20': { name: '第一章9-数列极限', files: [{ name: '第一章9-数列极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章9-数列极限.pdf', type: 'pdf' }] },
+    'mock2-math-21': { name: '第一章10-函数的连续性', files: [{ name: '第一章10-函数的连续性.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章10-函数的连续性.pdf', type: 'pdf' }] },
+    'mock2-math-22': { name: '第一章11-函数的间断点', files: [{ name: '第一章11-函数的间断点.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章11-函数的间断点.pdf', type: 'pdf' }] },
+    'mock2-math-23': { name: '第二章1-导数的定义', files: [{ name: '第二章1-导数的定义.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章1-导数的定义.pdf', type: 'pdf' }] },
+    'mock2-math-24': { name: '第二章2-初等函数的求导', files: [{ name: '第二章2-初等函数的求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章2-初等函数的求导.pdf', type: 'pdf' }] },
+    'mock2-math-25': { name: '第二章3-隐函数的求导', files: [{ name: '第二章3-隐函数的求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章3-隐函数的求导.pdf', type: 'pdf' }] },
+    'mock2-math-26': { name: '第二章4-参数方程的求导', files: [{ name: '第二章4-参数方程的求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章4-参数方程的求导.pdf', type: 'pdf' }] },
+    'mock2-math-27': {
+        name: '第二章5幂指函数和对数函数的求导',
+        files: [{
+            name: '第二章5幂指函数和对数函数的求导.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章5幂指函数和对数函数的求导.pdf',
+            type: 'pdf'
+        }]
+    },
+    'mock2-math-28': { name: '第二章6-高阶导数的计算', files: [{ name: '第二章6-高阶导数的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章6-高阶导数的计算.pdf', type: 'pdf' }] },
+    'mock2-math-29': { name: '第二章7-微分的计算', files: [{ name: '第二章7-微分的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章7-微分的计算.pdf', type: 'pdf' }] },
+    'mock2-math-30': { name: '第二章8-导数的几何意义', files: [{ name: '第二章8-导数的几何意义.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章8-导数的几何意义.pdf', type: 'pdf' }] },
+    'mock2-math-31': { name: '第二章9-可导、连续与极限存在的关系', files: [{ name: '第二章9-可导、连续与极限存在的关系.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章9-可导、连续与极限存在的关系.pdf', type: 'pdf' }] },
+    'mock2-math-32': { name: '第二章10-中值定理', files: [{ name: '第二章10-中值定理.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章10-中值定理.pdf', type: 'pdf' }] },
+    'mock2-math-33': { name: '第二章11-洛必达法则', files: [{ name: '第二章11-洛必达法则.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章11-洛必达法则.pdf', type: 'pdf' }] },
+    'mock2-math-34': { name: '第二章12-单调性与极值', files: [{ name: '第二章12-单调性与极值.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章12-单调性与极值.pdf', type: 'pdf' }] },
+    'mock2-math-35': {
+        name: '第二章13-凹凸性与拐点', files: [{
+            name: '第二章13凹凸性与拐点.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章13凹凸性与拐点.pdf',
+            type: 'pdf'
+        }]
+    },
+    'mock2-math-36': {
+        name: '第二章14最值',
+        files: [{
+            name: '第二章14最值.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章14最值.pdf',
+            type: 'pdf'
+        }]
+    },
+    'mock2-math-37': {
+        name: '第二章15曲线的渐近线',
+        files: [{
+            name: '第二章15曲线的渐近线.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章15曲线的渐近线.pdf',
+            type: 'pdf'
+        }]
+    },
+    'mock2-math-38': { name: '第三章1-不定积分的概念与性质', files: [{ name: '第三章1-不定积分的概念与性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第三章1-不定积分的概念与性质.pdf', type: 'pdf' }] },
+    'mock2-math-39': { name: '第三章2-不定积分的直接积分法', files: [{ name: '第三章2-不定积分的直接积分法.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第三章2-不定积分的直接积分法.pdf', type: 'pdf' }] },
+    'mock2-math-40': { name: '第三章3-不定积分的第一类换元积分法（凑微分法）', files: [{ name: '第三章3-不定积分的第一类换元积分法（凑微分法）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第三章3-不定积分的第一类换元积分法（凑微分法）.pdf', type: 'pdf' }] },
+    'mock2-math-41': {
+        name: '1.1 函数', files: [
+            { name: '1.1 函数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/1.1 函数.pdf', type: 'pdf' },
+            { name: '1.1 函数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/1.1 函数.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-42': {
+        name: '1.2 极限', files: [
+            { name: '1.2 极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/1.2 极限.pdf', type: 'pdf' },
+            { name: '1.2 极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/1.2 极限.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-43': {
+        name: '1.3 连续', files: [
+            { name: '1.3 连续.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/1.3 连续.pdf', type: 'pdf' },
+            { name: '1.3 连续.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/1.3 连续.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-44': {
+        name: '2.1 导数的概念', files: [
+            { name: '2.1 导数的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.1 导数的概念.pdf', type: 'pdf' },
+            { name: '2.1 导数的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.1 导数的概念.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-45': {
+        name: '2.2 一元函数的求导法则', files: [
+            { name: '2.2 一元函数的求导法则.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.2 一元函数的求导法则.pdf', type: 'pdf' },
+            { name: '2.2 一元函数的求导法则.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.2 一元函数的求导法则.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-46': {
+        name: '2.3 高阶导数', files: [
+            { name: '2.3 高阶导数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.3 高阶导数.pdf', type: 'pdf' },
+            { name: '2.3 高阶导数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.3 高阶导数.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-47': {
+        name: '2.4 隐函数及参数方程求导', files: [
+            { name: '2.4 隐函数及由参数方程所确定的函数的导数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.4 隐函数及由参数方程所确定的函数的导数.pdf', type: 'pdf' },
+            { name: '2.4 隐函数求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.4 隐函数求导.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-48': {
+        name: '2.5 函数的微分', files: [
+            { name: '2.5 函数的微分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.5 函数的微分.pdf', type: 'pdf' },
+            { name: '2.5 微分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.5 微分.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-49': {
+        name: '2.6 微分中值定理', files: [
+            { name: '2.6 微分中值定理.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.6 微分中值定理.pdf', type: 'pdf' },
+            { name: '2.6 微分中值定理.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.6 微分中值定理.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-50': {
+        name: '2.7 导数的应用', files: [
+            { name: '2.7 导数的应用_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.7 导数的应用_1.pdf', type: 'pdf' },
+            { name: '2.7 导数的应用_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.7 导数的应用_2.pdf', type: 'pdf' },
+            { name: '2.7 导数的应用_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.7 导数的应用_1.pdf', type: 'pdf' },
+            { name: '2.7 导数的应用_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.7 导数的应用_2.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-51': {
+        name: '3.1 不定积分', files: [
+            { name: '3.1 不定积分_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.1 不定积分_1.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.1 不定积分_2.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.1 不定积分_3.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.1 不定积分_1.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.1 不定积分_2.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.1 不定积分_3.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-52': {
+        name: '3.2 定积分的概念与性质', files: [
+            { name: '3.2 定积分的概念与性质_3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.2 定积分的概念与性质_3.pdf', type: 'pdf' },
+            { name: '3.2 定积分_345.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.2 定积分_345.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-53': {
+        name: '3.2 定积分的概念与计算(一)', files: [
+            { name: '3.2 定积分的概念与计算_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.2 定积分的概念与计算_1.pdf', type: 'pdf' },
+            { name: '3.2 定积分_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.2 定积分_1.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-54': {
+        name: '3.2 定积分的概念与计算(二)', files: [
+            { name: '3.2 定积分的概念与计算_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.2 定积分的概念与计算_2.pdf', type: 'pdf' },
+            { name: '3.2 定积分_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.2 定积分_2.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-55': {
+        name: '3.3 广义积分', files: [
+            { name: '3.3 广义积分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.3 广义积分.pdf', type: 'pdf' },
+            { name: '3.3 广义积分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.3 广义积分.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-56': {
+        name: '4.1 常微分方程的概念', files: [
+            { name: '4.1 常微分方程的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.1 常微分方程的概念.pdf', type: 'pdf' },
+            { name: '4.1 微分方程概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.1 微分方程概念.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-57': {
+        name: '4.2 一阶微分方程(一)', files: [
+            { name: '4.2 一阶微分方程_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.2 一阶微分方程_1.pdf', type: 'pdf' },
+            { name: '4.2 一阶微分方程_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.2 一阶微分方程_1.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-58': {
+        name: '4.2 一阶微分方程(二)', files: [
+            { name: '4.2 一阶微分方程_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.2 一阶微分方程_2.pdf', type: 'pdf' },
+            { name: '4.2 一阶微分方程_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.2 一阶微分方程_2.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-59': {
+        name: '4.4 二阶常系数线性微分方程(一)', files: [
+            { name: '4.4 二阶常系数线性微分方程_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.4 二阶常系数线性微分方程_1.pdf', type: 'pdf' },
+            { name: '4.4 二阶常系数线性微分方程.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.4 二阶常系数线性微分方程.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-60': {
+        name: '4.4 二阶常系数线性微分方程(二)', files: [
+            { name: '4.4 二阶常系数线性微分方程_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.4 二阶常系数线性微分方程_2.pdf', type: 'pdf' },
+            { name: '4.4 二阶非齐次微分方程.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.4 二阶非齐次微分方程.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-61': {
+        name: '6.1 多元函数的概念', files: [
+            { name: '6.1 多元函数的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/6.1 多元函数的概念.pdf', type: 'pdf' },
+            { name: '6.1 多元函数的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/6.1 多元函数的概念.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-62': {
+        name: '6.2 偏导数与全微分', files: [
+            { name: '6.2 偏导数与全微分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/6.2 偏导数与全微分.pdf', type: 'pdf' },
+            { name: '6.2 偏导数与全微分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/6.2 偏导数与全微分.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-63': {
+        name: '6.3 方向导数与梯度', files: [
+            { name: '6.3 方向导数与梯度.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/6.3 方向导数与梯度.pdf', type: 'pdf' },
+            { name: '6.3 方向导数与梯度.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/6.3 方向导数与梯度.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-64': {
+        name: '6.5 多元函数的极值及应用', files: [
+            { name: '6.5 多元函数的极值及应用.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/6.5 多元函数的极值及应用.pdf', type: 'pdf' },
+            { name: '6.5 多元函数的极值与最值.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/6.5 多元函数的极值与最值.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-65': {
+        name: '7.1 二重积分的概念以及性质', files: [
+            { name: '7.1 二重积分的概念以及性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/7.1 二重积分的概念以及性质.pdf', type: 'pdf' },
+            { name: '7.1 二重积分的概念及性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/7.1 二重积分的概念及性质.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-66': {
+        name: '7.2 二重积分的计算(一)', files: [
+            { name: '7.2 二重积分的计算下.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/7.2 二重积分的计算下.pdf', type: 'pdf' },
+            { name: '7.2 二重积分的计算_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/7.2 二重积分的计算_1.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-67': {
+        name: '7.2 二重积分的计算及应用', files: [
+            { name: '7.2 二重积分的计算及应用.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/7.2 二重积分的计算及应用.pdf', type: 'pdf' },
+            { name: '7.2 二重积分的计算_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/7.2 二重积分的计算_2.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-68': {
+        name: '8.1 常数项级数的概念及性质', files: [
+            { name: '8.1 常数项级数的概念及性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/8.1 常数项级数的概念及性质.pdf', type: 'pdf' },
+            { name: '8.1 常数项级数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/8.1 常数项级数.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-69': {
+        name: '8.2 常数项级数的审敛法', files: [
+            { name: '8.2 常数项级数的审敛法.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/8.2 常数项级数的审敛法.pdf', type: 'pdf' },
+            { name: '8.2 常数项级数敛散性型的判断.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/8.2 常数项级数敛散性型的判断.pdf', type: 'pdf' }
+        ]
+    },// ... 继续添加3-20
 
     // 信息技术模拟题 1-20 机构模拟题（成套）
     'mock2-it-1': { name: '信息技术模拟卷1', files: [{ name: '信息技术模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术模拟卷1.pdf', type: 'pdf' }, { name: '信息技术模拟卷1答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术模拟卷1答案.pdf', type: 'pdf' }] },

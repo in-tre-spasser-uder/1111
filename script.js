@@ -339,6 +339,7 @@ const fileData = {
     'mock2-politics-1': { name: '24佳鑫诺政治模拟卷', files: [{ name: '24佳鑫诺政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/24佳鑫诺政治模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/24佳鑫诺政治模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-politics-2': { name: '25佳鑫诺政治模拟卷', files: [{ name: '25佳鑫诺政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/25佳鑫诺政治模拟卷.pdf', type: 'pdf' }, { name: '25佳鑫诺政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/25佳鑫诺政治模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-politics-3': { name: '佳鑫诺超越营政治冲刺卷', files: [{ name: '佳鑫诺超越营政治冲刺卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/佳鑫诺超越营政治冲刺卷.pdf', type: 'pdf' }, { name: '佳鑫诺超越营政治冲刺卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/佳鑫诺/佳鑫诺超越营政治冲刺卷答案.pdf', type: 'pdf' }] },
+    'mock2-politics-4': { name: '库课政治', files: [{ name: '库课政治.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/库课政治.pdf', type: 'pdf' }, { name: '库课政治.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/政治/库课政治.pdf', type: 'pdf' }] },
     // ... 继续添加4-20，按照相同格式，把fileUrl中的路径改为多一层 "机构模拟题（成套）/"
 
     // 英语模拟题 1-20 机构模拟题（成套）

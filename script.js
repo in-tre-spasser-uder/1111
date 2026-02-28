@@ -604,7 +604,7 @@ const fileData = {
     },// ... 继续添加3-20
 
     // 信息技术模拟题 1-20 机构模拟题（成套）
-    'mock2-it-1': { name: '信息技术模拟卷1', files: [{ name: '信息技术模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术模拟卷1.pdf', type: 'pdf' }, { name: '信息技术模拟卷1答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术模拟卷1答案.pdf', type: 'pdf' }] },
+    'mock2-it-1': { name: '26北方黑马信息技术概论模拟卷', files: [{ name: '26北方黑马信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/26北方黑马信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/26北方黑马信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
     // ... 继续添加2-20
     // ===== 开背知识点 - 静态定义，每科3个（无答案） =====
     'kaibei-politics-1': { name: '政治开背知识点1', files: [{ name: '政治开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.pdf', type: 'pdf' }] },

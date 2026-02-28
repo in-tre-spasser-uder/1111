@@ -364,8 +364,9 @@ const fileData = {
     'mock2-math-6': { name: '26仿真模拟卷数一第四套', files: [{ name: '26仿真模拟卷数一第四套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第四套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第四套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第四套答案.pdf', type: 'pdf' }] },
     'mock2-math-7': { name: '佳鑫诺集训营综合演练数学12套', files: [{ name: '佳鑫诺集训营综合演练数学12套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺集训营综合演练数学12套.pdf', type: 'pdf' }, { name: '佳鑫诺集训营综合演练数学12套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺集训营综合演练数学12套答案.pdf', type: 'pdf' }] },
     'mock2-math-8': { name: '高等数学（上册）精选750题', files: [{ name: '高等数学（上册）精选750题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题.pdf', type: 'pdf' }, { name: '高等数学（上册）精选750题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题答案.pdf', type: 'pdf' }] },
-    'mock2-math-8': { name: '高等数学（上册）精选750题', files: [{ name: '高等数学（上册）精选750题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题.pdf', type: 'pdf' }, { name: '高等数学（上册）精选750题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题答案.pdf', type: 'pdf' }] },
-    
+    'mock2-math-9': { name: '2023 考研数学 复习全书・基础篇', files: [{ name: '2023 考研数学 复习全书・基础篇.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇.pdf', type: 'pdf' }, { name: '2023 考研数学 复习全书・基础篇答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇答案.pdf', type: 'pdf' }] },
+    'mock2-math-10': { name: '2023数学基础过关660题习题册（数学一）', files: [{ name: '2023数学基础过关660题习题册（数学一）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学一）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题习题册（数学一）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学一）.pdf', type: 'pdf' }] },
+    'mock2-math-11': { name: '2023数学基础过关660题习题册（数学二）', files: [{ name: '2023数学基础过关660题习题册（数学二）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学二）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题习题册（数学二）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学二）.pdf', type: 'pdf' }] },
     // ... 继续添加3-20
 
     // 信息技术模拟题 1-20 机构模拟题（成套）

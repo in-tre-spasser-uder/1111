@@ -4,92 +4,616 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>河北数学 · 92课时 · 内嵌分P数据</title>
-<link rel="icon" href="https://www.bilibili.com/favicon.ico" type="image/x-icon">
+    <title>河北专接本 · 首页 · 四科导航</title>
+    <link rel="icon" href="https://www.bilibili.com/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link href="./style.css" rel="stylesheet">
+    <style>
+        /* ---------- 基础样式（与你原有样式完全一致，仅微调首页展示） ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background-color: #f4f4f4;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bili-nav {
+            background-color: #ffffff;
+            height: 60px;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            flex-shrink: 0;
+            z-index: 100;
+        }
+
+        .back-button {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 6px 18px;
+            color: #FB7299;
+            border: 2px solid #FB7299;
+            border-radius: 30px;
+            transition: 4s;
+            margin-left: 15px;
+            line-height: 1.5;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .back-button:before,
+        .back-button:after {
+            content: "";
+            position: absolute;
+            top: -1.5em;
+            z-index: -1;
+            width: 200%;
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 40%;
+            background-color: rgba(251, 114, 153, 0.25);
+            transition: 4s;
+        }
+
+        .back-button:before {
+            left: -80%;
+            transform: translate3d(0, 5em, 0) rotate(-340deg);
+        }
+
+        .back-button:after {
+            right: -80%;
+            transform: translate3d(0, 5em, 0) rotate(390deg);
+        }
+
+        .back-button:hover,
+        .back-button:focus {
+            color: white;
+        }
+
+        .back-button:hover:before,
+        .back-button:hover:after,
+        .back-button:focus:before,
+        .back-button:focus:after {
+            transform: none;
+            background-color: rgba(251, 114, 153, 0.75);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FB7299;
+            cursor: default;
+            white-space: nowrap;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            margin: 0 6px;
+        }
+
+        .nav-menu a:hover {
+            color: #FB7299;
+        }
+
+        .nav-right .upload-btn {
+            background-color: #FB7299;
+            border: none;
+            border-radius: 30px;
+            padding: 6px 16px;
+            color: white;
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: default;
+            opacity: 0.8;
+            white-space: nowrap;
+        }
+
+        /* 首页大卡片容器 —— 不同于视频页，此处展示科目导航 */
+        .page-container {
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            overflow-y: auto;
+        }
+
+        /* 欢迎横幅 */
+        .hero-section {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 100%);
+            border-radius: 36px;
+            padding: 32px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ffdae2;
+            box-shadow: 0 12px 24px -8px rgba(251, 114, 153, 0.2);
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 12px;
+        }
+
+        .hero-text h1 span {
+            color: #FB7299;
+            background: #fff1f5;
+            padding: 0 12px;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #5a4a4f;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .hero-emoji {
+            font-size: 5rem;
+            filter: drop-shadow(0 8px 12px rgba(251, 114, 153, 0.3));
+        }
+
+        /* 科目网格布局 */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 26px;
+            margin: 16px 0 8px;
+        }
+
+        .subject-card {
+            background: white;
+            border-radius: 32px;
+            padding: 26px 22px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            transition: 0.25s ease;
+            border: 1px solid #f0e0e4;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 40px rgba(251, 114, 153, 0.15);
+            border-color: #FB7299;
+        }
+
+        .card-icon {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            background: #fff0f3;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            color: #FB7299;
+            transition: 0.2s;
+        }
+
+        .subject-card:hover .card-icon {
+            background: #FB7299;
+            color: white;
+        }
+
+        .subject-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subject-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 16px 0 8px;
+            color: #5d5d5d;
+            font-size: 0.95rem;
+        }
+
+        .subject-meta i {
+            color: #FB7299;
+            width: 22px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: #f8f4f5;
+            padding: 4px 12px;
+            border-radius: 30px;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #FB7299;
+            color: white;
+            font-size: 0.8rem;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 6px 12px rgba(251, 114, 153, 0.3);
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: #FB7299;
+            font-weight: 500;
+            gap: 5px;
+            border-top: 1px dashed #ffd9e1;
+            padding-top: 16px;
+        }
+
+        .card-footer i {
+            transition: transform 0.2s;
+        }
+
+        .subject-card:hover .card-footer i {
+            transform: translateX(6px);
+        }
+
+        /* 信息条 */
+        .info-bar {
+            background: #ffffffd6;
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            padding: 16px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ffe3e8;
+            color: #4f4f4f;
+            font-size: 1rem;
+            margin: 10px 0 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .info-bar i {
+            color: #FB7299;
+            margin-right: 6px;
+        }
+
+        .up-highlight {
+            background: #fff1f5;
+            padding: 8px 22px;
+            border-radius: 40px;
+            color: #b14567;
+            font-weight: 500;
+        }
+
+        .up-highlight a {
+            color: #FB7299;
+            text-decoration: none;
+            font-weight: 700;
+            margin-left: 5px;
+            border-bottom: 2px dotted #FB7299;
+        }
+
+        /* 底部装饰 */
+        .footer-note {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .footer-note i {
+            color: #FB7299;
+        }
+
+        /* 原有导航链接样式（滑动下划线、手绘涂鸦、双层边框）保留 */
+        .link-modern {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .link-modern::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #FB7299;
+            transition: width 0.3s ease;
+        }
+
+        .link-modern:hover {
+            color: #FB7299;
+        }
+
+        .link-modern:hover::after {
+            width: 100%;
+        }
+
+        .link-doodle {
+            text-decoration: none;
+            color: #B35A7A;
+            font-weight: 600;
+            background: linear-gradient(to right, #FB7299, #FFB6C1) no-repeat right bottom;
+            background-size: 0 2px;
+            transition: background-size 0.3s;
+            padding-bottom: 4px;
+            display: inline-block;
+        }
+
+        .link-doodle:hover {
+            background-position: left bottom;
+            background-size: 100% 2px;
+            color: #FB7299;
+        }
+
+        .link-double {
+            text-decoration: none;
+            padding: 6px 18px;
+            border: 2px solid #FB7299;
+            color: #FB7299;
+            font-weight: 600;
+            border-radius: 30px;
+            background: transparent;
+            transition: all 0.1s linear;
+            display: inline-block;
+            box-shadow: 0 0 0 0 #FB7299;
+            font-size: 13px;
+        }
+
+        .link-double:hover {
+            background: #FB7299;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(251, 114, 153, 0.3);
+        }
+
+        /* 移动端适配 (保持与原style一致) */
+        @media screen and (max-width: 768px) {
+            .bili-nav {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 16px;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .nav-left {
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: 16px;
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .nav-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .nav-menu a {
+                font-size: 14px;
+                margin: 0;
+            }
+
+            div[style*="color:#999"] {
+                width: 100%;
+                font-size: 13px;
+                white-space: normal;
+                line-height: 1.5;
+                margin: 5px 0;
+            }
+
+            .back-button,
+            .link-double {
+                margin-left: 0 !important;
+                flex: 0 1 auto;
+                min-width: 80px;
+                text-align: center;
+            }
+
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-emoji {
+                font-size: 4rem;
+                margin-top: 15px;
+            }
+
+            .subjects-grid {
+                gap: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- 头部导航 (和原页面完全一致，链接指向各科目) -->
     <header class="bili-nav">
         <div class="nav-left">
-            <div class="logo">河北专接本数学 · 92课时</div>
-            <div class="nav-menu"><a href="./首页.html" class="link-modern">首页</a><a href="./政治.html"
-                    class="link-modern">政治</a><a href="#" class="link-modern"></a><a href="./英语.html"
-                    class="link-modern">英语</a></a><a href="./高数.html" class="link-modern">高数</a></a><a
-                    href="./信息技术概论.html" class="link-modern">信息技术概论</a></div>
+            <div class="logo">📘 河北专接本 · 首页</div>
+            <div class="nav-menu">
+                <a href="./首页.html" class="link-modern">首页</a>
+                <a href="./政治.html" class="link-modern">政治</a>
+                <a href="./英语.html" class="link-modern">英语</a>
+                <a href="./高数.html" class="link-modern">高数</a>
+                <a href="./信息技术概论.html" class="link-modern">信息技术概论</a>
+            </div>
         </div>
         <div style="color:#999; display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
-            <span>怎么找到这个博主？→</span>
-            <a href="https://space.bilibili.com/1511888480?spm_id_from=333.788.upinfo.head.click" target="_blank"
-                class="link-doodle">B站UP主页</a>
             <div class="nav-right" style="display: flex; align-items: center; gap: 10px; margin-left: auto;">
-                <a href="../index.html" class="back-button">返回</a>
+                <!-- 返回按钮保留，这里用做占位，可指向原index或外部 -->
+                <a href="../index.html" class="back-button">返回导航</a>
                 <a href="javascript:void(0)" class="link-double" style="pointer-events: none; opacity:0.8;"><i
                         class="fa-regular fa-bookmark"></i> 数据内嵌</a>
             </div>
         </div>
     </header>
 
+    <!-- 首页主要内容 —— 四科入口卡片 (不再有播放器和侧边栏) -->
     <div class="page-container">
-        <div class="video-main">
-            <div class="video-header" style="margin-bottom:8px;">
-                <h1 style="font-size:20px;" id="currentVideoTitle">选择下方课时开始观看</h1>
+        <!-- 欢迎横幅 -->
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1>河北专接本 <span>· 冲刺本科</span></h1>
+                <p><i class="fa-regular fa-circle-check" style="color:#FB7299;"></i> 整合四科优质课时 · 点击卡片直接跳转对应科目</p>
+                <p style="font-size:1rem; margin-top:10px;">📺 全部内嵌B站分P数据 · 政治/英语/高数/信息技术</p>
             </div>
-
-            <!-- 播放器区域：仅保留bilibili嵌入，因为本地视频不存在，完全使用B站源 -->
-            <div class="video-player-wrapper" id="playerWrapper">
-                <!-- 原生video容器 (本地视频不使用，默认隐藏) -->
-                <div class="container show-controls" id="videoContainer" style="display: none;">
-                    <video id="mainVideo" src="" preload="auto" playsinline></video>
-                    <!-- 控件保留但无用，隐藏 -->
-                </div>
-                <!-- b站嵌入容器 (默认显示) -->
-                <div class="bilibili-embed" id="bilibiliContainer" style="display: block;">
-                    <iframe id="bilibiliIframe" src="" allowfullscreen="true" scrolling="no" frameborder="0"
-                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </div>
-            </div>
-
-            <!-- 无手动输入区，所有数据内嵌 -->
-
-            <div class="status-bar">
-                <span><i class="fa-regular fa-circle-play"></i> 点击课时直接播放对应分P</span>
-                <span id="mirrorStatus" style="display:none;"></span>
-                <span id="loopStatus" style="display:none;"></span>
-                <span style="background:#ffeef2; padding:0 8px; border-radius:20px; color:#FB7299;"
-                    id="totalChapterHint">总课时 92</span>
-            </div>
+            <div class="hero-emoji">📚✨</div>
         </div>
 
-        <!-- 侧边栏 (与之前一致) -->
-        <div class="video-sidebar">
-            <div class="sidebar-header">
-                <h3><i class="fa-regular fa-list"></i> 河北专接本数学 · 11章 (每课时独立分P)</h3>
-                <div class="chapter-distribution">第一章 函数 · 第二章 微分 · 第三章 积分 · 第四章 向量 · 第五章 多元微分<br>第六章 多元积分 · 第七章 级数 ·
-                    第八章 微分方程 · 第九章 行列式 · 第十章 矩阵 · 第十一章 方程组</div>
-            </div>
-            <div class="chapter-list-container">
-                <ul class="chapter-list" id="chapterList">
-                    <li class="empty-message">⏳ 加载分页数据...</li>
-                </ul>
-                <div class="pagination-bar">
-                    <button class="page-btn" id="prevPageBtn" disabled><i class="fa-solid fa-chevron-left"></i>
-                        上一章</button>
-                    <div class="page-input-container"><i class="fa-regular fa-book-open"></i><input type="number"
-                            id="pageInput" class="page-input" min="1" max="11" value="1" step="1"><span
-                            class="page-total">/ 11章</span></div>
-                    <button class="page-btn" id="nextPageBtn">下一章 <i class="fa-solid fa-chevron-right"></i></button>
+        <!-- 科目网格 (四科) 链接使用你现有的四个页面文件名，均附带课时说明 -->
+        <div class="subjects-grid">
+            <!-- 政治卡片 -->
+            <a href="./政治.html" class="subject-card">
+                <span class="card-badge">92课时</span>
+                <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div class="subject-title">政治</div>
+                <div class="subject-meta">
+                    <span class="meta-item"><i class="fa-regular fa-clock"></i> 11章 · 92讲</span>
+                    <span class="meta-item"><i class="fa-regular fa-bookmark"></i> 毛概+思修</span>
                 </div>
-            </div>
-            <div class="sidebar-footer-note"><i class="fa-regular fa-lightbulb"></i> 内嵌92条课时数据，点击即播对应B站分P。</div>
+                <div class="card-footer">
+                    <span>进入学习</span> <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 英语卡片 (示例数据：根据原英语页面推测课时，保留风格) -->
+            <a href="./英语.html" class="subject-card">
+                <span class="card-badge">80+课时</span>
+                <div class="card-icon"><i class="fa-solid fa-language"></i></div>
+                <div class="subject-title">英语</div>
+                <div class="subject-meta">
+                    <span class="meta-item"><i class="fa-regular fa-clock"></i> 语法 · 阅读 · 写作</span>
+                    <span class="meta-item"><i class="fa-regular fa-folder-open"></i> 8章</span>
+                </div>
+                <div class="card-footer">
+                    <span>进入学习</span> <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 高数卡片 (原数学页面) -->
+            <a href="./高数.html" class="subject-card">
+                <span class="card-badge">92课时</span>
+                <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+                <div class="subject-title">高等数学</div>
+                <div class="subject-meta">
+                    <span class="meta-item"><i class="fa-regular fa-clock"></i> 11章 · 92讲</span>
+                    <span class="meta-item"><i class="fa-regular fa-star"></i> 函数→方程组</span>
+                </div>
+                <div class="card-footer">
+                    <span>进入学习</span> <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 信息技术概论卡片 (127课时) -->
+            <a href="./信息技术概论.html" class="subject-card">
+                <span class="card-badge">127课时</span>
+                <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                <div class="subject-title">信息技术概论</div>
+                <div class="subject-meta">
+                    <span class="meta-item"><i class="fa-regular fa-clock"></i> 12章 · 127讲</span>
+                    <span class="meta-item"><i class="fa-regular fa-keyboard"></i> 计算机+网络</span>
+                </div>
+                <div class="card-footer">
+                    <span>进入学习</span> <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+
+        <!-- 信息栏：简洁显示各科总课时以及B站直达 -->
+        <div class="info-bar">
+            <span><i class="fa-regular fa-circle-play"></i> 总计约391课时 (政治92+英语80+高数92+信息127) </span>
+            <span class="up-highlight">
+                <i class="fa-brands fa-bilibili"></i> 关注B站UP
+                <a href="https://space.bilibili.com/1511888480" target="_blank">高數</a> /
+                <a href="https://space.bilibili.com/1810907597" target="_blank">信息技术概论</a>
+            </span>
+        </div>
+
+        <!-- 底部分隔提示（非侧栏） -->
+        <div class="footer-note">
+            <i class="fa-regular fa-lightbulb"></i> 首页仅作为导航 · 点击卡片进入对应科目页面，内嵌分P数据可直接播放B站视频
         </div>
     </div>
-    <script src="./script.js"></script>
 
+    <!-- 无需科目专用script，此页纯展示入口 -->
+    <!-- 但保留可能的通用script占位（不影响） -->
+    <script>
+        // 首页交互极简，仅保留控制台友好提示 (没有任何播放逻辑)
+        (function () {
+            console.log('📢 河北专接本首页 · 四科入口已加载');
+            // 可以给卡片增加一点点动态涟漪 (可选)
+        })();
+    </script>
 </body>
 
 </html>

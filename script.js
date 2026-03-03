@@ -349,9 +349,12 @@ const fileData = {
     'mock2-english-3': { name: '26佳鑫诺英语模拟卷', files: [{ name: '26佳鑫诺英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-english-4': { name: '佳鑫诺超越营英语冲刺卷', files: [{ name: '佳鑫诺超越营英语冲刺卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/佳鑫诺超越营英语冲刺卷.pdf', type: 'pdf' }, { name: '佳鑫诺超越营英语冲刺卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/佳鑫诺超越营英语冲刺卷答案.pdf', type: 'pdf' }] },
     'mock2-english-5': { name: '库课英语', files: [{ name: '库课英语.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/库课库课英语.pdf', type: 'pdf' }, { name: '', fileUrl: './zhuanshengben/', type: 'pdf' }] },
+    'mock2-english-6': { name: '26佳鑫诺英语冲刺密卷1', files: [{ name: '26佳鑫诺英语冲刺密卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语冲刺密卷1.pdf', type: 'pdf' }, { name: '26佳鑫诺英语冲刺密卷1答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语冲刺密卷1答案.pdf', type: 'pdf' }] },
+    'mock2-english-7': { name: '26佳鑫诺英语冲刺密卷2', files: [{ name: '26佳鑫诺英语冲刺密卷2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语冲刺密卷2.pdf', type: 'pdf' }, { name: '26佳鑫诺英语冲刺密卷2答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语冲刺密卷2答案.pdf', type: 'pdf' }] },
+    'mock2-english-8': { name: '26佳鑫诺英语冲刺密卷3', files: [{ name: '26佳鑫诺英语冲刺密卷3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语冲刺密卷3.pdf', type: 'pdf' }, { name: '26佳鑫诺英语冲刺密卷3答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语冲刺密卷3答案.pdf', type: 'pdf' }] },
     // ... 继续添加5-10，按照相同格式，把fileUrl中的路径改为多一层 "机构模拟题（成套）/"
 
-    'mock2-english-8': { name: 'Molly英语模考押题卷3', files: [{ name: '26终版河北专升本英语模拟押题卷（三）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/Molly/26终版河北专升本英语模拟押题卷（三）.pdf', type: 'pdf' }, { name: '26终版河北专升本英语模拟押题卷（三）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/英语/Molly/26终版河北专升本英语模拟押题卷（三）答案.pdf', type: 'pdf' }] },
+    'mock2-english-9': { name: 'Molly英语模考押题卷3', files: [{ name: '26终版河北专升本英语模拟押题卷（三）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/Molly/26终版河北专升本英语模拟押题卷（三）.pdf', type: 'pdf' }, { name: '26终版河北专升本英语模拟押题卷（三）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/Molly/26终版河北专升本英语模拟押题卷（三）答案.pdf', type: 'pdf' }] },
     // ... 继续添加8-20
 
     // 高数模拟题 1-20 机构模拟题（成套）

@@ -329,11 +329,356 @@ const fileData = {
     },
     // ... (其余条目保持一致格式)
 
-    'mock-it-17': { name: '信息技术概论模拟卷17', files: [{ name: '信息技术概论模拟卷17.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷17.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷17答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷17答案.pdf', type: 'pdf' }] },
-    'mock-it-18': { name: '信息技术概论模拟卷18', files: [{ name: '信息技术概论模拟卷18.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷18.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷18答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷18答案.pdf', type: 'pdf' }] },
-    'mock-it-19': { name: '信息技术概论模拟卷19', files: [{ name: '信息技术概论模拟卷19.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷19.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷19答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷19答案.pdf', type: 'pdf' }] },
-    'mock-it-20': { name: '信息技术概论模拟卷20', files: [{ name: '信息技术概论模拟卷20.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷20.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷20答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷20答案.pdf', type: 'pdf' }] },
+    'mock-it-17': { name: '信息技术概论模拟卷17', files: [{ name: '信息技术概论模拟卷17.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术概论模拟卷17.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷17答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术概论模拟卷17答案.pdf', type: 'pdf' }] },
+    'mock-it-18': { name: '信息技术概论模拟卷18', files: [{ name: '信息技术概论模拟卷18.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术概论模拟卷18.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷18答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术概论模拟卷18答案.pdf', type: 'pdf' }] },
+    'mock-it-19': { name: '信息技术概论模拟卷19', files: [{ name: '信息技术概论模拟卷19.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术概论模拟卷19.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷19答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术概论模拟卷19答案.pdf', type: 'pdf' }] },
+    'mock-it-20': { name: '信息技术概论模拟卷20', files: [{ name: '信息技术概论模拟卷20.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术概论模拟卷20.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷20答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/信息技术概论模拟卷20答案.pdf', type: 'pdf' }] },
 
+    // ===== 模拟题2 - 机构模拟题（成套）版本 =====
+    // 政治模拟题 1-20 机构模拟题（成套）
+    'mock2-politics-1': { name: '24佳鑫诺政治模拟卷', files: [{ name: '24佳鑫诺政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/24佳鑫诺政治模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/24佳鑫诺政治模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-politics-2': { name: '25佳鑫诺政治模拟卷', files: [{ name: '25佳鑫诺政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/25佳鑫诺政治模拟卷.pdf', type: 'pdf' }, { name: '25佳鑫诺政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/25佳鑫诺政治模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-politics-3': { name: '26佳鑫诺政治模拟卷', files: [{ name: '26佳鑫诺政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/26佳鑫诺政治模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/26佳鑫诺政治模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-politics-4': { name: '佳鑫诺超越营政治冲刺卷', files: [{ name: '佳鑫诺超越营政治冲刺卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/佳鑫诺超越营政治冲刺卷.pdf', type: 'pdf' }, { name: '佳鑫诺超越营政治冲刺卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/佳鑫诺超越营政治冲刺卷答案.pdf', type: 'pdf' }] },
+    'mock2-politics-5': { name: '库课政治', files: [{ name: '库课政治.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/库课政治.pdf', type: 'pdf' }, { name: '库课政治.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/库课政治.pdf', type: 'pdf' }] },
+    // ... 继续添加4-20，按照相同格式，把fileUrl中的路径改为多一层 "机构模拟题（成套）/"
+
+    // 英语模拟题 1-20 机构模拟题（成套）
+    'mock2-english-1': { name: '24佳鑫诺英语模拟卷', files: [{ name: '24佳鑫诺英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/24佳鑫诺英语模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/24佳鑫诺英语模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-english-2': { name: '25佳鑫诺英语模拟卷', files: [{ name: '25佳鑫诺英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/25佳鑫诺英语模拟卷.pdf', type: 'pdf' }, { name: '25佳鑫诺英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/25佳鑫诺英语模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-english-3': { name: '26佳鑫诺英语模拟卷', files: [{ name: '26佳鑫诺英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/26佳鑫诺英语模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-english-4': { name: '佳鑫诺超越营英语冲刺卷', files: [{ name: '佳鑫诺超越营英语冲刺卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/佳鑫诺超越营英语冲刺卷.pdf', type: 'pdf' }, { name: '佳鑫诺超越营英语冲刺卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/佳鑫诺超越营英语冲刺卷答案.pdf', type: 'pdf' }] },
+    'mock2-english-5': { name: '库课英语', files: [{ name: '库课英语.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/库课库课英语.pdf', type: 'pdf' }, { name: '', fileUrl: './zhuanshengben/', type: 'pdf' }] },
+    // ... 继续添加5-10，按照相同格式，把fileUrl中的路径改为多一层 "机构模拟题（成套）/"
+
+    'mock2-english-8': { name: 'Molly英语模考押题卷3', files: [{ name: '26终版河北专升本英语模拟押题卷（三）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/Molly/26终版河北专升本英语模拟押题卷（三）.pdf', type: 'pdf' }, { name: '26终版河北专升本英语模拟押题卷（三）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/机构模拟题（成套）/英语/Molly/26终版河北专升本英语模拟押题卷（三）答案.pdf', type: 'pdf' }] },
+    // ... 继续添加8-20
+
+    // 高数模拟题 1-20 机构模拟题（成套）
+    'mock2-math-1': { name: '24佳鑫诺高数一模拟卷', files: [{ name: '24佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/24佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/24佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-math-2': { name: '25佳鑫诺高数一模拟卷', files: [{ name: '25佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/25佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '25佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/25佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-math-3': { name: '26佳鑫诺高数一模拟卷', files: [{ name: '26佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/26佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/26佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-math-4': { name: '26仿真模拟卷数一第一套', files: [{ name: '26仿真模拟卷数一第一套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第一套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第一套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第一套答案.pdf', type: 'pdf' }] },
+    'mock2-math-5': { name: '26仿真模拟卷数一第二套', files: [{ name: '26仿真模拟卷数一第二套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第二套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第二套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第二套答案.pdf', type: 'pdf' }] },
+    'mock2-math-6': { name: '26仿真模拟卷数一第三套', files: [{ name: '26仿真模拟卷数一第三套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第三套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第三套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第三套答案.pdf', type: 'pdf' }] },
+    'mock2-math-7': { name: '26仿真模拟卷数一第四套', files: [{ name: '26仿真模拟卷数一第四套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第四套.pdf', type: 'pdf' }, { name: '26仿真模拟卷数一第四套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/仿真模拟卷/26仿真模拟卷数一第四套答案.pdf', type: 'pdf' }] },
+    'mock2-math-8': { name: '佳鑫诺集训营综合演练数学12套', files: [{ name: '佳鑫诺集训营综合演练数学12套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺集训营综合演练数学12套.pdf', type: 'pdf' }, { name: '佳鑫诺集训营综合演练数学12套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺集训营综合演练数学12套答案.pdf', type: 'pdf' }] },
+    'mock2-math-9': { name: '高等数学（上册）精选750题', files: [{ name: '高等数学（上册）精选750题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题.pdf', type: 'pdf' }, { name: '高等数学（上册）精选750题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题答案.pdf', type: 'pdf' }] },
+    'mock2-math-10': { name: '2023 考研数学 复习全书・基础篇', files: [{ name: '2023 考研数学 复习全书・基础篇.pdf', fileUrl: './zhuanshengben/机构模拟题（成套）/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇.pdf', type: 'pdf' }, { name: '2023 考研数学 复习全书・基础篇答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇答案.pdf', type: 'pdf' }] },
+    'mock2-math-11': { name: '2023数学基础过关660题习题册（数学一）', files: [{ name: '2023数学基础过关660题习题册（数学一）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学一）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题习题册（数学一）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学一）.pdf', type: 'pdf' }] },
+    'mock2-math-12': { name: '2023数学基础过关660题习题册（数学二）', files: [{ name: '2023数学基础过关660题习题册（数学二）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学二）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题习题册（数学二）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学二）.pdf', type: 'pdf' }] },
+    'mock2-math-13': { name: '第一章1-求函数的定义域', files: [{ name: '第一章1-求函数的定义域.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章1-求函数的定义域.pdf', type: 'pdf' }] },
+    'mock2-math-14': { name: '第一章2-判断函数的同一性', files: [{ name: '第一章2-判断函数的同一性.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章2-判断函数的同一性.pdf', type: 'pdf' }] },
+    'mock2-math-15': { name: '第一章3-函数的性质', files: [{ name: '第一章3-函数的性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章3-函数的性质.pdf', type: 'pdf' }] },
+    'mock2-math-16': { name: '第一章4-函数的解析式', files: [{ name: '第一章4-函数的解析式.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章4-函数的解析式.pdf', type: 'pdf' }] },
+    'mock2-math-17': { name: '第一章5-极限的计算', files: [{ name: '第一章5-极限的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章5-极限的计算.pdf', type: 'pdf' }] },
+    'mock2-math-18': { name: '第一章6-等价无穷小代换', files: [{ name: '第一章6-等价无穷小代换.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章6-等价无穷小代换.pdf', type: 'pdf' }] },
+    'mock2-math-19': { name: '第一章7-两个重要极限', files: [{ name: '第一章7-两个重要极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章7-两个重要极限.pdf', type: 'pdf' }] },
+    'mock2-math-20': { name: '第一章8-无穷小与无穷大', files: [{ name: '第一章8-无穷小与无穷大.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章8-无穷小与无穷大.pdf', type: 'pdf' }] },
+    'mock2-math-21': { name: '第一章9-数列极限', files: [{ name: '第一章9-数列极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章9-数列极限.pdf', type: 'pdf' }] },
+    'mock2-math-22': { name: '第一章10-函数的连续性', files: [{ name: '第一章10-函数的连续性.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章10-函数的连续性.pdf', type: 'pdf' }] },
+    'mock2-math-23': { name: '第一章11-函数的间断点', files: [{ name: '第一章11-函数的间断点.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章11-函数的间断点.pdf', type: 'pdf' }] },
+    'mock2-math-24': { name: '第二章1-导数的定义', files: [{ name: '第二章1-导数的定义.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章1-导数的定义.pdf', type: 'pdf' }] },
+    'mock2-math-25': { name: '第二章2初等函数求导法 ', files: [{ name: '第二章2初等函数求导法 .pdf ', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章2初等函数求导法 .pdf', type: 'pdf' }] },
+    'mock2-math-26': { name: '第二章4-参数方程的求导', files: [{ name: '第二章4-参数方程的求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章4-参数方程的求导.pdf', type: 'pdf' }] },
+    'mock2-math-27': {
+        name: '第二章5幂指函数和对数函数的求导',
+        files: [{
+            name: '第二章5幂指函数和对数函数的求导.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章5幂指函数和对数函数的求导.pdf',
+            type: 'pdf'
+        }]
+    },
+    'mock2-math-28': { name: '第二章6-高阶导数的计算', files: [{ name: '第二章6-高阶导数的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章6-高阶导数的计算.pdf', type: 'pdf' }] },
+    'mock2-math-29': { name: '第二章7-微分的计算', files: [{ name: '第二章7-微分的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章7-微分的计算.pdf', type: 'pdf' }] },
+    'mock2-math-30': { name: '第二章8-导数的几何意义', files: [{ name: '第二章8-导数的几何意义.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章8-导数的几何意义.pdf', type: 'pdf' }] },
+    'mock2-math-31': { name: '第二章9-可导、连续与极限存在的关系', files: [{ name: '第二章9-可导、连续与极限存在的关系.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章9-可导、连续与极限存在的关系.pdf', type: 'pdf' }] },
+    'mock2-math-32': { name: '第二章10-中值定理', files: [{ name: '第二章10-中值定理.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章10-中值定理.pdf', type: 'pdf' }] },
+    'mock2-math-33': { name: '第二章11-洛必达法则', files: [{ name: '第二章11-洛必达法则.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章11-洛必达法则.pdf', type: 'pdf' }] },
+    'mock2-math-34': { name: '第二章12-单调性与极值', files: [{ name: '第二章12-单调性与极值.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章12-单调性与极值.pdf', type: 'pdf' }] },
+    'mock2-math-35': {
+        name: '第二章13-凹凸性与拐点', files: [{
+            name: '第二章13凹凸性与拐点.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章13凹凸性与拐点.pdf',
+            type: 'pdf'
+        }]
+    },
+    'mock2-math-36': {
+        name: '第二章14最值',
+        files: [{
+            name: '第二章14最值.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章14最值.pdf',
+            type: 'pdf'
+        }]
+    },
+    'mock2-math-37': {
+        name: '第二章15曲线的渐近线',
+        files: [{
+            name: '第二章15曲线的渐近线.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章15曲线的渐近线.pdf',
+            type: 'pdf'
+        }]
+    },
+    'mock2-math-38': { name: '第三章1-不定积分的概念与性质', files: [{ name: '第三章1-不定积分的概念与性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第三章1-不定积分的概念与性质.pdf', type: 'pdf' }] },
+    'mock2-math-39': { name: '第三章2-不定积分的直接积分法', files: [{ name: '第三章2-不定积分的直接积分法.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第三章2-不定积分的直接积分法.pdf', type: 'pdf' }] },
+    'mock2-math-40': { name: '第三章3-不定积分的第一类换元积分法（凑微分法）', files: [{ name: '第三章3-不定积分的第一类换元积分法（凑微分法）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第三章3-不定积分的第一类换元积分法（凑微分法）.pdf', type: 'pdf' }] },
+    'mock2-math-41': {
+        name: '1.1 函数', files: [
+            { name: '1.1 函数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/1.1 函数.pdf', type: 'pdf' },
+            { name: '1.1 函数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/1.1 函数.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-42': {
+        name: '1.2 极限', files: [
+            { name: '1.2 极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/1.2 极限.pdf', type: 'pdf' },
+            { name: '1.2 极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/1.2 极限.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-43': {
+        name: '1.3 连续', files: [
+            { name: '1.3 连续.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/1.3 连续.pdf', type: 'pdf' },
+            { name: '1.3 连续.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/1.3 连续.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-44': {
+        name: '2.1 导数的概念', files: [
+            { name: '2.1 导数的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.1 导数的概念.pdf', type: 'pdf' },
+            { name: '2.1 导数的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.1 导数的概念.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-45': {
+        name: '2.2 一元函数的求导法则', files: [
+            { name: '2.2 一元函数的求导法则.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.2 一元函数的求导法则.pdf', type: 'pdf' },
+            { name: '2.2 一元函数的求导法则.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.2 一元函数的求导法则.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-46': {
+        name: '2.3 高阶导数', files: [
+            { name: '2.3 高阶导数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.3 高阶导数.pdf', type: 'pdf' },
+            { name: '2.3 高阶导数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.3 高阶导数.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-47': {
+        name: '2.4 隐函数及参数方程求导', files: [
+            { name: '2.4 隐函数及由参数方程所确定的函数的导数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.4 隐函数及由参数方程所确定的函数的导数.pdf', type: 'pdf' },
+            { name: '2.4 隐函数求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.4 隐函数求导.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-48': {
+        name: '2.5 函数的微分', files: [
+            { name: '2.5 函数的微分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.5 函数的微分.pdf', type: 'pdf' },
+            { name: '2.5 微分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.5 微分.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-49': {
+        name: '2.6 微分中值定理', files: [
+            { name: '2.6 微分中值定理.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.6 微分中值定理.pdf', type: 'pdf' },
+            { name: '2.6 微分中值定理.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.6 微分中值定理.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-50': {
+        name: '2.7 导数的应用', files: [
+            { name: '2.7 导数的应用_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.7 导数的应用_1.pdf', type: 'pdf' },
+            { name: '2.7 导数的应用_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/2.7 导数的应用_2.pdf', type: 'pdf' },
+            { name: '2.7 导数的应用_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.7 导数的应用_1.pdf', type: 'pdf' },
+            { name: '2.7 导数的应用_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/2.7 导数的应用_2.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-51': {
+        name: '3.1 不定积分', files: [
+            { name: '3.1 不定积分_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.1 不定积分_1.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.1 不定积分_2.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.1 不定积分_3.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.1 不定积分_1.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.1 不定积分_2.pdf', type: 'pdf' },
+            { name: '3.1 不定积分_3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.1 不定积分_3.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-52': {
+        name: '3.2 定积分的概念与性质', files: [
+            { name: '3.2 定积分的概念与性质_3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.2 定积分的概念与性质_3.pdf', type: 'pdf' },
+            { name: '3.2 定积分_345.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.2 定积分_345.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-53': {
+        name: '3.2 定积分的概念与计算(一)', files: [
+            { name: '3.2 定积分的概念与计算_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.2 定积分的概念与计算_1.pdf', type: 'pdf' },
+            { name: '3.2 定积分_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.2 定积分_1.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-54': {
+        name: '3.2 定积分的概念与计算(二)', files: [
+            { name: '3.2 定积分的概念与计算_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.2 定积分的概念与计算_2.pdf', type: 'pdf' },
+            { name: '3.2 定积分_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.2 定积分_2.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-55': {
+        name: '3.3 广义积分', files: [
+            { name: '3.3 广义积分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/3.3 广义积分.pdf', type: 'pdf' },
+            { name: '3.3 广义积分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/3.3 广义积分.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-56': {
+        name: '4.1 常微分方程的概念', files: [
+            { name: '4.1 常微分方程的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.1 常微分方程的概念.pdf', type: 'pdf' },
+            { name: '4.1 微分方程概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.1 微分方程概念.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-57': {
+        name: '4.2 一阶微分方程(一)', files: [
+            { name: '4.2 一阶微分方程_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.2 一阶微分方程_1.pdf', type: 'pdf' },
+            { name: '4.2 一阶微分方程_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.2 一阶微分方程_1.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-58': {
+        name: '4.2 一阶微分方程(二)', files: [
+            { name: '4.2 一阶微分方程_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.2 一阶微分方程_2.pdf', type: 'pdf' },
+            { name: '4.2 一阶微分方程_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.2 一阶微分方程_2.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-59': {
+        name: '4.4 二阶常系数线性微分方程(一)', files: [
+            { name: '4.4 二阶常系数线性微分方程_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.4 二阶常系数线性微分方程_1.pdf', type: 'pdf' },
+            { name: '4.4 二阶常系数线性微分方程.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.4 二阶常系数线性微分方程.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-60': {
+        name: '4.4 二阶常系数线性微分方程(二)', files: [
+            { name: '4.4 二阶常系数线性微分方程_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/4.4 二阶常系数线性微分方程_2.pdf', type: 'pdf' },
+            { name: '4.4 二阶非齐次微分方程.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/4.4 二阶非齐次微分方程.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-61': {
+        name: '6.1 多元函数的概念', files: [
+            { name: '6.1 多元函数的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/6.1 多元函数的概念.pdf', type: 'pdf' },
+            { name: '6.1 多元函数的概念.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/6.1 多元函数的概念.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-62': {
+        name: '6.2 偏导数与全微分', files: [
+            { name: '6.2 偏导数与全微分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/6.2 偏导数与全微分.pdf', type: 'pdf' },
+            { name: '6.2 偏导数与全微分.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/6.2 偏导数与全微分.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-63': {
+        name: '6.3 方向导数与梯度', files: [
+            { name: '6.3 方向导数与梯度.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/6.3 方向导数与梯度.pdf', type: 'pdf' },
+            { name: '6.3 方向导数与梯度.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/6.3 方向导数与梯度.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-64': {
+        name: '6.5 多元函数的极值及应用', files: [
+            { name: '6.5 多元函数的极值及应用.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/6.5 多元函数的极值及应用.pdf', type: 'pdf' },
+            { name: '6.5 多元函数的极值与最值.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/6.5 多元函数的极值与最值.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-65': {
+        name: '7.1 二重积分的概念以及性质', files: [
+            { name: '7.1 二重积分的概念以及性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/7.1 二重积分的概念以及性质.pdf', type: 'pdf' },
+            { name: '7.1 二重积分的概念及性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/7.1 二重积分的概念及性质.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-66': {
+        name: '7.2 二重积分的计算(一)', files: [
+            { name: '7.2 二重积分的计算下.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/7.2 二重积分的计算下.pdf', type: 'pdf' },
+            { name: '7.2 二重积分的计算_1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/7.2 二重积分的计算_1.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-67': {
+        name: '7.2 二重积分的计算及应用', files: [
+            { name: '7.2 二重积分的计算及应用.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/7.2 二重积分的计算及应用.pdf', type: 'pdf' },
+            { name: '7.2 二重积分的计算_2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/7.2 二重积分的计算_2.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-68': {
+        name: '8.1 常数项级数的概念及性质', files: [
+            { name: '8.1 常数项级数的概念及性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/8.1 常数项级数的概念及性质.pdf', type: 'pdf' },
+            { name: '8.1 常数项级数.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/8.1 常数项级数.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-math-69': {
+        name: '8.2 常数项级数的审敛法', files: [
+            { name: '8.2 常数项级数的审敛法.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题空白版/8.2 常数项级数的审敛法.pdf', type: 'pdf' },
+            { name: '8.2 常数项级数敛散性型的判断.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/1000题笔记/8.2 常数项级数敛散性型的判断.pdf', type: 'pdf' }
+        ]
+    },// ... 继续添加3-20
+
+    // 信息技术模拟题 1-20 机构模拟题（成套）
+    'mock2-it-1': { name: '26北方黑马信息技术概论模拟卷', files: [{ name: '26北方黑马信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/26北方黑马信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/26北方黑马信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-it-2': { name: '不会算法-信息技术概论模拟卷1', files: [{ name: '不会算法-信息技术概论模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷1.pdf', type: 'pdf' }] },
+    'mock2-it-3': { name: '不会算法-信息技术概论模拟卷2', files: [{ name: '不会算法-信息技术概论模拟卷2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷2.pdf', type: 'pdf' }] },
+    'mock2-it-4': { name: '不会算法-信息技术概论模拟卷3', files: [{ name: '不会算法-信息技术概论模拟卷3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷3.pdf', type: 'pdf' }] },
+    'mock2-it-5': { name: '不会算法-信息技术概论模拟卷4', files: [{ name: '不会算法-信息技术概论模拟卷4.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷4.pdf', type: 'pdf' }] },
+    'mock2-it-6': { name: '不会算法-信息技术概论模拟卷5', files: [{ name: '不会算法-信息技术概论模拟卷5.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷5.pdf', type: 'pdf' }] },
+    'mock2-it-7': { name: '不会算法-信息技术概论模拟卷6', files: [{ name: '不会算法-信息技术概论模拟卷6.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷6.pdf', type: 'pdf' }] },
+    'mock2-it-8': { name: '不会算法-信息技术概论模拟卷7', files: [{ name: '不会算法-信息技术概论模拟卷7.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷7.pdf', type: 'pdf' }] },
+    'mock2-it-9': { name: '不会算法-信息技术概论模拟卷8', files: [{ name: '不会算法-信息技术概论模拟卷8.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷8.pdf', type: 'pdf' }] },
+    'mock2-it-10': { name: '不会算法-信息技术概论模拟卷9', files: [{ name: '不会算法-信息技术概论模拟卷9.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷9.pdf', type: 'pdf' }] },
+    'mock2-it-11': { name: '不会算法-信息技术概论模拟卷10', files: [{ name: '不会算法-信息技术概论模拟卷10.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷10.pdf', type: 'pdf' }] },
+    'mock2-it-12': { name: '不会算法-信息技术概论模拟卷11', files: [{ name: '不会算法-信息技术概论模拟卷11.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷11.pdf', type: 'pdf' }] },
+    'mock2-it-13': { name: '不会算法-信息技术概论模拟卷12', files: [{ name: '不会算法-信息技术概论模拟卷12.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷12.pdf', type: 'pdf' }] },
+    'mock2-it-14': { name: '不会算法-信息技术概论模拟卷13', files: [{ name: '不会算法-信息技术概论模拟卷13.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷13.pdf', type: 'pdf' }] },
+    'mock2-it-15': { name: '不会算法-信息技术概论模拟卷14', files: [{ name: '不会算法-信息技术概论模拟卷14.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷14.pdf', type: 'pdf' }] },
+    'mock2-it-16': { name: '不会算法-信息技术概论模拟卷15', files: [{ name: '不会算法-信息技术概论模拟卷15.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷15.pdf', type: 'pdf' }] },
+    'mock2-it-17': {
+        name: '信息技术概论第一章', files: [
+            { name: '信息技术概论第一章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一章.pdf', type: 'pdf' },
+            { name: '信息技术概论第一至四章完整答案和解析.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一至四章完整答案和解析.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-18': {
+        name: '信息技术概论第二章', files: [
+            { name: '信息技术概论第二章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第二章.pdf', type: 'pdf' },
+            { name: '信息技术概论第一至四章完整答案和解析.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一至四章完整答案和解析.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-19': {
+        name: '信息技术概论第三章', files: [
+            { name: '信息技术概论第三章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第三章.pdf', type: 'pdf' },
+            { name: '信息技术概论第一至四章完整答案和解析.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一至四章完整答案和解析.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-20': {
+        name: '信息技术概论第四章', files: [
+            { name: '信息技术概论第四章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第四章.pdf', type: 'pdf' },
+            { name: '信息技术概论第一至四章完整答案和解析.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第一至四章完整答案和解析.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-21': {
+        name: '信息技术概论第五章', files: [
+            { name: '信息技术概论第五章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第五章.pdf', type: 'pdf' },
+            { name: '信息技术概论第五章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第五章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-22': {
+        name: '信息技术概论第六章', files: [
+            { name: '信息技术概论第六章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第六章.pdf', type: 'pdf' },
+            { name: '信息技术概论第六章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第六章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-23': {
+        name: '信息技术概论第七章', files: [
+            { name: '信息技术概论第七章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第七章.pdf', type: 'pdf' },
+            { name: '信息技术概论第七章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第七章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-24': {
+        name: '信息技术概论第八章', files: [
+            { name: '信息技术概论第八章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第八章.pdf', type: 'pdf' },
+            { name: '信息技术概论第八章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/拜客网/信息技术概论第八章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-25': {
+        name: '信息技术概论第九章', files: [
+            { name: '信息技术概论第九章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/信息技术概论第九章.pdf', type: 'pdf' },
+            { name: '信息技术概论第九章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/信息技术概论第九章答案.pdf', type: 'pdf' }
+        ]
+    },
+    'mock2-it-26': {
+        name: '26佳鑫诺信息技术概论模拟卷', files: [
+            { name: '26佳鑫诺信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷.pdf', type: 'pdf' },
+            { name: '26佳鑫诺信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷答案.pdf', type: 'pdf' }
+        ]
+    },
     // ===== 开背知识点 - 静态定义，每科3个（无答案） =====
     'kaibei-politics-1': { name: '政治开背知识点1', files: [{ name: '政治开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-politics-2': { name: '政治开背知识点2', files: [{ name: '政治开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点2.pdf', type: 'pdf' }] },
@@ -376,6 +721,8 @@ const fileData = {
     'kaibei-it-1': { name: '信息技术开背知识点1', files: [{ name: '信息技术概论开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-it-2': { name: '信息技术开背知识点2', files: [{ name: '信息技术概论开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点2.pdf', type: 'pdf' }] },
     'kaibei-it-3': { name: '信息技术开背知识点3', files: [{ name: '信息技术概论开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点3.pdf', type: 'pdf' }] },
+    'kaibei-it-4': { name: '信息技术开背知识点4', files: [{ name: '信息技术概论开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点4.pdf', type: 'pdf' }] },
+    'kaibei-it-5': { name: '信息技术开背知识点5', files: [{ name: '信息技术概论开背知识点5.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点5.pdf', type: 'pdf' }] },
 
     // ===== 开背知识点 - 政治（图片版） =====
     'kaibei-politics-png-1': { name: '政治开背知识点1（图片）', files: [{ name: '政治开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.png', type: 'png' }] },
@@ -422,6 +769,8 @@ const fileData = {
     'kaibei-it-png-1': { name: '信息技术开背知识点1（图片）', files: [{ name: '信息技术开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点1.png', type: 'png' }] },
     'kaibei-it-png-2': { name: '信息技术开背知识点2（图片）', files: [{ name: '信息技术开背知识点2.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点2.png', type: 'png' }] },
     'kaibei-it-png-3': { name: '信息技术开背知识点3（图片）', files: [{ name: '信息技术开背知识点3.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点3.png', type: 'png' }] },
+    'kaibei-it-png-4': { name: '信息技术开背知识点4（图片）', files: [{ name: '信息技术开背知识点4.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点4.png', type: 'png' }] },
+    'kaibei-it-png-5': { name: '信息技术开背知识点5（图片）', files: [{ name: '信息技术开背知识点5.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点5.png', type: 'png' }] },
 
     'ai-tools': {
         name: '国产AI对比',
@@ -1345,42 +1694,6 @@ const aiFloatClearBtn = document.getElementById('aiFloatClearBtn');
 const aiFloatThemeBtn = document.getElementById('aiFloatThemeBtn');
 const aiModelName = document.getElementById('aiModelName');
 
-// AI配置
-const floatAIConfig = {
-    'deepseek': {
-        name: 'DeepSeek-V3',
-        apiKey: '2HwLYY4aow4s7sx5BUntcTsQ',  // 替换为您的API Key
-        apiUrl: 'https://api-ai.gitcode.com/v1/chat/completions',
-        welcomeMsg: '你好！我是DeepSeek-V3，可以帮你解答专升本问题',
-        // 添加模型特定配置
-        model: 'deepseek-ai/DeepSeek-V3',
-        maxTokens: 4096,
-        temperature: 0.6,
-        topP: 0.95,
-        topK: 50,
-        frequencyPenalty: 0,
-        thinkingBudget: 32768
-    },
-    'chatglm': {
-        name: 'ChatGLM',
-        apiKey: 'PASTE-YOUR-CHATGLM-API-KEY',
-        apiUrl: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
-        welcomeMsg: '你好！我是ChatGLM，很高兴为你提供学习帮助'
-    },
-    'qwen': {
-        name: '通义千问',
-        apiKey: 'PASTE-YOUR-QWEN-API-KEY',
-        apiUrl: 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation',
-        welcomeMsg: '你好！我是通义千问，让我们一起攻克专升本'
-    },
-    'ernie': {
-        name: '文心一言',
-        apiKey: 'PASTE-YOUR-ERNIE-API-KEY',
-        apiUrl: 'https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions',
-        welcomeMsg: '你好！我是文心一言，专为专升本备考设计'
-    }
-};
-
 // AI状态
 let floatCurrentModel = 'deepseek';
 let floatChatHistory = [];
@@ -1520,15 +1833,27 @@ async function sendFloatMessage() {
     const config = floatAIConfig[floatCurrentModel];
     floatController = new AbortController();
 
-    // 构建请求
-    let requestBody, headers = { 'Content-Type': 'application/json' };
+    try {
+        // 获取当前模型对应的modelId
+        let modelId = '';
+        if (floatCurrentModel === 'deepseek') {
+            modelId = API_CONFIG.gitcode.models.deepseek.modelId;
+        } else if (floatCurrentModel === 'chatglm') {
+            modelId = API_CONFIG.gitcode.models.glm5.modelId;
+        } else if (floatCurrentModel === 'qwen') {
+            modelId = API_CONFIG.gitcode.models.qwen35.modelId;
+        } else if (floatCurrentModel === 'ernie') {
+            modelId = API_CONFIG.gitcode.models.deepseek.modelId; // 默认使用DeepSeek
+        }
 
-    // 根据模型构建不同请求
-    if (floatCurrentModel === 'deepseek') {
-        headers['Authorization'] = `Bearer ${config.apiKey}`;
-        requestBody = {
-            model: config.model || 'deepseek-ai/DeepSeek-V3',
+        // GitCode API 统一请求格式
+        const requestBody = {
+            model: modelId,
             messages: [
+                {
+                    role: "system",
+                    content: "你是一个专升本备考助手，专门帮助用户解答专升本考试相关问题，包括政治、英语、高等数学、信息技术概论等科目。请用中文友好地回答用户问题。"
+                },
                 {
                     role: "user",
                     content: message
@@ -1540,58 +1865,38 @@ async function sendFloatMessage() {
             top_p: config.topP || 0.95,
             top_k: config.topK || 50,
             frequency_penalty: config.frequencyPenalty || 0,
-            thinking_budget: config.thinkingBudget || 32768
+            presence_penalty: 0
         };
-    } else if (floatCurrentModel === 'chatglm') {
-        headers['Authorization'] = `Bearer ${config.apiKey}`;
-        requestBody = {
-            model: 'glm-4',
-            messages: [
-                { role: 'system', content: '你是专升本备考助手，用中文回答' },
-                { role: 'user', content: message }
-            ]
-        };
-    } else if (floatCurrentModel === 'qwen') {
-        headers['Authorization'] = `Bearer ${config.apiKey}`;
-        requestBody = {
-            model: 'qwen-turbo',
-            input: {
-                messages: [
-                    { role: 'system', content: '你是专升本备考助手，用中文回答' },
-                    { role: 'user', content: message }
-                ]
-            }
-        };
-    } else if (floatCurrentModel === 'ernie') {
-        headers['Authorization'] = `Bearer ${config.apiKey}`;
-        requestBody = {
-            messages: [
-                { role: 'user', content: message }
-            ]
-        };
-    }
 
-    try {
+        // 添加thinking_budget（如果存在）
+        if (config.thinkingBudget) {
+            requestBody.thinking_budget = config.thinkingBudget;
+        }
+
         const response = await fetch(config.apiUrl, {
             method: 'POST',
-            headers: headers,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${config.apiKey}`
+            },
             body: JSON.stringify(requestBody),
             signal: floatController.signal
         });
 
         const data = await response.json();
-        if (!response.ok) throw new Error(data.error?.message || '请求失败');
 
-        // 解析响应
+        if (!response.ok) {
+            console.error('API错误详情:', data);
+            throw new Error(data.error?.message || `请求失败 (${response.status})`);
+        }
+
+        // 解析响应 - GitCode API统一返回格式
         let responseText = '';
-        if (floatCurrentModel === 'deepseek') {
-            responseText = data.choices[0].message.content;
-        } else if (floatCurrentModel === 'chatglm') {
-            responseText = data.choices[0].message.content;
-        } else if (floatCurrentModel === 'qwen') {
-            responseText = data.output.choices[0].message.content;
-        } else if (floatCurrentModel === 'ernie') {
-            responseText = data.result;
+        if (data.choices && data.choices.length > 0) {
+            responseText = data.choices[0].message?.content || '未获取到回复内容';
+        } else {
+            responseText = 'API返回格式异常';
+            console.error('异常响应格式:', data);
         }
 
         // 更新消息
@@ -1605,6 +1910,7 @@ async function sendFloatMessage() {
 
     } catch (error) {
         if (error.name !== 'AbortError') {
+            console.error('请求错误:', error);
             updateBotMessage('抱歉，请求失败：' + error.message);
         }
     }

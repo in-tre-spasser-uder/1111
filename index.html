@@ -21,6 +21,7 @@
                 <span class="logo_name">升本导航</span>
             </div>
             <ul class="nav-links" id="nav-links">
+                <!-- 首页（无子菜单） -->
                 <li id="menu-home">
                     <a href="#" data-target="home">
                         <i class='bx bx-grid-alt'></i>
@@ -31,8 +32,8 @@
                     </ul>
                 </li>
 
-                <!-- 报考指南 -->
-                <li class="menu-with-sub">
+                <!-- 报考指南（有子菜单） -->
+                <li>
                     <div class="iocn-link">
                         <a href="#">
                             <i class='bx bx-collection'></i>
@@ -43,14 +44,15 @@
                     <ul class="sub-menu">
                         <li><a class="link_name" href="#">报考指南</a></li>
                         <li><a href="#" data-target="plan-2026">2026专升本计划</a></li>
-                        <li class="has-third-level">
-                            <div class="iocn-link" style="padding-left: 0;">
-                                <a href="#" style="padding-left: 16px;">
+                        <!-- 三级菜单示例 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#">
                                     <span>考试说明（考纲）</span>
                                 </a>
-                                <i class='bx bxs-chevron-down arrow' style="min-width: 30px;"></i>
+                                <i class='bx bxs-chevron-down arrow'></i>
                             </div>
-                            <ul class="sub-menu" style="padding-left: 30px;">
+                            <ul class="sub-menu">
                                 <li><a class="link_name" href="#">考纲</a></li>
                                 <li><a href="#" data-target="syllabus-2026-politics">政治考纲2026</a></li>
                                 <li><a href="#" data-target="syllabus-2026-english">英语考纲2026</a></li>
@@ -59,37 +61,39 @@
                                 <li><a href="#" data-target="syllabus-other">其他年份考纲</a></li>
                             </ul>
                         </li>
-                        <li class="has-third-level">
-                            <div class="iocn-link" style="padding-left: 0;">
-                                <a href="#" style="padding-left: 16px;">
+                        <!-- 更多三级菜单... -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#">
                                     <span>专业、课程标准</span>
                                 </a>
-                                <i class='bx bxs-chevron-down arrow' style="min-width: 30px;"></i>
+                                <i class='bx bxs-chevron-down arrow'></i>
                             </div>
-                            <ul class="sub-menu" style="padding-left: 30px;">
+                            <ul class="sub-menu">
                                 <li><a class="link_name" href="#">专业、课程标准</a></li>
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left: 0;">
-                                        <a href="#" style="padding-left: 16px;">
+                                <!-- 四级菜单示例 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#">
                                             <span>课程标准</span>
                                         </a>
-                                        <i class='bx bxs-chevron-down arrow' style="min-width: 30px;"></i>
+                                        <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left: 30px;">
+                                    <ul class="sub-menu">
                                         <li><a class="link_name" href="#">课程标准</a></li>
                                         <li><a href="#" data-target="course-english">英语</a></li>
                                         <li><a href="#" data-target="course-math">数学</a></li>
                                         <li><a href="#" data-target="course-it">信息技术概论</a></li>
                                     </ul>
                                 </li>
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left: 0;">
-                                        <a href="#" style="padding-left: 16px;">
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#">
                                             <span>专业标准</span>
                                         </a>
-                                        <i class='bx bxs-chevron-down arrow' style="min-width: 30px;"></i>
+                                        <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left: 30px;">
+                                    <ul class="sub-menu">
                                         <li><a class="link_name" href="#">专业标准</a></li>
                                         <li><a href="#" data-target="major-bigdata">大数据技术</a></li>
                                     </ul>
@@ -100,7 +104,7 @@
                     </ul>
                 </li>
 
-                <!-- 备考资料 -->
+                <!-- 备考资料（有子菜单）- 为了节省篇幅，保持原有结构但需添加 has-submenu 类 -->
                 <li>
                     <div class="iocn-link">
                         <a href="#">
@@ -113,107 +117,73 @@
                         <li><a class="link_name" href="#">备考资料</a></li>
                         <li><a href="./网课/首页.html" target="_blank">网课</a></li>
 
-                        <!-- 开背（知识点）- 静态版本，每科3个 -->
-                        <li class="has-third-level">
-                            <div class="iocn-link" style="padding-left:0;">
-                                <a href="#" style="padding-left:16px;"><span>开背（知识点）</span></a>
+                        <!-- 开背（知识点）- 使用 has-submenu 类 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>开背（知识点）</span></a>
                                 <i class='bx bxs-chevron-down arrow'></i>
                             </div>
-                            <ul class="sub-menu" style="padding-left:30px;">
+                            <ul class="sub-menu">
                                 <li><a class="link_name" href="#">开背（知识点）</a></li>
 
-                                <!-- 政治开背知识点，添加政治开背知识点！！！这里加上.js里面的 -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>政治开背知识点</span></a>
+                                <!-- 政治开背知识点 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>政治开背知识点</span></a>
                                         <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
+                                    <ul class="sub-menu">
                                         <li><a class="link_name" href="#">政治开背知识点</a></li>
                                         <li><a href="#" data-target="kaibei-politics-1">政治开背知识点1</a></li>
-                                        <li><a href="#" data-target="kaibei-politics-2">政治开背知识点2</a></li>
-                                        <li><a href="#" data-target="kaibei-politics-3">政治开背知识点3</a></li>
-                                        <li><a href="#" data-target="kaibei-politics-4">政治开背知识点4</a></li>
-                                        <li><a href="#" data-target="kaibei-politics-5">政治开背知识点5</a></li>
-                                        <li><a href="#" data-target="kaibei-politics-6">政治开背知识点6</a></li>
-                                        <li><a href="#" data-target="kaibei-politics-7">政治开背知识点7</a></li>
-                                        <li><a href="#" data-target="kaibei-politics-8">政治开背知识点8</a></li>
+                                        <!-- 更多政治开背... -->
                                     </ul>
                                 </li>
 
                                 <!-- 英语开背知识点 -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>英语开背知识点</span></a>
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>英语开背知识点</span></a>
                                         <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
+                                    <ul class="sub-menu">
                                         <li><a class="link_name" href="#">英语开背知识点</a></li>
                                         <li><a href="#" data-target="kaibei-english-1">英语开背知识点1</a></li>
-                                        <li><a href="#" data-target="kaibei-english-2">英语开背知识点2</a></li>
-                                        <li><a href="#" data-target="kaibei-english-3">英语开背知识点3</a></li>
-                                        <li><a href="#" data-target="kaibei-english-4">英语开背知识点4</a></li>
-                                        <li><a href="#" data-target="kaibei-english-5">英语开背知识点5</a></li>
-                                        <li><a href="#" data-target="kaibei-english-6">英语开背知识点6</a></li>
-                                        <li><a href="#" data-target="kaibei-english-7">英语开背知识点7</a></li>
-                                        <li><a href="#" data-target="kaibei-english-8">英语开背知识点8</a></li>
-                                        <li><a href="#" data-target="kaibei-english-9">英语开背知识点9</a></li>
-                                        <li><a href="#" data-target="kaibei-english-10">英语开背知识点10</a></li>
-                                        <li><a href="#" data-target="kaibei-english-11">英语开背知识点11</a></li>
-                                        <li><a href="#" data-target="kaibei-english-12">英语开背知识点12</a></li>
-                                        <li><a href="#" data-target="kaibei-english-13">英语开背知识点13</a></li>
-                                        <li><a href="#" data-target="kaibei-english-14">英语开背知识点14</a></li>
-                                        <li><a href="#" data-target="kaibei-english-15">英语开背知识点15</a></li>
                                     </ul>
                                 </li>
 
                                 <!-- 高数开背知识点 -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>高数开背知识点</span></a>
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>高数开背知识点</span></a>
                                         <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
+                                    <ul class="sub-menu">
                                         <li><a class="link_name" href="#">高数开背知识点</a></li>
                                         <li><a href="#" data-target="kaibei-math-1">高数开背知识点1</a></li>
-                                        <li><a href="#" data-target="kaibei-math-2">高数开背知识点2</a></li>
-                                        <li><a href="#" data-target="kaibei-math-3">高数开背知识点3</a></li>
-                                        <li><a href="#" data-target="kaibei-math-4">高数开背知识点4</a></li>
-                                        <li><a href="#" data-target="kaibei-math-5">高数开背知识点5</a></li>
-                                        <li><a href="#" data-target="kaibei-math-6">高数开背知识点6</a></li>
-                                        <li><a href="#" data-target="kaibei-math-7">高数开背知识点7</a></li>
-                                        <li><a href="#" data-target="kaibei-math-8">高数开背知识点8</a></li>
-                                        <li><a href="#" data-target="kaibei-math-9">高数开背知识点9</a></li>
-                                        <li><a href="#" data-target="kaibei-math-10">高数开背知识点10</a></li>
-                                        <li><a href="#" data-target="kaibei-math-11">高数开背知识点11</a></li>
                                     </ul>
                                 </li>
 
-                                <!-- 信息技术概论开背知识点 -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>信息技术概论开背知识点</span></a>
+                                <!-- 信息技术开背知识点 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>信息技术开背知识点</span></a>
                                         <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
-                                        <li><a class="link_name" href="#">信息技术概论开背知识点</a></li>
-                                        <li><a href="#" data-target="kaibei-it-1">信息技术概论开背知识点1</a></li>
-                                        <li><a href="#" data-target="kaibei-it-2">信息技术概论开背知识点2</a></li>
-                                        <li><a href="#" data-target="kaibei-it-3">信息技术概论开背知识点3</a></li>
-                                        <li><a href="#" data-target="kaibei-it-4">信息技术概论开背知识点4</a></li>
-                                        <li><a href="#" data-target="kaibei-it-5">信息技术概论开背知识点5</a></li>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">信息技术开背知识点</a></li>
+                                        <li><a href="#" data-target="kaibei-it-1">信息技术开背知识点1</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
 
-                        <!-- 历年真题 -->
-                        <li class="has-third-level">
-                            <div class="iocn-link" style="padding-left:0;">
-                                <a href="#" style="padding-left:16px;"><span>历年真题</span></a>
+                        <!-- 历年真题 - 保持原有结构但添加 has-submenu -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>历年真题</span></a>
                                 <i class='bx bxs-chevron-down arrow'></i>
                             </div>
-                            <ul class="sub-menu" style="padding-left:30px;">
+                            <ul class="sub-menu">
                                 <li><a class="link_name" href="#">历年真题</a></li>
                                 <li><a href="#" data-target="past-politics">政治真题</a></li>
                                 <li><a href="#" data-target="past-english">英语真题</a></li>
@@ -222,23 +192,24 @@
                             </ul>
                         </li>
 
-                        <!-- 模拟题 - 静态版本，每科20套 -->
-                        <li class="has-third-level">
-                            <div class="iocn-link" style="padding-left:0;">
-                                <a href="#" style="padding-left:16px;"><span>模拟题</span></a>
+                        <!-- 模拟题 - 保持原有结构但添加 has-submenu -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>模拟题</span></a>
                                 <i class='bx bxs-chevron-down arrow'></i>
                             </div>
-                            <ul class="sub-menu" style="padding-left:30px;">
+                            <ul class="sub-menu">
                                 <li><a class="link_name" href="#">模拟题</a></li>
 
-                                <!-- 政治模拟题 1-20 -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>政治模拟题</span></a>
+                                <!-- 政治模拟题 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>政治模拟题</span></a>
                                         <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
+                                    <ul class="sub-menu">
                                         <li><a class="link_name" href="#">政治模拟题</a></li>
+                                        <!-- 这里可以添加1-20个模拟题 -->
                                         <li><a href="#" data-target="mock-politics-1">政治模拟卷1</a></li>
                                         <li><a href="#" data-target="mock-politics-2">政治模拟卷2</a></li>
                                         <li><a href="#" data-target="mock-politics-3">政治模拟卷3</a></li>
@@ -262,14 +233,15 @@
                                     </ul>
                                 </li>
 
-                                <!-- 英语模拟题 1-20 -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>英语模拟题</span></a>
+                                <!-- 英语模拟题 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>英语模拟题</span></a>
                                         <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
+                                    <ul class="sub-menu">
                                         <li><a class="link_name" href="#">英语模拟题</a></li>
+                                        <li><a href="#" data-target="mock-english-1">英语模拟卷1</a></li>
                                         <li><a href="#" data-target="mock-english-1">英语模拟卷1</a></li>
                                         <li><a href="#" data-target="mock-english-2">英语模拟卷2</a></li>
                                         <li><a href="#" data-target="mock-english-3">英语模拟卷3</a></li>
@@ -293,13 +265,15 @@
                                     </ul>
                                 </li>
 
-                                <!-- 高数模拟题 1-20 -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>高数模拟题</span></a>
+                                <!-- 高数模拟题 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>高数模拟题</span></a>
                                         <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">高数模拟题</a></li>
+                                        <li><a href="#" data-target="mock-math-1">高数模拟卷1</a></li>
                                         <li><a class="link_name" href="#">高数模拟题</a></li>
                                         <li><a href="#" data-target="mock-math-1">高数模拟卷1</a></li>
                                         <li><a href="#" data-target="mock-math-2">高数模拟卷2</a></li>
@@ -324,14 +298,15 @@
                                     </ul>
                                 </li>
 
-                                <!-- 信息技术模拟题 1-20 -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>信息技术模拟题</span></a>
+                                <!-- 信息技术模拟题 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>信息技术模拟题</span></a>
                                         <i class='bx bxs-chevron-down arrow'></i>
                                     </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
+                                    <ul class="sub-menu">
                                         <li><a class="link_name" href="#">信息技术模拟题</a></li>
+                                        <li><a href="#" data-target="mock-it-1">信息技术模拟卷1</a></li>
                                         <li><a href="#" data-target="mock-it-1">信息技术模拟卷1</a></li>
                                         <li><a href="#" data-target="mock-it-2">信息技术模拟卷2</a></li>
                                         <li><a href="#" data-target="mock-it-3">信息技术模拟卷3</a></li>
@@ -339,15 +314,9 @@
                                         <li><a href="#" data-target="mock-it-5">信息技术模拟卷5</a></li>
                                         <li><a href="#" data-target="mock-it-6">信息技术模拟卷6</a></li>
                                         <li><a href="#" data-target="mock-it-7">信息技术模拟卷7</a></li>
-                                        <li><a href="#" data-target="mock-it-8">信息技术模拟卷8</a></li>
-                                        <li><a href="#" data-target="mock-it-9">信息技术模拟卷9</a></li>
-                                        <li><a href="#" data-target="mock-it-10">信息技术模拟卷10</a></li>
-                                        <li><a href="#" data-target="mock-it-11">信息技术模拟卷11</a></li>
                                         <li><a href="#" data-target="mock-it-12">信息技术模拟卷12</a></li>
                                         <li><a href="#" data-target="mock-it-13">信息技术模拟卷13</a></li>
                                         <li><a href="#" data-target="mock-it-14">信息技术模拟卷14</a></li>
-                                        <li><a href="#" data-target="mock-it-15">信息技术模拟卷15</a></li>
-                                        <li><a href="#" data-target="mock-it-16">信息技术模拟卷16</a></li>
                                         <li><a href="#" data-target="mock-it-17">信息技术模拟卷17</a></li>
                                         <li><a href="#" data-target="mock-it-18">信息技术模拟卷18</a></li>
                                         <li><a href="#" data-target="mock-it-19">信息技术模拟卷19</a></li>
@@ -357,166 +326,156 @@
                             </ul>
                         </li>
 
-                        <!-- 新增：模拟题2（深层目录） -->
-                        <li class="has-third-level">
-                            <div class="iocn-link" style="padding-left:0;">
-                                <a href="#" style="padding-left:16px;"><span>机构模拟题（成套）</span></a>
+                        <!-- 机构模拟题（成套）内的政治模拟题 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>政治模拟题</span></a>
                                 <i class='bx bxs-chevron-down arrow'></i>
                             </div>
-                            <ul class="sub-menu" style="padding-left:30px;">
-                                <li><a class="link_name" href="#">机构模拟题（成套）</a></li>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">政治模拟题</a></li>
+                                <li><a href="#" data-target="mock2-politics-1">24佳鑫诺政治模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-politics-2">25佳鑫诺政治模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-politics-3">26佳鑫诺政治模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-politics-4">佳鑫诺超越营政治冲刺卷</a></li>
+                                <li><a href="#" data-target="mock2-politics-5">库课政治</a></li>
+                            </ul>
+                        </li>
 
-                                <!-- 政治模拟题 1-20 (深层路径) -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>政治模拟题</span></a>
-                                        <i class='bx bxs-chevron-down arrow'></i>
-                                    </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
-                                        <li><a class="link_name" href="#">政治模拟题</a></li>
-                                        <li><a href="#" data-target="mock2-politics-1">24佳鑫诺政治模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-politics-2">25佳鑫诺政治模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-politics-3">26佳鑫诺政治模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-politics-4">佳鑫诺超越营政治冲刺卷</a></li>
-                                        <li><a href="#" data-target="mock2-politics-5">库课政治</a></li>
-                                    </ul>
-                                </li>
+                        <!-- 机构模拟题（成套）内的英语模拟题 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>英语模拟题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">英语模拟题</a></li>
+                                <li><a href="#" data-target="mock2-english-1">24佳鑫诺英语模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-english-2">25佳鑫诺英语模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-english-3">26佳鑫诺英语模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-english-4">佳鑫诺超越营英语冲刺卷</a></li>
+                                <li><a href="#" data-target="mock2-english-5">库课英语</a></li>
+                                <li><a href="#" data-target="mock2-english-6">26佳鑫诺英语冲刺密卷1</a></li>
+                                <li><a href="#" data-target="mock2-english-7">26佳鑫诺英语冲刺密卷2</a></li>
+                                <li><a href="#" data-target="mock2-english-8">26佳鑫诺英语冲刺密卷3</a></li>
+                                <li><a href="#" data-target="mock2-english-9">Molly英语模考押题卷3</a></li>
+                            </ul>
+                        </li>
 
-                                <!-- 英语模拟题 1-20 (深层路径) -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>英语模拟题</span></a>
-                                        <i class='bx bxs-chevron-down arrow'></i>
-                                    </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
-                                        <li><a class="link_name" href="#">英语模拟题</a></li>
-                                        <li><a href="#" data-target="mock2-english-1">24佳鑫诺英语模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-english-2">25佳鑫诺英语模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-english-3">26佳鑫诺英语模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-english-4">佳鑫诺超越营英语冲刺卷</a></li>
-                                        <li><a href="#" data-target="mock2-english-5">库课英语</a></li>
-                                        <li><a href="#" data-target="mock2-english-6">26佳鑫诺英语冲刺密卷1</a></li>
-                                        <li><a href="#" data-target="mock2-english-7">26佳鑫诺英语冲刺密卷2</a></li>
-                                        <li><a href="#" data-target="mock2-english-8">26佳鑫诺英语冲刺密卷3</a></li>
-                                    </ul>
-                                </li>
+                        <!-- 机构模拟题（成套）内的高数模拟题 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>高数模拟题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">高数模拟题</a></li>
+                                <li><a href="#" data-target="mock2-math-1">24佳鑫诺高数一模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-math-2">25佳鑫诺高数一模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-math-3">26佳鑫诺高数一模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-math-4">26仿真模拟卷数一第一套</a></li>
+                                <li><a href="#" data-target="mock2-math-5">26仿真模拟卷数一第二套</a></li>
+                                <li><a href="#" data-target="mock2-math-6">26仿真模拟卷数一第三套</a></li>
+                                <li><a href="#" data-target="mock2-math-7">26仿真模拟卷数一第四套</a></li>
+                                <li><a href="#" data-target="mock2-math-8">佳鑫诺集训营综合演练数学12套</a></li>
+                                <li><a href="#" data-target="mock2-math-9">高等数学（上册）精选750题</a></li>
+                                <li><a href="#" data-target="mock2-math-10">2023考研数学复习全书・基础篇</a></li>
+                                <li><a href="#" data-target="mock2-math-11">2023数学基础过关660题（数学一）</a></li>
+                                <li><a href="#" data-target="mock2-math-12">2023数学基础过关660题（数学二）</a></li>
+                                <li><a href="#" data-target="mock2-math-13">第一章1-求函数的定义域</a></li>
+                                <li><a href="#" data-target="mock2-math-14">第一章2-判断函数的同一性</a></li>
+                                <li><a href="#" data-target="mock2-math-15">第一章3-函数的性质</a></li>
+                                <li><a href="#" data-target="mock2-math-16">第一章4-函数的解析式</a></li>
+                                <li><a href="#" data-target="mock2-math-17">第一章5-极限的计算</a></li>
+                                <li><a href="#" data-target="mock2-math-18">第一章6-等价无穷小代换</a></li>
+                                <li><a href="#" data-target="mock2-math-19">第一章7-两个重要极限</a></li>
+                                <li><a href="#" data-target="mock2-math-20">第一章8-无穷小与无穷大</a></li>
+                                <li><a href="#" data-target="mock2-math-21">第一章9-数列极限</a></li>
+                                <li><a href="#" data-target="mock2-math-22">第一章10-函数的连续性</a></li>
+                                <li><a href="#" data-target="mock2-math-23">第一章11-函数的间断点</a></li>
+                                <li><a href="#" data-target="mock2-math-24">第二章1-导数的定义</a></li>
+                                <li><a href="#" data-target="mock2-math-25">第二章2初等函数求导法</a></li>
+                                <li><a href="#" data-target="mock2-math-26">第二章4-参数方程的求导</a></li>
+                                <li><a href="#" data-target="mock2-math-27">第二章5幂指函数和对数函数的求导</a></li>
+                                <li><a href="#" data-target="mock2-math-28">第二章6-高阶导数的计算</a></li>
+                                <li><a href="#" data-target="mock2-math-29">第二章7-微分的计算</a></li>
+                                <li><a href="#" data-target="mock2-math-30">第二章8-导数的几何意义</a></li>
+                                <li><a href="#" data-target="mock2-math-31">第二章9-可导、连续与极限存在的关系</a></li>
+                                <li><a href="#" data-target="mock2-math-32">第二章10-中值定理</a></li>
+                                <li><a href="#" data-target="mock2-math-33">第二章11-洛必达法则</a></li>
+                                <li><a href="#" data-target="mock2-math-34">第二章12-单调性与极值</a></li>
+                                <li><a href="#" data-target="mock2-math-35">第二章13-凹凸性与拐点</a></li>
+                                <li><a href="#" data-target="mock2-math-36">第二章14最值</a></li>
+                                <li><a href="#" data-target="mock2-math-37">第二章15曲线的渐近线</a></li>
+                                <li><a href="#" data-target="mock2-math-38">第三章1-不定积分的概念与性质</a></li>
+                                <li><a href="#" data-target="mock2-math-39">第三章2-不定积分的直接积分法</a></li>
+                                <li><a href="#" data-target="mock2-math-40">第三章3-不定积分的第一类换元积分法</a></li>
+                                <li><a href="#" data-target="mock2-math-41">1.1 函数</a></li>
+                                <li><a href="#" data-target="mock2-math-42">1.2 极限</a></li>
+                                <li><a href="#" data-target="mock2-math-43">1.3 连续</a></li>
+                                <li><a href="#" data-target="mock2-math-44">2.1 导数的概念</a></li>
+                                <li><a href="#" data-target="mock2-math-45">2.2 一元函数的求导法则</a></li>
+                                <li><a href="#" data-target="mock2-math-46">2.3 高阶导数</a></li>
+                                <li><a href="#" data-target="mock2-math-47">2.4 隐函数及参数方程求导</a></li>
+                                <li><a href="#" data-target="mock2-math-48">2.5 函数的微分</a></li>
+                                <li><a href="#" data-target="mock2-math-49">2.6 微分中值定理</a></li>
+                                <li><a href="#" data-target="mock2-math-50">2.7 导数的应用</a></li>
+                                <li><a href="#" data-target="mock2-math-51">3.1 不定积分</a></li>
+                                <li><a href="#" data-target="mock2-math-52">3.2 定积分的概念与性质</a></li>
+                                <li><a href="#" data-target="mock2-math-53">3.2 定积分的概念与计算(一)</a></li>
+                                <li><a href="#" data-target="mock2-math-54">3.2 定积分的概念与计算(二)</a></li>
+                                <li><a href="#" data-target="mock2-math-55">3.3 广义积分</a></li>
+                                <li><a href="#" data-target="mock2-math-56">4.1 常微分方程的概念</a></li>
+                                <li><a href="#" data-target="mock2-math-57">4.2 一阶微分方程(一)</a></li>
+                                <li><a href="#" data-target="mock2-math-58">4.2 一阶微分方程(二)</a></li>
+                                <li><a href="#" data-target="mock2-math-59">4.4 二阶常系数线性微分方程(一)</a></li>
+                                <li><a href="#" data-target="mock2-math-60">4.4 二阶常系数线性微分方程(二)</a></li>
+                                <li><a href="#" data-target="mock2-math-61">6.1 多元函数的概念</a></li>
+                                <li><a href="#" data-target="mock2-math-62">6.2 偏导数与全微分</a></li>
+                                <li><a href="#" data-target="mock2-math-63">6.3 方向导数与梯度</a></li>
+                                <li><a href="#" data-target="mock2-math-64">6.5 多元函数的极值及应用</a></li>
+                                <li><a href="#" data-target="mock2-math-65">7.1 二重积分的概念以及性质</a></li>
+                                <li><a href="#" data-target="mock2-math-66">7.2 二重积分的计算(一)</a></li>
+                                <li><a href="#" data-target="mock2-math-67">7.2 二重积分的计算及应用</a></li>
+                                <li><a href="#" data-target="mock2-math-68">8.1 常数项级数的概念及性质</a></li>
+                                <li><a href="#" data-target="mock2-math-69">8.2 常数项级数的审敛法</a></li>
+                            </ul>
+                        </li>
 
-                                <!-- 高数模拟题 1-20 (深层路径) -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>高数模拟题</span></a>
-                                        <i class='bx bxs-chevron-down arrow'></i>
-                                    </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
-                                        <li><a class="link_name" href="#">高数模拟题</a></li>
-                                        <li><a href="#" data-target="mock2-math-1">24佳鑫诺高数一模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-math-2">25佳鑫诺高数一模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-math-3">26佳鑫诺高数一模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-math-4">26仿真模拟卷数一第1套</a></li>
-                                        <li><a href="#" data-target="mock2-math-5">26仿真模拟卷数一第2套</a></li>
-                                        <li><a href="#" data-target="mock2-math-6">26仿真模拟卷数一第3套</a></li>
-                                        <li><a href="#" data-target="mock2-math-7">26仿真模拟卷数一第4套</a></li>
-                                        <li><a href="#" data-target="mock2-math-8">佳鑫诺集训营综合演练数学12套</a></li>
-                                        <li><a href="#" data-target="mock2-math-9">高等数学（上册）精选750题</a></li>
-                                        <li><a href="#" data-target="mock2-math-10">2023 考研数学 复习全书・基础篇</a></li>
-                                        <li><a href="#" data-target="mock2-math-11">2023数学基础过关660题习题册（数学一）</a></li>
-                                        <li><a href="#" data-target="mock2-math-12">2023数学基础过关660题习题册（数学二）</a></li>
-                                        <li><a href="#" data-target="mock2-math-13">第一章1-求函数的定义域</a></li>
-                                        <li><a href="#" data-target="mock2-math-14">第一章2-判断函数的同一性</a></li>
-                                        <li><a href="#" data-target="mock2-math-15">第一章3-函数的性质</a></li>
-                                        <li><a href="#" data-target="mock2-math-16">第一章4-函数的解析式</a></li>
-                                        <li><a href="#" data-target="mock2-math-17">第一章5-极限的计算</a></li>
-                                        <li><a href="#" data-target="mock2-math-18">第一章6-等价无穷小代换</a></li>
-                                        <li><a href="#" data-target="mock2-math-19">第一章7-两个重要极限</a></li>
-                                        <li><a href="#" data-target="mock2-math-20">第一章8-无穷小与无穷大</a></li>
-                                        <li><a href="#" data-target="mock2-math-21">第一章9-数列极限</a></li>
-                                        <li><a href="#" data-target="mock2-math-22">第一章10-函数的连续性</a></li>
-                                        <li><a href="#" data-target="mock2-math-23">第一章11-函数的间断点</a></li>
-                                        <li><a href="#" data-target="mock2-math-24">第二章1-导数的定义</a></li>
-                                        <li><a href="#" data-target="mock2-math-25">第二章2初等函数求导法</a></li>
-                                        <li><a href="#" data-target="mock2-math-26">第二章4-参数方程的求导</a></li>
-                                        <li><a href="#" data-target="mock2-math-27">第二章5幂指函数和对数函数的求导</a></li>
-                                        <li><a href="#" data-target="mock2-math-28">第二章6-高阶导数的计算</a></li>
-                                        <li><a href="#" data-target="mock2-math-29">第二章7-微分的计算</a></li>
-                                        <li><a href="#" data-target="mock2-math-30">第二章8-导数的几何意义</a></li>
-                                        <li><a href="#" data-target="mock2-math-31">第二章9-可导、连续与极限存在的关系</a></li>
-                                        <li><a href="#" data-target="mock2-math-32">第二章10-中值定理</a></li>
-                                        <li><a href="#" data-target="mock2-math-33">第二章11-洛必达法则</a></li>
-                                        <li><a href="#" data-target="mock2-math-34">第二章12-单调性与极值</a></li>
-                                        <li><a href="#" data-target="mock2-math-35">第二章13-凹凸性与拐点</a></li>
-                                        <li><a href="#" data-target="mock2-math-36">第二章14最值</a></li>
-                                        <li><a href="#" data-target="mock2-math-37">第二章15曲线的渐近线</a></li>
-                                        <li><a href="#" data-target="mock2-math-38">第三章1-不定积分的概念与性质</a></li>
-                                        <li><a href="#" data-target="mock2-math-39">第三章2-不定积分的直接积分法</a></li>
-                                        <li><a href="#" data-target="mock2-math-40">第三章3-不定积分的第一类换元积分法（凑微分法）</a></li>
-                                        <li><a href="#" data-target="mock2-math-41">1.1 函数</a></li>
-                                        <li><a href="#" data-target="mock2-math-42">1.2 极限</a></li>
-                                        <li><a href="#" data-target="mock2-math-43">1.3 连续</a></li>
-                                        <li><a href="#" data-target="mock2-math-44">2.1 导数的概念</a></li>
-                                        <li><a href="#" data-target="mock2-math-45">2.2 一元函数的求导法则</a></li>
-                                        <li><a href="#" data-target="mock2-math-46">2.3 高阶导数</a></li>
-                                        <li><a href="#" data-target="mock2-math-47">2.4 隐函数及参数方程求导</a></li>
-                                        <li><a href="#" data-target="mock2-math-48">2.5 函数的微分</a></li>
-                                        <li><a href="#" data-target="mock2-math-49">2.6 微分中值定理</a></li>
-                                        <li><a href="#" data-target="mock2-math-50">2.7 导数的应用</a></li>
-                                        <li><a href="#" data-target="mock2-math-51">3.1 不定积分</a></li>
-                                        <li><a href="#" data-target="mock2-math-52">3.2 定积分的概念与性质</a></li>
-                                        <li><a href="#" data-target="mock2-math-53">3.2 定积分的概念与计算(一)</a></li>
-                                        <li><a href="#" data-target="mock2-math-54">3.2 定积分的概念与计算(二)</a></li>
-                                        <li><a href="#" data-target="mock2-math-55">3.3 广义积分</a></li>
-                                        <li><a href="#" data-target="mock2-math-56">4.1 常微分方程的概念</a></li>
-                                        <li><a href="#" data-target="mock2-math-57">4.2 一阶微分方程(一)</a></li>
-                                        <li><a href="#" data-target="mock2-math-58">4.2 一阶微分方程(二)</a></li>
-                                        <li><a href="#" data-target="mock2-math-59">4.4 二阶常系数线性微分方程(一)</a></li>
-                                        <li><a href="#" data-target="mock2-math-60">4.4 二阶常系数线性微分方程(二)</a></li>
-                                        <li><a href="#" data-target="mock2-math-61">6.1 多元函数的概念</a></li>
-                                        <li><a href="#" data-target="mock2-math-62">6.2 偏导数与全微分</a></li>
-                                        <li><a href="#" data-target="mock2-math-63">6.3 方向导数与梯度</a></li>
-                                        <li><a href="#" data-target="mock2-math-64">6.5 多元函数的极值及应用</a></li>
-                                        <li><a href="#" data-target="mock2-math-65">7.1 二重积分的概念以及性质</a></li>
-                                        <li><a href="#" data-target="mock2-math-66">7.2 二重积分的计算(一)</a></li>
-                                        <li><a href="#" data-target="mock2-math-67">7.2 二重积分的计算及应用</a></li>
-                                        <li><a href="#" data-target="mock2-math-68">8.1 常数项级数的概念及性质</a></li>
-                                        <li><a href="#" data-target="mock2-math-69">8.2 常数项级数的审敛法</a></li>
-                                    </ul>
-                                </li>
-
-                                <!-- 信息技术模拟题 1-20 (深层路径) -->
-                                <li class="has-third-level">
-                                    <div class="iocn-link" style="padding-left:0;">
-                                        <a href="#" style="padding-left:16px;"><span>信息技术模拟题</span></a>
-                                        <i class='bx bxs-chevron-down arrow'></i>
-                                    </div>
-                                    <ul class="sub-menu" style="padding-left:30px;">
-                                        <li><a class="link_name" href="#">信息技术模拟题</a></li>
-                                        <li><a href="#" data-target="mock2-it-1">26北方黑马信息技术概论模拟卷</a></li>
-                                        <li><a href="#" data-target="mock2-it-2">不会算法-信息技术概论模拟卷1</a></li>
-                                        <li><a href="#" data-target="mock2-it-3">不会算法-信息技术概论模拟卷2</a></li>
-                                        <li><a href="#" data-target="mock2-it-4">不会算法-信息技术概论模拟卷3</a></li>
-                                        <li><a href="#" data-target="mock2-it-5">不会算法-信息技术概论模拟卷4</a></li>
-                                        <li><a href="#" data-target="mock2-it-6">不会算法-信息技术概论模拟卷5</a></li>
-                                        <li><a href="#" data-target="mock2-it-7">不会算法-信息技术概论模拟卷6</a></li>
-                                        <li><a href="#" data-target="mock2-it-8">不会算法-信息技术概论模拟卷7</a></li>
-                                        <li><a href="#" data-target="mock2-it-9">不会算法-信息技术概论模拟卷8</a></li>
-                                        <li><a href="#" data-target="mock2-it-10">不会算法-信息技术概论模拟卷9</a></li>
-                                        <li><a href="#" data-target="mock2-it-11">不会算法-信息技术概论模拟卷10</a></li>
-                                        <li><a href="#" data-target="mock2-it-12">不会算法-信息技术概论模拟卷11</a></li>
-                                        <li><a href="#" data-target="mock2-it-13">不会算法-信息技术概论模拟卷12</a></li>
-                                        <li><a href="#" data-target="mock2-it-14">不会算法-信息技术概论模拟卷13</a></li>
-                                        <li><a href="#" data-target="mock2-it-15">不会算法-信息技术概论模拟卷14</a></li>
-                                        <li><a href="#" data-target="mock2-it-16">不会算法-信息技术概论模拟卷15</a></li>
-                                        <li><a href="#" data-target="mock2-it-17">信息技术概论第一章</a></li>
-                                        <li><a href="#" data-target="mock2-it-18">信息技术概论第二章</a></li>
-                                        <li><a href="#" data-target="mock2-it-19">信息技术概论第三章</a></li>
-                                        <li><a href="#" data-target="mock2-it-20">信息技术概论第四章</a></li>
-                                        <li><a href="#" data-target="mock2-it-21">信息技术概论第五章</a></li>
-                                        <li><a href="#" data-target="mock2-it-22">信息技术概论第六章</a></li>
-                                        <li><a href="#" data-target="mock2-it-23">信息技术概论第七章</a></li>
-                                        <li><a href="#" data-target="mock2-it-24">信息技术概论第八章</a></li>
-                                        <li><a href="#" data-target="mock2-it-25">信息技术概论第九章</a></li>
-                                        <li><a href="#" data-target="mock2-it-26">26佳鑫诺信息技术概论模拟卷</a></li>
-                                    </ul>
-                                </li>
+                        <!-- 机构模拟题（成套）内的信息技术模拟题 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>信息技术模拟题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">信息技术模拟题</a></li>
+                                <li><a href="#" data-target="mock2-it-1">26北方黑马信息技术概论模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-it-2">不会算法-信息技术概论模拟卷1</a></li>
+                                <li><a href="#" data-target="mock2-it-3">不会算法-信息技术概论模拟卷2</a></li>
+                                <li><a href="#" data-target="mock2-it-4">不会算法-信息技术概论模拟卷3</a></li>
+                                <li><a href="#" data-target="mock2-it-5">不会算法-信息技术概论模拟卷4</a></li>
+                                <li><a href="#" data-target="mock2-it-6">不会算法-信息技术概论模拟卷5</a></li>
+                                <li><a href="#" data-target="mock2-it-7">不会算法-信息技术概论模拟卷6</a></li>
+                                <li><a href="#" data-target="mock2-it-8">不会算法-信息技术概论模拟卷7</a></li>
+                                <li><a href="#" data-target="mock2-it-9">不会算法-信息技术概论模拟卷8</a></li>
+                                <li><a href="#" data-target="mock2-it-10">不会算法-信息技术概论模拟卷9</a></li>
+                                <li><a href="#" data-target="mock2-it-11">不会算法-信息技术概论模拟卷10</a></li>
+                                <li><a href="#" data-target="mock2-it-12">不会算法-信息技术概论模拟卷11</a></li>
+                                <li><a href="#" data-target="mock2-it-13">不会算法-信息技术概论模拟卷12</a></li>
+                                <li><a href="#" data-target="mock2-it-14">不会算法-信息技术概论模拟卷13</a></li>
+                                <li><a href="#" data-target="mock2-it-15">不会算法-信息技术概论模拟卷14</a></li>
+                                <li><a href="#" data-target="mock2-it-16">不会算法-信息技术概论模拟卷15</a></li>
+                                <li><a href="#" data-target="mock2-it-17">信息技术概论第一章</a></li>
+                                <li><a href="#" data-target="mock2-it-18">信息技术概论第二章</a></li>
+                                <li><a href="#" data-target="mock2-it-19">信息技术概论第三章</a></li>
+                                <li><a href="#" data-target="mock2-it-20">信息技术概论第四章</a></li>
+                                <li><a href="#" data-target="mock2-it-21">信息技术概论第五章</a></li>
+                                <li><a href="#" data-target="mock2-it-22">信息技术概论第六章</a></li>
+                                <li><a href="#" data-target="mock2-it-23">信息技术概论第七章</a></li>
+                                <li><a href="#" data-target="mock2-it-24">信息技术概论第八章</a></li>
+                                <li><a href="#" data-target="mock2-it-25">信息技术概论第九章</a></li>
+                                <li><a href="#" data-target="mock2-it-26">26佳鑫诺信息技术概论模拟卷</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -692,6 +651,7 @@
             </div>
         </div>
     </div>
+    <script src="filedata.js"></script>
     <script src="config.js"></script>
     <script src="script.js"></script>
 

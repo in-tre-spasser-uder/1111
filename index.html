@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专升本资料 · 河北理工三</title>
+    <!-- 外链 CSS 文件 -->
+    <link rel="icon" href="./logo/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Boxiocns CDN Link (用于新侧边栏) -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="site-wrap">
+        <!-- ===== 新侧边栏 ===== -->
+        <div class="sidebar close" id="sidebar">
+            <div class="logo-details">
+                <i class='bx bxl-c-plus-plus'></i>
+                <span class="logo_name">升本导航</span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <!-- 首页（无子菜单） -->
+                <li id="menu-home">
+                    <a href="#" data-target="home">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">首页</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#" data-target="home">首页</a></li>
+                    </ul>
+                </li>
+
+                <!-- 报考指南（有子菜单） -->
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-collection'></i>
+                            <span class="link_name">报考指南</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">报考指南</a></li>
+                        <li><a href="#" data-target="plan-2026">2026专升本计划</a></li>
+                        <!-- 三级菜单示例 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#">
+                                    <span>考试说明（考纲）</span>
+                                </a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">考纲</a></li>
+                                <li><a href="#" data-target="syllabus-2026-politics">政治考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-2026-english">英语考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-2026-math">高数考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-2026-it">信息技术考纲2026</a></li>
+                                <li><a href="#" data-target="syllabus-other">其他年份考纲</a></li>
+                            </ul>
+                        </li>
+                        <!-- 更多三级菜单... -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#">
+                                    <span>专业、课程标准</span>
+                                </a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">专业、课程标准</a></li>
+                                <!-- 四级菜单示例 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#">
+                                            <span>课程标准</span>
+                                        </a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">课程标准</a></li>
+                                        <li><a href="#" data-target="course-english">英语</a></li>
+                                        <li><a href="#" data-target="course-math">数学</a></li>
+                                        <li><a href="#" data-target="course-it">信息技术概论</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#">
+                                            <span>专业标准</span>
+                                        </a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">专业标准</a></li>
+                                        <li><a href="#" data-target="major-bigdata">大数据技术</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#" data-target="process">报考流程/时间</a></li>
+                    </ul>
+                </li>
+
+                <!-- 备考资料（有子菜单）- 为了节省篇幅，保持原有结构但需添加 has-submenu 类 -->
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-book-alt'></i>
+                            <span class="link_name">备考资料</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">备考资料</a></li>
+                        <li><a href="./网课/首页.html" target="_blank">网课</a></li>
+
+                        <!-- 开背（知识点）- 使用 has-submenu 类 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>开背（知识点）</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">开背（知识点）</a></li>
+
+                                <!-- 政治开背知识点 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>政治开背知识点</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">政治开背知识点</a></li>
+                                        <li><a href="#" data-target="kaibei-politics-1">政治开背知识点1</a></li>
+                                        <!-- 更多政治开背... -->
+                                    </ul>
+                                </li>
+
+                                <!-- 英语开背知识点 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>英语开背知识点</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">英语开背知识点</a></li>
+                                        <li><a href="#" data-target="kaibei-english-1">英语开背知识点1</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 高数开背知识点 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>高数开背知识点</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">高数开背知识点</a></li>
+                                        <li><a href="#" data-target="kaibei-math-1">高数开背知识点1</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 信息技术开背知识点 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>信息技术开背知识点</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">信息技术开背知识点</a></li>
+                                        <li><a href="#" data-target="kaibei-it-1">信息技术开背知识点1</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- 历年真题 - 保持原有结构但添加 has-submenu -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>历年真题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">历年真题</a></li>
+                                <li><a href="#" data-target="past-politics">政治真题</a></li>
+                                <li><a href="#" data-target="past-english">英语真题</a></li>
+                                <li><a href="#" data-target="past-math">高数真题</a></li>
+                                <li><a href="#" data-target="past-it-intro">信息技术概论真题</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 模拟题 - 保持原有结构但添加 has-submenu -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>模拟题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">模拟题</a></li>
+
+                                <!-- 政治模拟题 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>政治模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">政治模拟题</a></li>
+                                        <!-- 这里可以添加1-20个模拟题 -->
+                                        <li><a href="#" data-target="mock-politics-1">政治模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-politics-2">政治模拟卷2</a></li>
+                                        <li><a href="#" data-target="mock-politics-3">政治模拟卷3</a></li>
+                                        <li><a href="#" data-target="mock-politics-4">政治模拟卷4</a></li>
+                                        <li><a href="#" data-target="mock-politics-5">政治模拟卷5</a></li>
+                                        <li><a href="#" data-target="mock-politics-6">政治模拟卷6</a></li>
+                                        <li><a href="#" data-target="mock-politics-7">政治模拟卷7</a></li>
+                                        <li><a href="#" data-target="mock-politics-8">政治模拟卷8</a></li>
+                                        <li><a href="#" data-target="mock-politics-9">政治模拟卷9</a></li>
+                                        <li><a href="#" data-target="mock-politics-10">政治模拟卷10</a></li>
+                                        <li><a href="#" data-target="mock-politics-11">政治模拟卷11</a></li>
+                                        <li><a href="#" data-target="mock-politics-12">政治模拟卷12</a></li>
+                                        <li><a href="#" data-target="mock-politics-13">政治模拟卷13</a></li>
+                                        <li><a href="#" data-target="mock-politics-14">政治模拟卷14</a></li>
+                                        <li><a href="#" data-target="mock-politics-15">政治模拟卷15</a></li>
+                                        <li><a href="#" data-target="mock-politics-16">政治模拟卷16</a></li>
+                                        <li><a href="#" data-target="mock-politics-17">政治模拟卷17</a></li>
+                                        <li><a href="#" data-target="mock-politics-18">政治模拟卷18</a></li>
+                                        <li><a href="#" data-target="mock-politics-19">政治模拟卷19</a></li>
+                                        <li><a href="#" data-target="mock-politics-20">政治模拟卷20</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 英语模拟题 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>英语模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">英语模拟题</a></li>
+                                        <li><a href="#" data-target="mock-english-1">英语模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-english-1">英语模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-english-2">英语模拟卷2</a></li>
+                                        <li><a href="#" data-target="mock-english-3">英语模拟卷3</a></li>
+                                        <li><a href="#" data-target="mock-english-4">英语模拟卷4</a></li>
+                                        <li><a href="#" data-target="mock-english-5">英语模拟卷5</a></li>
+                                        <li><a href="#" data-target="mock-english-6">英语模拟卷6</a></li>
+                                        <li><a href="#" data-target="mock-english-7">英语模拟卷7</a></li>
+                                        <li><a href="#" data-target="mock-english-8">英语模拟卷8</a></li>
+                                        <li><a href="#" data-target="mock-english-9">英语模拟卷9</a></li>
+                                        <li><a href="#" data-target="mock-english-10">英语模拟卷10</a></li>
+                                        <li><a href="#" data-target="mock-english-11">英语模拟卷11</a></li>
+                                        <li><a href="#" data-target="mock-english-12">英语模拟卷12</a></li>
+                                        <li><a href="#" data-target="mock-english-13">英语模拟卷13</a></li>
+                                        <li><a href="#" data-target="mock-english-14">英语模拟卷14</a></li>
+                                        <li><a href="#" data-target="mock-english-15">英语模拟卷15</a></li>
+                                        <li><a href="#" data-target="mock-english-16">英语模拟卷16</a></li>
+                                        <li><a href="#" data-target="mock-english-17">英语模拟卷17</a></li>
+                                        <li><a href="#" data-target="mock-english-18">英语模拟卷18</a></li>
+                                        <li><a href="#" data-target="mock-english-19">英语模拟卷19</a></li>
+                                        <li><a href="#" data-target="mock-english-20">英语模拟卷20</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 高数模拟题 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>高数模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">高数模拟题</a></li>
+                                        <li><a href="#" data-target="mock-math-1">高数模拟卷1</a></li>
+                                        <li><a class="link_name" href="#">高数模拟题</a></li>
+                                        <li><a href="#" data-target="mock-math-1">高数模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-math-2">高数模拟卷2</a></li>
+                                        <li><a href="#" data-target="mock-math-3">高数模拟卷3</a></li>
+                                        <li><a href="#" data-target="mock-math-4">高数模拟卷4</a></li>
+                                        <li><a href="#" data-target="mock-math-5">高数模拟卷5</a></li>
+                                        <li><a href="#" data-target="mock-math-6">高数模拟卷6</a></li>
+                                        <li><a href="#" data-target="mock-math-7">高数模拟卷7</a></li>
+                                        <li><a href="#" data-target="mock-math-8">高数模拟卷8</a></li>
+                                        <li><a href="#" data-target="mock-math-9">高数模拟卷9</a></li>
+                                        <li><a href="#" data-target="mock-math-10">高数模拟卷10</a></li>
+                                        <li><a href="#" data-target="mock-math-11">高数模拟卷11</a></li>
+                                        <li><a href="#" data-target="mock-math-12">高数模拟卷12</a></li>
+                                        <li><a href="#" data-target="mock-math-13">高数模拟卷13</a></li>
+                                        <li><a href="#" data-target="mock-math-14">高数模拟卷14</a></li>
+                                        <li><a href="#" data-target="mock-math-15">高数模拟卷15</a></li>
+                                        <li><a href="#" data-target="mock-math-16">高数模拟卷16</a></li>
+                                        <li><a href="#" data-target="mock-math-17">高数模拟卷17</a></li>
+                                        <li><a href="#" data-target="mock-math-18">高数模拟卷18</a></li>
+                                        <li><a href="#" data-target="mock-math-19">高数模拟卷19</a></li>
+                                        <li><a href="#" data-target="mock-math-20">高数模拟卷20</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 信息技术模拟题 -->
+                                <li class="has-submenu">
+                                    <div class="iocn-link">
+                                        <a href="#"><span>信息技术模拟题</span></a>
+                                        <i class='bx bxs-chevron-down arrow'></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">信息技术模拟题</a></li>
+                                        <li><a href="#" data-target="mock-it-1">信息技术模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-it-1">信息技术模拟卷1</a></li>
+                                        <li><a href="#" data-target="mock-it-2">信息技术模拟卷2</a></li>
+                                        <li><a href="#" data-target="mock-it-3">信息技术模拟卷3</a></li>
+                                        <li><a href="#" data-target="mock-it-4">信息技术模拟卷4</a></li>
+                                        <li><a href="#" data-target="mock-it-5">信息技术模拟卷5</a></li>
+                                        <li><a href="#" data-target="mock-it-6">信息技术模拟卷6</a></li>
+                                        <li><a href="#" data-target="mock-it-7">信息技术模拟卷7</a></li>
+                                        <li><a href="#" data-target="mock-it-12">信息技术模拟卷12</a></li>
+                                        <li><a href="#" data-target="mock-it-13">信息技术模拟卷13</a></li>
+                                        <li><a href="#" data-target="mock-it-14">信息技术模拟卷14</a></li>
+                                        <li><a href="#" data-target="mock-it-17">信息技术模拟卷17</a></li>
+                                        <li><a href="#" data-target="mock-it-18">信息技术模拟卷18</a></li>
+                                        <li><a href="#" data-target="mock-it-19">信息技术模拟卷19</a></li>
+                                        <li><a href="#" data-target="mock-it-20">信息技术模拟卷20</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- 机构模拟题（成套）内的政治模拟题 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>政治模拟题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">政治模拟题</a></li>
+                                <li><a href="#" data-target="mock2-politics-1">24佳鑫诺政治模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-politics-2">25佳鑫诺政治模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-politics-3">26佳鑫诺政治模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-politics-4">佳鑫诺超越营政治冲刺卷</a></li>
+                                <li><a href="#" data-target="mock2-politics-5">库课政治</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 机构模拟题（成套）内的英语模拟题 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>英语模拟题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">英语模拟题</a></li>
+                                <li><a href="#" data-target="mock2-english-1">24佳鑫诺英语模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-english-2">25佳鑫诺英语模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-english-3">26佳鑫诺英语模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-english-4">佳鑫诺超越营英语冲刺卷</a></li>
+                                <li><a href="#" data-target="mock2-english-5">库课英语</a></li>
+                                <li><a href="#" data-target="mock2-english-6">26佳鑫诺英语冲刺密卷1</a></li>
+                                <li><a href="#" data-target="mock2-english-7">26佳鑫诺英语冲刺密卷2</a></li>
+                                <li><a href="#" data-target="mock2-english-8">26佳鑫诺英语冲刺密卷3</a></li>
+                                <li><a href="#" data-target="mock2-english-9">Molly英语模考押题卷3</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 机构模拟题（成套）内的高数模拟题 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>高数模拟题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">高数模拟题</a></li>
+                                <li><a href="#" data-target="mock2-math-1">24佳鑫诺高数一模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-math-2">25佳鑫诺高数一模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-math-3">26佳鑫诺高数一模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-math-4">26仿真模拟卷数一第一套</a></li>
+                                <li><a href="#" data-target="mock2-math-5">26仿真模拟卷数一第二套</a></li>
+                                <li><a href="#" data-target="mock2-math-6">26仿真模拟卷数一第三套</a></li>
+                                <li><a href="#" data-target="mock2-math-7">26仿真模拟卷数一第四套</a></li>
+                                <li><a href="#" data-target="mock2-math-8">佳鑫诺集训营综合演练数学12套</a></li>
+                                <li><a href="#" data-target="mock2-math-9">高等数学（上册）精选750题</a></li>
+                                <li><a href="#" data-target="mock2-math-10">2023考研数学复习全书・基础篇</a></li>
+                                <li><a href="#" data-target="mock2-math-11">2023数学基础过关660题（数学一）</a></li>
+                                <li><a href="#" data-target="mock2-math-12">2023数学基础过关660题（数学二）</a></li>
+                                <li><a href="#" data-target="mock2-math-13">第一章1-求函数的定义域</a></li>
+                                <li><a href="#" data-target="mock2-math-14">第一章2-判断函数的同一性</a></li>
+                                <li><a href="#" data-target="mock2-math-15">第一章3-函数的性质</a></li>
+                                <li><a href="#" data-target="mock2-math-16">第一章4-函数的解析式</a></li>
+                                <li><a href="#" data-target="mock2-math-17">第一章5-极限的计算</a></li>
+                                <li><a href="#" data-target="mock2-math-18">第一章6-等价无穷小代换</a></li>
+                                <li><a href="#" data-target="mock2-math-19">第一章7-两个重要极限</a></li>
+                                <li><a href="#" data-target="mock2-math-20">第一章8-无穷小与无穷大</a></li>
+                                <li><a href="#" data-target="mock2-math-21">第一章9-数列极限</a></li>
+                                <li><a href="#" data-target="mock2-math-22">第一章10-函数的连续性</a></li>
+                                <li><a href="#" data-target="mock2-math-23">第一章11-函数的间断点</a></li>
+                                <li><a href="#" data-target="mock2-math-24">第二章1-导数的定义</a></li>
+                                <li><a href="#" data-target="mock2-math-25">第二章2初等函数求导法</a></li>
+                                <li><a href="#" data-target="mock2-math-26">第二章4-参数方程的求导</a></li>
+                                <li><a href="#" data-target="mock2-math-27">第二章5幂指函数和对数函数的求导</a></li>
+                                <li><a href="#" data-target="mock2-math-28">第二章6-高阶导数的计算</a></li>
+                                <li><a href="#" data-target="mock2-math-29">第二章7-微分的计算</a></li>
+                                <li><a href="#" data-target="mock2-math-30">第二章8-导数的几何意义</a></li>
+                                <li><a href="#" data-target="mock2-math-31">第二章9-可导、连续与极限存在的关系</a></li>
+                                <li><a href="#" data-target="mock2-math-32">第二章10-中值定理</a></li>
+                                <li><a href="#" data-target="mock2-math-33">第二章11-洛必达法则</a></li>
+                                <li><a href="#" data-target="mock2-math-34">第二章12-单调性与极值</a></li>
+                                <li><a href="#" data-target="mock2-math-35">第二章13-凹凸性与拐点</a></li>
+                                <li><a href="#" data-target="mock2-math-36">第二章14最值</a></li>
+                                <li><a href="#" data-target="mock2-math-37">第二章15曲线的渐近线</a></li>
+                                <li><a href="#" data-target="mock2-math-38">第三章1-不定积分的概念与性质</a></li>
+                                <li><a href="#" data-target="mock2-math-39">第三章2-不定积分的直接积分法</a></li>
+                                <li><a href="#" data-target="mock2-math-40">第三章3-不定积分的第一类换元积分法</a></li>
+                                <li><a href="#" data-target="mock2-math-41">1.1 函数</a></li>
+                                <li><a href="#" data-target="mock2-math-42">1.2 极限</a></li>
+                                <li><a href="#" data-target="mock2-math-43">1.3 连续</a></li>
+                                <li><a href="#" data-target="mock2-math-44">2.1 导数的概念</a></li>
+                                <li><a href="#" data-target="mock2-math-45">2.2 一元函数的求导法则</a></li>
+                                <li><a href="#" data-target="mock2-math-46">2.3 高阶导数</a></li>
+                                <li><a href="#" data-target="mock2-math-47">2.4 隐函数及参数方程求导</a></li>
+                                <li><a href="#" data-target="mock2-math-48">2.5 函数的微分</a></li>
+                                <li><a href="#" data-target="mock2-math-49">2.6 微分中值定理</a></li>
+                                <li><a href="#" data-target="mock2-math-50">2.7 导数的应用</a></li>
+                                <li><a href="#" data-target="mock2-math-51">3.1 不定积分</a></li>
+                                <li><a href="#" data-target="mock2-math-52">3.2 定积分的概念与性质</a></li>
+                                <li><a href="#" data-target="mock2-math-53">3.2 定积分的概念与计算(一)</a></li>
+                                <li><a href="#" data-target="mock2-math-54">3.2 定积分的概念与计算(二)</a></li>
+                                <li><a href="#" data-target="mock2-math-55">3.3 广义积分</a></li>
+                                <li><a href="#" data-target="mock2-math-56">4.1 常微分方程的概念</a></li>
+                                <li><a href="#" data-target="mock2-math-57">4.2 一阶微分方程(一)</a></li>
+                                <li><a href="#" data-target="mock2-math-58">4.2 一阶微分方程(二)</a></li>
+                                <li><a href="#" data-target="mock2-math-59">4.4 二阶常系数线性微分方程(一)</a></li>
+                                <li><a href="#" data-target="mock2-math-60">4.4 二阶常系数线性微分方程(二)</a></li>
+                                <li><a href="#" data-target="mock2-math-61">6.1 多元函数的概念</a></li>
+                                <li><a href="#" data-target="mock2-math-62">6.2 偏导数与全微分</a></li>
+                                <li><a href="#" data-target="mock2-math-63">6.3 方向导数与梯度</a></li>
+                                <li><a href="#" data-target="mock2-math-64">6.5 多元函数的极值及应用</a></li>
+                                <li><a href="#" data-target="mock2-math-65">7.1 二重积分的概念以及性质</a></li>
+                                <li><a href="#" data-target="mock2-math-66">7.2 二重积分的计算(一)</a></li>
+                                <li><a href="#" data-target="mock2-math-67">7.2 二重积分的计算及应用</a></li>
+                                <li><a href="#" data-target="mock2-math-68">8.1 常数项级数的概念及性质</a></li>
+                                <li><a href="#" data-target="mock2-math-69">8.2 常数项级数的审敛法</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 机构模拟题（成套）内的信息技术模拟题 -->
+                        <li class="has-submenu">
+                            <div class="iocn-link">
+                                <a href="#"><span>信息技术模拟题</span></a>
+                                <i class='bx bxs-chevron-down arrow'></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">信息技术模拟题</a></li>
+                                <li><a href="#" data-target="mock2-it-1">26北方黑马信息技术概论模拟卷</a></li>
+                                <li><a href="#" data-target="mock2-it-2">不会算法-信息技术概论模拟卷1</a></li>
+                                <li><a href="#" data-target="mock2-it-3">不会算法-信息技术概论模拟卷2</a></li>
+                                <li><a href="#" data-target="mock2-it-4">不会算法-信息技术概论模拟卷3</a></li>
+                                <li><a href="#" data-target="mock2-it-5">不会算法-信息技术概论模拟卷4</a></li>
+                                <li><a href="#" data-target="mock2-it-6">不会算法-信息技术概论模拟卷5</a></li>
+                                <li><a href="#" data-target="mock2-it-7">不会算法-信息技术概论模拟卷6</a></li>
+                                <li><a href="#" data-target="mock2-it-8">不会算法-信息技术概论模拟卷7</a></li>
+                                <li><a href="#" data-target="mock2-it-9">不会算法-信息技术概论模拟卷8</a></li>
+                                <li><a href="#" data-target="mock2-it-10">不会算法-信息技术概论模拟卷9</a></li>
+                                <li><a href="#" data-target="mock2-it-11">不会算法-信息技术概论模拟卷10</a></li>
+                                <li><a href="#" data-target="mock2-it-12">不会算法-信息技术概论模拟卷11</a></li>
+                                <li><a href="#" data-target="mock2-it-13">不会算法-信息技术概论模拟卷12</a></li>
+                                <li><a href="#" data-target="mock2-it-14">不会算法-信息技术概论模拟卷13</a></li>
+                                <li><a href="#" data-target="mock2-it-15">不会算法-信息技术概论模拟卷14</a></li>
+                                <li><a href="#" data-target="mock2-it-16">不会算法-信息技术概论模拟卷15</a></li>
+                                <li><a href="#" data-target="mock2-it-17">信息技术概论第一章</a></li>
+                                <li><a href="#" data-target="mock2-it-18">信息技术概论第二章</a></li>
+                                <li><a href="#" data-target="mock2-it-19">信息技术概论第三章</a></li>
+                                <li><a href="#" data-target="mock2-it-20">信息技术概论第四章</a></li>
+                                <li><a href="#" data-target="mock2-it-21">信息技术概论第五章</a></li>
+                                <li><a href="#" data-target="mock2-it-22">信息技术概论第六章</a></li>
+                                <li><a href="#" data-target="mock2-it-23">信息技术概论第七章</a></li>
+                                <li><a href="#" data-target="mock2-it-24">信息技术概论第八章</a></li>
+                                <li><a href="#" data-target="mock2-it-25">信息技术概论第九章</a></li>
+                                <li><a href="#" data-target="mock2-it-26">26佳鑫诺信息技术概论模拟卷</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 国产AI 新菜单项 -->
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-chip'></i>
+                            <span class="link_name">国产AI</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">国产AI</a></li>
+                        <li><a href="#" data-target="ai-tools">国产AI对比</a></li>
+                        <li><a href="#" data-target="ai-deepseek">DeepSeek</a></li>
+                        <li><a href="#" data-target="ai-chatglm">ChatGLM</a></li>
+                        <li><a href="#" data-target="ai-qwen">通义千问</a></li>
+                        <li><a href="#" data-target="ai-ernie">文心一言</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <img src="./备份/鱿鱼游戏.jpg" alt="profileImg">
+                        </div>
+                        <div class="name-job">
+                            <div class="profile_name">学习小贴士</div>
+                            <div class="job">点击菜单查看资料</div>
+                        </div>
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ===== 主内容区域 ===== -->
+        <section class="home-section">
+            <div class="home-content">
+                <i class='bx bx-menu' id="sidebarToggle"></i>
+                <span class="text">专升本资料系统（建议使用PC端浏览器）</span>
+            </div>
+
+            <div class="content-wrapper">
+                <header>
+                    <div class="breadcrumbs" id="breadcrumb">
+                        <a href="#">首页</a> &gt; <a href="#" id="current-category">资料总览</a>
+                    </div>
+
+                    <h1 class="title" id="page-title">
+                        <svg viewBox="0 0 24 24" id="title-icon">
+                            <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+                        </svg>
+                        <span id="title-text">专升本题背资料</span>
+                    </h1>
+
+                    <nav class="nav-tabs" id="nav-tabs">
+                        <a href="#0" class="active">全部资料<span>—</span></a>
+                        <a href="#0">开背资料<span>—</span></a>
+                        <a href="#0">模拟试题<span>—</span></a>
+                        <a href="#0">历年真题<span>—</span></a>
+                    </nav>
+
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                        </svg>
+                        <input type="text" placeholder="搜索资料名称..." id="search-input">
+                    </div>
+                </header>
+
+                <div class="content-columns">
+                    <!-- 统计卡片 -->
+                    <div class="stats-cards" id="stats-cards">
+                        <div class="stat-card politics">
+                            <h3>政治资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">—— —— ——</div>
+                        </div>
+                        <div class="stat-card english">
+                            <h3>英语资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">—— —— ——</div>
+                        </div>
+                        <div class="stat-card math">
+                            <h3>高数资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">—— —— ——</div>
+                        </div>
+                        <div class="stat-card it">
+                            <h3>信息技术资料</h3>
+                            <div class="value">—</div>
+                            <div class="desc">—— —— ——</div>
+                        </div>
+                    </div>
+
+                    <!-- 动态内容区域 -->
+                    <div class="dynamic-content" id="dynamic-content">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 6H4V4H20V6M21 12V14H3V12H21M13 18H11V20H13V18Z" />
+                        </svg>
+                        <h2>欢迎使用专升本资料系统</h2>
+                        <p>请从左侧菜单选择一个具体项目</p>
+                        <div class="path-hint" id="content-path">当前显示：首页</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- 悬浮AI助手 - 移动端优化版 -->
+    <div class="ai-float-btn" id="aiFloatBtn"
+        style="display: flex !important; opacity: 1 !important; visibility: visible !important;">
+        <i class='bx bx-chip'></i>
+        <span>AI助手</span>
+    </div>
+
+    <!-- 悬浮AI窗口（默认隐藏） -->
+    <div class="ai-float-window" id="aiFloatWindow">
+        <div class="ai-float-header" id="aiFloatHeader">
+            <div class="ai-float-title">
+                <i class='bx bx-chip'></i>
+                <span id="aiModelName">国产AI助手</span>
+            </div>
+            <div class="ai-float-controls">
+                <button class="ai-minimize-btn" id="aiMinimizeBtn">−</button>
+                <button class="ai-close-btn" id="aiCloseBtn">×</button>
+            </div>
+        </div>
+
+        <!-- AI模型选择栏 - 带品牌图标 -->
+        <div class="ai-model-selector" id="aiModelSelector">
+            <button class="ai-model-btn active" data-model="deepseek">
+                <img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/deepseek.svg" width="16" height="16"
+                    style="margin-right: 4px; vertical-align: middle;"> DeepSeek
+            </button>
+            <button class="ai-model-btn" data-model="chatglm">
+                <img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/chatglm.svg" width="16" height="16"
+                    style="margin-right: 4px; vertical-align: middle;"> ChatGLM
+            </button>
+            <button class="ai-model-btn" data-model="qwen">
+                <img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/qwen.svg" width="16" height="16"
+                    style="margin-right: 4px; vertical-align: middle;"> 通义千问
+            </button>
+            <button class="ai-model-btn" data-model="ernie">
+                <img src="https://nlp-eb.cdn.bcebos.com/logo/favicon.ico" width="16" height="16" alt="文心一言">文心一言
+            </button>
+        </div>
+
+        <!-- 聊天内容区域 -->
+        <div class="ai-float-chats" id="aiFloatChats">
+            <!-- 欢迎消息会通过JS动态添加 -->
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="ai-float-input-area">
+            <form class="ai-float-form" id="aiFloatForm">
+                <input type="text" class="ai-float-input" id="aiFloatInput" placeholder="输入问题...">
+                <button type="submit" class="ai-float-send" id="aiFloatSendBtn">
+                    <i class='bx bx-send'></i>
+                </button>
+            </form>
+            <div class="ai-float-tools">
+                <button class="ai-float-tool-btn" id="aiFloatClearBtn" title="清空对话">
+                    <i class='bx bx-trash'></i>
+                </button>
+                <button class="ai-float-tool-btn" id="aiFloatThemeBtn" title="切换主题">
+                    <i class='bx bx-moon'></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="filedata.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+
+    <!-- 临时AI解决方案 - 放在所有JS之后 -->
+
+</body>
+
+</html>

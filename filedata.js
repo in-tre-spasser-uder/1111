@@ -392,7 +392,7 @@ const fileData = {
     'mock2-it-26': { name: '26佳鑫诺信息技术概论模拟卷', files: [{ name: '26佳鑫诺信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
 
     // ===== 开背知识点 =====
-    'kaibei-politics-1': { name: '《马克思主义哲学原理》简答题', files: [{ name: '《马克思主义哲学原理》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/《马克思主义哲学原理》简答题.pdf', type: 'pdf' }] },
+    'kaibei-politics-1': { name: '扫描版《马克思主义哲学原理》简答题', files: [{ name: '扫描版《马克思主义哲学原理》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/扫描版《马克思主义哲学原理》简答题.pdf', type: 'pdf' }] },
     'kaibei-politics-2': { name: '《毛泽东思想和中国特色社会主义理论体系概论》简答题', files: [{ name: '《毛泽东思想和中国特色社会主义理论体系概论》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/《毛泽东思想和中国特色社会主义理论体系概论》简答题.pdf', type: 'pdf' }] },
     'kaibei-politics-3': { name: '《习近平新时代中国特色社会主义思想概论》简答题', files: [{ name: '《习近平新时代中国特色社会主义思想概论》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/《习近平新时代中国特色社会主义思想概论》简答题.pdf', type: 'pdf' }] },
 

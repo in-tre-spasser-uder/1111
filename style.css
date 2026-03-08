@@ -136,13 +136,20 @@ a {
     padding: 0 16px;
 }
 
-/* 需要检查是否有其他样式覆盖了颜色，添加以下代码强制显示白色 */
-.sidebar .nav-links li a,
-.sidebar .nav-links li a .link_name,
-.sidebar .nav-links li .sub-menu a,
-.sidebar .nav-links li .sub-menu .link_name {
+/* 一级菜单保持白色，嵌套菜单改成稍暗一点的浅灰色 */
+.sidebar .nav-links>li>a,
+.sidebar .nav-links>li>.iocn-link>a,
+.sidebar .nav-links>li>a .link_name,
+.sidebar .nav-links>li>.iocn-link>a .link_name {
     color: #ffffff !important;
 }
+
+/* 嵌套菜单颜色 */
+.sidebar .nav-links li .sub-menu a,
+.sidebar .nav-links li .sub-menu .link_name {
+    color: #a3b0ca !important;
+}
+
 
 .sidebar.close .nav-links li a .link_name {
     opacity: 0;

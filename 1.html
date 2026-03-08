@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>科技按钮示例</title>
+
+    <style>
+        /* 页面背景 */
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eef3ff, #f8fbff);
+            font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+        }
+
+        /* 按钮 */
+        .switch-nonscan-btn {
+            position: relative;
+            padding: 10px 22px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.6px;
+
+            color: #4096ff;
+            background: linear-gradient(135deg, #ffffff, #f6f9ff);
+
+            border: 1px solid rgba(64, 150, 255, 0.35);
+            border-radius: 10px;
+
+            cursor: pointer;
+            overflow: hidden;
+
+            transition: all 0.25s ease;
+        }
+
+        /* hover 科技光效 */
+        .switch-nonscan-btn:hover {
+            color: #ffffff;
+            background: linear-gradient(135deg, #4096ff, #6fb3ff);
+            border-color: transparent;
+
+            box-shadow:
+                0 0 0 1px rgba(64, 150, 255, 0.2),
+                0 6px 18px rgba(64, 150, 255, 0.35);
+        }
+
+        /* 流光效果 */
+        .switch-nonscan-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 120%;
+            height: 100%;
+
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.65),
+                    transparent);
+
+            transition: all 0.6s ease;
+        }
+
+        .switch-nonscan-btn:hover::before {
+            left: 120%;
+        }
+
+        /* 点击反馈 */
+        .switch-nonscan-btn:active {
+            transform: scale(0.94);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="switch-nonscan-btn">
+        切换非扫描版
+    </button>
+
+</body>
+
+</html>

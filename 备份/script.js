@@ -246,12 +246,10 @@ function renderFileContent(target, title) {
             <span class="file-name">${file.name}</span>
             ${fileBadge}
         </div>
-<div class="action-buttons">
-    ${data.switchFile ? `<button class="switch-nonscan-btn" data-target="${target}">切换非扫描版</button>` : ''}
-    <button class="preview-img-btn" data-img-files='${imgFilesAttr}' data-base-path='${baseFilePath}'>预览图片形式</button>
-    <button class="download-btn" data-file='${fileAttr}'>下载</button>
-    <button class="preview-btn" data-file='${fileAttr}'>预览</button>
-
+        <div class="action-buttons">
+            <button class="preview-img-btn" data-img-files='${imgFilesAttr}' data-base-path='${baseFilePath}'>预览图片形式</button>
+            <button class="download-btn" data-file='${fileAttr}'>下载</button>
+            <button class="preview-btn" data-file='${fileAttr}'>预览</button>
             ${(file.name.includes('模拟卷') || file.name.includes('真题')) && !file.name.includes('答案') ?
                 `<button class="dual-preview-btn" data-file='${fileAttr}' data-base-name='${file.name.replace('.pdf', '')}'>题答对照</button>` :
                 ''}
@@ -758,32 +756,6 @@ function rebindAllButtons(target, linkText) {
             }, 50);
         });
     });
-    // 切换非扫描版按钮
-    document.querySelectorAll('.switch-nonscan-btn').forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-
-            const target = this.getAttribute('data-target');
-            const switchFile = fileData[target]?.switchFile;
-
-            if (!switchFile) {
-                alert('没有配置非扫描版文件');
-                return;
-            }
-
-            currentPreviewFile = switchFile;
-            updateContent(target, linkText);
-
-            setTimeout(() => {
-                const container = document.getElementById('preview-container');
-                if (container && currentPreviewFile) {
-                    renderPreview(currentPreviewFile, container);
-                }
-            }, 50);
-        });
-    });
-
 
     // 预览图片形式按钮
     document.querySelectorAll('.preview-img-btn').forEach(btn => {

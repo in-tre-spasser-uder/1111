@@ -393,8 +393,8 @@ const fileData = {
 
     // ===== 开背知识点 =====
     'kaibei-politics-1': { name: '扫描版《马克思主义哲学原理》简答题', files: [{ name: '扫描版《马克思主义哲学原理》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/扫描版《马克思主义哲学原理》简答题.pdf', type: 'pdf' }] },
-    'kaibei-politics-2': { name: '《毛泽东思想和中国特色社会主义理论体系概论》简答题', files: [{ name: '《毛泽东思想和中国特色社会主义理论体系概论》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/《毛泽东思想和中国特色社会主义理论体系概论》简答题.pdf', type: 'pdf' }] },
-    'kaibei-politics-3': { name: '《习近平新时代中国特色社会主义思想概论》简答题', files: [{ name: '《习近平新时代中国特色社会主义思想概论》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/《习近平新时代中国特色社会主义思想概论》简答题.pdf', type: 'pdf' }] },
+    'kaibei-politics-2': { name: '扫描版《毛泽东思想和中国特色社会主义理论体系概论》简答题', files: [{ name: '扫描版《毛泽东思想和中国特色社会主义理论体系概论》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/扫描版《毛泽东思想和中国特色社会主义理论体系概论》简答题.pdf', type: 'pdf' }] },
+    'kaibei-politics-3': { name: '扫描版《习近平新时代中国特色社会主义思想概论》简答题', files: [{ name: '扫描版《习近平新时代中国特色社会主义思想概论》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/扫描版《习近平新时代中国特色社会主义思想概论》简答题.pdf', type: 'pdf' }] },
 
     'kaibei-english-1': { name: '英语开背知识点1', files: [{ name: '英语开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-english-2': { name: '英语开背知识点2', files: [{ name: '英语开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点2.pdf', type: 'pdf' }] },

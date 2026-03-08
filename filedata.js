@@ -392,19 +392,14 @@ const fileData = {
     'mock2-it-26': { name: '26佳鑫诺信息技术概论模拟卷', files: [{ name: '26佳鑫诺信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
 
     // ===== 开背知识点 =====
-    'kaibei-politics-1': { name: '政治开背知识点1', files: [{ name: '政治开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.pdf', type: 'pdf' }] },
-    'kaibei-politics-2': { name: '政治开背知识点2', files: [{ name: '政治开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点2.pdf', type: 'pdf' }] },
-    'kaibei-politics-3': { name: '政治开背知识点3', files: [{ name: '政治开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点3.pdf', type: 'pdf' }] },
-    'kaibei-politics-4': { name: '政治开背知识点4', files: [{ name: '政治开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点4.pdf', type: 'pdf' }] },
-    'kaibei-politics-5': { name: '政治开背知识点5', files: [{ name: '政治开背知识点5.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点5.pdf', type: 'pdf' }] },
-    'kaibei-politics-6': { name: '政治开背知识点6', files: [{ name: '政治开背知识点6.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点6.pdf', type: 'pdf' }] },
-    'kaibei-politics-7': { name: '政治开背知识点7', files: [{ name: '政治开背知识点7.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点7.pdf', type: 'pdf' }] },
-    'kaibei-politics-8': { name: '政治开背知识点8', files: [{ name: '政治开背知识点8.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点8.pdf', type: 'pdf' }] },
+    'kaibei-politics-1': { name: '《马克思主义哲学原理》简答题', files: [{ name: '《马克思主义哲学原理》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/《马克思主义哲学原理》简答题.pdf', type: 'pdf' }] },
+    'kaibei-politics-2': { name: '《毛泽东思想和中国特色社会主义理论体系概论》简答题', files: [{ name: '《毛泽东思想和中国特色社会主义理论体系概论》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/《毛泽东思想和中国特色社会主义理论体系概论》简答题.pdf', type: 'pdf' }] },
+    'kaibei-politics-3': { name: '《习近平新时代中国特色社会主义思想概论》简答题', files: [{ name: '《习近平新时代中国特色社会主义思想概论》简答题.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/《习近平新时代中国特色社会主义思想概论》简答题.pdf', type: 'pdf' }] },
 
     'kaibei-english-1': { name: '英语开背知识点1', files: [{ name: '英语开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-english-2': { name: '英语开背知识点2', files: [{ name: '英语开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点2.pdf', type: 'pdf' }] },
     'kaibei-english-3': { name: '英语开背知识点3', files: [{ name: '英语开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点3.pdf', type: 'pdf' }] },
-    'kaibei-english-4': { name: '英语开背知识点4', files: [{ name: '英语开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点4.pdf', type: 'pdf' }] },
+    'kaibei-english-4': { name: '英语开背知识点4', files: [{ name: '英语开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/開背知识点/英语/英语開背知識點4.pdf', type: 'pdf' }] },
     'kaibei-english-5': { name: '英语开背知识点5', files: [{ name: '英语开背知识点5.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点5.pdf', type: 'pdf' }] },
     'kaibei-english-6': { name: '英语开背知识点6', files: [{ name: '英语开背知识点6.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点6.pdf', type: 'pdf' }] },
     'kaibei-english-7': { name: '英语开背知识点7', files: [{ name: '英语开背知识点7.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点7.pdf', type: 'pdf' }] },

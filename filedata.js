@@ -282,7 +282,7 @@ const fileData = {
     'mock2-politics-2': { name: '25佳鑫诺政治模拟卷', files: [{ name: '25佳鑫诺政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/25佳鑫诺政治模拟卷.pdf', type: 'pdf' }, { name: '25佳鑫诺政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/25佳鑫诺政治模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-politics-3': { name: '26佳鑫诺政治模拟卷', files: [{ name: '26佳鑫诺政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/26佳鑫诺政治模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/26佳鑫诺政治模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-politics-4': { name: '佳鑫诺超越营政治冲刺卷', files: [{ name: '佳鑫诺超越营政治冲刺卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/佳鑫诺超越营政治冲刺卷.pdf', type: 'pdf' }, { name: '佳鑫诺超越营政治冲刺卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/佳鑫诺/佳鑫诺超越营政治冲刺卷答案.pdf', type: 'pdf' }] },
-    'mock2-politics-5': { name: '库课政治', files: [{ name: '库课政治.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/库课政治.pdf', type: 'pdf' }, { name: '库课政治.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/库课政治.pdf', type: 'pdf' }] },
+    'mock2-politics-5': { name: '库课政治', files: [{ name: '库课政治.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/库课/库课政治.pdf', type: 'pdf' }, { name: '库课政治.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/库课/库课政治.pdf', type: 'pdf' }] },
 
     // 英语模拟题 1-20 机构模拟题（成套）
     'mock2-english-1': { name: '24佳鑫诺英语模拟卷', files: [{ name: '24佳鑫诺英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/24佳鑫诺英语模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/24佳鑫诺英语模拟卷答案.pdf', type: 'pdf' }] },
@@ -369,7 +369,7 @@ const fileData = {
     'mock2-math-71': { name: '专升本1000题', files: [{ name: '专升本1000题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本1000题/专升本1000题.pdf', type: 'pdf' }, { name: '专升本1000题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本1000题/专升本1000题答案.pdf', type: 'pdf' }] },
 
     // 信息技术模拟题 1-20 机构模拟题（成套）
-    'mock2-it-1': { name: '26北方黑马信息技术概论模拟卷', files: [{ name: '26北方黑马信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/26北方黑马信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/26北方黑马信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-it-1': { name: '26北方黑马信息技术概论模拟卷', files: [{ name: '26北方黑马信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/北方黑马/26北方黑马信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/北方黑马/26北方黑马信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-it-2': { name: '不会算法-信息技术概论模拟卷1', files: [{ name: '不会算法-信息技术概论模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷1.pdf', type: 'pdf' }] },
     'mock2-it-3': { name: '不会算法-信息技术概论模拟卷2', files: [{ name: '不会算法-信息技术概论模拟卷2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷2.pdf', type: 'pdf' }] },
     'mock2-it-4': { name: '不会算法-信息技术概论模拟卷3', files: [{ name: '不会算法-信息技术概论模拟卷3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/不会算法/不会算法-信息技术概论模拟卷3.pdf', type: 'pdf' }] },
@@ -474,7 +474,7 @@ const fileData = {
     'kaibei-math-11': { name: '高数开背知识点11', files: [{ name: '高数开背知识点11.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点11.pdf', type: 'pdf' }] },
     'kaibei-math-12': { name: '高数开背知识点12', files: [{ name: '高数开背知识点12.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点12.pdf', type: 'pdf' }] },
 
-    'kaibei-it-1': { name: '信息技术开背知识点1', files: [{ name: '信息技术概论开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点1.pdf', type: 'pdf' }] },
+    'kaibei-it-1': { name: '信息技术概论知识点汇总', files: [{ name: '信息技术概论知识点汇总.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论知识点汇总.pdf', type: 'pdf' }] },
     'kaibei-it-2': { name: '信息技术开背知识点2', files: [{ name: '信息技术概论开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点2.pdf', type: 'pdf' }] },
     'kaibei-it-3': { name: '信息技术开背知识点3', files: [{ name: '信息技术概论开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点3.pdf', type: 'pdf' }] },
     'kaibei-it-4': { name: '信息技术开背知识点4', files: [{ name: '信息技术概论开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点4.pdf', type: 'pdf' }] },
@@ -519,11 +519,8 @@ const fileData = {
     'kaibei-math-png-11': { name: '高数开背知识点11（图片）', files: [{ name: '高数开背知识点11.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点11.png', type: 'png' }] },
     'kaibei-math-png-12': { name: '高数开背知识点12（图片）', files: [{ name: '高数开背知识点12.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点12.png', type: 'png' }] },
 
-    'kaibei-it-png-1': { name: '信息技术开背知识点1（图片）', files: [{ name: '信息技术开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点1.png', type: 'png' }] },
+    'kaibei-it-png-1': { name: '信息技术概论知识点汇总（图片）', files: [{ name: '信息技术概论知识点汇总.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论知识点汇总.png', type: 'png' }] },
     'kaibei-it-png-2': { name: '信息技术开背知识点2（图片）', files: [{ name: '信息技术开背知识点2.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点2.png', type: 'png' }] },
-    'kaibei-it-png-3': { name: '信息技术开背知识点3（图片）', files: [{ name: '信息技术开背知识点3.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点3.png', type: 'png' }] },
-    'kaibei-it-png-4': { name: '信息技术开背知识点4（图片）', files: [{ name: '信息技术开背知识点4.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点4.png', type: 'png' }] },
-    'kaibei-it-png-5': { name: '信息技术开背知识点5（图片）', files: [{ name: '信息技术开背知识点5.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点5.png', type: 'png' }] },
 
     'ai-tools': {
         name: '国产AI对比',

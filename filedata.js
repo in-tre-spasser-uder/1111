@@ -258,6 +258,8 @@ const fileData = {
     'mock-math-19': { name: '高数模拟卷19', files: [{ name: '高数模拟卷19.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷19.pdf', type: 'pdf' }, { name: '高数模拟卷19答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷19答案.pdf', type: 'pdf' }] },
     'mock-math-20': { name: '高数模拟卷20', files: [{ name: '高数模拟卷20.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷20.pdf', type: 'pdf' }, { name: '高数模拟卷20答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷20答案.pdf', type: 'pdf' }] },
     'mock-math-21': { name: '高数模拟卷21', files: [{ name: '高数模拟卷21.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷21.pdf', type: 'pdf' }, { name: '高数模拟卷21答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷21答案.pdf', type: 'pdf' }] },
+    'mock-math-22': { name: '高数模拟卷22', files: [{ name: '高数模拟卷22.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷22.pdf', type: 'pdf' }, { name: '高数模拟卷22答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷22答案.pdf', type: 'pdf' }] },
+    'mock-math-23': { name: '高数模拟卷23', files: [{ name: '高数模拟卷23.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷23.pdf', type: 'pdf' }, { name: '高数模拟卷23答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/高数一/高数模拟卷23答案.pdf', type: 'pdf' }] },
 
     // 信息技术概论模拟题 1-20
     'mock-it-1': { name: '信息技术概论模拟卷1', files: [{ name: '信息技术概论模拟卷1.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷1.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷1答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/模拟题/信息技术概论/信息技术概论模拟卷1答案.pdf', type: 'pdf' }] },

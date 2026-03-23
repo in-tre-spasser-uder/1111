@@ -475,8 +475,8 @@ const fileData = {
     'kaibei-math-12': { name: '高数开背知识点12', files: [{ name: '高数开背知识点12.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点12.pdf', type: 'pdf' }] },
 
     'kaibei-it-1': { name: '信息技术概论知识点汇总', files: [{ name: '信息技术概论知识点汇总.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论知识点汇总.pdf', type: 'pdf' }] },
-    'kaibei-it-2': { name: '信息技术开背知识点2', files: [{ name: '信息技术概论开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点2.pdf', type: 'pdf' }] },
-    'kaibei-it-3': { name: '信息技术开背知识点3', files: [{ name: '信息技术概论开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点3.pdf', type: 'pdf' }] },
+    'kaibei-it-2': { name: 'office2016选项卡', files: [{ name: 'office2016选项卡.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/office 2016选项卡.pdf', type: 'pdf' }] },
+    'kaibei-it-3': { name: 'DOS命令行基本命令及实践', files: [{ name: 'DOS命令行基本命令及实践.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/DOS命令行基本命令及实践.pdf', type: 'pdf' }] },
     'kaibei-it-4': { name: '信息技术开背知识点4', files: [{ name: '信息技术概论开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点4.pdf', type: 'pdf' }] },
     'kaibei-it-5': { name: '信息技术开背知识点5', files: [{ name: '信息技术概论开背知识点5.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点5.pdf', type: 'pdf' }] },
 

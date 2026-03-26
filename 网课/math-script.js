@@ -196,14 +196,14 @@
         if (lessons.length === 0) {
             chapterList.innerHTML = '<li class="empty-message">本章暂无课时</li>';
         } else {
-            let html = `<li class="chapter-group-header"><span>📖 ${chapterNames[currentPageChapterIndex]}</span><span>${lessons.length}课时</span></li>`;
+            let html = `<li class="chapter-group-header"><span><i class="bx bx-book-open"></i> ${chapterNames[currentPageChapterIndex]}</span><span>${lessons.length}课时</span></li>`;
             lessons.forEach(lesson => {
                 const activeClass = (lesson.id === currentLessonId) ? 'active' : '';
                 html += `<li data-id="${lesson.id}" class="${activeClass}">
-                            <i class="fa-regular fa-circle-play"></i>
-                            <span class="chapter-title" title="${lesson.fullTitle}">${lesson.fullTitle}</span>
-                            <span class="duration-badge">P${lesson.page}</span>
-                        </li>`;
+            <i class="bx bx-play-circle"></i>
+            <span class="chapter-title" title="${lesson.fullTitle}">${lesson.fullTitle}</span>
+            <span class="duration-badge">P${lesson.page}</span>
+        </li>`;
             });
             chapterList.innerHTML = html;
         }

@@ -407,6 +407,7 @@ const fileData = {
     'mock2-it-29': { name: '信息技术概论模拟卷（六-B）', files: [{ name: '信息技术概论模拟卷（六-B）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-B）.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷（六-B）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-B）答案.pdf', type: 'pdf' }] },
     'mock2-it-30': { name: '信息技术概论模拟卷（六-C）', files: [{ name: '信息技术概论模拟卷（六-C）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-C）.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷（六-C）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-C）答案.pdf', type: 'pdf' }] },
     'mock2-it-31': { name: '信息技术概论模拟卷（六-D）', files: [{ name: '信息技术概论模拟卷（六-D）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概論/字母卷/信息技术慨論模擬捲（六-D）.pdf', type: 'pdf' }, { name: '信息技术慨論模擬捲（六-D）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-D）答案.pdf', type: 'pdf' }] },
+    'mock2-it-32': { name: '文亮信息技术概论-模拟B5+压轴2', files: [{ name: '文亮信息技术概论-模拟B5+压轴2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/文亮/文亮信息技术概论-模拟B5+压轴2.pdf', type: 'pdf' }, { name: '文亮信息技术概论-模拟B5+压轴2答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/文亮/文亮信息技术概论-模拟B5+压轴2答案.pdf', type: 'pdf' }] },
 
     // ===== 开背知识点 =====
     'kaibei-politics-1': {

@@ -126,22 +126,53 @@ const fileData = {
             }
         ]
     },
+    // 2027年考纲
+    'syllabus-2027-politics': {
+        name: '政治考纲2027',
+        files: [
+            {
+                name: '2027政治考纲.pdf',
+                fileUrl: './zhuanshengben/考纲/2027/2027政治考纲.pdf',
+                type: 'pdf'
+            }
+        ]
+    },
+    'syllabus-2027-english': {
+        name: '英语考纲2027',
+        files: [
+            {
+                name: '2027英语考纲.pdf',
+                fileUrl: './zhuanshengben/考纲/2027/2027英语考纲.pdf',
+                type: 'pdf'
+            }
+        ]
+    },
+    'syllabus-2027-math': {
+        name: '高数考纲2027',
+        files: [
+            {
+                name: '2027高数考纲.pdf',
+                fileUrl: './zhuanshengben/考纲/2027/2027高数一考纲.pdf',
+                type: 'pdf'
+            }
+        ]
+    },
+    'syllabus-2027-it': {
+        name: '信息技术考纲2027',
+        files: [
+            {
+                name: '2027信息技术考纲.pdf',
+                fileUrl: './zhuanshengben/考纲/2027/2027信息技术基础考纲.pdf',
+                type: 'pdf'
+            }
+        ]
+    },
     'process': {
         name: '报考流程（了解理工3）',
         files: [
             {
                 name: '了解理工3.pdf',
                 fileUrl: './zhuanshengben/报考流程（了解理工3）/了解理工3.pdf',
-                type: 'pdf'
-            }
-        ]
-    },
-    'syllabus-other': {
-        name: '其他年份考纲',
-        files: [
-            {
-                name: '其他年份考纲.pdf',
-                fileUrl: './鱿鱼游戏.jpg',
                 type: 'pdf'
             }
         ]

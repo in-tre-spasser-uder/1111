@@ -373,6 +373,7 @@ const fileData = {
     'mock2-math-70': { name: '高数习题集', files: [{ name: '高数习题集.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/高数习题集/高数习题集.pdf', type: 'pdf' }, { name: '高数习题集答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/高数习题集/高数习题集答案.pdf', type: 'pdf' }] },
     'mock2-math-71': { name: '专升本1000题', files: [{ name: '专升本1000题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本1000题/专升本1000题.pdf', type: 'pdf' }, { name: '专升本1000题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本1000题/专升本1000题答案.pdf', type: 'pdf' }] },
     'mock2-math-72': { name: '冠人高数升本通关模拟卷', files: [{ name: '冠人高数升本通关模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/冠人/冠人高数升本通关模拟卷.pdf', type: 'pdf' }, { name: '冠人高数升本通关模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/冠人/冠人高数升本通关模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-math-73': { name: '26北方黑马高数一模拟卷', files: [{ name: '26北方黑马高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/北方黑马/26北方黑马高数一模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/北方黑马/26北方黑马高数一模拟卷答案.pdf', type: 'pdf' }] },
 
     // 信息技术模拟题 1-20 机构模拟题（成套）
     'mock2-it-1': { name: '26北方黑马信息技术概论模拟卷', files: [{ name: '26北方黑马信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/北方黑马/26北方黑马信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/北方黑马/26北方黑马信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
@@ -402,6 +403,10 @@ const fileData = {
     'mock2-it-25': { name: '信息技术概论第九章', files: [{ name: '信息技术概论第九章.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/信息技术概论第九章.pdf', type: 'pdf' }, { name: '信息技术概论第九章答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/信息技术概论第九章答案.pdf', type: 'pdf' }] },
     'mock2-it-26': { name: '26佳鑫诺信息技术概论模拟卷', files: [{ name: '26佳鑫诺信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26佳鑫诺信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/佳鑫诺/26佳鑫诺信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-it-27': { name: '冠人信息技术概论升本通关模拟卷', files: [{ name: '冠人信息技术概论升本通关模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/冠人/冠人信息技术概论升本通关模拟卷.pdf', type: 'pdf' }, { name: '冠人信息技术概论升本通关模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/冠人/冠人信息技术概论升本通关模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-it-28': { name: '信息技术概论模拟卷（六-A）', files: [{ name: '信息技术概论模拟卷（六-A）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-A）.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷（六-A）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-A）答案.pdf', type: 'pdf' }] },
+    'mock2-it-29': { name: '信息技术概论模拟卷（六-B）', files: [{ name: '信息技术概论模拟卷（六-B）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-B）.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷（六-B）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-B）答案.pdf', type: 'pdf' }] },
+    'mock2-it-30': { name: '信息技术概论模拟卷（六-C）', files: [{ name: '信息技术概论模拟卷（六-C）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-C）.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷（六-C）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-C）答案.pdf', type: 'pdf' }] },
+    'mock2-it-31': { name: '信息技术概论模拟卷（六-D）', files: [{ name: '信息技术概论模拟卷（六-D）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概論/字母卷/信息技术慨論模擬捲（六-D）.pdf', type: 'pdf' }, { name: '信息技术慨論模擬捲（六-D）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-D）答案.pdf', type: 'pdf' }] },
 
     // ===== 开背知识点 =====
     'kaibei-politics-1': {

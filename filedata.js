@@ -329,8 +329,8 @@ const fileData = {
     'mock2-politics-18': { name: '2025年9月时政热点+习题', files: [{ name: '2025年1月时政热点+习题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/不会算法/25年时政热点/2025年1月时政热点+习题.pdf', type: 'pdf' }, { name: '2025年1月时政热点+习题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/不会算法/25年时政热点/2025年9月时政热点+习题答案.pdf', type: 'pdf' }] },
     'mock2-politics-19': { name: '2025年10月时政热点+习题', files: [{ name: '2025年1月时政热点+习题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/不会算法/25年时政热点/2025年1月时政热点+习题.pdf', type: 'pdf' }, { name: '2025年1月时政热点+习题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/不会算法/25年时政热点/2025年10月时政热点+习题答案.pdf', type: 'pdf' }] },
     'mock2-politics-20': { name: '2025年11月时政热点+习题', files: [{ name: '2025年1月时政热点+习题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/不会算法/25年时政热点/2025年1月时政热点+习题.pdf', type: 'pdf' }, { name: '2025年1月时政热点+习题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/不会算法/25年时政热点/2025年11月时政热点+习题答案.pdf', type: 'pdf' }] },
-    'mock2-politics-21': { name: '2025年12月时政热点+习题', files: [{ name: '2025年1月时政热点+习题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/不会算法/25年时政热点/2025年1月时政热点+习题.pdf', type: 'pdf' }, { name: '2025年1月时政热点+习题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟題（成套）/政治/不会算法/25年时政热点/2025年12月时政热点+习題答案.pdf', type: 'pdf' }] },
-    'mock2-politics-22': { name: '冠人政治模拟卷+升本通关模拟卷', files: [{ name: '冠人政治模拟卷+升本通关模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/冠人/冠人政治模拟卷+升本通关模拟卷.pdf', type: 'pdf' }, { name: '2025年1月时政热点+习题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟題（成套）/政治/冠人/冠人政治模拟卷+升本通关模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-politics-21': { name: '2025年12月时政热点+习题', files: [{ name: '2025年1月时政热点+习题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/不会算法/25年时政热点/2025年1月时政热点+习题.pdf', type: 'pdf' }, { name: '2025年1月时政热点+习题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/不会算法/25年时政热点/2025年12月时政热点+习題答案.pdf', type: 'pdf' }] },
+    'mock2-politics-22': { name: '冠人政治模拟卷+升本通关模拟卷', files: [{ name: '冠人政治模拟卷+升本通关模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/冠人/冠人政治模拟卷+升本通关模拟卷.pdf', type: 'pdf' }, { name: '2025年1月时政热点+习题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/冠人/冠人政治模拟卷+升本通关模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-politics-23': { name: '26尚学政治模拟卷', files: [{ name: '26尚学政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/尚学/26尚学政治模拟卷.pdf', type: 'pdf' }, { name: '26尚学政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/尚学/26尚学政治模拟卷答案.pdf', type: 'pdf' }] },
 
     // 英语模拟题 1-20 机构模拟题（成套）
@@ -357,25 +357,24 @@ const fileData = {
     'mock2-math-8': { name: '佳鑫诺集训营综合演练数学12套', files: [{ name: '佳鑫诺集训营综合演练数学12套.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺集训营综合演练数学12套.pdf', type: 'pdf' }, { name: '佳鑫诺集训营综合演练数学12套答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺集训营综合演练数学12套答案.pdf', type: 'pdf' }] },
     'mock2-math-9': { name: '26年佳鑫诺超越营高数一综合试卷', files: [{ name: '26年佳鑫诺超越营高数一综合试卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/26年佳鑫诺超越营高数一综合试卷.pdf', type: 'pdf' }, { name: '26年佳鑫诺超越营高数一综合试卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/26年佳鑫诺超越营高数一综合试卷答案.pdf', type: 'pdf' }] },
     'mock2-math-10': { name: '高等数学（上册）精选750题', files: [{ name: '高等数学（上册）精选750题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题.pdf', type: 'pdf' }, { name: '高等数学（上册）精选750题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/宋浩/高等数学（上册）精选750题答案.pdf', type: 'pdf' }] },
-    'mock2-math-10': { name: '2023 考研数学 复习全书・基础篇', files: [{ name: '2023 考研数学 复习全书・基础篇.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇.pdf', type: 'pdf' }, { name: '2023 考研数学 复习全书・基础篇答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇答案.pdf', type: 'pdf' }] },
-    'mock2-math-11': { name: '2023数学基础过关660题习题册（数学一）', files: [{ name: '2023数学基础过关660题习题册（数学一）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学一）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题答案册（数学一）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学一）.pdf', type: 'pdf' }] },
-    'mock2-math-12': { name: '2023数学基础过关660题习题册（数学二）', files: [{ name: '2023数学基础过关660题习题册（数学二）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学二）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题答案册（数学二）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学二）.pdf', type: 'pdf' }] },
-    'mock2-math-13': { name: '第一章1-求函数的定义域', files: [{ name: '第一章1-求函数的定义域.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章1-求函数的定义域.pdf', type: 'pdf' }] },
-    'mock2-math-14': { name: '第一章2-判断函数的同一性', files: [{ name: '第一章2-判断函数的同一性.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章2-判断函数的同一性.pdf', type: 'pdf' }] },
-    'mock2-math-15': { name: '第一章3-函数的性质', files: [{ name: '第一章3-函数的性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章3-函数的性质.pdf', type: 'pdf' }] },
-    'mock2-math-16': { name: '第一章4-函数的解析式', files: [{ name: '第一章4-函数的解析式.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章4-函数的解析式.pdf', type: 'pdf' }] },
-    'mock2-math-17': { name: '第一章5-极限的计算', files: [{ name: '第一章5-极限的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章5-极限的计算.pdf', type: 'pdf' }] },
-    'mock2-math-18': { name: '第一章6-等价无穷小代换', files: [{ name: '第一章6-等价无穷小代换.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章6-等价无穷小代换.pdf', type: 'pdf' }] },
-    'mock2-math-19': { name: '第一章7-两个重要极限', files: [{ name: '第一章7-两个重要极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章7-两个重要极限.pdf', type: 'pdf' }] },
-    'mock2-math-20': { name: '第一章8-无穷小与无穷大', files: [{ name: '第一章8-无穷小与无穷大.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章8-无穷小与无穷大.pdf', type: 'pdf' }] },
-    'mock2-math-21': { name: '第一章9-数列极限', files: [{ name: '第一章9-数列极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章9-数列极限.pdf', type: 'pdf' }] },
-    'mock2-math-22': { name: '第一章10-函数的连续性', files: [{ name: '第一章10-函数的连续性.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章10-函数的连续性.pdf', type: 'pdf' }] },
-    'mock2-math-23': { name: '第一章11-函数的间断点', files: [{ name: '第一章11-函数的间断点.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章11-函数的间断点.pdf', type: 'pdf' }] },
-    'mock2-math-24': { name: '第二章1-导数的定义', files: [{ name: '第二章1-导数的定义.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章1-导数的定义.pdf', type: 'pdf' }] },
-    'mock2-math-25': { name: '第二章2初等函数求导法 ', files: [{ name: '第二章2初等函数求导法 .pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章2初等函数求导法 .pdf', type: 'pdf' }] },
-    'mock2-math-26': { name: '第二章4-参数方程的求导', files: [{ name: '第二章4-参数方程的求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章4-参数方程的求导.pdf', type: 'pdf' }] },
-    'mock2-math-27': { name: '第二章5幂指函数和对数函数的求导', files: [{ name: '第二章5幂指函数和对数函数的求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章5幂指函数和对数函数的求导.pdf', type: 'pdf' }] },
-    'mock2-math-28': { name: '第二章6-高阶导数的计算', files: [{ name: '第二章6-高阶导数的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章6-高阶导数的计算.pdf', type: 'pdf' }] },
+    'mock2-math-11': { name: '2023 考研数学 复习全书・基础篇', files: [{ name: '2023 考研数学 复习全书・基础篇.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇.pdf', type: 'pdf' }, { name: '2023 考研数学 复习全书・基础篇答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023 考研数学 复习全书・基础篇答案.pdf', type: 'pdf' }] },
+    'mock2-math-12': { name: '2023数学基础过关660题习题册（数学一）', files: [{ name: '2023数学基础过关660题习题册（数学一）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学一）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题答案册（数学一）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学一）.pdf', type: 'pdf' }] },
+    'mock2-math-13': { name: '2023数学基础过关660题习题册（数学二）', files: [{ name: '2023数学基础过关660题习题册（数学二）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题习题册（数学二）.pdf', type: 'pdf' }, { name: '2023数学基础过关660题答案册（数学二）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/李永乐/2023数学基础过关660题答案册（数学二）.pdf', type: 'pdf' }] },
+    'mock2-math-14': { name: '第一章1-求函数的定义域', files: [{ name: '第一章1-求函数的定义域.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章1-求函数的定义域.pdf', type: 'pdf' }] },
+    'mock2-math-15': { name: '第一章2-判断函数的同一性', files: [{ name: '第一章2-判断函数的同一性.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章2-判断函数的同一性.pdf', type: 'pdf' }] },
+    'mock2-math-16': { name: '第一章3-函数的性质', files: [{ name: '第一章3-函数的性质.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章3-函数的性质.pdf', type: 'pdf' }] },
+    'mock2-math-17': { name: '第一章4-函数的解析式', files: [{ name: '第一章4-函数的解析式.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章4-函数的解析式.pdf', type: 'pdf' }] },
+    'mock2-math-18': { name: '第一章5-极限的计算', files: [{ name: '第一章5-极限的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章5-极限的计算.pdf', type: 'pdf' }] },
+    'mock2-math-19': { name: '第一章6-等价无穷小代换', files: [{ name: '第一章6-等价无穷小代换.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章6-等价无穷小代换.pdf', type: 'pdf' }] },
+    'mock2-math-20': { name: '第一章7-两个重要极限', files: [{ name: '第一章7-两个重要极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章7-两个重要极限.pdf', type: 'pdf' }] },
+    'mock2-math-21': { name: '第一章8-无穷小与无穷大', files: [{ name: '第一章8-无穷小与无穷大.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章8-无穷小与无穷大.pdf', type: 'pdf' }] },
+    'mock2-math-22': { name: '第一章9-数列极限', files: [{ name: '第一章9-数列极限.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章9-数列极限.pdf', type: 'pdf' }] },
+    'mock2-math-23': { name: '第一章10-函数的连续性', files: [{ name: '第一章10-函数的连续性.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章10-函数的连续性.pdf', type: 'pdf' }] },
+    'mock2-math-24': { name: '第一章11-函数的间断点', files: [{ name: '第一章11-函数的间断点.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第一章11-函数的间断点.pdf', type: 'pdf' }] },
+    'mock2-math-25': { name: '第二章1-导数的定义', files: [{ name: '第二章1-导数的定义.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章1-导数的定义.pdf', type: 'pdf' }] },
+    'mock2-math-26': { name: '第二章2初等函数求导法 ', files: [{ name: '第二章2初等函数求导法 .pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章2初等函数求导法 .pdf', type: 'pdf' }] },
+    'mock2-math-27': { name: '第二章4-参数方程的求导', files: [{ name: '第二章4-参数方程的求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章4-参数方程的求导.pdf', type: 'pdf' }] },
+    'mock2-math-28': { name: '第二章5幂指函数和对数函数的求导', files: [{ name: '第二章5幂指函数和对数函数的求导.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章5幂指函数和对数函数的求导.pdf', type: 'pdf' }] },
     'mock2-math-29': { name: '第二章7-微分的计算', files: [{ name: '第二章7-微分的计算.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章7-微分的计算.pdf', type: 'pdf' }] },
     'mock2-math-30': { name: '第二章8-导数的几何意义', files: [{ name: '第二章8-导数的几何意义.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章8-导数的几何意义.pdf', type: 'pdf' }] },
     'mock2-math-31': { name: '第二章9-可导、连续与极限存在的关系', files: [{ name: '第二章9-可导、连续与极限存在的关系.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/专升本八百题/第二章9-可导、连续与极限存在的关系.pdf', type: 'pdf' }] },
@@ -506,78 +505,78 @@ const fileData = {
             }
         ]
     },
-        'kaibei-politics-4': {
+    'kaibei-politics-4': {
         name: '26年北方政治',
         switchFile: {
-            name: '26年北方政治.pdf',
-            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年北方政治.pdf',
-            type: 'pdf'
+            name: '26年北方政治.png',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年北方政治.png',
+            type: 'png'
         },
         files: [
             {
-                name: '26年北方政治.png',
-                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年北方政治.png',
-                type: 'png'
+                name: '26年北方政治.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年北方政治.pdf',
+                type: 'pdf'
             }
         ]
     },
-            'kaibei-politics-5': {
+    'kaibei-politics-5': {
         name: '26年好老师政治背诵',
         switchFile: {
-            name: '26年好老师政治背诵.pdf',
-            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年好老师政治背诵.pdf',
-            type: 'pdf'
+            name: '26年好老师政治背诵.png',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年好老师政治背诵.png',
+            type: 'png'
         },
         files: [
             {
-                name: '26年好老师政治背诵.png',
-                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年好老师政治背诵.png',
-                type: 'png'
+                name: '26年好老师政治背诵.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年好老师政治背诵.pdf',
+                type: 'pdf'
             }
         ]
     },
-            'kaibei-politics-6': {
+    'kaibei-politics-6': {
         name: '26年佳鑫诺马哲背诵',
         switchFile: {
-            name: '26年佳鑫诺马哲背诵.pdf',
-            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年佳鑫诺马哲背诵.pdf',
-            type: 'pdf'
+            name: '26年佳鑫诺马哲背诵.png',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年佳鑫诺马哲背诵.png',
+            type: 'png'
         },
         files: [
             {
-                name: '26年佳鑫诺马哲背诵.png',
-                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年佳鑫诺马哲背诵.png',
-                type: 'png'
+                name: '26年佳鑫诺马哲背诵.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年佳鑫诺马哲背诵.pdf',
+                type: 'pdf'
             }
         ]
     },
-            'kaibei-politics-7': {
+    'kaibei-politics-7': {
         name: '26年张老师政治中特背诵',
         switchFile: {
-            name: '26年张老师政治中特背诵.pdf',
-            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年张老师政治中特背诵.pdf',
-            type: 'pdf'
+            name: '26年张老师政治中特背诵.png',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年张老师政治中特背诵.png',
+            type: 'png'
         },
         files: [
             {
-                name: '26年张老师政治中特背诵.png',
-                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年张老师政治中特背诵.png',
-                type: 'png'
+                name: '26年张老师政治中特背诵.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年张老师政治中特背诵.pdf',
+                type: 'pdf'
             }
         ]
     },
-            'kaibei-politics-8': {
+    'kaibei-politics-8': {
         name: 'x年库课政治背诵',
         switchFile: {
-            name: 'x年库课政治背诵.pdf',
-            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/x年库课政治背诵.pdf',
-            type: 'pdf'
+            name: 'x年库课政治背诵.png',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/x年库课政治背诵.png',
+            type: 'png'
         },
         files: [
             {
-                name: 'x年库课政治.png',
-                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/x年库课政治.png',
-                type: 'png'
+                name: 'x年库课政治背诵.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/x年库课政治背诵.pdf',
+                type: 'pdf'
             }
         ]
     },
@@ -585,7 +584,7 @@ const fileData = {
     'kaibei-english-1': { name: '英语开背知识点1', files: [{ name: '英语开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-english-2': { name: '英语开背知识点2', files: [{ name: '英语开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点2.pdf', type: 'pdf' }] },
     'kaibei-english-3': { name: '英语开背知识点3', files: [{ name: '英语开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点3.pdf', type: 'pdf' }] },
-    'kaibei-english-4': { name: '英语开背知识点4', files: [{ name: '英语开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/開背知识点/英语/英语開背知識點4.pdf', type: 'pdf' }] },
+    'kaibei-english-4': { name: '英语开背知识点4', files: [{ name: '英语开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点4.pdf', type: 'pdf' }] },
     'kaibei-english-5': { name: '英语开背知识点5', files: [{ name: '英语开背知识点5.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点5.pdf', type: 'pdf' }] },
     'kaibei-english-6': { name: '英语开背知识点6', files: [{ name: '英语开背知识点6.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点6.pdf', type: 'pdf' }] },
     'kaibei-english-7': { name: '英语开背知识点7', files: [{ name: '英语开背知识点7.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点7.pdf', type: 'pdf' }] },

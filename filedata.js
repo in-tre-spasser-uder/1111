@@ -610,11 +610,13 @@ const fileData = {
     'kaibei-math-11': { name: '高数开背知识点11', files: [{ name: '高数开背知识点11.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点11.pdf', type: 'pdf' }] },
     'kaibei-math-12': { name: '高数开背知识点12', files: [{ name: '高数开背知识点12.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/高数一/高数开背知识点12.pdf', type: 'pdf' }] },
 
-    'kaibei-it-1': { name: '信息技术概论知识点汇总', files: [{ name: '信息技术概论知识点汇总.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论知识点汇总.pdf', type: 'pdf' }] },
+    'kaibei-it-1': { name: 'DOS命令行基本命令及实践', files: [{ name: 'DOS命令行基本命令及实践.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/DOS命令行基本命令及实践.pdf', type: 'pdf' }] },
     'kaibei-it-2': { name: 'office2016选项卡', files: [{ name: 'office2016选项卡.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/office 2016选项卡.pdf', type: 'pdf' }] },
-    'kaibei-it-3': { name: 'DOS命令行基本命令及实践', files: [{ name: 'DOS命令行基本命令及实践.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/DOS命令行基本命令及实践.pdf', type: 'pdf' }] },
-    'kaibei-it-4': { name: '信息技术开背知识点4', files: [{ name: '信息技术概论开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点4.pdf', type: 'pdf' }] },
-    'kaibei-it-5': { name: '信息技术开背知识点5', files: [{ name: '信息技术概论开背知识点5.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/信息技术概论开背知识点5.pdf', type: 'pdf' }] },
+    'kaibei-it-3': { name: '计算机笔记', files: [{ name: '计算机笔记.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/计算机笔记.pdf', type: 'pdf' }] },
+    'kaibei-it-4': { name: '计算机基础知识点', files: [{ name: '计算机基础知识点.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/计算机基础知识点.pdf', type: 'pdf' }] },
+    'kaibei-it-5': { name: '26年不会算法信息技术概论简答题汇编', files: [{ name: '26年不会算法信息技术概论简答题汇编.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/机构资料/26年不会算法信息技术概论简答题汇编.pdf', type: 'pdf' }] },
+    'kaibei-it-6': { name: '26年尚学信息技术概论知识点汇总', files: [{ name: '26年尚学信息技术概论知识点汇总.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/机构资料/26年尚学信息技术概论知识点汇总.pdf', type: 'pdf' }] },
+    'kaibei-it-7': { name: 'x年精通学堂信息技术概论知识点汇总', files: [{ name: 'x年精通学堂信息技术概论知识点汇总.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/信息技术概论/机构资料/x年精通学堂信息技术概论知识点汇总.pdf', type: 'pdf' }] },
 
     // ===== 开背知识点 - 图片版 =====
     'kaibei-politics-png-1': { name: '政治开背知识点1（图片）', files: [{ name: '政治开背知识点1.png', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/政治开背知识点1.png', type: 'png' }] },

@@ -506,6 +506,81 @@ const fileData = {
             }
         ]
     },
+        'kaibei-politics-4': {
+        name: '26年北方政治',
+        switchFile: {
+            name: '26年北方政治.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年北方政治.pdf',
+            type: 'pdf'
+        },
+        files: [
+            {
+                name: '26年北方政治.png',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年北方政治.png',
+                type: 'png'
+            }
+        ]
+    },
+            'kaibei-politics-5': {
+        name: '26年好老师政治背诵',
+        switchFile: {
+            name: '26年好老师政治背诵.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年好老师政治背诵.pdf',
+            type: 'pdf'
+        },
+        files: [
+            {
+                name: '26年好老师政治背诵.png',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年好老师政治背诵.png',
+                type: 'png'
+            }
+        ]
+    },
+            'kaibei-politics-6': {
+        name: '26年佳鑫诺马哲背诵',
+        switchFile: {
+            name: '26年佳鑫诺马哲背诵.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年佳鑫诺马哲背诵.pdf',
+            type: 'pdf'
+        },
+        files: [
+            {
+                name: '26年佳鑫诺马哲背诵.png',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年佳鑫诺马哲背诵.png',
+                type: 'png'
+            }
+        ]
+    },
+            'kaibei-politics-7': {
+        name: '26年张老师政治中特背诵',
+        switchFile: {
+            name: '26年张老师政治中特背诵.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年张老师政治中特背诵.pdf',
+            type: 'pdf'
+        },
+        files: [
+            {
+                name: '26年张老师政治中特背诵.png',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/26年张老师政治中特背诵.png',
+                type: 'png'
+            }
+        ]
+    },
+            'kaibei-politics-8': {
+        name: 'x年库课政治背诵',
+        switchFile: {
+            name: 'x年库课政治背诵.pdf',
+            fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/x年库课政治背诵.pdf',
+            type: 'pdf'
+        },
+        files: [
+            {
+                name: 'x年库课政治.png',
+                fileUrl: './zhuanshengben/专升本题背资料/开背知识点/政治/机构资料/x年库课政治.png',
+                type: 'png'
+            }
+        ]
+    },
 
     'kaibei-english-1': { name: '英语开背知识点1', files: [{ name: '英语开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点1.pdf', type: 'pdf' }] },
     'kaibei-english-2': { name: '英语开背知识点2', files: [{ name: '英语开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点2.pdf', type: 'pdf' }] },

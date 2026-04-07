@@ -168,11 +168,11 @@ const fileData = {
         ]
     },
     'process': {
-        name: '报考流程（了解理工3）',
+        name: '报考流程（了解理工3、4）',
         files: [
             {
-                name: '了解理工3.pdf',
-                fileUrl: './zhuanshengben/报考流程（了解理工3）/了解理工3.pdf',
+                name: '了解理工3、4.pdf',
+                fileUrl: './zhuanshengben/报考流程（了解理工3、4）/了解理工3、4.pdf',
                 type: 'pdf'
             }
         ]

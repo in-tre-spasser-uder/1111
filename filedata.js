@@ -28,13 +28,13 @@ const fileData = {
         name: '历年真题·政治',
         files: [
             {
-                name: '19-25政治真题.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题.pdf',
+                name: '16-25政治真题.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/16-25政治真题.pdf',
                 type: 'pdf'
             },
             {
-                name: '19-25政治真题答案.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/19-25政治真题答案.pdf',
+                name: '16-25政治真题答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/16-25政治真题答案.pdf',
                 type: 'pdf'
             }
         ]

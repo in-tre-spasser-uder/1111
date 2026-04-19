@@ -107,7 +107,7 @@ a {
     top: 0;
     left: 0;
     height: 100%;
-    width: 320px;
+    width: 360px;
     z-index: 100;
     transition: all 0.5s ease;
     overflow: hidden;
@@ -505,7 +505,7 @@ a {
 .sidebar .profile-details {
     position: fixed;
     bottom: 0;
-    width: 310px;
+    width: 360px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -571,8 +571,8 @@ a {
    ========================= */
 .home-section {
     position: relative;
-    left: 320px;
-    width: calc(100% - 260px);
+    left: 360px;
+    width: calc(100% - 360px);
     height: 100vh;
     overflow-y: auto;
     transition: all 0.5s ease;

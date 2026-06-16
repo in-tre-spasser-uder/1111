@@ -465,6 +465,8 @@ const fileData = {
     'mock2-it-33': { name: '信息技术概论模拟卷（六-D）', files: [{ name: '信息技术概论模拟卷（六-D）.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-D）.pdf', type: 'pdf' }, { name: '信息技术概论模拟卷（六-D）答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/字母卷/信息技术概论模拟卷（六-D）答案.pdf', type: 'pdf' }] },
     'mock2-it-34': { name: '文亮信息技术概论-模拟B5+压轴2', files: [{ name: '文亮信息技术概论-模拟B5+压轴2.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/文亮/文亮信息技术概论-模拟B5+压轴2.pdf', type: 'pdf' }] },
     'mock2-it-35': { name: '26尚学信息技术概论模拟卷', files: [{ name: '26尚学信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/尚学/26尚学信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26尚学信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/尚学/26尚学信息技术概论模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-it-36': { name: '龙哥信息技术概论强化学练通', files: [{ name: '龙哥信息技术概论强化学练通.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/龙哥/龙哥信息技术概论强化学练通.pdf', type: 'pdf' }, { name: '龙哥信息技术概论强化学练通答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/龙哥/龙哥信息技术概论强化学练通答案.pdf', type: 'pdf' }] },
+    'mock2-it-37': { name: '龙哥信息技术概论第一次仿真模拟卷', files: [{ name: '龙哥信息技术概论第一次仿真模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/龙哥/龙哥信息技术概论第一次仿真模拟卷.pdf', type: 'pdf' }] },
     // ===== 开背知识点 =====
     'kaibei-politics-1': {
         name: '非扫描版《马克思主义哲学原理》简答题',

@@ -74,12 +74,12 @@ const fileData = {
         files: [
             {
                 name: '信息技术概论真题.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/信息技术概论/信息技术概论真题.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/信息技术概论/26信息技术概论真题.pdf',
                 type: 'pdf'
             },
             {
                 name: '信息技术概论真题答案.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/信息技术概论/信息技术概论真题答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/信息技术概论/26信息技术概论真题答案.pdf',
                 type: 'pdf'
             }
         ]

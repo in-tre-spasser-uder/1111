@@ -591,10 +591,10 @@ const fileData = {
         ]
     },
 
-    'kaibei-english-1': { name: '英语开背知识点1', files: [{ name: '英语开背知识点1.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点1.pdf', type: 'pdf' }] },
-    'kaibei-english-2': { name: '英语开背知识点2', files: [{ name: '英语开背知识点2.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点2.pdf', type: 'pdf' }] },
-    'kaibei-english-3': { name: '英语开背知识点3', files: [{ name: '英语开背知识点3.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点3.pdf', type: 'pdf' }] },
-    'kaibei-english-4': { name: '英语开背知识点4', files: [{ name: '英语开背知识点4.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点4.pdf', type: 'pdf' }] },
+    'kaibei-english-1': { name: '英语词汇', files: [{ name: '英语词汇.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语词汇.pdf', type: 'pdf' }] },
+    'kaibei-english-2': { name: '英语词汇3800', files: [{ name: '英语词汇3800.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语词汇3800.pdf', type: 'pdf' }] },
+    'kaibei-english-3': { name: '英语高频考词', files: [{ name: '英语高频考词.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语高频考词.pdf', type: 'pdf' }] },
+    'kaibei-english-4': { name: '专接本3500词（全）', files: [{ name: '专接本3500词（全）.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/专接本3500词（全）.pdf', type: 'pdf' }] },
     'kaibei-english-5': { name: '英语开背知识点5', files: [{ name: '英语开背知识点5.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点5.pdf', type: 'pdf' }] },
     'kaibei-english-6': { name: '英语开背知识点6', files: [{ name: '英语开背知识点6.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点6.pdf', type: 'pdf' }] },
     'kaibei-english-7': { name: '英语开背知识点7', files: [{ name: '英语开背知识点7.pdf', fileUrl: './zhuanshengben/专升本题背资料/开背知识点/英语/英语开背知识点7.pdf', type: 'pdf' }] },

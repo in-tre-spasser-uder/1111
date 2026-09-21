@@ -29,12 +29,12 @@ const fileData = {
         files: [
             {
                 name: '16-25政治真题.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/16-25政治真题.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/16-26政治真题.pdf',
                 type: 'pdf'
             },
             {
                 name: '16-25政治真题答案.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/16-25政治真题答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/政治/16-26政治真题答案.pdf',
                 type: 'pdf'
             }
         ]
@@ -44,12 +44,12 @@ const fileData = {
         files: [
             {
                 name: '09-25英语真题.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/英语/09-25英语真题.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/英语/09-26英语真题.pdf',
                 type: 'pdf'
             },
             {
                 name: '09-25英语真题答案.pdf',
-                fileUrl: './zhuanshengben/专升本题背资料/真题/英语/09-25英语真题答案.pdf',
+                fileUrl: './zhuanshengben/专升本题背资料/真题/英语/09-26英语真题答案.pdf',
                 type: 'pdf'
             }
         ]

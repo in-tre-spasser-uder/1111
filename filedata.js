@@ -351,6 +351,7 @@ const fileData = {
     'mock2-english-11': { name: 'Molly英语模考押题卷3', files: [{ name: 'Molly英语模考押题卷3.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/Molly/Molly英语模考押题卷3.pdf', type: 'pdf' }, { name: 'Molly英语模考押题卷3答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/Molly/Molly英语模考押题卷3答案.pdf', type: 'pdf' }] },
     'mock2-english-12': { name: '冠人英语升本通关模拟卷', files: [{ name: '冠人英语升本通关模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/冠人/冠人英语升本通关模拟卷.pdf', type: 'pdf' }, { name: '冠人英语升本通关模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/冠人/冠人英语升本通关模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-english-13': { name: '26尚学英语模拟卷', files: [{ name: '26尚学英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/尚学/26尚学英语模拟卷.pdf', type: 'pdf' }, { name: '26尚学英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/尚学/26尚学英语模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-english-14': { name: '26北方黑马英语模拟卷', files: [{ name: '26北方黑马英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/北方黑马/26北方黑马英语模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/北方黑马/26北方黑马英语模拟卷答案.pdf', type: 'pdf' }] },
 
     // 高数模拟题 机构模拟题（成套）
     'mock2-math-1': { name: '24佳鑫诺高数一模拟卷', files: [{ name: '24佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/24佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/24佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },

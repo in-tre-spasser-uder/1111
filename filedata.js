@@ -427,6 +427,7 @@ const fileData = {
     'mock2-math-71': { name: '冠人高数升本通关模拟卷', files: [{ name: '冠人高数升本通关模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/冠人/冠人高数升本通关模拟卷.pdf', type: 'pdf' }, { name: '冠人高数升本通关模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/冠人/冠人高数升本通关模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-math-72': { name: '26北方黑马高数一模拟卷', files: [{ name: '26北方黑马高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/北方黑马/26北方黑马高数一模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/北方黑马/26北方黑马高数一模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-math-73': { name: '26尚学高数一模拟卷', files: [{ name: '26尚学高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/尚学/26尚学高数一模拟卷.pdf', type: 'pdf' }, { name: '26尚学高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/尚学/26尚学高数一模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-math-74': { name: '佳鑫诺升本在线数学升本优选600题', files: [{ name: '佳鑫诺升本在线数学升本优选600题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺升本在线数学升本优选600题.pdf', type: 'pdf' }, { name: '佳鑫诺升本在线数学升本优选600题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺升本在线数学升本优选600题答案.pdf', type: 'pdf' }] },
 
     // 信息技术模拟题 机构模拟题（成套）
     'mock2-it-1': { name: '26北方黑马信息技术概论模拟卷', files: [{ name: '26北方黑马信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/北方黑马/26北方黑马信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/北方黑马/26北方黑马信息技术概论模拟卷答案.pdf', type: 'pdf' }] },

@@ -336,7 +336,7 @@ const fileData = {
     'mock2-politics-25': { name: '冠人政治模拟卷+升本通关模拟卷', files: [{ name: '冠人政治模拟卷+升本通关模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/冠人/冠人政治模拟卷+升本通关模拟卷.pdf', type: 'pdf' }, { name: '冠人政治模拟卷+升本通关模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/冠人/冠人政治模拟卷+升本通关模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-politics-26': { name: '26尚学政治模拟卷', files: [{ name: '26尚学政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/尚学/26尚学政治模拟卷.pdf', type: 'pdf' }, { name: '26尚学政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/尚学/26尚学政治模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-politics-27': { name: '26北方黑马政治模拟卷', files: [{ name: '26北方黑马政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/北方黑马/26北方黑马政治模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/北方黑马/26北方黑马政治模拟卷答案.pdf', type: 'pdf' }] },
-    'mock2-politics-28': { name: '库课政治-河北省专升本政治2000题', files: [{ name: '库课政治-河北省专升本政治2000题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/北方黑马/库课政治-河北省专升本政治2000题.pdf', type: 'pdf' }, { name: '库课政治-河北省专升本政治2000题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/北方黑马/库课政治-河北省专升本政治2000题答案.pdf', type: 'pdf' }] },
+    'mock2-politics-28': { name: '库课政治-河北省专升本政治2000题', files: [{ name: '库课政治-河北省专升本政治2000题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/库课/库课政治-河北省专升本政治2000题.pdf', type: 'pdf' }, { name: '库课政治-河北省专升本政治2000题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/库课/库课政治-河北省专升本政治2000题答案.pdf', type: 'pdf' }] },
 
     // 英语模拟题 1-20 机构模拟题（成套）
     'mock2-english-1': { name: '24佳鑫诺英语模拟卷', files: [{ name: '24佳鑫诺英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/24佳鑫诺英语模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/24佳鑫诺英语模拟卷答案.pdf', type: 'pdf' }] },
@@ -353,6 +353,7 @@ const fileData = {
     'mock2-english-12': { name: '冠人英语升本通关模拟卷', files: [{ name: '冠人英语升本通关模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/冠人/冠人英语升本通关模拟卷.pdf', type: 'pdf' }, { name: '冠人英语升本通关模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/冠人/冠人英语升本通关模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-english-13': { name: '26尚学英语模拟卷', files: [{ name: '26尚学英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/尚学/26尚学英语模拟卷.pdf', type: 'pdf' }, { name: '26尚学英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/尚学/26尚学英语模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-english-14': { name: '26北方黑马英语模拟卷', files: [{ name: '26北方黑马英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/北方黑马/26北方黑马英语模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/北方黑马/26北方黑马英语模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-english-15': { name: '库课英语-河北省专升本必刷2000题', files: [{ name: '库课英语-河北省专升本必刷2000题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/库课/库课英语-河北省专升本必刷2000题.pdf', type: 'pdf' }, { name: '库课英语-河北省专升本必刷2000题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/库课/库课英语-河北省专升本必刷2000题答案.pdf', type: 'pdf' }] },
 
     // 高数模拟题 机构模拟题（成套）
     'mock2-math-1': { name: '24佳鑫诺高数一模拟卷', files: [{ name: '24佳鑫诺高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/24佳鑫诺高数一模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/24佳鑫诺高数一模拟卷答案.pdf', type: 'pdf' }] },
@@ -429,6 +430,7 @@ const fileData = {
     'mock2-math-72': { name: '26北方黑马高数一模拟卷', files: [{ name: '26北方黑马高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/北方黑马/26北方黑马高数一模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/北方黑马/26北方黑马高数一模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-math-73': { name: '26尚学高数一模拟卷', files: [{ name: '26尚学高数一模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/尚学/26尚学高数一模拟卷.pdf', type: 'pdf' }, { name: '26尚学高数一模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/尚学/26尚学高数一模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-math-74': { name: '佳鑫诺升本在线数学升本优选600题', files: [{ name: '佳鑫诺升本在线数学升本优选600题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺升本在线数学升本优选600题.pdf', type: 'pdf' }, { name: '佳鑫诺升本在线数学升本优选600题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/佳鑫诺/佳鑫诺升本在线数学升本优选600题答案.pdf', type: 'pdf' }] },
+    'mock2-math-75': { name: '库课高数-河北省专升本必刷2000题', files: [{ name: '库课高数-河北省专升本必刷2000题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/库课/库课高数-河北省专升本必刷2000题.pdf', type: 'pdf' }, { name: '库课高数-河北省专升本必刷2000题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/高数一/库课/库课高数-河北省专升本必刷2000题.pdf', type: 'pdf' }] },
 
     // 信息技术模拟题 机构模拟题（成套）
     'mock2-it-1': { name: '26北方黑马信息技术概论模拟卷', files: [{ name: '26北方黑马信息技术概论模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/北方黑马/26北方黑马信息技术概论模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马信息技术概论模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/信息技术概论/北方黑马/26北方黑马信息技术概论模拟卷答案.pdf', type: 'pdf' }] },

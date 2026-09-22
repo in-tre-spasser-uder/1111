@@ -336,6 +336,7 @@ const fileData = {
     'mock2-politics-25': { name: '冠人政治模拟卷+升本通关模拟卷', files: [{ name: '冠人政治模拟卷+升本通关模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/冠人/冠人政治模拟卷+升本通关模拟卷.pdf', type: 'pdf' }, { name: '冠人政治模拟卷+升本通关模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/冠人/冠人政治模拟卷+升本通关模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-politics-26': { name: '26尚学政治模拟卷', files: [{ name: '26尚学政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/尚学/26尚学政治模拟卷.pdf', type: 'pdf' }, { name: '26尚学政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/尚学/26尚学政治模拟卷答案.pdf', type: 'pdf' }] },
     'mock2-politics-27': { name: '26北方黑马政治模拟卷', files: [{ name: '26北方黑马政治模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/北方黑马/26北方黑马政治模拟卷.pdf', type: 'pdf' }, { name: '26北方黑马政治模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/北方黑马/26北方黑马政治模拟卷答案.pdf', type: 'pdf' }] },
+    'mock2-politics-28': { name: '库课政治-河北省专升本政治2000题', files: [{ name: '库课政治-河北省专升本政治2000题.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/北方黑马/库课政治-河北省专升本政治2000题.pdf', type: 'pdf' }, { name: '库课政治-河北省专升本政治2000题答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/政治/北方黑马/库课政治-河北省专升本政治2000题答案.pdf', type: 'pdf' }] },
 
     // 英语模拟题 1-20 机构模拟题（成套）
     'mock2-english-1': { name: '24佳鑫诺英语模拟卷', files: [{ name: '24佳鑫诺英语模拟卷.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/24佳鑫诺英语模拟卷.pdf', type: 'pdf' }, { name: '24佳鑫诺英语模拟卷答案.pdf', fileUrl: './zhuanshengben/专升本题背资料/机构模拟题（成套）/英语/佳鑫诺/24佳鑫诺英语模拟卷答案.pdf', type: 'pdf' }] },
